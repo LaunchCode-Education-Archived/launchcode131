@@ -1,4 +1,4 @@
-<h3>Pre-Lab 0 - CSE131 &amp; Version Control</h3>
+<h1>Pre-Lab 0 - CSE131 &amp; Version Control</h1>
 
 <p>In CSE131 this semester, we will be using <a href="https://git-scm.com/" target="new">Git</a> as our version control system.</p>
 
@@ -27,7 +27,7 @@ These steps will have to be repeated and followed for every assignment you work 
 <H3> Which computer should you use for this lab session?</H3>
 <UL>
   <LI> For most of this course's assignments, you will probably want to do the work on your
-own computer.  
+own computer.
 <p>
 There should be time at the end of this lab session for you to install the course software
 on your computer.
@@ -46,14 +46,14 @@ executable code), and a <a href="http://en.wikipedia.org/wiki/Debugger">debugger
 course,
 we'll be using <a href="http://www.eclipse.org/">eclipse</a>, a popular IDE that supports (among many other
 things) programming in
-Java.  
+Java.
 <P>
-Professional software developers also use a 
+Professional software developers also use a
 <a href="http://en.wikipedia.org/wiki/Software_versioning">versioning repository</a> to
 store their code, so that they can share their code easily and keep track
 of the changes they make.  We will be using the
 <a href="http://subversion.apache.org/">subversion</a> revision control
-system.  It will allow you to submit your code for grading and to 
+system.  It will allow you to submit your code for grading and to
 share it with TAs who can help you with problems you might encounter.
 <P>
 <BLOCKQUOTE>
@@ -74,9 +74,9 @@ If you have not yet installed eclipse, follow
 <EM>Start eclipse:</EM>
 <UL>
 <LI> If you are working on your own computer, launch eclipse.  You can use the default location for your workspace.
-<LI> 
+<LI>
 On CEC computers, click on the Start button and look under "All Programs", "Programming"
-to start up <KBD>eclipse&nbsp;Luna</KBD>.  
+to start up <KBD>eclipse&nbsp;Luna</KBD>.
 The first time eclipse starts, it may be slower than usual.
 You will be asked where you want your workspace to be.
 <BLOCKQUOTE>
@@ -86,10 +86,10 @@ We recommend using the <KBD>H</KBD> drive, and then creating a folder there call
 After eclipse starts up, click the 'X' on the "Welcome" tab at the top to close the welcome screen.
 <P><LI>
 <EM>Identifying your repository:</EM>
-Open the 
-<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a> 
+Open the
+<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a>
 in another window, and follow
-the steps given there to specify a subversion repository.  
+the steps given there to specify a subversion repository.
 <p>
 <BLOCKQUOTE>
 When you
@@ -100,7 +100,7 @@ of the repository, copy and paste the line below as the repository's URL:
 </BLOCKQUOTE>
 After pasting:
 <UL>
-  <LI> Change <FONT COLOR="blue">YYYY</FONT> to your WUSTL key, 
+  <LI> Change <FONT COLOR="blue">YYYY</FONT> to your WUSTL key,
 <B>using lower case letters only</b>.  Include all punctuation that
 is normally part of your WUSTL key.
 <p>
@@ -124,14 +124,14 @@ WUSTL key a secret.
   <LI> WUSTL key username (again, all letters must be lower-case)
   <LI> WUSTL key password
 </UL>
-<BLOCKQUOTE> 
+<BLOCKQUOTE>
 Your WUSTL key username and password are what you use to log
 into WebSTAC for registration.  These credentials may be different than those
 required to log into a lab computer.
 </BLOCKQUOTE>
 <p>
 <EM>Be careful!</EM>  If you provide a bad password repeatedly,
-your account will get locked out after a small number of such attempts. 
+your account will get locked out after a small number of such attempts.
 So be sure to follow
 these instructions carefully and ask if things are not working.
 </BLOCKQUOTE>
@@ -140,9 +140,9 @@ these instructions carefully and ask if things are not working.
 <LI>
 Continue
 following the rest of the instructions in the
-<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a> 
+<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a>
 so that you are back in the Java view and have the project available for
-your use.  
+your use.
 <BLOCKQUOTE>
 Those instructions next ask you to Check Out a copy of the
 repository location so you can do the work for this lab.
@@ -160,10 +160,10 @@ your student ID number.
 <EM>Look at the source code:</EM>
 <OL>
 <LI>
-In the Package Explorer, expand the project by clicking on the '+' sign 
+In the Package Explorer, expand the project by clicking on the '+' sign
 or little triangle to the left of the project name.
 You will see that it contains an entry for <KBD>labs</KBD>, which is
-a folder that contains packages of code.  
+a folder that contains packages of code.
 <BLOCKQUOTE>
 Throughout the semester,
 this is where you should look for the files you need to complete your assignments.
@@ -179,8 +179,8 @@ Each lab you complete is given to you in a separate <I>package</I>.
 For this lab, expand the <KBD>lab0</KBD> package.
 <LI>
 Double-click the file named <KBD>RobotController.java</KBD> to open it.
-Look at the source code in the middle window. 
-You'll see instance variables, methods, and a main method.  
+Look at the source code in the middle window.
+You'll see instance variables, methods, and a main method.
 <BLOCKQUOTE>
 If what you see makes sense to you already, you may not need to take this class.
 </BLOCKQUOTE>
@@ -188,14 +188,14 @@ For now,
 you don't need to understand what you see.  We just want the computer to run this program.
 </OL>
 <P><LI> <EM>Run the program:</EM> Right click on <KBD>RobotController.java</KBD> and select
-<em>Run as -> Java application</em>. In the bottom right corner, you will see a <b> GO </b> button.  
+<em>Run as -> Java application</em>. In the bottom right corner, you will see a <b> GO </b> button.
 Click the <b>Go </b>.  The program should create a robot, and you should see the robot start to move.
 
 <P><LI>
 <EM>Modifying programs:</EM>
 In general, before you can execute a Java program, it must first be compiled (translated)
 into <I>byte code</I> that can be executed by the Java interpreter. A program
-that performs this translation is called a <I>compiler</I>. 
+that performs this translation is called a <I>compiler</I>.
 Eclipse checks your files to see if they will compile, and it marks
 errors so you can correct them.
 If you position the
@@ -211,12 +211,12 @@ Undo your typing, or close (without saving) and re-open the file.
 <P><LI>
 <EM>Make the robot do your bidding:</EM>
 So your real assignment here is
-to provide some instructions so that the robot navigates from 
-from CEC to your instructor's office.  
+to provide some instructions so that the robot navigates from
+from CEC to your instructor's office.
 <OL>
-<LI> 
+<LI>
 Open up the <KBD> RobotInstructions </KBD> file, which is also in your <KBD> lab0 </KBD> package.
-This is where the commands to move the robot are written. 
+This is where the commands to move the robot are written.
 <BLOCKQUOTE>
 You now have two files open in eclipse:
 <UL>
@@ -231,7 +231,7 @@ instructions in this file affect the robot's behavior.
 <BLOCKQUOTE>
 Really?  We're asking you to program even though you probably don't much about Java yet?
 <p>
-Well, yes.  
+Well, yes.
 <p>
 Even after you have learned much about Java, programming, and computer science, you may come across some
 code that you want to modify to change its behavior.  This takes some courage, but see if you can figure out what
@@ -243,7 +243,7 @@ your hypotheses.  Soon you will have the robot doing your bidding.
 Once you have the hang of it, try to have the robot make its way from CEC to the instructor's office.
 <BLOCKQUOTE>
 <EM>Tip:</EM> Since RobotController.java was the program most recently run,
-you can run it again simply by clicking the green arrow on the toolbar at the top.  
+you can run it again simply by clicking the green arrow on the toolbar at the top.
 </BLOCKQUOTE>
 Each time it runs, you should see the results of your most recent modifications.
 <BLOCKQUOTE>
@@ -263,7 +263,7 @@ Visitors are usually treated to soda and candy.
 Now that you have modified a file, take a look at the Package Explorer window and you
 should see some <KBD>&gt;</KBD> signs next to the files that have been changed.
 The <KBD>&gt;</KBD> sign warns you that you have modified files that have not been
-committed back to the repository.  The files 
+committed back to the repository.  The files
 won't be visible by TAs or the instructor until you <I>commit</I> them.
 <p>
 To commit them, locate the name of your project (your name and ID) in the package explorer window of eclipse.
@@ -296,7 +296,7 @@ The course will then proceed from the most simple aspects of programming in Java
 <BLOCKQUOTE>
 <UL>
   <LI> The online activity can be found <a href="Lab/Description/ClickQuiz.shtml">here</a>.
-<LI> Try it (in pairs if you like) until you get it completely right.  
+<LI> Try it (in pairs if you like) until you get it completely right.
 <LI> Be prepared to identify the anatomy of a Java file
 when the TA checks you off.
 </UL>
@@ -322,7 +322,7 @@ Make sure your work is committed before asking the TA to check you off</H3>
 <UL>
 <LI>
 The green block you see below appears at the end of any studio or lab assignment for which you need a TA to
-clear you.  
+clear you.
 <LI> Please type in the requested information before you flag down a TA.
 <BLOCKQUOTE>
 The information logged by this activity will result in a blackboard grade being posted for your assignment,
