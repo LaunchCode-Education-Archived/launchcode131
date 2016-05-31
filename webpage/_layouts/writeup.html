@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week {{ page.week }} Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>{{ page.type | capitalize}} {{ page.week }}: {{ page.title }}</h1>
+
+					{% if page.due %} 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> {{ page.assigned | date: "%a, %b %-d" }}</p>
+						<p><strong>Due:</strong> {{ page.due | date: "%a, %b %-d" }}</p>
+					</aside>
+					{% endif %}
+
+					{{ content }}
+				</article>
+			</div>
+
+			{% include footer.html %}
+	</div>
+	<script type="text/javascript" src="{{ "/js/highlight.pack.js" | prepend: site.baseurl }}"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

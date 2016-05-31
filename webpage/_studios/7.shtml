@@ -1,0 +1,104 @@
+If necessary, review <a href="../../StudioDocs/studioheader.html">studio procedures</a> before
+starting.
+<p>
+<H3>Warmup</H3>
+<!--#include virtual="../../studioinstructions.shtml"-->
+<HR>
+<H3>Guidelines</H3>
+<UL>
+  <LI> This week's studio is an exercise in <I>design</I>, so get your
+right brains limbered up for some creative thinking.
+  <LI> In design, there are no wrong or right answers.  However, some designs
+are better than others for certain purposes.  
+It will be important for each person in your
+group to be able to defend your team's design.
+<BLOCKQUOTE>
+If some member does not understand an aspect of your team's design, the
+entire team may be docked studio credit.   It is not necessary that
+all decisions be made with unanimity, but the issues that influece
+the design one way or the other <I>must</i> be understood by all
+members of your team.
+</BLOCKQUOTE>
+  <LI> A rush to implement something fully will be a Bad Idea.  
+The group's goal this
+week is to arrive at a design, not an implementation.
+  <LI> That said, we will be developing <I>stubs</I> in eclipse to
+represent the design, with a bit of <I>Javadoc</I> above each class
+and method to help generate documentation.
+  <LI> As you design, thank about the <B>has-a</B> idea presented in class
+and articulate the <B>behaviors</B> you want your object to have.
+<BLOCKQUOTE>
+The examples from lecture are included in your studio repository
+</BLOCKQUOTE> 
+<LI>
+The design problems are presented to you in the form of a
+<a href="http://www.extremeprogramming.org/rules/userstories.html"> user story</a>.
+<LI> Designs must evolve with changes in a system's requirements.  The studio
+session will be divided into two segments:
+  <OL>
+    <LI> (1 hour) You will design some classes whose descriptions are linked
+at the bottom of this page.  The result of that work will be a set
+of stubs with Javadoc to capture the design.
+  <LI> (30 minutes) (Cue the <a href="Studio/elaugh.wav">evil laughther</a>.) You will respond to a last-minute change or update
+to the system's specification.
+Your team must think about the easiest
+way to accommodate the change and write up a description about how your
+system is affected.
+</OL>
+</UL>
+<H3> Cautions</H3>
+<UL>
+  <LI> Use rich data types where possible, both to document your design
+       and to leverage Java's type system to avoid bugs in your program.
+<p>
+        For example, instead of representing a given account using an integer,
+        an actual object <KBD>Account</KBD> was defined.  Similarly,
+        an integer suffices to hold color information for a pixel, but
+        a <KBD>Color</KBD> class (type) was defined to provide reliable
+        functionality and to hide details of the implementation
+        (encapsulation).
+  <LI> Avoid passing parameters of generic type that represent something
+       that could have been its own class.  For example, consider
+       using <KBD>x</KBD> and <KBD>y</KBD> coordinates to represent
+       a point, as shown below:
+<PRE>
+          public void f(int x1, int y1, int x2, int y2) {...}
+</PRE>
+It is easy to forget the order in which the integers must be passed
+to <KBD>f</KBD>.  To avoid such chaos and to make the program more
+readable,
+articulate a <KBD>Point</KBD> object that has an
+       <KBD>x</KBD> and <KBD>y</KBD> coordinate.  The method then
+becomes
+<PRE>
+       public void f(Point p1, Point p2) {... }
+</PRE>
+
+  <LI> Every class should have its <KBD>toString()</KBD> method defined,
+       so that the class can return a <KBD>String</KBD> with some
+       meaningful information about the class.  
+       Generally, <KBD>toString()</KBD>
+       methods should avoid invoking the <KBD>toString()</KBD> methods of any
+       other class.
+  <LI> Instance variables should be defined where necessary, but declared
+       <KBD>private</KBD> to guard against accidental access or
+       modification outside of the class holding the instance variables.
+  <LI> Where necessary, each class should provide methods that get and set
+       its local instance variables.  
+<BLOCKQUOTE> Recall eclipse can generate those for you automatically.</BLOCKQUOTE>
+It is customary to base the name
+       of such methods consistently on the name of the associated
+       instance variable:
+<PRE>
+      public Person getPerson() {
+         return person;
+      }
+
+      public void setPerson(Person person) {
+         this.person = person;
+      }
+</PRE>
+</UL>
+<HR>
+<p>
+<H3><a href="Studio/design.html"> Design problems (click here, revealed when studio starts) </a></H3>

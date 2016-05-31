@@ -1,0 +1,116 @@
+$susy: (
+  columns: 12,
+  gutters: 1/3,
+  gutter-position: split,
+  container: 1190px,
+  // debug: (
+  //   image: show,
+  //   color: rgba(119, 113, 207, 0.40),
+  //   output: overlay,
+  //   toggle: top right,
+  // ),
+);
+
+.wrapper {
+	@include container;
+}
+
+.container {
+  @include breakpoint($break-screen) {
+    display: flex;
+    align-items: baseline;
+    @include span(12 nest);
+  }
+}
+
+.site-header {
+  @include span(10 of 12);
+  @include pre(1);
+
+  // margin-top: 1.5rem;
+  margin-bottom: -1.5rem;
+
+  @include breakpoint($break-screen) {
+    @include span(6);
+    @include pre(2);
+    @include post(4); 
+  }
+}
+
+  .site-header--narrow {
+    @include breakpoint($break-screen) {
+      @include span(4);
+      @include pre(2);
+      @include post(6); 
+    } 
+  }
+
+.site-nav {
+  @include span(10 of 12);
+  @include pre(1);
+
+  margin-top: 1.5rem;
+
+  @include breakpoint($break-screen) {
+    @include span(2 of 12);
+    @include pre(0);  
+  }
+}
+
+.site-content {
+  @include span(10 of 12);
+  @include pre(1);
+
+  @include breakpoint($break-screen) {
+    @include span(6 of 12 nest);
+    @include pre(0);
+  }
+}
+
+  .site-content--full {
+    @include breakpoint($break-screen) {
+      @include span(10 of 12);
+    }
+  }
+
+  
+/* used on index */
+.site-mission {
+  @include span(10 of 12);
+  @include pre(1);
+
+  @include breakpoint($break-screen) {
+    @include span(4 of 12);
+    @include pre(0);
+  } 
+}
+
+.motd {
+  @include span(10 of 12);
+  @include pre(1);
+
+  @include breakpoint($break-screen) {
+    @include span(3 of 12);
+    @include pre(0);
+  }
+}
+
+.logistics {
+  @include span(10 of 12);
+  @include pre(1);
+
+  @include breakpoint($break-screen) {
+    @include span(3 of 12);
+    @include pre(0);
+  }
+}
+
+.site-footer {
+  @include span(10 of 12);
+  @include pre(1);
+
+  @include breakpoint($break-screen) {
+    @include span(4);
+    @include pre(8); 
+  }
+}

@@ -1,0 +1,211 @@
+<html>
+Review <a href="../../StudioDocs/studioheader.html">studio procedures</a> before
+starting.
+<HR>
+<p>
+<BLOCKQUOTE><b>
+Feel free to participate in a different group than last time. This is totally
+up to you, but try to find a group that makes it easy for you to participate.
+<p>
+Be careful how you use the web.  You are required to develop solutions
+as a group by thinking not by finding solutions that have been thought
+out by others.  You must be able to explain anything that you have done.
+</B></BLOCKQUOTE>
+<HR>
+<H3>Warmup</H3>
+<!--#include virtual="../../studioinstructions.shtml"-->
+<HR>
+<BLOCKQUOTE>
+<FONT SIZE=4>
+<B>
+Two problems follow.  First pick the one of greatest interest to your group,
+and try to finish that one.  If you have time, then try the other one.
+</B></FONT>
+</BLOCKQUOTE>
+<HR>
+<H3>Problem 1:  Gambler's Ruin</H3>
+<p>
+
+<H4>Background</H4>
+In this assignment, you will simulate the Gambler's Ruin problem. The problem is as follows: you are a gambler 
+given some initial amount of money, and each time you gamble, you either win or lose $1 based on your win probability. 
+You have some goal in mind, that once reached, you stop gambling, or if you lose all of your money, you also 
+stop gambling. What is the probability that you lose all of your money?
+
+<H4>Procedure</H4>
+<OL>
+<LI>With your repository open, create a new class in the <KBD>studio2</KBD> package.
+<BLOCKQUOTE>
+This may be the first new Class you have developed, but eclipse makes
+it easy:
+<UL>
+ <LI> Right-click on the package name in which you want to define the
+    new class.  In this case, use <KBD>studio2</KBD>.
+ <LI> Click <KBD>New...</KBD>
+ <LI> Choose <KBD>Class<KBD>
+ <LI> Pick the name <KBD>Ruin</KBD> for this class.
+ <B> Java style dictates that its classes should begin with a capital letter!</B>
+ <LI>Be sure to check the box that generates <KBD>public static void main</KBD>. Otherwise you will have to type that by hand.
+</UL>
+</BLOCKQUOTE>
+<LI>Have your program accept the following inputs:
+<BLOCKQUOTE>
+If you don't remember how to do this, look at code from a previous studio or lab.
+</BLOCKQUOTE>
+	<DL>
+  <DT><KBD>startAmount</KBD>
+   <DD> The amount of money that you start with
+  <DT><KBD>winChance</KBD>
+    <DD> The probability that you win a gamble
+  <DT><KBD>winAmount</KBD>
+    <DD> If you reach this amount of money, then you won
+  <DT><KBD>totalPlays</KBD>
+    <DD> The number of times you simulate the problem
+</DL>
+
+<LI>Next, calculate the chance that you ruin.
+
+<BLOCKQUOTE>
+if (lossChance != winChance)
+Ruin = (lossChance/winChance)<sup>startAmount</sup> - (lossChance/winChance)<sup>winAmount</sup> / (1 - (lossChance/winChance)<sup>winAmount</sup>
+<br><br>
+if (lossChance == winChance)<br>
+Ruin = 1 - startAmount / winAmount
+</BLOCKQUOTE>
+
+<LI>Simulate the Gambler's Ruin <KBD>totalPlays</KBD> times. For each simulation, continue gambling until you 
+either reach your goal or you ruin. For each simulation, print the simulation number, the number of rounds that 
+simulation played for, and whether you won or lost.
+
+<LI>Finally, print the total number of losses, simulations, your actual ruin rate, and your 
+expected ruin rate.
+</OL>
+<br>
+Given this input:
+<TABLE BORDER CELLPADDING=5>
+<TR> <TD> <KBD>startAmount</KBD></TD><TD align="right"> <KBD>12</KBD></TD> </TR>
+<TR> <TD> <KBD>winChance</KBD></TD><TD align="right"> <KBD>0.25</KBD></TD> </TR>
+<TR> <TD> <KBD>winAmount</KBD></TD><TD align="right"> <KBD>15</KBD></TD> </TR>
+<TR> <TD> <KBD>totalPlays</KBD></TD><TD align="right"> <KBD>31</KBD></TD> </TR>
+</TABLE>
+
+Your final output should look similar to this:
+<BLOCKQUOTE>
+<PRE>
+Simulation 1: 22 rounds  	LOSE
+Simulation 2: 18 rounds  	LOSE
+Simulation 3: 20 rounds  	LOSE
+Simulation 4: 42 rounds  	LOSE
+Simulation 5: 24 rounds  	LOSE
+Simulation 6: 22 rounds  	LOSE
+Simulation 7: 24 rounds  	LOSE
+Simulation 8: 48 rounds  	LOSE
+Simulation 9: 16 rounds  	LOSE
+Simulation 10: 26 rounds  	LOSE
+Simulation 11: 32 rounds  	LOSE
+Simulation 12: 18 rounds  	LOSE
+Simulation 13: 22 rounds  	LOSE
+Simulation 14: 24 rounds  	LOSE
+Simulation 15: 18 rounds  	LOSE
+Simulation 16: 18 rounds  	LOSE
+Simulation 17: 26 rounds  	LOSE
+Simulation 18: 18 rounds  	LOSE
+Simulation 19: 34 rounds  	LOSE
+Simulation 20: 22 rounds  	LOSE
+Simulation 21: 48 rounds  	LOSE
+Simulation 22: 26 rounds  	LOSE
+Simulation 23: 40 rounds  	LOSE
+Simulation 24: 18 rounds  	LOSE
+Simulation 25: 20 rounds  	LOSE
+Simulation 26: 20 rounds  	LOSE
+Simulation 27: 34 rounds  	LOSE
+Simulation 28: 22 rounds  	LOSE
+Simulation 29: 22 rounds  	LOSE
+Simulation 30: 3 rounds  	WIN
+Simulation 31: 24 rounds  	LOSE
+
+Losses: 30  Simulations: 31
+Actual Ruin Rate: 0.967741935483871  Expected Ruin Rate: 0.9629630300735122
+</PRE>
+</BLOCKQUOTE>
+
+<HR>
+<H3> Problem 2:  Computing <a href="http://en.wikipedia.org/wiki/Pi">Pi</a> by throwing darts</H3>
+<p>
+Computer scientists often use <a href="http://en.wikipedia.org/wiki/Simulation">simulation</a> as a means of
+modeling, understanding, and predicting real-world phenomena.
+<p>
+Your group is auditioning 
+for <a href="http://en.wikipedia.org/wiki/Survivor_%28TV_series%29"> Survivor</a>
+by proving your group's ability to compute 
+<a href="http://en.wikipedia.org/wiki/Pi">Pi</a> using
+only the materials at hand, as follows:
+<UL>
+  <LI> A unit-square dart board (say, 1 meter by 1 meter).  Unit-square
+   dart boards are astoundingly resilient in plane crashes,
+   and yours is nicely intact.
+  <LI> Some darts, suitable for throwing at the dart board.
+  <LI> A string and a stylus, standard safety-kit issue, suitable for 
+     inscribing a unit circle in your unit-square dartboard.
+  <LI> A dart-throwing expert.  However, since the plane crash, the
+      expert is left with the (uncanny) ability to throw darts that always land
+      somewhere, uniformly and randomly, within the unit-square dart board.
+      <BLOCKQUOTE>
+      While the thrower never misses the unit square, the darts 
+      land sometimes within the inscribed circle, sometimes not.
+      </BLOCKQUOTE>
+</UL>
+<OL>
+<LI> 
+As a group, develop an approach for computing
+<a href="http://en.wikipedia.org/wiki/Pi">Pi</a> based on the above
+materials.  
+<LI> Implement your approach using iteration.
+You can start with the following
+<a href="Studio/Pi.java">Pi.java</a> file that you can paste into a new
+Java class in one of your lab projects.
+<BLOCKQUOTE>
+This may be the first new Class you have developed, but eclipse makes
+it easy:
+<UL>
+ <LI> Right-click on the package name in which you want to define the
+    new class.  In this case, use <KBD>studio2</KBD>.
+ <LI> Click <KBD>New...</KBD>
+ <LI> Choose <KBD>Class<KBD>
+ <LI> Pick the name <KBD>Pi</KBD> for this class, since the code you
+    will paste is for class <KBD>Pi</KBD>.
+ <B> Java style dictates that its classes should begin with a capital letter!</B>
+ <LI> When the editor opens for your new class, copy and paste
+the code from 
+<a href="Studio/Pi.java">Pi.java</a> into the class.
+</UL>
+</BLOCKQUOTE>
+<p>
+You will need to simulate a random dart thrower.  The function
+<a href="http://java.sun.com/javase/6/docs/api/java/lang/Math.html#random()"><KBD>math.random()</KBD></a> will help, 
+as it returns a nonnegative <KBD>double</KBD>
+less than 1.0.
+You may also find the <a href="http://java.sun.com/javase/6/docs/api/java/lang/Math.html#sqrt(double)"><KBD>Math.sqrt()</KBD></a> function
+to be helpful.
+<LI> Investigate and discuss how well your
+technique computes <a href="http://en.wikipedia.org/wiki/Pi">Pi</a>.
+</OL>
+<HR>
+<H3>Further investigations</H3>
+<P>
+If you have time,
+pick one or both of the following:
+<OL>
+<LI> Investigate the fairness of the
+<a href="http://java.sun.com/javase/6/docs/api/java/lang/Math.html#random()"><KBD>math.random()</KBD></a> method.
+<OL>
+  <LI> What normative criteria should a random number possess?
+  <LI> How can you measure the fairness of a random number generator?
+  <LI> Implement some tests and discuss your results amongst yourselves and
+       other groups.
+</OL>
+<LI> There are other ways of 
+<a href="http://en.wikipedia.org/wiki/Pi"> computing  Pi</a>.
+Try some of these and study their effectiveness in terms of the number of
+iterations you use.
+</OL>

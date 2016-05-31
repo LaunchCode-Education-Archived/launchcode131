@@ -1,0 +1,77 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: "CSE132 SP2016: Computer Science II"
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  WUSTL's CSE132 homepage for Spring 2016: Computer Science II
+baseurl: "/~cse132" # the subpath of your site, e.g. /blog
+url: "http://www.classes.cec.wustl.edu" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+
+# Content
+collections:
+  weeks:
+    output: true
+  assignments:
+    output: true
+  studios:
+    output: true
+  guides:
+    output: true
+
+defaults:
+- scope:
+    path: ""
+  values:
+    author: "(unknown)"
+    layout: page
+- scope:
+    path: ""
+    type: weeks
+  values:
+    week: na
+    layout: week
+    header: week
+    permalink: weeks/:week/
+    days:
+    - date: TBD
+      logistics:
+      preparation:
+    - date: TBD
+      logistics: 
+      preparation:
+- scope:
+    path: ""
+    type: studios
+  values:
+    week: na
+    layout: writeup
+    type: studio
+    permalink: weeks/:week/studio/
+    assigned: TBD
+    due: TBD
+- scope:
+    path: ""
+    type: assignments
+  values:
+    week: na
+    layout: writeup
+    type: assignment
+    permalink: weeks/:week/assignment/
+    assigned: TBD
+    due: TBD
+- scope:
+    path: ""
+    type: guides
+  values:
+    layout: page

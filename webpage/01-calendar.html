@@ -1,0 +1,88 @@
+---
+layout: default
+title: Calendar
+permalink: calendar/
+author: Ben Stolovitz
+---
+
+{% include nav.html %}
+
+<section class="site-content site-content--full">
+	<p>This is the course calendar. May change.</p>
+	
+	<table class="calendar">
+		<thead class="calendar__head">
+			<tr>
+				<th class="calendar__colhead calendar__item--right">#</th>
+				<th class="calendar__colhead calendar__item--left">Module</th>
+				<th class="calendar__colhead">Date</th>
+				<th class="calendar__colhead">Logistics</th>
+				<th class="calendar__colhead">Preparation</th>
+				<th class="calendar__colhead">Assigned</th>
+				<th class="calendar__colhead">Due</th>
+			</tr>
+		</thead>
+		<tfoot class="calendar__foot">
+			<tr>
+				<th class="calendar__colfoot calendar__item--right">#</th>
+				<th class="calendar__colfoot calendar__item--left">Module</th>
+				<th class="calendar__colfoot">Date</th>
+				<th class="calendar__colfoot">Logistics</th>
+				<th class="calendar__colfoot">Preparation</th>
+				<th class="calendar__colfoot">Assigned</th>
+				<th class="calendar__colfoot">Due</th>
+			</tr>
+		</tfoot>
+		<tbody>
+			{% for week in site.weeks %}
+				{% for day in week.days %}
+					<tr class="calendar__row">
+						{% if forloop.first %}
+							<td rowspan="{{ week.days | size }}" class="calendar__item calendar__item--right">{{ week.week }}</td>
+							<td rowspan="{{ week.days | size }}" class="calendar__item calendar__item--left">
+								<a href="{{ site.baseurl }}{{ week.url }}">{{ week.title }}</a>
+							</td>
+						{% endif %}
+						{% if day.date == "TBD" %}
+						<td class="calendar__item"><small>{{ day.date }}</small></td>
+						{% else %}
+						<td class="calendar__item">{{ day.date | date: "%a, %b %-d" }}</td>
+						{% endif %}
+						<td class="calendar__item">{{ day.logistics }}</td>
+						<td class="calendar__item">{{ day.preparation }}</td>
+						<td class="calendar__item">
+							{% for studio in site.studios %}
+								{% if studio.assigned == day.date %}
+								<a href="{{ site.baseurl }}{{ studio.url }}">Studio {{ studio.week }}</a>
+								{% endif %}
+							{% endfor %}
+							{% for assignment in site.assignments %}
+								{% if assignment.assigned == day.date %}
+								<a href="{{ site.baseurl }}{{ assignment.url }}">Assignment {{ assignment.week }}</a>
+								{% endif %}
+							{% endfor %}
+							{% for assigned in day.assigned %}
+								{{ assigned }}
+							{% endfor %}
+						</td>
+						<td class="calendar__item">
+							{% for studio in site.studios %}
+								{% if studio.due == day.date %}
+								<a href="{{ site.baseurl }}{{ studio.url }}">Studio {{ studio.week }}</a>
+								{% endif %}
+							{% endfor %}
+							{% for assignment in site.assignments %}
+								{% if assignment.due == day.date %}
+								<a href="{{ site.baseurl }}{{ assignment.url }}">Assignment {{ assignment.week }}</a>
+								{% endif %}
+							{% endfor %}
+							{% for due in day.due %}
+								{{ due }}
+							{% endfor %}
+						</td>
+					</tr>
+				{% endfor %}
+			{% endfor %}
+		</tbody>
+	</table>
+</section>

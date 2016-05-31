@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+{% include nav.html %}
+
+<section class="site-content">
+	<section>{{ content }}</section>
+
+	<ul class="block-list">
+		{% for studio in site.studios limit:20 %}
+			{% assign sweek = studio.week | downcase %}
+			{% assign pweek = page.week | downcase %}
+			{% if sweek == pweek %}
+			<li class="block-list__item">
+			<a href="{{ site.baseurl }}{{ studio.url }}" class="button button--alt">
+			Studio
+			&raquo;
+			{{ studio.title }}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		{% for assignment in site.assignments limit:20 %}
+			{% assign aweek = assignment.week | downcase %}
+			{% assign pweek = page.week | downcase %}
+			{% if aweek == pweek %}
+			<li class="block-list__item">
+			<a href="{{ site.baseurl }}{{ assignment.url }}" class="button button--primary">
+			Assignment
+			&raquo;
+			{{ assignment.title }}</a>  
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		{% for guide in site.guides limit:20 %}
+			{% assign pweek = page.week | downcase %}
+			{% if guide.week contains pweek %}
+			<li class="block-list__item">
+			<a href="{{ site.baseurl }}{{ guide.url }}" class="button">
+			Guide
+			&raquo;
+			{{ guide.title }}</a>  
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</section>

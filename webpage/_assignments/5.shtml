@@ -1,0 +1,137 @@
+<H4>Warmup</H4>
+<UL>
+<LI> Update your repository and look for the package <KBD>lab5</KBD> in the <KBD>labs</KBD>
+source folder.
+<LI>As we did in studio, the code you develop for this lab is tested using <KBD>JUnit</KBD> as follows:
+  <OL>
+    <LI> Right-click on <KBD>Lab5Tester</KBD>
+    <LI> Choose <b>Run As...</b>
+    <LI> Choose <b> JUnit Test</b>
+  </OL>
+<LI> If all goes well, you will see the results of the run in the JUnit panel.  A green
+bar indicates all tests passed.
+<LI> Review the course slides, text, and your studio work if necessary.
+<HR>
+<LI> At this point you should understand the following:
+<UL>
+ <LI> The methods you write must agree in name, input parameter types, and output parameter
+type with the specification given here.  Otherwise, the unit tests will not not work.
+ <LI> When something goes wrong, JUnit shows you a red bar.  An X appears next to the failing
+test method(s), and if you click on those in the JUnit window, the Failure Trace window explains
+what was expected and what was seen.
+</UL>
+</UL>
+<HR>
+<H4>Methods</H4>
+<BLOCKQUOTE>
+We strongly suggest that you proceed <B>one method at a time</B> through the work below,
+testing each time to be sure what you have written so far is correct.
+<p>
+If you show up for help with a bunch of methods that don't work because you typed them
+all in before testing anything, we may not be able to help you until you clean up your code
+and focus on one method at a time.
+</BLOCKQUOTE>
+<UL>
+<LI>
+Open the provided files <KBD>Lab5Methods</KBD> and <KBD>Lab5Tester</KBD>.
+<LI> For each of the following specifications,
+<UL>
+<LI>create a <b>static</b> method in <KBD>Lab5Methods</KBD> that implements the specification, and
+<LI>run the <KBD>Lab5Tester</KBD> JUnit test to see if your work is correct.
+</UL>
+At times, we have not specified the return type.  In those cases, you should think about the nature of the
+method's computed result and determine the appropriate return type.
+</UL>
+
+<OL>
+<P><LI>Write and test the method <code>sumDownBy2</code>
+with the following specification.
+<PRE>
+PARAMETERS:   an integer n
+RETURN VALUE: the sum of the positive integers n + (n-2) + (n-4) + ...
+EXAMPLES:     sumDownBy2(7) is 7+5+3+1 = 16
+              sumDownBy2(8) is 8+6+4+2 = 20
+              sumDownBy2(0) is 0
+              sumDownBy2(-1) is 0
+</PRE>
+<BLOCKQUOTE>
+At this point you should have run the JUnit test and determined whether your
+<KBD>sumDownBy2</KBD> works properly.  Don't push ahead until you pass that part of
+the JUnit test.
+<p>
+Continue the lab in this fashion:  write code, test the code, and then
+move forward.
+</BLOCKQUOTE>
+<HR>
+<P><LI>Write and test a method <code>harmonicSum</code>
+with the following specification.
+<PRE>
+PARAMETERS:   a positive integer, n
+RETURN VALUE: the sum 1 + 1/2 + 1/3 + ... + 1/(n-1) + 1/n
+</PRE>
+<BLOCKQUOTE>
+<B>Warning:</B>  Think carefully about this method's return type! 
+</BLOCKQUOTE>
+<P>
+
+<HR>
+<LI>Write and test a method called <CODE>geometricSum</CODE>
+with the following specification.
+<PRE>
+PARAMETERS:   a non-negative integer, k
+RETURN VALUE: the sum 1 + 1/2 + 1/4 + 1/8 + ... + 1/Math.pow(2,k)
+</PRE>
+<P>
+
+<HR>
+<P><LI>Write and test a method <code>multPos</code> 
+that takes in two positive integers and returns their product.
+<PRE>
+PARAMETERS:   positive integers j and k
+RETURN VALUE: the product j*k
+</PRE>
+<BLOCKQUOTE>
+You must accomplish this
+<b>without using the multiplication operator</b>.   Use iteration and repeated addition
+to form the product.
+</BLOCKQUOTE>
+
+<HR>
+<P><LI>Write and test a method <code>mult</code> 
+that takes in two integers and returns their product.
+Each integer could be positive, negative, or zero.
+<PRE>
+PARAMETERS:   integers j and k
+RETURN VALUE: the product j*k
+</PRE>
+<BLOCKQUOTE>
+Do this by calling your <KBD>multPos</KBD> method:
+<UL>
+<LI> Pass <KBD>multPos</KBD> the absolute values of <KBD>j</KBD> and <KBD>k</KBD>.  It should
+return the product of those positive values.
+<LI> Compute this method's return value based on the result of <KBD>multPos</KBD> and based
+on the signs
+of <KBD>j</KBD> and </KBD>k</KBD>.
+</UL>
+</BLOCKQUOTE>
+
+<HR>
+<P><LI>Write and test a method <code>expt</code>
+with the following specification.  Use repeated multiplication.
+(Do not use the built-in exponentiation method.)
+<PRE>
+PARAMETERS:   integers n and k, where k >= 0
+RETURN VALUE: the value of n to the power k
+EXAMPLES:     expt(3,2) is 9
+              expt(5,0) is 1
+              expt(2,5) is 32
+</PRE>
+
+</OL>
+
+<HR>
+<BLOCKQUOTE>
+Before you demo, go back to your methods and type in JavaDoc comments above each
+method declaration.   Recall that eclipse helps you do this if you start out by
+typing <KBD>/**</KBD> above a method declaration.
+</BLOCKQUOTE>

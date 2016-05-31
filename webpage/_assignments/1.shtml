@@ -1,0 +1,174 @@
+<BLOCKQUOTE>
+   <UL>
+     <LI> In this lab you must create and code a simple program that prints
+nutrtional information about food.  You have done similar activities
+in studio.
+<BLOCKQUOTE>
+Review or reference the <a href="studio.html">studio</a> exercises
+as necessary.
+</BLOCKQUOTE>
+     <LI> Code is distributed to you throughout the semester, so you may
+need to <I>update</I> your repository to see the files for this lab:
+    <UL>
+      <LI> In the package explorer, right- (control-) clock on your project
+name, choose <KBD>Team&hellip;Update</KBD>, and supply your credentials.
+       <LI> In the <KBD>labs</KBD> source folder you should see a <KBD>lab1</KBD>
+package.
+    </UL>
+    <LI> Find and open the <KBD>lab1</KBD> package in the <KBD>labs</KBD> source
+folder.
+   </UL>
+</BLOCKQUOTE>
+<p>
+<H2>Nutrition Analyzer</H2>
+In this lab you develop a simple tool that prints nutrition information about
+food.  This lab is based on what you learned in studio.  By completing this
+lab you demonstrate that you can:
+<UL>
+  <LI> Create a Java class on your own
+  <LI> Arrange for the class to take inputs of interest
+  <LI> Compute output values of interest
+  <LI> Produce meaningful output based on your computations
+</UL>
+<p>
+<H2>Procedure</H2>
+<OL>
+   <LI> Create a <KBD>Nutrition</KBD> Java class in the <KBD>lab1</KBD> package
+of the <KBD>labs</KBD> source folder.
+<BLOCKQUOTE>
+The <KBD>lab1</KBD> class is currently empty, but don't let that bother you.
+Right (control) click on <KBD>lab1</KBD> and create a new class called
+<KBD>Nutrition</KBD>.
+</BLOCKQUOTE>
+   <LI> Arrange for your program to accept the following inputs:
+<DL>
+  <DT><KBD>name</KBD>
+   <DD> The name of this food, provided as a <KBD>String</KBD>
+  <DT><KBD>carbs</KBD>
+    <DD> The number of grams of carbohydrates in this food
+  <DT><KBD>fat</KBD>
+    <DD> The number of grams of fat in this food
+  <DT><KBD>protein</KBD>
+    <DD> The number of grams of protein in this food
+  <DT><KBD>statedCals</KBD>
+    <DD> The number of calories stated on this food's label
+</DL>
+<p> For example, the values for a Snicker bar are:
+<p>
+<TABLE BORDER CELLPADDING=5>
+<TR> <TD> <KBD>name</KBD></TD><TD> <TD> <KBD>Snickers</KBD></TD> </TR>
+<TR> <TD> <KBD>carbs</KBD></TD><TD> <TD> <KBD>34.5</KBD></TD> </TR>
+<TR> <TD> <KBD>fat</KBD></TD><TD> <TD> <KBD>13.6</KBD></TD> </TR>
+<TR> <TD> <KBD>protein</KBD></TD><TD> <TD> <KBD>4.3</KBD></TD> </TR>
+<TR> <TD> <KBD>statedCals</KBD></TD><TD> <TD> <KBD>271</KBD></TD> </TR>
+</TABLE>
+<BLOCKQUOTE>
+At this point, you should be thinking about the data types you would use to represent each of the above
+items.  We tell you that the <KBD> name</KBD> is a <KBD>String</KBD>, but what about the other inputs?
+<p>
+The above example is provided to inspire your thinking.
+<p>
+To accept the inputs, use the same code we used in studio.  Just after the <KBD>main</KBD> method declaration,
+you should have the line:
+<PRE>
+ArgsProcessor ap = new ArgsProcessor(args);
+</PRE>
+This will likely show an error because eclipse doesn't know about <KBD>ArgsProcessor</KBD>.  Do you remember how to 
+fix this?  Ask if you need help.
+<p>
+After that, you should initialize your inputs using code modeled after the code you read and wrote in <a href="studio.html">studio</a>.
+<p>
+Eclipse will help you out here:  If you have typed <KBD>ap.</KBD> and pause, eclipse will show you the possible
+ways of continuing.  For example, <KBD>nextInt(String)</KBD> is one way to keep going.   That call will prompt
+the user for an <KBD>int</KBD> displaying the provided <KBD>String</KBD> as the prompting message.
+</BLOCKQUOTE>
+<LI> Arrange for your program to produce output such as the following:
+<BLOCKQUOTE>
+<PRE>
+Snickers has
+  34.5 grams of carbohydrates = 138.0 Calories
+  13.6 grams of fat = 122.4 Calories
+  4.3 grams of protein = 17.2 Calories
+
+This food is said to have 271 (available) Calories.
+With 6.6 unavailable Calories, this food has 1.65 grams of fiber
+
+Approximately 
+  50.9% of your food is carbohydrates
+  45.2% of your food is fat
+  6.3% of your food is protein
+
+This food is acceptable for a low-carb diet?  false
+This food is acceptable for a low-fat diet?  false
+By coin flip, you should eat this food?   true
+</PRE>
+</BLOCKQUOTE>
+<p>
+Notes:
+<UL>
+   <LI> There are 4 Calories in a gram of carbohydrates or protein.
+   <LI> There are 9 Calories in a gram of fat.
+   <LI> The stated caloric content of some foods may be less than the value you obtain by adding the calories
+due to carbohydrates, fat, and protein.  This is because some of the carbohydrates may be <I>dietary fiber</I>, and
+as such they are
+unavailable for your body to use as energy.  
+<BLOCKQUOTE>
+In the above example, based on carbohydrates, fat, and protein, the food contains 277.6 Calories.  However,
+the label claims a modest 271 Calories.  Thus, 6.6 Calories are unavailable and are attributed to dietary fiber.
+<p>
+From this we can compute <KBD>6.6&nbsp;/&nbsp;4&nbsp;=&nbsp;1.65</KBD> grams of the stated carbohydrates are fiber.
+</BLOCKQUOTE>
+<LI>
+The percentages shown in the output above feature at most a single digit of precision after the decimal point.
+<BLOCKQUOTE>
+You must arrange for your percentages to exactly this precise.  This will take some thought, but it can be done
+using what is taught in the book:  <KBD>int</KBD> operations, <KBD>double</KBD> operations, casting, and
+<KBD>Math.round(&hellip;)</KBD>.
+<BLOCKQUOTE>
+You are <B>not</B> allowed to use <KBD>printf</KBD> or other functions you may
+find that would accomplish this task.  You have to figure out how to do it
+using what you have learned in this module.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<LI> The following are taken from this 
+<a href="http://www.freedieting.com/tools/nutrient_calculator.htm"> online resource </a>:
+<UL>
+  <LI> A food is a <I>low-carb</I> food if no more than 25% of its calories come from carbohydrates.
+  <LI> A food is a <I>low-fat</I> food if no more than 15% of its calories come from fat.
+</UL>
+<BLOCKQUOTE>
+For the output lines whose conclusions are <KBD>true</KBD> or <KBD>false</KBD>, define an appropriately named
+<KBD>boolean</KBD> variable in your program and set it equal to the expression that determines its value.
+<p>
+When you print the value it will print as <KBD>true</KBD> or <KBD>false</KBD>.
+</BLOCKQUOTE>
+<LI> To accomplish the coin flip, recall the random-number generator as described in the text.   Define
+a boolean <KBD>heads</KBD> and assign its value 
+by comparing a
+random number with <KBD>0.5</KBD>.
+<p>
+<LI> Your strings can include the character sequences <KBD>\t</KBD> and <KBD>\n</KBD>, which have the effect of inserting a tab and a newline, respectively.
+A <I>tab</I> will cause the output to shift right to a predetermined position.
+A <I>newline</I> will end the current line of output and begin a new line.
+</UL>
+<LI> To demo your lab, find some food labels (for real or on the web) and run your program with the appropriate values for those foods.
+</OL>
+<HR>
+<H4>What went wrong? (not required, for your amusement only)</H4>  
+<p>
+I know of a person who took Chemistry and learned that
+a calorie of energy is required to raise
+the temperature of a gram of water 1 degree Centigrade.  
+<p>
+This gave him the idea that he could
+lose a lot of weight by drinking ice water, as follows.  
+His body would be called upon
+to raise the temperature of that cold water to 98.6 degrees Fahrenheit.  So if the water starts at 40 degrees
+Fahrenheit, then his body must raise each gram of that water about almost 60 degrees Fahrenheit, or about 33 degrees
+Centigrade.
+<p>
+A gram of water is a mL in volume.  Thus, each liter of water should cause the body to expend 33,000 Calories.
+There are about 3,500 Calories in a pound of fat, so drinking
+the liter of water should cause about 10 pounds of fat to burn.
+<p>
+This person tried this but did not notice much fat loss at all.  Can you explain the epic fail here?

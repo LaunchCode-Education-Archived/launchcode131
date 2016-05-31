@@ -1,0 +1,13 @@
+.writeup #markdown-toc {
+	font-size: 80%;
+
+	@include breakpoint($break-screen) {
+		@include span(2 of 6);
+		margin-left: 0 - span(2 of 6 wide);
+		top: 0;
+	}
+}
+
+img {
+	max-width: 90%;
+}

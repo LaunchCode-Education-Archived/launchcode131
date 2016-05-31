@@ -1,0 +1,370 @@
+<h4>Preparation</h4>
+<UL>
+<LI>
+Update your eclipse workspace to get the <CODE>lab7</CODE> package in the
+<KBD>labs</KBD> source folder.
+<BLOCKQUOTE>
+Update by right-clicking (control-click on Mac) the main project in the
+package explorer, drag down to <KBD>Team...</KBD> and click <KBD>Update</KBD>.
+<p>
+You should see a <KBD>lab7</KBD> package in the <KBD>labs</KBD> source folder.
+<p>
+There will be many red flags in <KBD>VectorAndPointTest</KBD> because you have
+not yet implemented the <KBD>Vector</KBD> class.  That's OK.
+</BLOCKQUOTE>
+<P>
+<LI>
+Browse the <a href="http://google.github.io/styleguide/javaguide.html" target="style">course style guide</a>.
+A substantial part of your grade on future labs in CSE131
+will be based on <em>style</em>,
+which includes clear code and documentation.
+Good syle is important because
+clarity helps avoid program errors and following standard conventions makes it easier for you and
+others to understand and modify your code.
+Expectations are described in the style guide.
+<BLOCKQUOTE>This is the last lab in which you will not be penalized greatly
+for style problems.  
+<p>
+Thus it would behoove you to practice good style
+in this lab, ask style questions of the TA, so as to be prepared to exhibit
+good style on future labs. 
+</BLOCKQUOTE>
+</UL>
+
+<P><HR><P>
+
+<H3><a name="project">Creating <KBD>Vector</KBD> and <KBD>Point</KBD> class</a></H3>
+
+In Part I,
+you will define a Java class
+that models a mathematical vector.
+Part II involves writing methods that implement a point.
+<P>
+You are encouraged to work on Parts I and II using <a href="http://en.wikipedia.org/wiki/Test-driven_development"><B>test-driven development</B></a>.
+<BLOCKQUOTE>
+Test-driven development means that the code you write is governed by the
+tests your code has to pass.  For this lab, you are provided 
+a <CODE>VectorAndPointTest</CODE> JUnit test case.  You will use the test
+methods in that file to drive your implementation of <CODE>Vector</CODE>.
+<p>
+You will follow this same methodology as you develop your <KBD>Point</KBD>
+class.
+</BLOCKQUOTE>
+<HR>
+<h3>Part I. Implementing a Vector class:</h3>
+
+A vector is a mathematical description of a direction and a magnitude (using
+a polar-coordinate representation).
+Another way to think about a vector is a location relative to some point
+of origin.  In other words, a vector is a displacement horizontally
+and vertically from some point of origin.
+<p>
+If you think about them this way, you can see how vectors can
+be added, as shown below.<BR>
+<IMG SRC="Lab/Description/vectors.gif" ><BR>
+
+<ol>
+<p><LI> Open the file <b>VectorAndPointTest.java</B> and take a look
+at the JUnit tests that appear in the file.
+<BLOCKQUOTE>
+You are to proceed with the development of your <KBD>Vector</KBD> class
+by considering these tests one at a time.  For example, the <KBD>init()</KBD>
+test will require you to write the constructor for <KBD>Vector</KBD>.
+<BLOCKQUOTE>
+You will have red flags because <KBD>Vector</KBD> is not yet complete, but
+you can run the JUnit test nonetheless.  If you expand the <KBD>lab7.VectorAndPointTest</KBD> in the JUnit window, you can see which tests are passing or not.
+Clicking on a given test shows you the detail below in the Failure Trace
+window.
+<p>
+A green checkmark indicates success;  a dark X indicates failure;  a red
+X indicates compilation problems not yet addressed.
+</BLOCKQUOTE>
+After that, the <KBD>arith()</KBD> test would have you implement
+<KBD>Vector</KBD>'s <KBD>plus</KBD> and <KBD>minus</KBD> methods.
+<p>
+<B>As you follow the instructions
+below, develop and then test each method one at a time!</B>  Read through
+the instructions before and during your develpment to guide
+your writing of the <KBD>Vector</KBD> class.
+</BLOCKQUOTE>
+<p><li>
+Open <KBD>Vector</KBD> in the provided <KBD>lab7</KBD> package.
+A class named <tt>Vector</tt>
+has been defined in the file, but so far it contains
+no instance variables or methods. (Notice that the class name exactly
+matches the file name, including capitalization. Java requires this.)
+</li>
+
+<p><li>
+<B>Instance variables:</B>
+The instance variables of a class define what kind of information
+each object of that class will hold.
+If we think of a vector as a translation in two-dimensional space,
+then we can represent a vector as
+the change in x and the change in y.
+In other words, we want each Vector object to contain two distances,
+deltaX and deltaY. 
+<BLOCKQUOTE>To accomplish this,
+declare two instance variables in the Vector class, and name them
+deltaX and deltaY.  Both should be of type <tt>double</tt>.</BLOCKQUOTE>
+<P>
+<B>Naming conventions: </b>By convention,
+names of instance variables and methods should begin with lower case
+letters, to distinguish them from class names, which begin with upper
+case letters.  If a variable has multi-word name, we usually
+capitalize subsequent words. For example,
+<tt>thisIsAVeryLongVariableName</tt>.
+
+<p><B>Encapsulation: </B>Objects usually contain data, and it is good
+design practice to make sure that this data can't be "messed with" by
+other classes.  Other classes should call methods on the object to
+access the information.  That way, each class can control what is seen
+and, more importantly, how it is modified.  
+<BLOCKQUOTE>
+Make both of the instance
+variables in your Vector class <b>private</b> by typing the keyword
+<KBD>private</KBD> at the beginning of the declaration, before the type of
+variable.  
+</BLOCKQUOTE>
+When you make the variables private, Java will make sure
+that the only way that code in other classes can see or modify their
+values is by calling methods of the Vector class.
+
+<p><li> 
+<B>Initialization: </B>Assigning to a variable for the first time is called "initializing" the variable.
+Constructurs usually have the job of initializing instance variables.
+When we create Vector objects, we will probably want to supply the
+deltaX and deltaY values for them.  So, define a public constructor 
+that takes two double parameters and assigns their values to deltaX and deltaY.
+Recall that a constructor always has the same name as the class.
+<BLOCKQUOTE>
+Tip: You can type the constructor yourself if you want, but Eclipse provides
+some tools for generating these kinds of constructors automatically.  To create the
+constructor automatically, first position your text cursor on the class name at the beginning of the file.  Then open the Source menu and select "Generate constructor using fields."
+Finally, select the boxes for deltaX and deltaY so that the constructor will have parameters
+that are used to initialize those instance variables.
+</BLOCKQUOTE>
+
+<B>Name masking: </B> A method or constructor may have a parameter
+whose name is the same as the name of an instance variable.
+For example, you might have a parameter and instance variable both with the name "deltaX."
+When a name is used in a program, it refers to the "closest" declaration.
+So any use of the name "deltaX" would refer to the parameter.  In this case, we say that the
+parameter <b>masks</b> the instance variable.
+But inside the method or constructor, we may still want to use or change the value of the
+instance variable.
+Within a method, the keyword <tt>this</tt>
+always refers to the object on which the method has been invoked
+(i.e., "this" object).  When an instance variable is masked, you can
+still refer to it by preceding its name with "<tt>this.</tt>" For
+example, inside the method, <tt>this.deltaX = deltaX</tt> will assign
+the value of the parameter deltaX to the instance variable named
+deltaX inside "this" object.</li>
+
+<P>
+<B>Implicit targets:</B> Normally, when you call a method on a target
+object, you identify the target, and then identify the method and its
+actual parameters.  For example, <BR> <tt>alice.deposit(50)</tt>
+<br>calls the deposit method on the object to which <tt>alice</tt> refers.
+In other words, <tt>alice</tt> is the target.  If you don't identify a
+target, then it is assumed that the target is the same object that is
+currently executing a method.  For example, if we call the
+deposit method on <tt>alice</tt> and inside of the deposit method
+there is an expression <tt>getBalance()</tt>, then it is understood
+that the method will be called on <tt>alice</tt> since that is the
+object in which the deposit method is executing.  In such cases, it is not
+necessary (and considered bad style) to use the word "this" because it
+is already understood that this object is the target.
+
+<p><li><B>The toString method:</b> It is customary to provide a method called
+<tt>toString</tt> that takes no parameters and returns a <tt>String</tt>
+value that is a textual description of the object.  You can call this
+method yourself, but  Java will also call it whenever it needs to
+concatenate the object onto a String.  Define a <tt>toString</tt>
+method for the Vector class that returns a textual description of the
+vector. For example, <tt>(new Vector(4,3)).toString()</tt> might
+have the value <tt>"[4 3]"</tt> as its return value.  (Hint: Form this
+string by concatenating various characters with the deltaX and deltaY
+values.)
+
+<p><li><B>Accessors:</B> Most classes provide <em>accessor</em> methods that
+other parts of a program can call to get information from an object.  For
+the Vector class, define two accessor methods named <tt>getDeltaX</tt>
+and <tt>getDeltaY</tt> that take no parameters and return the values
+of the instance variables deltaX and deltaY, respectively. Note: Here,
+the instance variables will not be masked by matching parameter names
+(in fact, there are no parameters at all), so there is no need to use
+"this." You can refer to the instance variables by their names
+alone. 
+<BLOCKQUOTE>
+Tip: You can type the methods yourself, or you can open the Eclipse
+Source menu and select "Generate Getters and Setters."  Check the boxes for "getDeltaX" and
+"getDeltaY." Study the methods after creating them.
+</BLOCKQUOTE>
+</li>
+<HR>
+<BLOCKQUOTE>
+At this point, your <KBD>VectorAndPointTest</KBD> JUnit test should pass
+its <KBD>init()</KBD> test.
+</BLOCKQUOTE>
+<HR>
+
+<p><li><B>Accessors that compute their return value:</B>
+Sometimes accessors provide information that is not directly
+stored inside the object, but is instead computed when the method is
+called.  For example, write a method
+called <tt>magnitude</tt> that takes no parameters and returns a
+<tt>double</tt>, the length of the vector.  Use the pythagorean theorem to compute the length of the vector.  Recall that the method <tt>Math.sqrt(x)</tt> returns the square root of x.
+</li>
+
+<p><li><B>Mutators and immutable objects:</B>
+Often, a class will provide <em>mutator</em> methods, such as
+<tt>setDeltaX</tt>, that allow controlled modification of the data
+stored in the corresponding instance variables.  However, we will
+<b>not</b> provide mutators for the Vector class.  Instead, each of
+our Vector objects will be <em>immutable</em>, meaning that once it is
+created, its value will never change.  So, whenever we want a Vector
+with a different direction or magnitude, we will have to create a new object.
+
+<p>
+Since Vector objects will be immutable, the rest of these
+methods will create <em>new</em> vectors as their return values.
+They'll do this by first computing the desired deltaX and deltaY values, and
+then using the Java keyword <tt>new</tt> to call the constructor you
+wrote earlier.  You can define local variables inside the methods
+whenever it's convenient, but remember that the final result of each
+method will be a new vector.  Don't modify the object on which the method was called.
+<BLOCKQUOTE>
+<I>Note:</I>  You may want to add the word <b>final</b> to the
+declaration of your instance variables.  This indicates that the instance
+variable's value should be established by the constructor and not be
+changed by any other method.  Adding <b>final</b> will prevent you from
+accidentally changing the value in the methods you write for the
+<tt>Vector</tt> class.
+</BLOCKQUOTE>
+
+<p><li>Define a method called
+<tt>deflectX</tt> that takes no parameters and returns a new vector that is
+identical to "this" one, except that its
+deltaX component has the opposite sign.
+For example, if this vector is [-3 4], then 
+the new vector would be [3 4].  In other words,
+the method creates a vector oriented in the opposite x direction.
+</li>
+
+<p><li>
+Define a method called
+<tt>deflectY</tt> that takes no parameters and returns a new vector that is
+identical to "this" one, except that its
+deltaY component has the opposite sign.
+
+<p><li>
+Define a method called
+<tt>plus</tt> that takes another vector as its parameter and returns
+a new vector that is the sum of this vector and the one
+provided as input. Recall that to add two vectors, you add their x-coordinates
+and their y-coordinates. For example, suppose you have a vector
+with value [3 4] and you call the <tt>plus</tt> method on it, passing in
+a vector with value [-5 2]. Then the vector returned by the
+method should have the value [-2 6].
+<P>
+Hint: The parameter type and return
+type of this method are both Vector.  When you create the new
+vector to be returned, you will need to supply parameter values.
+To compute those parameter values, you can
+use both "this" vector (the one on which the method was called) and
+the vector that was passed in as a parameter. 
+</li>
+
+<p><li>
+Define a method called
+<tt>minus</tt> that takes another vector as its parameter and returns
+a <b>new</b> vector that is the difference of this vector minus
+the one provided as input.</li>
+<BLOCKQUOTE>
+<I>Challenge:</I>  Write <tt>minus</tt> in terms of methods you
+have already defined for the <tt>Vector</tt> class.  Which
+computer science principle are you applying by doing that?
+</BLOCKQUOTE>
+<HR>
+<BLOCKQUOTE>At this point, your <KBD>VectorAndPointTest</KBD> JUnit
+test should also pass its <KBD>arith()</KBD> test.
+</BLOCKQUOTE>
+<HR>
+<p><li>
+Define a method called
+<tt>scale</tt> takes a <tt>double</tt> named
+<tt>factor</tt> as its parameter.  When you call this method on
+a vector, it should return a new vector whose
+direction is the same, but whose magnitude has been multiplied by the given
+parameter.
+<BLOCKQUOTE>
+<I>Recall:</I>  Scaling a vector by some <tt>factor</tt>
+can be accomplished by scaling its <tt>deltaX</tt> and <tt>deltaY</tt>
+components by that same factor.  Be sure to return a <I>new</I> vector,
+and don't change the one on which this method was called.
+</BLOCKQUOTE>
+<HR>
+<BLOCKQUOTE>At this point, your <KBD>VectorAndPointTest</KBD> JUnit
+test should also pass the <KBD>testScaleAndDeflect()</KBD> test.
+</BLOCKQUOTE>
+<HR>
+
+<p><li>
+Define a method called
+<tt>rescale</tt> takes a <tt>double</tt> named
+<tt>magnitude</tt> as its parameter.  When you call this method on
+a vector, it should return a new vector whose
+direction is the same, but whose magnitude is the one supplied as the
+parameter.
+<BLOCKQUOTE>
+<I>Hint:</I>  First call the <tt>magnitude</tt>
+method to find this vector's magnitude and save it in a local variable.
+Use this to compute a scale factor, and then let the <tt>scale</tt> method do the rest of the
+work.
+</BLOCKQUOTE>
+
+<B>NOTE:</B> If the target of the rescale method has a zero magnitude, no particular direction is defined for the resulting vector.  One could consider this an error condition, but for the purposes of this assignment, if the original magnitude is zero, let the resulting vector have deltaX equal to the given magnitude, and deltaY equal zero.
+</ol>
+
+<BLOCKQUOTE>
+At this point,
+make sure your code passes <EM>all</EM> the <KBD>VectorAndPointTest</KBD> cases
+provided with
+this lab.  Do NOT change the test code (we are watching and will know if 
+the revision changes on that file).
+</BLOCKQUOTE>
+
+<HR>
+<h3>Part II: A Point Class</h3>
+<BLOCKQUOTE>
+<B>Note:</B> You are encouraged to develop <KBD>Point</KBD> as you did
+<KBD>Vector</KBD>, using test-driven development.
+</BLOCKQUOTE>
+<OL>
+<LI>
+In the Package Explorer, select the lab7 package and use the File menu to create a new class named <b>Point</b> in that package.  In the Point.java file that is created, write an implementation according to the specificaion described in the following steps, <B>testing as you go</B>.
+
+<P><LI><b>Instance variables:</b> Since a point is just an (x,y) pair, declare two instance variables (of type <tt>double</tt>) to hold the x and y coordinates of the point.  These variables should be private to prevent changes from outside. The constructor and all methods in this class should be public.
+<P><LI><b>Constructor:</b> Write a constructor that takes <tt>x</tt> and <tt>y</tt> as parameters, and initializes the new Point object with the values that are passed in.
+<P><LI><b>Accessors:</b> Create getX and getY methods that return the coordinate values.
+<P><LI><b>toString:</b> Write a toString method that returns a String representation of the point.  For example, if x is 3 and y is -2, you might return the String "<tt>(3.0, -2.0)</tt>".
+<P><LI><b>Adding a Vector to a Point:</b>  It doesn't make sense to add two points together, but it does make sense to add a vector to a point.  The result is a new point that differs from the old point by the deltaX and deltaY of the vector.  For example, if we have the point (3,-2) and we add the vector [4 1], we will get the point (7,-1).  Write a <tt>plus</tt> method of the Point class that takes a Vector as a paramter and creates a new point that results from adding this point to the given vector.
+
+<P><LI><b>Subtracting Points:</b>When you subtract one point from
+another, you get a Vector, as shown in the figure below.  As an
+example, suppose point P is (4,2) and suppose that point Q is (1,6),
+then P-Q would be the vector [3 -4].
+(To see why this makes sense, consider what point you would get by adding the vector to Q.)
+<P>
+<IMG SRC="Lab/Description/subtracting-points.jpg">
+<P>
+Write a <tt>minus</tt> method of the Point class that takes another Point as its parameter and returns the appropriate vector.
+
+<P><LI><b>Distance to another point:</b> Write a method 
+named <KBD>distance</KBD> that takes another point as a parameter and returns the distance between this point and the given point.
+<BLOCKQUOTE>Try to implement this by <B>reducing</B> this problem to calls of
+methods you have already written</BLOCKQUOTE>
+<P><LI>Make sure your code passes the unit tests.
+</OL>
+

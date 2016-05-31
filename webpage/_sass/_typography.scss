@@ -1,0 +1,122 @@
+/**
+ * Typography
+ */
+
+a {
+	color: $link-color;
+	text-decoration: none;
+
+	&:hover {
+		color: darken($link-color, 20%);
+		text-decoration: underline;
+	}
+}
+
+*:target {
+	background: $target-background-color;
+	transform: scale(1.2);
+	transition: transform 0.5s cubic-bezier(.87,-.41,.19,1.44);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+p {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+	font-family: 'Work Sans', sans-serif;
+	font-weight: bold;
+	font-size: 1em;
+}
+	
+	h1 {
+		font-size: 1.3em;	
+	}
+
+	h2 {
+		font-size: 1.1em;
+	}
+
+	h3 {
+		font-size: 1em;
+	}
+
+	h4 {
+		font-size: 0.9em;
+	}
+
+
+code {
+	font-family: 'Source Code Pro', 'Courier New', monospace;
+	font-size: 0.9em;
+
+	background: rgba(33, 38, 39, 0.1);
+	padding: 0.15em 0.15em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	padding-left: 1.5rem;
+}
+
+p:last-of-type {
+	margin-bottom: 0;
+}
+
+ol,
+ul {
+	padding-left: 0;
+}
+
+	aside ol,
+	aside ul,
+	ul ul,
+	ul ol,
+	ol ul,
+	ol ol {
+		padding-left: 2em;
+	}
+
+ul {
+	list-style: square;
+}
+
+sup {
+	vertical-align: top;
+	font-size: 0.7em;
+}
+
+.footnote {
+	color: #fff;
+	background: $link-color;
+	font-family: 'Work Sans', sans-serif;
+	padding: 0.4em;
+	margin: 0 0.2em;
+
+	border-radius: 1em;
+
+	&:hover {
+		background: darken($link-color, 10%);
+		color: #fff;
+		text-decoration: none;
+	}
+}
