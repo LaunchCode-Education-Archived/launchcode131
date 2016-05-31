@@ -1,5 +1,5 @@
 <H3> Bumping Balls </H3>
-In this lab you will simulate multiple bouncing balls, that may bump
+In THIS lab you will simulate multiple bouncing balls, that may bump
 into each other or into the wall.  The steps articulated below for completing
 this lab recommend that you develop the code in stages, so that you can test
 as you go and make sure you are on the right track.
@@ -19,7 +19,7 @@ in <I>your</I> implementation of these ideas.
 <LI> Do your work in the <KBD>lab4</KBD> package of the <KBD>labs</KBD> source
 folder, in the <KBD>BumpingBalls</KBD> class.
 <LI>
-Review the implementation of <KBD>BouncingBall</KBD>, 
+Review the implementation of <KBD>BouncingBall</KBD>,
 found in the <KBD>book</KBD>
 source folder, package <KBD>book.ch1</KBD>.
 <LI> Review the additions we made to <KBD>BouncingBall</KBD> to obtain
@@ -53,21 +53,21 @@ using the <a href="http://www.purplemath.com/modules/distform.htm">distance form
   <LI> Prompt the user for the number of balls that will be simulated in
 your program and the number of iterations for the simulation.
   <LI> For each ball, find a random place on the screen to place that ball.
-  <LI> For each ball, compute a random velocity for that ball. 
+  <LI> For each ball, compute a random velocity for that ball.
 <BLOCKQUOTE>
   Based on what you have learned so far in this course, how will you keep
 track of the balls' positions and velocities?
 </BLOCKQUOTE>
-   <LI> 
+   <LI>
 Finding a reasonable range of velocities may require some trial-and-error, or
-some thinking and experimentation using pencil and paper:   
+some thinking and experimentation using pencil and paper:
 <UL>
 <LI> If the balls move
-too fast, they might fly off the screen.  
+too fast, they might fly off the screen.
 <LI> If they move too slowly, the simulation will take forever for you to see something.
 </UL>
    <LI> Iterate the specified number of times, each time recomputing
-each ball's location 
+each ball's location
 <LI> When a ball collides with a wall, change its velocity as shown
 in the <KBD>BouncingBall</KBD> program.
 <LI> When a ball collides with another ball, change both its horizontal and
