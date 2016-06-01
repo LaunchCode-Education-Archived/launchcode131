@@ -20,10 +20,10 @@ Before working on any project, you must *check out your repository*. The instruc
 
 The general workflow of Git, following the repository being checked out, is as follows. Don't worry if you don't understand some of the terms yet, they'll make sense as we go through this studio and the coming lab:
 
-> 1. Pull from the master/origin
-> 2. Do work on one/some of your files
-> 3. Commit and/or push your work back to the origin
-> 4. Repeat steps 1 through 3
+	> 1. Pull from the master/origin
+	> 2. Do work on one/some of your files
+	> 3. Commit and/or push your work back to the origin
+	> 4. Repeat steps 1 through 3
 
 These steps will have to be repeated and followed for every assignment you work on throughout the duration of this course.
 
@@ -124,22 +124,22 @@ to start up **eclipse&nbsp;Luna**.
 	* WUSTL key password
 
 
-	> Your WUSTL key username and password are what you use to log
-	> into WebSTAC for registration.  These credentials may be different than those
-	> required to log into a lab computer.
-	>
-	> *Be careful!* If you provide a bad password repeatedly,
-	> your account will get locked out after a small number of such attempts.
-	> So be sure to follow
-	> these instructions carefully and ask if things are not working.
+		> Your WUSTL key username and password are what you use to log
+		> into WebSTAC for registration.  These credentials may be different than those
+		> required to log into a lab computer.
+		>
+		> *Be careful!* If you provide a bad password repeatedly,
+		> your account will get locked out after a small number of such attempts.
+		> So be sure to follow
+		> these instructions carefully and ask if things are not working.
 
 
 5. Continue following the rest of the instructions in the <a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a> so that you are back in the Java view and have the project available for your use.  
 
-> Those instructions next ask you to Check Out a copy of the
-> repository location so you can do the work for this lab.
-> Be *sure* to right click on the whole project (your name and ID number)
-> to do the checkout.  Do NOT click on things below that like **labs**.
+	> Those instructions next ask you to Check Out a copy of the
+	> repository location so you can do the work for this lab.
+	> Be *sure* to right click on the whole project (your name and ID number)
+	> to do the checkout.  Do NOT click on things below that like **labs**.
 
 6. *Look at your project:*
 	If you are back in the Java view, then
