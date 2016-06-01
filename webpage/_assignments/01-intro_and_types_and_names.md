@@ -37,8 +37,8 @@ In this lab you develop a simple tool that prints nutrition information about fo
   >
   > statedCals
   > * The number of calories stated on this food's label.
-\s\s 
-  > For example, the values for a Snicker bar are:
+
+  For example, the values for a Snicker bar are:
 
   > | Name          | Snickers      |
   > | ------------- |-------------  |
