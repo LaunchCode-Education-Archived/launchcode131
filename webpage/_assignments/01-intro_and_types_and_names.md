@@ -1,4 +1,3 @@
-</hr>
 * In this lab you must create and code a simple program that prints
 nutritional information about food.  You have done similar activities
 in studio.
