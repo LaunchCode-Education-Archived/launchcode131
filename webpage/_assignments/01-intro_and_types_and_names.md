@@ -1,3 +1,10 @@
+---
+title: Intro and Types & Names!
+week: 1
+assigned: Whenever
+due: Whenever
+---
+
 * In this lab you must create and code a simple program that prints
 nutritional information about food.  You have done similar activities
 in studio.
@@ -105,7 +112,7 @@ In this lab you develop a simple tool that prints nutrition information about fo
     * Your strings can include the character sequences `\t` and `\n`, which have the effect of inserting a tab and a newline, respectively. A *tab* will cause the output to shift right to a predetermined position. A *newline* will end the current line of output and begin a new line.
 
 4. To demo your lab, find some food labels (for real or on the web) and run your program with the appropriate values for those foods.
-</hr>
+
 
 ###What went wrong? (not required, for your amusement only)
 I know of a person who took Chemistry and learned that a calorie of energy is required to raise the temperature of a gram of water 1 degree Centigrade.
@@ -115,7 +122,7 @@ This gave him the idea that he could lose a lot of weight by drinking ice water,
 A gram of water is a mL in volume. Thus, each liter of water should cause the body to expend 33,000 Calories. There are about 3,500 Calories in a pound of fat, so drinking the liter of water should cause about 10 pounds of fat to burn.
 
 This person tried this but did not notice much fat loss at all. Can you explain the epic fail here?
-</hr>
+<hr>
 
 ##Submitting your work (read carefully)
 

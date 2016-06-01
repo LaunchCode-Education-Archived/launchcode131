@@ -20,10 +20,10 @@ Before working on any project, you must *check out your repository*. The instruc
 
 The general workflow of Git, following the repository being checked out, is as follows. Don't worry if you don't understand some of the terms yet, they'll make sense as we go through this studio and the coming lab:
 
-	> 1. Pull from the master/origin
-	> 2. Do work on one/some of your files
-	> 3. Commit and/or push your work back to the origin
-	> 4. Repeat steps 1 through 3
+> 1. Pull from the master/origin
+> 2. Do work on one/some of your files
+> 3. Commit and/or push your work back to the origin
+> 4. Repeat steps 1 through 3
 
 These steps will have to be repeated and followed for every assignment you work on throughout the duration of this course.
 
