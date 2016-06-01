@@ -82,7 +82,7 @@ In this lab you develop a simple tool that prints nutrition information about fo
     * The stated caloric content of some foods may be less than the value you obtain by adding the calories due to carbohydrates, fat, and protein. This is because some of the carbohydrates may be dietary fiber, and as such they are unavailable for your body to use as energy.
 
         > In the above example, based on carbohydrates, fat, and protein, the food contains 277.6 Calories.
-        > However, the label claims a modest 271 Calories. Thus, 6.6 Calories are unavailable and are   attributed to dietary fiber.
+        > However, the label claims a modest 271 Calories. Thus, 6.6 Calories are unavailable and are attributed to dietary fiber.
         >
         > From this we can compute *6.6 / 4 = 1.65 grams* of the stated carbohydrates are fiber.
 
@@ -90,6 +90,7 @@ In this lab you develop a simple tool that prints nutrition information about fo
 
         > You must arrange for your percentages to exactly this precise.
         > This will take some thought, but it can be done using what is taught in the book: `int` operations, `double` operations, casting, and `Math.round(…)`.
+        >  
         > You are **not** allowed to use `printf` or other functions you may find that would accomplish this task. You have to figure out how to do it using what you have learned in this module.
 
     * The following are taken from this **online resource**:
