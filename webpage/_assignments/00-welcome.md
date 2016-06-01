@@ -134,17 +134,12 @@ to start up **eclipse&nbsp;Luna**.
 	> these instructions carefully and ask if things are not working.
 
 
-5.
-	Continue
-	following the rest of the instructions in the
-	<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a>
-	so that you are back in the Java view and have the project available for
-	your use.  
+5. Continue following the rest of the instructions in the <a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a> so that you are back in the Java view and have the project available for your use.  
 
-	> Those instructions next ask you to Check Out a copy of the
-	> repository location so you can do the work for this lab.
-	> Be *sure* to right click on the whole project (your name and ID number)
-	> to do the checkout.  Do NOT click on things below that like **labs**.
+> Those instructions next ask you to Check Out a copy of the
+> repository location so you can do the work for this lab.
+> Be *sure* to right click on the whole project (your name and ID number)
+> to do the checkout.  Do NOT click on things below that like **labs**.
 
 6. *Look at your project:*
 	If you are back in the Java view, then
@@ -179,35 +174,19 @@ to start up **eclipse&nbsp;Luna**.
 	For now, you don't need to understand what you see.  We just want the computer to run this program.
 
 8. *Run the program:* Right click on **RobotController.java** and select
-	*Run as -> Java application*. In the bottom right corner, you will see a * GO * button.  
-	Click the *Go *.  The program should create a robot, and you should see the robot start to move.
+	*Run as -> Java application*. In the bottom right corner, you will see a *GO* button.  
+	Click the *Go*.  The program should create a robot, and you should see the robot start to move.
 
-9.
-	*Modifying programs:*
-	In general, before you can execute a Java program, it must first be compiled (translated)
-	into *byte code* that can be executed by the Java interpreter. A program
-	that performs this translation is called a <I>compiler</I>.
-	Eclipse checks your files to see if they will compile, and it marks
-	errors so you can correct them.
-	If you position the
-	mouse cursor over an error icon or a red underline,
-	a description of the error will be displayed.
+9. *Modifying programs:* In general, before you can execute a Java program, it must first be compiled (translated) into *byte code* that can be executed by the Java interpreter. A program that performs this translation is called a *compiler*.  Eclipse checks your files to see if they will compile, and it marks errors so you can correct them.  If you position the mouse cursor over an error icon or a red underline, a description of the error will be displayed.
 
-	Try typing some random text into the **RobotController.java** file to introduce an error.  You
-	should see an error icon appear at the left.  Note that sometimes the
-	error message appears on the line *after* the error.  At the bottom of
-	the window, you'll see **console** and **problems**.  The console window shows any printed output of the program.  If you click on **problems** you'll see a list of the errors, and clicking on an item in the list will take you to the location of that error in the Java file so you can correct it.
+Try typing some random text into the **RobotController.java** file to introduce an error.  You
+should see an error icon appear at the left.  Note that sometimes the
+error message appears on the line *after* the error.  At the bottom of
+the window, you'll see **console** and **problems**.  The console window shows any printed output of the program.  If you click on **problems** you'll see a list of the errors, and clicking on an item in the list will take you to the location of that error in the Java file so you can correct it.	Undo your typing, or close (without saving) and re-open the file.
 
-	Undo your typing, or close (without saving) and re-open the file.
-10.
-	*Make the robot do your bidding:*
-	So your real assignment here is
-	to provide some instructions so that the robot navigates from
-	from CEC to your instructor's office.  
+10. *Make the robot do your bidding:* So your real assignment here is to provide some instructions so that the robot navigates from CEC to your instructor's office.  
 
-	1.
-		Open up the **RobotInstructions** file, which is also in your **lab0** package.
-		This is where the commands to move the robot are written.
+	1. Open up the **RobotInstructions** file, which is also in your **lab0** package. This is where the commands to move the robot are written.
 
 		> You now have two files open in eclipse:
 		>
@@ -216,8 +195,7 @@ to start up **eclipse&nbsp;Luna**.
 		> * **RobotInstructions.java** is the file that contains code directing the robot to move.   This is the file
 		> you will modify to change the robot's behavior.
 
-	2. Modify some of the robot instructions, and re-run the program, to gain an understanding of how the
-	instructions in this file affect the robot's behavior.
+	2. Modify some of the robot instructions, and re-run the program, to gain an understanding of how the instructions in this file affect the robot's behavior.
 
 		> Really?  We're asking you to program even though you probably don't much about Java yet?
 		>
@@ -228,54 +206,30 @@ to start up **eclipse&nbsp;Luna**.
 		> the robot's instructions do, based on observing the robot and reading the code.  Make some changes to the code to test
 		> your hypotheses.  Soon you will have the robot doing your bidding.
 
-	3.
-	Once you have the hang of it, try to have the robot make its way from CEC to the instructor's office.
+	3. Once you have the hang of it, try to have the robot make its way from CEC to the instructor's office.
 
 		> *Tip:* Since RobotController.java was the program most recently run,
 		> you can run it again simply by clicking the green arrow on the toolbar at the top.  
 
 		Each time it runs, you should see the results of your most recent modifications.
 
-
-		> If you pause with the mouse over a location on the map, the x,y
+		> If you pause with the mouse over a location on the map, the x, y
 		> coordinate of your mouse location will be shown on the screen.
 
-	4.
-		After 20 minutes of successful robot navigation,
-		*don't spend much more time* trying to get the robot to go exactly the right way.
-		Get comfortable with controlling it for a bit, and then you can have it plow
-		through the walls, juggernaut style.   That's a bit easier and a lot more fun.
+	4. After 20 minutes of successful robot navigation, *don't spend much more time* trying to get the robot to go exactly the right way.  Get comfortable with controlling it for a bit, and then you can have it plow through the walls, juggernaut style.   That's a bit easier and a lot more fun.
 
-		Also, feel free to walk the route yourself, and stop by the the instructor's office to say hello sometime.
-		Visitors are usually treated to soda and candy.
+	Also, feel free to walk the route yourself, and stop by the instructor's office to say hello sometime.  Visitors are usually treated to soda and candy.
 
-11. *Commit your work:*
+11. *Commit your work:* Now that you have modified a file, take a look at the Package Explorer window and you should see some **&gt;** signs next to the files that have been changed.  The **&gt;** sign warns you that you have modified files that have not been committed back to the repository. The files won't be visible by TAs or the instructor until you *commit* them.
 
-Now that you have modified a file, take a look at the Package Explorer window and you
-should see some **&gt;** signs next to the files that have been changed.
-The **&gt;** sign warns you that you have modified files that have not been
-committed back to the repository.  The files
-won't be visible by TAs or the instructor until you *commit* them.
-
-To commit them, locate the name of your project (your name and ID) in the package explorer window of eclipse.
-Right (control) click on that, go down to *Team...* and select *Commit*.  You should see activity
-reflective of elipse sending your modified code back to the repository.
+To commit them, locate the name of your project (your name and ID) in the package explorer window of eclipse.  Right (control) click on that, go down to *Team...* and select *Commit*.  You should see activity reflective of Elipse sending your modified code back to the repository.
 
 > *Tip:*  It is good practice to commit your code often.  You can always recover any previously committed version
 > of your software.  Committing your code allows you to work on the code from a different computer, and ensures that
 > you do not lose your work should your computer fail.
 
-
-
-
-
-
 You now know the basic steps to create projects, as well as open, edit, compile, and run Java programs in eclipse.  You should also have a basic understanding of sequential execution and how to call methods on ojects.
 *Please ask if you have questions about any of this.*
-
-
-
-
 
 ## Anatomy of a Java File, Overview of the Course
 
@@ -285,12 +239,10 @@ goal of understanding the anatomy of a Java file.
 
 The course will then proceed from the most simple aspects of programming in Java to the more complex parts.
 
-
 > * The online activity can be found <a href="Lab/Description/ClickQuiz.shtml">here</a>.
 > * Try it (in pairs if you like) until you get it completely right.  
 > * Be prepared to identify the anatomy of a Java file
 > when the TA checks you off.
-
 
 ##Course Information
 
@@ -303,10 +255,7 @@ course policies concerning grading and attendance?
 * How many extension points do you need to earn an A?
 * What are the possible consequences of inappropriate collaboration?
 
-
-
 ##Submitting your work
-
 
 * Make sure your work is committed before asking a TA to sign you off
 * The green block you see below appears at the end of any studio or lab assignment for which you need a TA to
