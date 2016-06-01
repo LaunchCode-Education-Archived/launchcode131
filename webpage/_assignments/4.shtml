@@ -15,24 +15,23 @@ As always, consult with TAs when you are stuck.
 > in *your* implementation of these ideas.
 
 #### Resources
-<UL>
-<LI> Do your work in the <KBD>lab4</KBD> package of the <KBD>labs</KBD> source
-folder, in the <KBD>BumpingBalls</KBD> class.
-<LI>
-Review the implementation of <KBD>BouncingBall</KBD>,
-found in the <KBD>book</KBD>
-source folder, package <KBD>book.ch1</KBD>.
-<LI> Review the additions we made to <KBD>BouncingBall</KBD> to obtain
-<KBD>DeluxeBouncingBall</KBD>, found in the <KBD>lecture</KBD> source folder,
-package <KBD>io</KBD>.
-<UL>
-  <LI> We added sound when an object changed direction.
-  <LI> We replaced the ball by images.
-</UL>
-<LI> While there is some physics required for this lab, the information
+
+  *Do your work in the **lab4** package of the **labs** source
+folder, in the **BumpingBalls** class.
+
+  *Review the implementation of **BouncingBall**,
+found in the **book** source folder, package **book.ch1**.
+  *Review the additions we made to **BouncingBall** to obtain
+**DeluxeBouncingBall**, found in the **lecture** source folder,
+package **io**.
+
+     *We added sound when an object changed direction.
+     *We replaced the ball by images.
+
+  *While there is some physics required for this lab, the information
 you need to know is simply the following:
-<UL>
-   <LI> Two balls are colliding if the distance between the two balls' centers
+
+     *Two balls are colliding if the distance between the two balls' centers
 is less than the sum of the two balls' radii:
 <BLOCKQUOTE>
 <IMG src="Lab/Description/collision23.png"><br>
