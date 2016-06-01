@@ -33,9 +33,8 @@ In this lab you develop a simple tool that prints nutrition information about fo
   >  * The number of grams of protein in this food
   > statedCals
   >  * The number of calories stated on this food's label
-
-  For example, the values for a Snicker bar are:
-
+  >
+  > For example, the values for a Snicker bar are:
   > | Name          | Snickers      |
   > | ------------- |-------------  |
   > | carbs         | 34.5          |
