@@ -3,17 +3,17 @@ In this lab you will simulate multiple bouncing balls, that may bump
 into each other or into the wall.  The steps articulated below for completing
 this lab recommend that you develop the code in stages, so that you can test
 as you go and make sure you are on the right track.
-<p>
+
 You have the knowledge you need to do this assignment, but the assignment
 is written-up in a style usually seen for software specification:  you are
 told what should happen, but it's up to you to make it happen.
-<p>
+
 As always, consult with TAs when you are stuck.
-<BLOCKQUOTE>
-The code you submit must be your own!
-We are not interested in solutions you find on the Internet.  We are interested
-in <I>your</I> implementation of these ideas.
-</BLOCKQUOTE>
+
+> The code you submit must be your own!
+> We are not interested in solutions you find on the Internet.  We are interested
+> in <I>your</I> implementation of these ideas.
+
 #### Resources
 <UL>
 <LI> Do your work in the <KBD>lab4</KBD> package of the <KBD>labs</KBD> source
