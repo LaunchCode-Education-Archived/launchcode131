@@ -87,23 +87,23 @@ In this lab you develop a simple tool that prints nutrition information about fo
     * There are 9 Calories in a gram of fat.
     * The stated caloric content of some foods may be less than the value you obtain by adding the calories due to carbohydrates, fat, and protein. This is because some of the carbohydrates may be dietary fiber, and as such they are unavailable for your body to use as energy.
 
-      > In the above example, based on carbohydrates, fat, and protein, the food contains 277.6 Calories.
-      > However, the label claims a modest 271 Calories. Thus, 6.6 Calories are unavailable and are   attributed to dietary fiber.
-      >
-      > From this we can compute *6.6 / 4 = 1.65 grams* of the stated carbohydrates are fiber.
+        > In the above example, based on carbohydrates, fat, and protein, the food contains 277.6 Calories.
+        > However, the label claims a modest 271 Calories. Thus, 6.6 Calories are unavailable and are   attributed to dietary fiber.
+        >
+        > From this we can compute *6.6 / 4 = 1.65 grams* of the stated carbohydrates are fiber.
 
     * The percentages shown in the output above feature at most a single digit of precision after the decimal point.
 
-      > You must arrange for your percentages to exactly this precise.
-      > This will take some thought, but it can be done using what is taught in the book: `int` operations, `double` operations, casting, and `Math.round(…)`.
-      > You are **not** allowed to use `printf` or other functions you may find that would accomplish this task. You have to figure out how to do it using what you have learned in this module.
+        > You must arrange for your percentages to exactly this precise.
+        > This will take some thought, but it can be done using what is taught in the book: `int` operations, `double` operations, casting, and `Math.round(…)`.
+        > You are **not** allowed to use `printf` or other functions you may find that would accomplish this task. You have to figure out how to do it using what you have learned in this module.
 
     * The following are taken from this **online resource**:
       * A food is a *low-carb* food if no more than 25% of its calories come from carbohydrates.
       * A food is a *low-fat* food if no more than 15% of its calories come from fat.
 
-      > For the output lines whose conclusions are `true` or `false`, define an appropriately named `boolean` variable in your program and set it equal to the expression that determines its value.
-      > When you print the value it will print as `true` or `false`.
+        > For the output lines whose conclusions are `true` or `false`, define an appropriately named `boolean` variable in your program and set it equal to the expression that determines its value.
+        > When you print the value it will print as `true` or `false`.
 
     * To accomplish the coin flip, recall the random-number generator as described in the text. Define a `boolean heads` and assign its value by comparing a random number with `0.5`.
 
