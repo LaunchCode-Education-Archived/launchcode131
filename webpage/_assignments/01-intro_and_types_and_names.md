@@ -27,14 +27,18 @@ In this lab you develop a simple tool that prints nutrition information about fo
   > `name`
   > * The name of this food, provided as a `String`.
   >
+  >
   > `carbs`
   > * The number of grams of carbohydrates in this food.
+  >
   >
   > `fat`
   > * The number of grams of fat in this food.
   >
+  >
   > `protein`
   > * The number of grams of protein in this food.
+  >
   >
   > `statedCals`
   > * The number of calories stated on this food's label.
