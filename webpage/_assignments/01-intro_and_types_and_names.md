@@ -40,12 +40,12 @@ In this lab you develop a simple tool that prints nutrition information about fo
 
   For example, the values for a Snicker bar are:
 
-  > | Name          | Snickers      |
-  > | ------------- |-------------  |
-  > | carbs         | 34.5          |
-  > | fat           | 13.6          |
-  > | protein       | 4.3           |
-  > | statedCals    | 271           |
+  | Name          | Snickers      |
+  | ------------- |-------------  |
+  | carbs         | 34.5          |
+  | fat           | 13.6          |
+  | protein       | 4.3           |
+  | statedCals    | 271           |
 
   > At this point, you should be thinking about the data types you would use to represent each of the above
   items.  We tell you that the **name** is a **String**, but what about the other inputs?
