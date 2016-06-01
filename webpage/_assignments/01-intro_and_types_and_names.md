@@ -35,12 +35,13 @@ In this lab you develop a simple tool that prints nutrition information about fo
   >  * The number of calories stated on this food's label
 
   For example, the values for a Snicker bar are:
-  | Name          | Snickers      |
-  | ------------- |-------------  |
-  | carbs         | 34.5          |
-  | fat           | 13.6          |
-  | protein       | 4.3           |
-  | statedCals    | 271           |
+
+| Name          | Snickers      |
+| ------------- |-------------  |
+| carbs         | 34.5          |
+| fat           | 13.6          |
+| protein       | 4.3           |
+| statedCals    | 271           |
 
   > At this point, you should be thinking about the data types you would use to represent each of the above
   items.  We tell you that the **name** is a **String**, but what about the other inputs?
@@ -52,12 +53,12 @@ In this lab you develop a simple tool that prints nutrition information about fo
   >
   > **ArgsProcessor ap = new ArgsProcessor(args);**
   >
-  > This will likely show an error because eclipse doesn't know about > **ArgsProcessor**.  Do you remember how to
+  > This will likely show an error because eclipse doesn't know about **ArgsProcessor**.  Do you remember how to
   > fix this?  Ask if you need help.
   >
-  > After that, you should initialize your inputs using code modeled  > after the code you read and wrote in <ahref="studio.html">studio</a>.
+  > After that, you should initialize your inputs using code modeled after the code you read and wrote in <ahref="studio.html">studio</a>.
   >
-  > Eclipse will help you out here:  If you have typed <KBD>ap.</KBD> and pause, eclipse will show you the possible
+  > Eclipse will help you out here:  If you have typed **ap.** and pause, eclipse will show you the possible
   > ways of continuing.  For example, **nextInt(String)** is one way to keep going.  That call will prompt
   > the user for an **int** displaying the provided **String** as the prompting message.
 
