@@ -1,7 +1,7 @@
 * In this lab you must create and code a simple program that prints
 nutritional information about food.  You have done similar activities
 in studio.
-  * Review or reference the <a href="studio.html">studio</a> exercises
+  * Review or reference the [studio] (studio.html "studio 01") exercises
   as necessary.
 * Code is distributed to you throughout the semester, so you may
   need to *update* your repository to see the files for this lab:
@@ -48,17 +48,18 @@ In this lab you develop a simple tool that prints nutrition information about fo
   | statedCals    | 271           |
 
   At this point, you should be thinking about the data types you would use to represent each of the above
-  items.  We tell you that the **name** is a **String**, but what about the other inputs?
+  items.  We tell you that the **name** is a `String`, but what about the other inputs?
   The above example is provided to inspire your thinking.
-  To accept the inputs, use the same code we used in studio.  Just > after the **main** method declaration, you should have the line:
+  To accept the inputs, use the same code we used in studio.  
+  Just after the **main** method declaration, you should have the line:
 
-  **ArgsProcessor ap = new ArgsProcessor(args);**
+  `ArgsProcessor ap = new ArgsProcessor(args);`
 
-  This will likely show an error because eclipse doesn't know about **ArgsProcessor**.  Do you remember how to fix this?  Ask if you need help.
+  This will likely show an error because eclipse doesn't know about `ArgsProcessor`.  Do you remember how to fix this?  Ask if you need help.
 
-  After that, you should initialize your inputs using code modeled after the code you read and wrote in <ahref="studio.html">studio</a>.
+  After that, you should initialize your inputs using code modeled after the code you read and wrote in [studio] (studio.html "studio 01").
 
   Eclipse will help you out here:  If you have typed **ap.** and pause, eclipse will show you the possible
-  ways of continuing.  For example, **nextInt(String)** is one way to keep going.  That call will prompt the user for an **int** displaying the provided **String** as the prompting message.
+  ways of continuing.  For example, `nextInt(String)` is one way to keep going.  That call will prompt the user for an `int` displaying the provided `String` as the prompting message.
 
 3. Arrange for your program to produce output such as the following:
