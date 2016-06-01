@@ -14,7 +14,7 @@ The code you submit must be your own!
 We are not interested in solutions you find on the Internet.  We are interested
 in <I>your</I> implementation of these ideas.
 </BLOCKQUOTE>
-<H4> Resources </H4>
+#### Resources
 <UL>
 <LI> Do your work in the <KBD>lab4</KBD> package of the <KBD>labs</KBD> source
 folder, in the <KBD>BumpingBalls</KBD> class.
