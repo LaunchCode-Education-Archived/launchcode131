@@ -50,12 +50,12 @@ we'll be using <a href="http://www.eclipse.org/">eclipse</a>, a popular IDE that
 things) programming in
 Java.  
 
-Professional software developers also use a 
+Professional software developers also use a
 <a href="http://en.wikipedia.org/wiki/Software_versioning">versioning repository</a> to
 store their code, so that they can share their code easily and keep track
 of the changes they make.  We will be using the
 <a href="http://subversion.apache.org/">subversion</a> revision control
-system.  It will allow you to submit your code for grading and to 
+system.  It will allow you to submit your code for grading and to
 share it with TAs who can help you with problems you might encounter.
 
 > **Attention wireless users in CEC labs!!**
@@ -77,7 +77,7 @@ If you have not yet installed eclipse, follow
 
 	* On CEC computers, click on the Start button and look under "All Programs", "Programming"
 to start up **eclipse&nbsp;Luna**.  
-	
+
 	The first time eclipse starts, it may be slower than usual.
 	You will be asked where you want your workspace to be.
 
@@ -87,8 +87,8 @@ to start up **eclipse&nbsp;Luna**.
 
 2. *Identifying your repository:*
 
-	Open the 
-	<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a> 
+	Open the
+	<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a>
 	in another window, and follow
 	the steps given there to specify a subversion repository.  
 
@@ -101,7 +101,7 @@ to start up **eclipse&nbsp;Luna**.
 	>
 	> After pasting:
 	>
-	> Change <FONT COLOR="blue">YYYY</FONT> to your WUSTL key, 
+	> Change <FONT COLOR="blue">YYYY</FONT> to your WUSTL key,
 	*using lower case letters only*.  Include all punctuation that
 	is normally part of your WUSTL key.
 	>
@@ -127,17 +127,17 @@ to start up **eclipse&nbsp;Luna**.
 	> Your WUSTL key username and password are what you use to log
 	> into WebSTAC for registration.  These credentials may be different than those
 	> required to log into a lab computer.
-	> 
+	>
 	> *Be careful!* If you provide a bad password repeatedly,
-	> your account will get locked out after a small number of such attempts. 
+	> your account will get locked out after a small number of such attempts.
 	> So be sure to follow
 	> these instructions carefully and ask if things are not working.
 
 
-5. 
+5.
 	Continue
 	following the rest of the instructions in the
-	<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a> 
+	<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a>
 	so that you are back in the Java view and have the project available for
 	your use.  
 
@@ -159,10 +159,10 @@ to start up **eclipse&nbsp;Luna**.
 
 	Supporting software is placed in other source folders, such as **labsupport**.
 	You are welcome to look at any code, but to keep the number of files managable, we'll place lab code in your
-	**labs** source folder in your repository. 
+	**labs** source folder in your repository.
 	</aside>
 
-	1. In the Package Explorer, expand the project by clicking on the '+' sign 
+	1. In the Package Explorer, expand the project by clicking on the '+' sign
 	or little triangle to the left of the project name.
 	You will see that it contains an entry for **labs**, which is
 	a folder that contains packages of code.
@@ -171,7 +171,7 @@ to start up **eclipse&nbsp;Luna**.
 	3. Each lab you complete is given to you in a separate <I>package</I>.
 	For this lab, expand the **lab0** package.
 	4. Double-click the file named **RobotController.java** to open it.
-	Look at the source code in the middle window. 
+	Look at the source code in the middle window.
 	You'll see instance variables, methods, and a main method.  
 
 	> If what you see makes sense to you already, you may not need to take this class.
@@ -182,11 +182,11 @@ to start up **eclipse&nbsp;Luna**.
 	*Run as -> Java application*. In the bottom right corner, you will see a * GO * button.  
 	Click the *Go *.  The program should create a robot, and you should see the robot start to move.
 
-9. 
+9.
 	*Modifying programs:*
 	In general, before you can execute a Java program, it must first be compiled (translated)
 	into *byte code* that can be executed by the Java interpreter. A program
-	that performs this translation is called a <I>compiler</I>. 
+	that performs this translation is called a <I>compiler</I>.
 	Eclipse checks your files to see if they will compile, and it marks
 	errors so you can correct them.
 	If you position the
@@ -199,18 +199,18 @@ to start up **eclipse&nbsp;Luna**.
 	the window, you'll see **console** and **problems**.  The console window shows any printed output of the program.  If you click on **problems** you'll see a list of the errors, and clicking on an item in the list will take you to the location of that error in the Java file so you can correct it.
 
 	Undo your typing, or close (without saving) and re-open the file.
-10. 
+10.
 	*Make the robot do your bidding:*
 	So your real assignment here is
-	to provide some instructions so that the robot navigates from 
+	to provide some instructions so that the robot navigates from
 	from CEC to your instructor's office.  
 
-	1. 
+	1.
 		Open up the **RobotInstructions** file, which is also in your **lab0** package.
-		This is where the commands to move the robot are written. 
+		This is where the commands to move the robot are written.
 
 		> You now have two files open in eclipse:
-		> 
+		>
 		> * **RobotController.java** is the <i>main</i> file. You always run the application using the instructions given
 		> above for this file.
 		> * **RobotInstructions.java** is the file that contains code directing the robot to move.   This is the file
@@ -220,15 +220,15 @@ to start up **eclipse&nbsp;Luna**.
 	instructions in this file affect the robot's behavior.
 
 		> Really?  We're asking you to program even though you probably don't much about Java yet?
-		> 
+		>
 		> Well, yes.  
-		> 
+		>
 		> Even after you have learned much about Java, programming, and computer science, you may come across some
 		> code that you want to modify to change its behavior.  This takes some courage, but see if you can figure out what
 		> the robot's instructions do, based on observing the robot and reading the code.  Make some changes to the code to test
 		> your hypotheses.  Soon you will have the robot doing your bidding.
 
-	3. 
+	3.
 	Once you have the hang of it, try to have the robot make its way from CEC to the instructor's office.
 
 		> *Tip:* Since RobotController.java was the program most recently run,
@@ -240,7 +240,7 @@ to start up **eclipse&nbsp;Luna**.
 		> If you pause with the mouse over a location on the map, the x,y
 		> coordinate of your mouse location will be shown on the screen.
 
-	4. 
+	4.
 		After 20 minutes of successful robot navigation,
 		*don't spend much more time* trying to get the robot to go exactly the right way.
 		Get comfortable with controlling it for a bit, and then you can have it plow
@@ -254,7 +254,7 @@ to start up **eclipse&nbsp;Luna**.
 Now that you have modified a file, take a look at the Package Explorer window and you
 should see some **&gt;** signs next to the files that have been changed.
 The **&gt;** sign warns you that you have modified files that have not been
-committed back to the repository.  The files 
+committed back to the repository.  The files
 won't be visible by TAs or the instructor until you *commit* them.
 
 To commit them, locate the name of your project (your name and ID) in the package explorer window of eclipse.
