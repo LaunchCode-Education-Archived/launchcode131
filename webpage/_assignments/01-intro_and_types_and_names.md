@@ -24,15 +24,15 @@ In this lab you develop a simple tool that prints nutrition information about fo
   * The **lab1** class is currently empty, but don't let that bother you.  Right (control) click on **lab1** and create a new class called **Nutrition**.
 2. Arrange for your program to accept the following inputs:
   > name
-    * The name of this food, provided as a **String**
+    > * The name of this food, provided as a **String**
   > carbs
-    * The number of grams of carbohydrates in this food
+    > * The number of grams of carbohydrates in this food
   > fat
-    * The number of grams of fat in this food
+    > * The number of grams of fat in this food
   > protein
-    * The number of grams of protein in this food
+    > * The number of grams of protein in this food
   > statedCals
-    * The number of calories stated on this food's label
+    > * The number of calories stated on this food's label
 
   > For example, the values for a Snicker bar are:
 
