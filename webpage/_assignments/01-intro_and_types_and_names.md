@@ -47,23 +47,18 @@ In this lab you develop a simple tool that prints nutrition information about fo
   | protein       | 4.3           |
   | statedCals    | 271           |
 
-  > At this point, you should be thinking about the data types you would use to represent each of the above
+  At this point, you should be thinking about the data types you would use to represent each of the above
   items.  We tell you that the **name** is a **String**, but what about the other inputs?
-  >
-  > The above example is provided to inspire your thinking.
-  >
-  > To accept the inputs, use the same code we used in studio.  Just > after the **main** method declaration,
-  > you should have the line:
-  >
-  > **ArgsProcessor ap = new ArgsProcessor(args);**
-  >
-  > This will likely show an error because eclipse doesn't know about **ArgsProcessor**.  Do you remember how to
-  > fix this?  Ask if you need help.
-  >
-  > After that, you should initialize your inputs using code modeled after the code you read and wrote in <ahref="studio.html">studio</a>.
-  >
-  > Eclipse will help you out here:  If you have typed **ap.** and pause, eclipse will show you the possible
-  > ways of continuing.  For example, **nextInt(String)** is one way to keep going.  That call will prompt
-  > the user for an **int** displaying the provided **String** as the prompting message.
+  The above example is provided to inspire your thinking.
+  To accept the inputs, use the same code we used in studio.  Just > after the **main** method declaration, you should have the line:
+
+  **ArgsProcessor ap = new ArgsProcessor(args);**
+
+  This will likely show an error because eclipse doesn't know about **ArgsProcessor**.  Do you remember how to fix this?  Ask if you need help.
+
+  After that, you should initialize your inputs using code modeled after the code you read and wrote in <ahref="studio.html">studio</a>.
+
+  Eclipse will help you out here:  If you have typed **ap.** and pause, eclipse will show you the possible
+  ways of continuing.  For example, **nextInt(String)** is one way to keep going.  That call will prompt the user for an **int** displaying the provided **String** as the prompting message.
 
 3. Arrange for your program to produce output such as the following:
