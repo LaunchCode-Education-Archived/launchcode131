@@ -24,33 +24,22 @@ In this lab you develop a simple tool that prints nutrition information about fo
 1. Create a **Nutrition** Java class in the **lab1** package of the **labs** source folder.
   * The **lab1** class is currently empty, but don't let that bother you.  Right (control) click on **lab1** and create a new class called **Nutrition**.
 2. Arrange for your program to accept the following inputs:
-  > `name`
-  > * The name of this food, provided as a `String`.
-  >
-  >
-  > `carbs`
-  > * The number of grams of carbohydrates in this food.
-  >
-  >
-  > `fat`
-  > * The number of grams of fat in this food.
-  >
-  >
-  > `protein`
-  > * The number of grams of protein in this food.
-  >
-  >
-  > `statedCals`
-  > * The number of calories stated on this food's label.
+
+  | `name`          | The name of this food, provided as a `String`      |
+  | --------------- | -------------------------------------------------- |
+  | `carbs`         | The number of grams of carbohydrates in this food  |
+  | `fat`           | The number of grams of fat in this food            |
+  | `protein`       | The number of grams of protein in this food        |
+  | `statedCals`    | The number of calories stated on this food's label |
 
   For example, the values for a Snicker bar are:
 
-  | `name`          | `Snickers`      |
-  | --------------- | --------------  |
-  | `carbs`         | `34.5`          |
-  | `fat`           | `13.6`          |
-  | `protein`       | `4.3`           |
-  | `statedCals`    | `271`           |
+  | `name`          | Snickers      |
+  | --------------- | ------------- |
+  | `carbs`         | 34.5          |
+  | `fat`           | 13.6          |
+  | `protein`       | 4.3           |
+  | `statedCals`    | 271           |
 
   At this point, you should be thinking about the data types you would use to represent each of the above
   items.  We tell you that the **name** is a `String`, but what about the other inputs?
@@ -91,16 +80,16 @@ In this lab you develop a simple tool that prints nutrition information about fo
     * There are 9 Calories in a gram of fat.
     * The stated caloric content of some foods may be less than the value you obtain by adding the calories due to carbohydrates, fat, and protein. This is because some of the carbohydrates may be dietary fiber, and as such they are unavailable for your body to use as energy.
 
-        > In the above example, based on carbohydrates, fat, and protein, the food contains 277.6 Calories.
-        > However, the label claims a modest 271 Calories. Thus, 6.6 Calories are unavailable and are   attributed to dietary fiber.
-        >
-        > From this we can compute *6.6 / 4 = 1.65 grams* of the stated carbohydrates are fiber.
+          > In the above example, based on carbohydrates, fat, and protein, the food contains 277.6 Calories.
+          > However, the label claims a modest 271 Calories. Thus, 6.6 Calories are unavailable and are   attributed to dietary fiber.
+          >
+          > From this we can compute *6.6 / 4 = 1.65 grams* of the stated carbohydrates are fiber.
 
     * The percentages shown in the output above feature at most a single digit of precision after the decimal point.
 
-        > You must arrange for your percentages to exactly this precise.
-        > This will take some thought, but it can be done using what is taught in the book: `int` operations, `double` operations, casting, and `Math.round(…)`.
-        > You are **not** allowed to use `printf` or other functions you may find that would accomplish this task. You have to figure out how to do it using what you have learned in this module.
+          > You must arrange for your percentages to exactly this precise.
+          > This will take some thought, but it can be done using what is taught in the book: `int` operations, `double` operations, casting, and `Math.round(…)`.
+          > You are **not** allowed to use `printf` or other functions you may find that would accomplish this task. You have to figure out how to do it using what you have learned in this module.
 
     * The following are taken from this **online resource**:
       * A food is a *low-carb* food if no more than 25% of its calories come from carbohydrates.
