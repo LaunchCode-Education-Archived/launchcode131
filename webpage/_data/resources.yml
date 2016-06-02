@@ -1,8 +1,5 @@
 - title: Course Textbook
-  url: http://cse.wustl.edu/~roger/cse132/cc_v0_05.pdf
-- title: Arduino API
-  url: https://www.arduino.cc/en/Reference/HomePage
+  url: http://introcs.cs.princeton.edu/java/home/
 - title: Java API
   url: https://docs.oracle.com/javase/8/docs/api/
-- title: AVR Reference
-  url: http://www.atmel.com/images/atmel-0856-avr-instruction-set-manual.pdf
+
