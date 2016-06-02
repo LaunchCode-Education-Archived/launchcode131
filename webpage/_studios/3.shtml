@@ -1,55 +1,12 @@
-<html>
-If necessary,
-review <a href="../../StudioDocs/studioheader.html">studio procedures</a> before
-starting.
+---
+title: Arrays
+week: 3
+assigned: Whenever
+due: Whenever
+---
+
+If necessary, review [studio procedures] (.../.../StudioDocs/studioheader.html "Studio Procedures")
+before starting.
+
 <HR>
-<H3>Warmup</H3>
-<!--#include virtual="../../studioinstructions.shtml"-->
-<HR>
-<H3>Sieve of Eratosthenes</H3>
-<p>
-In this studio you will make a <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">sieve of Eratosthenes</a>
-on a one dimensional array. This simple, ancient algorithm finds all the prime numbers within a specified range by 
-eliminating all multiples in the array. 
-<H4>Procedure</H4>
-<OL>
-<LI>Prompt the user for the size, <KBD>n</KBD>, of the array. The sieve will determine all the primes below <KBD>n</KBD>. 
-For discussion purposes, let's say we're dealing with <KBD>n</KBD> = 50
-<LI>Let's consider the best type to make the array. 
-<BLOCKQUOTE>
-Based on the gif on the linked Wikipedia page, we might initially think to choose <KBD>int</KBD>. If we make an 
-<KBD>int[]</KBD>, how should we fill it? Since 0 and 1 are not prime and don't have normal multiples, the first
-number we care about is 2. If we fill it with the range of values (2-50) we could start at the beginning, like this:
-<p>
-<TABLE BORDER CELLPADDING = 5>
-<TR> <TH>array index</TH> <TD>0</TD> <TD>1</TD> <TD>2</TD> <TD>3</TD> <TD>4</TD> <TD>...</TD> <TD>49</TD> </TR>
-<TR> <TH>array contents</TH> <TD>2</TD> <TD>3</TD> <TD>4</TD> <TD>5</TD> <TD>6</TD> <TD>...</TD> <TD>51</TD> </TR>
-</TABLE>
-</BLOCKQUOTE>
-<LI>Write code that instantiates an <KBD>int[]</KBD> of size <KBD>n</KBD> and give it a name. 
-<LI>Use iteration to fill your array with integers so that it matches the one above. 
-<LI>If everything is initially assumed to be prime, we could mark numbers as not prime by setting them equal to zero.
-<LI>Start at the first number in the array (2) and iteratively mark all of its multiples (4, 6, 8, etc.) as 
-not prime.
-<LI>Iterate to the next prime (non zero) element in the array and repeat this process.
-<BLOCKQUOTE>
-Why should we not bother finding multiples of numbers that we previously marked as not prime? 
-</BLOCKQUOTE>
-<LI>Once you have gone through the whole array, anything remaining is a prime number. Print out these numbers. 
-Ex: for n = 50 the expected output is
-<PRE>
-Primes under 50 = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 51
-</PRE> 
-<LI>Try looking up a number to see if it's prime and print out the result. Show what you have so far to a TA.
-<LI>Another idea, for simplicity, is ignoring the first two indexes and start inserting the 2 at the 2 index so that 
-the values and indexes match. Having clear code is much more important than wasting two spaces of memory. 
-<BLOCKQUOTE>
-But then, filling the array with the values is redundant! The gif can be deceiving. All we really need 
-to fill the array with is whether each index number is prime or not. Now, what type should we use to easily mark this?
-</BLOCKQUOTE>
-<LI>Create a new array (or modify your old one) with this new type choice.
-<LI>Fill your new array so that 0 and 1 are not prime, but everything other number is initially prime.
-<LI>Repeat steps 6-8. This time, the last prime printed should be 47.
-<LI>Further food for thought: to make our program more efficient, we can stop looking for multiples early. For example, 
-we know that 40 won't have any multiples in the array. What is the earliest we can stop looking?
-</OL> 
+  
