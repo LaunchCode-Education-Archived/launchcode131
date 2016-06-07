@@ -1,5 +1,5 @@
 ---
-title: The Arduino
+title: Choice and Iteration
 week: 2
 days:
 - date: 2016-02-01
