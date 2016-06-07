@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sieve of Eratosthenes | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/~dshook/cse131/css/main.css">
+  <link rel="canonical" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/weeks/3/studio/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 3 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Studio 3: Sieve of Eratosthenes</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Thu, Jun 30</p>
+						<p><strong>Due:</strong> Thu, Jun 30</p>
+					</aside>
+					
+
+					<hr />
+
+<p>If necessary, review [studio procedures] (…/…/StudioDocs/studioheader.html “Studio Procedures”) before starting.</p>
+
+<hr />
+
+<h3 id="warmups">Warmup(s)</h3>
+
+<ul>
+  <li>
+    <p>First, form a group:</p>
+
+    <ul>
+      <li>If you are at a table with a large, wall-mounted screens, a group of 3-4 people is fine.</li>
+      <li>If you are seated at a table without a large screen, a group of 2 people is better.</li>
+    </ul>
+  </li>
+  <li>All but one member of your group should have this web page open so you can follow along and see the instructions as you work.</li>
+  <li>
+    <p>All members of the group should update their repositories:</p>
+
+    <ul>
+      <li>Open your repository in eclipse</li>
+      <li>Right-click (control-click on a mac) on your repository name</li>
+      <li>Drag down to <code class="highlighter-rouge">Team..</code></li>
+      <li>Choose <code class="highlighter-rouge">Update</code></li>
+      <li>Supply your WUSTL key and password as necessary</li>
+    </ul>
+  </li>
+  <li>Plan to have one computer at which your team does its work. Initially, one of you will be in charge of typing at that computer.</li>
+  <li>Throughout the studio, you should trade who is in charge of the keyboard. Before doing so, <strong>commit your work</strong> to make sure your work is saved.</li>
+</ul>
+
+<hr />
+
+<h3 id="dice-simulation">Dice Simulation</h3>
+<p>In this studio you will simulate the throw of a number of [Dice] (https://en.wikipedia.org/wiki/Dice “Dice Wiki”). This will require using what you have learned in [Module 2] (…/…/Modules/2/ “Module 2”) and [Module 1] (/…/…/Modules/1/ “Module 1”) but will also require the use of <em>arrays</em> as taught in [this module] (/…/…/Modules/3/ “Module 3”).</p>
+
+<p>We ask that you follow these instructions carefully, step-by-step, so as to develop your code by concept refinement. Each concept is first described, and then your group takes steps to implement the concept.
+Ask questions as needed to complete one step before going on to the next.</p>
+
+<h4 id="procedures">Procedures</h4>
+
+<p>In the steps described below, pictures are shown of dice to illustrate the concepts involved in this studio. You will not really be using or displaying the pictures. Instead, your program will <em>simulate</em> throwing dice and you will measure the properties of interest.</p>
+
+<ol>
+  <li>
+    <p>You need two pieces of information from the user:</p>
+  </li>
+  <li>
+    <p><strong>How many dice will be used in this simulation?</strong></p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* For the purposes of this document, let us say that *D* dice are used.
+* As an example, if *D* is 3, then a given throw could be:
+
+    ![Example Throw:] (353.png)
+</code></pre>
+</div>
+
+<ol>
+  <li><strong>How many times will the dice be thrown?</strong></li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* For the purposes of this document, let us say that the dice will be thrown `T` times.
+* As an example, if *T* is `5`, then the dice could be thrown as follows:
+
+    **Figure 1:**
+
+    ![Figure 1] (DieGrid.png)
+</code></pre>
+</div>
+
+<p>At this point,</p>
+
+<ul>
+  <li>Create a class <code class="highlighter-rouge">Dice</code> in the <code class="highlighter-rouge">studio3</code> package (which is in the <code class="highlighter-rouge">studios</code> source folder).</li>
+  <li>
+    <p>Decide on meaningful variable names for the concepts introduced so far:</p>
+
+    <ul>
+      <li>The number of dice used in this simulation.</li>
+      <li>The number of times the dice are thrown.</li>
+    </ul>
+  </li>
+  <li>Insert code to obtain the values for these variables from the user.  If you have forgotten how to do this, look at examples from previous studios or look at the code from lecture.</li>
+  <li>Test your code at this point, printing out the values you have received.</li>
+</ul>
+
+<ol>
+  <li><strong>Now let’s simulate the dice rolls</strong>.  For the purposes of this lab, let’s say that each die is six-sided, and therefore labeled to show the values 1…6. If you have time, you might consider how to change your code to accommodate dice that have fewer or more than 6 sides.</li>
+</ol>
+
+<p>You need to iterate, assigning each die’s roll the value that it shows in your simulated roll. Pseudocode for this activity is shown below:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  // Pseudocode
+  // for each die d
+  //     randomly throw d to obtain the value v, shown face-up on d
+  // end  
+</code></pre>
+</div>
+
+<ol>
+  <li><strong>How should you represent the value v shown on the die?</strong></li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Talk this over as a group. While it is true that in computer science most sequences start at 0, you should pick a representation that helps you solve the problem at hand.
+
+**Hint:** You will need to sum the values shown on the dice. You should therefore pick a representation that makes this easy.
+</code></pre>
+</div>
+
+<ol>
+  <li><strong>How will you compute (by simulation) the value v for each die d’s roll?</strong></li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>You have seen this before: use some simple computation based on `Math.random()` to compute a value in your representation of choice for each die's roll.
+</code></pre>
+</div>
+
+<ol>
+  <li>
+    <p>You next need a mechanism for remembering the value of each die as it is thrown.
+Consider the example shown in [Figure 1] (/…/…/Modules/3/studio.html#fig1 “Figure 1”). After the first throw, we have:</p>
+
+    <p>![Example Throw:] (353.png)</p>
+  </li>
+</ol>
+
+<p>You must provision an array with one slot per die to hold the results of each throw. If <code class="highlighter-rouge">D</code> is the number of dice, then such an array might fit into your program as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  int[] diceThrown = new int[D]
+  // for each die d
+  //     randomly throw d to obtain the value v, shown face-up on d
+  //     record die d's role in the diceThrown array
+  // end
+  // At this point, your dieThrown array has an entry that shows each die's value
+
+&gt; Review the material we have been studying on arrays, and discuss as a group how to deploy the above array to remember each die's value after it has been thrown. Instantiate the array in your code and make sure its size is exactly right for the task at hand.
+</code></pre>
+</div>
+
+<p>For the example abouve, your array might look like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>![Example Array] (dieTable.png)
+</code></pre>
+</div>
+
+<ol>
+  <li>Insert code to print the array’s values, and run your program several times to make sure the values look reasonable.</li>
+</ol>
+
+<hr />
+
+<ol>
+  <li>Around the code you have currently programmed, insert a loop so that your code iterates <em>T</em> times.</li>
+</ol>
+
+<ul>
+  <li>Recall <em>T</em> was a value prompted from the user. It is the number of times we will throw the dice.
+  You do <strong>not</strong> need a different or larger array than the one you already have. You only need to remember the dice values after each throw. You will not be required to remember the values from <em>all</em> of the throws.</li>
+</ul>
+
+<ol>
+  <li>Run your program and examine the values printed from the <em>T</em> iterations. They should continue to look reasonable (albeit random).</li>
+</ol>
+
+<hr />
+
+<ol>
+  <li>Suppose we are interested in how often all of the dice show the same value after they are thrown within one of the <em>T</em> iterations. In the example shown in [Figure 1] (/…/…/Modules/3/studio.html#fig1 “Figure 1”), this happened 1 in 5 times (so, 20% or 0.2).</li>
+</ol>
+
+<blockquote>
+  <p>What are the steps needed to make a concept real? Some related questions are:
+* How can we determine if all dice have the same value after they are thrown? Fortunately, you have stored the dice values so they can be examined after they have all been thrown.
+* How do we keep track of the number of times they all have the same value?
+* How do we report the fraction of times they all have the same value?</p>
+
+  <p>Take those steps now so that your code can determine when all of the dice values are the same. Arrange for your program to print out the fraction or percentage of times the throws result in the same value for all dice.</p>
+</blockquote>
+
+<hr />
+
+<ol>
+  <li>Suppose we are next are interested in the <em>sum</em> of the dice values.</li>
+</ol>
+
+<blockquote>
+  <p>Make this concept real taking the usual steps</p>
+</blockquote>
+
+<ol>
+  <li>Arrange for your program to print out the dice values’ sum each time the dice are thrown. In addition to any output you already produce, you should have T more lines of output, one for each iteration of throwing the dice.</li>
+</ol>
+
+<p>Make sure the results seem reasonable.</p>
+
+<p><strong>If you get this far, that is great, and we will demo you and consider your work done. If you have time now, or inclination later, take a look at the rest and see if you can do it.</strong></p>
+
+<p><strong>This will help prepare you for the exam.</strong></p>
+
+<hr />
+
+<ol>
+  <li>
+    <p>Suppose we are interested in how often each possible sum occurs as the dice are thrown. In the example in [Figure 1] (/…/…/Modules/3/studio.html#fig1 “Figure 1”), the sums were seen as follows:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Sum</th>
+          <th>Number of times Sum was seen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>7</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <blockquote>
+      <p>To make this concept real, have the following discussion:
+* What values could the sum possibly take, given that there are <code class="highlighter-rouge">D</code> dice?
+* Based on what we have studied thus far, kind and type of variable is needed to keep track of the sums?
+* Where in your code should you update how often a sum occurs?</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Arrange for your program to produce output (formatted as you like) that shows how often each sum occurs as a fraction or percentage of all of the throws. It’s OK to report <code class="highlighter-rouge">0</code> for sums whose values did not occur.</p>
+  </li>
+</ol>
+
+<ul>
+  <li>For <code class="highlighter-rouge">D</code> dice, which sums occur most frequently? You can determine this by running your program on different numbers of dice, but using enough iterations to show typical behavior.</li>
+</ul>
+
+<hr />
+
+<h2 id="submitting-your-work-read-carefully">Submitting your work (read carefully):</h2>
+
+<ul>
+  <li>If your studio contains a <code class="highlighter-rouge">feedback.txt</code> file, respond to the questions and supply any requested information.</li>
+  <li>You must commit all of your work to your repository.
+It’s best to do this from the top-most level of your repository, which bears your name and student ID.</li>
+  <li>Follow the instructions in the green box below to receive credit for your work.</li>
+</ul>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-06-06 17:37:43 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/~dshook/cse131/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

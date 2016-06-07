@@ -1,8 +1,8 @@
 ---
 title: Welcome to CSE131!
 week: 0
-assigned: 2016-01-27
-due: 2016-02-03
+assigned: 2016-06-13
+due: 2016-06-13
 ---
 
 * This will be a TOC

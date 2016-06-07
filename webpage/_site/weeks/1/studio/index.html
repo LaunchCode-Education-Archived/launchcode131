@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Getting Started | LaunchCode's CSE131</title>
+  <meta name="description" content="Read this before starting:">
+
+  <link rel="stylesheet" href="/~dshook/cse131/css/main.css">
+  <link rel="canonical" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/weeks/1/studio/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 1 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Studio 1: Getting Started</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Thu, Jun 16</p>
+						<p><strong>Due:</strong> Thu, Jun 16</p>
+					</aside>
+					
+
+					<p>Read this before starting:</p>
+
+<h2 id="studio-sessions-overview">Studio Sessions Overview:</h2>
+
+<ul>
+  <li>We gather as a community in studio session to learn from each other.
+Our community includes:
+    <ul>
+      <li>Instructor</li>
+      <li>TAs</li>
+      <li>Students</li>
+    </ul>
+  </li>
+  <li>Our community is egalitarian in terms of learning:
+all of us will have questions and all of us should try to provide answers.</li>
+  <li>The idea is to challenge each other and to share what we discover.</li>
+  <li>You are free (downright encouraged) to collaborate in this session:
+    <ul>
+      <li>Primarily within your small group of 2-4 people</li>
+      <li>Secondarily with any group in the class</li>
+      <li>As much as you like with the instructor and TAs</li>
+    </ul>
+  </li>
+  <li>In studio, the instructor’s mission is to observe, interact, and work with groups.
+    <ul>
+      <li>How you think, work, and arrive at a solution is more important than getting the right answer.
+Thus, the instructor and TAs will observe you throughout the exercise and offer constructive feedback.</li>
+      <li>The help you receive may be incomplete at any given time,
+so that you can work through more of the solution on your own.
+Do not hesitate to ask for more help.</li>
+    </ul>
+  </li>
+  <li>In studio, the student’s mission is to acquire new knowledge and skills by
+the collaborative solving of problems.
+    <ul>
+      <li>You are <strong>not</strong> graded on whether you get wrong or right answers on this exercise.</li>
+      <li>You are graded on your level of participation in studio.</li>
+    </ul>
+  </li>
+  <li>Participation is defined as:
+    <ul>
+      <li>Asking questions, at any level, of any person in the studio</li>
+      <li>Discussing possible solutions with people in the studio</li>
+      <li>Helping somebody in the studio solve a problem</li>
+      <li>Presenting or demonstrating your solution to people in the studio</li>
+      <li>Documenting your group’s experiences in studio</li>
+    </ul>
+  </li>
+  <li>
+    <p>Please eliminate external stimuli (cell phones, IM, Facebook) during studio.
+Please devote yourself to learning, mastering, and extending the material for the session.</p>
+
+    <blockquote>
+      <p>The results of your studio session are to be reported and documented in a file that you save in your workspace.
+You are to commit that report prior to leaving studio.
+In the descriptions of the studio exercises,
+verbs like <em>report</em> and <em>document</em> are indications of activities you should summarize and discuss in your report.</p>
+
+      <p>In your groups, take turns documenting results,
+looking over shoulders, and staffing the keyboard.</p>
+
+      <p>It is unacceptable to copy anything without understanding it.
+At any point, the TA or instructor can point to something you’ve done and ask you why it works,
+or change it and ask what would happen with the modification.</p>
+    </blockquote>
+
+    <blockquote>
+      <ul>
+        <li>To receive credit for a studio, your team must
+cleared by a TA using the green box at the bottom of this page.</li>
+        <li>Be careful how you use the web.  You are required to develop solutions
+as a group by thinking not by finding solutions that have been thought
+out by others.  You must be able to explain anything that you have done.</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="warmup">Warmup</h3>
+
+<ul>
+  <li>First, form a group:
+    <ul>
+      <li>If you are at a table with a large, wall-mounted screens, a group of 3-4 people is fine.</li>
+      <li>If you are seated at a table without a large screen, a group of 2 people is better.</li>
+    </ul>
+  </li>
+  <li>All but one member of your group should have this web page open so you can follow along and see the instructions as you work.</li>
+  <li>All members of the group should update their repositories:
+    <ul>
+      <li>Open your repository in eclipse</li>
+      <li>Right-click (control-click on a mac) on your repository name</li>
+      <li>Drag down to <code class="highlighter-rouge">Team...</code>`</li>
+      <li>Choose <code class="highlighter-rouge">Update</code></li>
+      <li>Supply your WUSTL key and password as necessary</li>
+    </ul>
+  </li>
+  <li>Plan to have one computer at which your team does its work. Initially, one of you will be in charge of typing at that computer.</li>
+  <li>Throughout the studio, you should trade who is in charge of the keyboard.
+Before doing so, <strong>commit your work</strong> to make sure your work is saved.</li>
+</ul>
+
+<hr />
+
+<h3 id="procedure">Procedure</h3>
+
+<ul>
+  <li>You will complete a series of simple Java programs, and run each program
+to ensure it performs its task correctly.</li>
+  <li>The files for this program are in the <code class="highlighter-rouge">studio1</code> package of the repository you loaded.</li>
+  <li>There are two ways to run programs in this course:
+    <ul>
+      <li>
+        <p><strong>Directly in eclipse:</strong> To run a program, right- (control-)
+click on the file’s name, choose <code class="highlighter-rouge">Run As &amp;hellip; Java Application</code>.  The program will then
+launch and prompt you for the inputs it needs. Try this now on the <code class="highlighter-rouge">Hello</code> class.  When it asks you how you are feeling, enter whatever comes to mind.</p>
+
+        <p>The tools we use are replete with buttons and menus to make programming
+easier.   One such button near the top of your eclipse window is a green
+circle containing a white triangle: <img src="gbutton.png" alt="icon" title="playback icon" /></p>
+
+        <p>Clicking on this button will run the program again. Try running the program using the button.  Isn’t that more fun?</p>
+      </li>
+      <li>
+        <p><strong>Command line:</strong> This method simulates how you would run your
+program from <em>outside</em> eclipse.  You should see a <code class="highlighter-rouge">usecommandline.jar</code>
+file in your studio repo.  Double-click it to run the program, and
+a window should appear.
+If you click in the lower part of that window, you can type commands into that window, including a command that will run
+your Java program.</p>
+      </li>
+    </ul>
+
+    <p>For example, to run the <code class="highlighter-rouge">Hello</code> example, included in this studio,
+you would type:</p>
+
+    <p><code class="highlighter-rouge">java studio1.Hello</code></p>
+
+    <p><img src="cline.png" alt="commandLine" title="Command line example" /></p>
+
+    <p>and hit enter. <strong>Try that.</strong></p>
+
+    <p>On the command line, you can supply the program’s inputs directly, instead
+of being prompted for them one at a time.</p>
+
+    <p>In the command line window, type:</p>
+
+    <p><code class="highlighter-rouge">java studio1.Hello spunky</code></p>
+
+    <p>and hit return. Notice that the program now uses <code class="highlighter-rouge">spunky</code> as its input.</p>
+  </li>
+</ul>
+
+<hr />
+
+<p><strong>Some of the following exercises are adapted from Princeton University’s
+&lt;ahref=”http://www.cs.princeton.edu/courses/archive/spring12/cos126/precepts.php”&gt;COS 126 course&lt;/a&gt;, based on our text by Sedgewick and Wayne.</strong></p>
+
+<p>For each of the following exercises, find the file in your studio repository
+and complete it to do the assigned task.</p>
+
+<p><code class="highlighter-rouge">HiOne</code>
+  1. Say hello to the name supplied as input to this program.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; Sample output: `Hi Ron.  How are you?` (assuming `Ron` was supplied as input)
+
+&gt; Feel free to end the output with punctuation that indicates the level of enthusiasm associated with your greeting.
+</code></pre>
+</div>
+
+<hr />
+
+<p><code class="highlighter-rouge">HiFour</code>
+  1. Expand your hospitality to the <em>four</em> names supplied to this program.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; Sample output: `Greetings Cormen, Leiserson, Rivest, and Stein.` **Be sure to put in** &lt;ahref="http://en.wikipedia.org/wiki/Serial_comma"&gt;proper punctuation&lt;/a&gt; **to separate the names.**
+</code></pre>
+</div>
+
+<hr />
+
+<p><code class="highlighter-rouge">Ordered</code>
+  1. Define a <code class="highlighter-rouge">boolean</code> variable <code class="highlighter-rouge">isOrdered</code> whose value is
+  <code class="highlighter-rouge">true</code> if the three values are either in strictly ascending
+  order (<code class="highlighter-rouge">x &lt; y &lt; z</code>) or in strictly descending order
+  (<code class="highlighter-rouge">x &gt; y &gt; z</code>), and <code class="highlighter-rouge">false</code> otherwise. Print out the variable
+  <code class="highlighter-rouge">isOrdered</code> using <code class="highlighter-rouge">System.out.println(isOrdered)</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; Some of you may already know some Java.  We have not yet covered the
+&gt; `if` statement.  You must use what has been taught so far (simple
+&gt; expressions and assignment) to accomplish this task.
+</code></pre>
+</div>
+
+<hr />
+
+<p><code class="highlighter-rouge">Average</code>
+  1. Complete this code so that it prints the average of its two integer inputs.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; Sample output:
+&gt; `Average of 5 and 6 is 5.5`.
+&gt;
+&gt; Note that the output is specified as a `double`,
+&gt; because the average of two integers is not necessarily an integer.
+</code></pre>
+</div>
+
+<hr />
+
+<p>OK, for this one, you are on your own.  We are not giving you code for this, but will instruct you how to create your own Java file from scratch:</p>
+
+<ol>
+  <li>
+    <p>Right- (control-) click on the <code class="highlighter-rouge">studio1</code> package, select
+  <code class="highlighter-rouge">New&amp;hellip;Class</code>.</p>
+  </li>
+  <li>
+    <p>Type the name <code class="highlighter-rouge">Average</code> and check the box that indicates
+  you want to create <code class="highlighter-rouge">public static void main(String[] args)</code>:</p>
+  </li>
+</ol>
+
+<CENTER>
+  ![Class create] (newclass.png "New Class in Exlipse Example")
+</CENTER>
+
+<ol>
+  <li>Click <code class="highlighter-rouge">Finish</code> and your new class shows up in the editor window.</li>
+  <li>At the top of the <code class="highlighter-rouge">main</code> method, you need to insert the
+  <code class="highlighter-rouge">ArgsProcessor</code> code to accept two integers: <code class="highlighter-rouge">n1</code> and <code class="highlighter-rouge">n2</code>.</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; Refer to other studio code to see how this is done.
+&gt; It is likely that when you type in the code, eclipse will flag your code with an error, because it doesn't know (yet) about `ArgsProcessor`.
+&gt;
+&gt; You can get eclipse to solve its own problem by mousing over the error, and using the first suggestion that pops up, namely to include `ArgsProcessor` from
+&gt; the `cse131` package.
+&gt; Sometimes eclipse is *&amp;uuml;ber* silly and won't tell you about that fix until
+&gt; you have saved your file.  So save it.
+&gt;
+&gt; Try to use meaningful messages to prompt for values.  The units for the values will be interpreted
+&gt; as *grams*.  For example, if `3` is specified for `carbs`,
+&gt; that means that this run of your program is for food that has 3 grams of carbohydrates.
+&gt;
+&gt; **A not so nice prompt:**
+&gt;
+&gt;   `int n1 = ap.nextInt("Yo, sup?");`
+&gt;
+&gt; **And a nice prompt:**
+&gt;
+&gt;   `int n1 = ap.nextInt("The first of two integers to be averaged?");`
+&gt;
+&gt; Run your program and makes sure it prompts you correctly for its values and ask a TA to check your work at this point.
+</code></pre>
+</div>
+
+<ol>
+  <li>Finish the class so it prints out the appropriate message.</li>
+</ol>
+
+<hr />
+
+<h2 id="creative-exercises">Creative Exercise(s)</h2>
+
+<h4 id="grading">Grading</h4>
+<p>Here you write a program that computes your final score for this course,
+  based on the grades you receive.  This program can be useful in tracking your possible final grades based on
+  the grades you have already received and the expected grades for your future
+  assignments.</p>
+
+<ul>
+  <li>
+    <p>Review the
+<a href="../../Info/grades.html">grading policy</a> for this semester.</p>
+  </li>
+  <li>
+    <p>Arrange for your program to accept the student’s name as well as one input for each value used in
+computing your final grade according to the <a href="../../Info/grades.html">grading policy</a>.
+Unless otherwise stated, the range of each of those values is from 0 to 100.
+Below are examples of values used in past semesters.  Use ArgsProcessor to accept input and store
+these values using variables with the appropriate data types:</p>
+
+    <ul>
+      <li>The number of <code class="highlighter-rouge">participation</code> points you received</li>
+      <li>Your average <code class="highlighter-rouge">quiz</code> score</li>
+      <li>The number of <code class="highlighter-rouge">studio</code> points you received</li>
+      <li>The number of <code class="highlighter-rouge">lab</code> points you received</li>
+      <li>The number of <code class="highlighter-rouge">extension</code> points you received</li>
+      <li>Your score on <code class="highlighter-rouge">exam one</code></li>
+      <li>Your score on <code class="highlighter-rouge">exam two</code></li>
+      <li>Your score on <code class="highlighter-rouge">exam three</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Calculate the weighted average of the above values, using weights as specified in the <a href="../../Info/grades.html">grading policy</a>.
+The result of this computation should be a <code class="highlighter-rouge">double</code>.</p>
+  </li>
+  <li>
+    <p>Since your grade is not rounded for this course, you should convert the <code class="highlighter-rouge">double</code> to an <code class="highlighter-rouge">int</code>.</p>
+
+    <ul>
+      <li>This conversion can be accomplished by <em>casting</em>, a topic you should
+find in your text or in the lecture material.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Determine if you received a plus or a minus attached to your grade, such as a “B+” or “A-“.
+Refer to the <a href="../../Info/grades.html">grading policy</a> for these cutoffs (they are the same
+for each letter grade). Consider using the <a href="http://www.cafeaulait.org/course/week2/15.html">mod operator</a> <code class="highlighter-rouge">%</code> to compute the rightmost
+digit of a grade (for example, finding the <code class="highlighter-rouge">8</code> in <code class="highlighter-rouge">98</code>.
+Once you have that digit, devise a boolean expression for each of the following:</p>
+
+    <ul>
+      <li>Does the rightmost digit warrant a <code class="highlighter-rouge">+</code> on the letter grade?</li>
+      <li>Does the rightmost digit warrant a <code class="highlighter-rouge">-</code> on the letter grade?</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Given this input for a given semester’s grading policy:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>Jarett</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>participation</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>quizzes</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>studios</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>labs</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>extensions</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>exam one</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>exam two</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>exam three</td>
+      <td>91</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Your output might resemble:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Jarett:
+Total score: 90.65
+Grade for this course: 90
+Final grade has a...
+  Plus: false
+  Minus: true
+</code></pre>
+</div>
+
+<hr />
+
+<h4 id="ice-cream">Ice Cream</h4>
+
+<p>As a group, brainstorm the best data type to represent the following
+situations:</p>
+
+<blockquote>
+  <p>Often, there is no <em>right</em> or <em>wrong</em> answer.  Be prepared
+to defend your choices.</p>
+</blockquote>
+
+<ul>
+  <li>The number of times you have been to [Ted Drewes] (http://www.teddrewes.com/home/default.aspx)</li>
+  <li>Whether you like [vanilla frozen custard] (http://www.teddrewes.com/sitecontent/dynamiccontent.aspx?pid=76&amp;uid=D18D6B6C-7948-4C04-8F59-12F77F9F3F49) or not</li>
+  <li>The number of people you can take in your car</li>
+  <li>The price of a small cup of [vanilla frozen custard] (http://www.teddrewes.com/sitecontent/dynamiccontent.aspx?pid=76&amp;uid=D18D6B6C-7948-4C04-8F59-12F77F9F3F49)</li>
+  <li>The name of your favorite [special] (http://www.teddrewes.com/sitecontent/Specials.aspx) offering from
+[Ted Drewes] (http://www.teddrewes.com/home/default.aspx)</li>
+  <li>The [address] (http://www.teddrewes.com/sitecontent/dynamiccontent.aspx?pid=92&amp;uid=1FA7B06F-39EC-4A8E-8A31-23EE0B783705)
+of the [Ted Drewes] (http://www.teddrewes.com/home/default.aspx) that is closest to campus</li>
+  <li>The percentage of calories in [vanilla frozen custard] (http://www.teddrewes.com/sitecontent/dynamiccontent.aspx?pid=76&amp;uid=D18D6B6C-7948-4C04-8F59-12F77F9F3F49) that come from fat</li>
+  <li>The probability that you will see a friend at [Ted Drewes] (http://www.teddrewes.com/home/default.aspx) when you go there</li>
+</ul>
+
+<hr />
+
+<h2 id="submitting-your-work-read-carefully">Submitting your work (read carefully):</h2>
+<ul>
+  <li>If your studio contains a <code class="highlighter-rouge">feedback.txt</code> file, respond to the questions and supply any requested information.</li>
+  <li>You must commit all of your work to your repository.
+It’s best to do this from the top-most level of your repository, which bears your name and student ID.</li>
+  <li>Follow the instructions in the green box below to receive credit for your work.</li>
+</ul>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-06-06 17:37:43 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/~dshook/cse131/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>
