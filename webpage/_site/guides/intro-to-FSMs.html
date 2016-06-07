@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Introduction to Finite State Machines | LaunchCode's CSE131</title>
+  <meta name="description" content="For lab 4 you need to implement the protocol we designed in class. There are multiple ways to do this, but this tutorial will explain the way we think is sim...">
+
+  <link rel="stylesheet" href="/~dshook/cse131/css/main.css">
+  <link rel="canonical" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/guides/intro-to-FSMs.html">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper">
+			<header class="site-header ">
+	
+		<h1>Introduction to Finite State Machines</h1>
+	
+</header>
+
+
+			<div class="container">
+				<nav class="site-nav">
+<ul class="nav-list">
+	
+	<li class="nav-list__item">
+	
+		<a href="/~dshook/cse131/">
+			Home
+		</a>
+	</li>
+
+	
+		
+			
+			
+				
+				<li class="nav-list__item">
+				
+					<a href="/~dshook/cse131/calendar/">
+						Calendar
+					</a>
+				</li>
+			
+		
+	
+		
+			
+			
+				
+				<li class="nav-list__item">
+				
+					<a href="/~dshook/cse131/instructors/">
+						Instructor & TAs
+					</a>
+				</li>
+			
+		
+	
+		
+			
+			
+				
+				<li class="nav-list__item">
+				
+					<a href="/~dshook/cse131/style-guide/">
+						Style Guide
+					</a>
+				</li>
+			
+		
+	
+		
+			
+			
+		
+	
+		
+	
+		
+			
+			
+		
+	
+	
+	<li class="nav-list__header">Weeks
+		<ol>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/0/">
+					0: Welcome
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/1/">
+					1: Intro and Types and Names
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/2/">
+					2: Choice and Iteration
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/3/">
+					3: Arrays
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/4/">
+					4: Input and Output
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/5/">
+					5: Methods
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/6/">
+					6: Recursion
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/7/">
+					7: Objects
+				</a>
+			</li>
+			
+		</ol>
+	</li>
+	<li class="nav-list__header">Guides
+		<ol>
+			
+			
+			<li class="nav-list__item nav-list__item--current">
+			
+				<a href="/~dshook/cse131/guides/intro-to-FSMs.html">
+					
+						FSMs
+					
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/guides/intro-to-circuits.html">
+					
+						Circuits
+					
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/guides/intro-to-information.html">
+					
+						Information
+					
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/guides/intro-to-objects.html">
+					
+						Objects
+					
+				</a>
+			</li>
+			
+		</ol>
+	</li>
+	<li class="nav-list__header">Reference
+		<ol>
+			
+			<li class="nav-list__item">
+				<a href="http://introcs.cs.princeton.edu/java/home/" target="blank">
+					Course Textbook
+				</a>
+			</li>
+			
+			<li class="nav-list__item">
+				<a href="https://docs.oracle.com/javase/8/docs/api/" target="blank">
+					Java API
+				</a>
+			</li>
+			
+		</ol>
+	</li>
+</ul>
+</nav>
+
+<section class="site-content">
+	<p>For lab 4 you need to implement the protocol we designed in class. There are multiple ways to do this, but this tutorial will explain the way we think is simplest. Looking at the assignment, you may think you need to use a ton of <code class="highlighter-rouge">if</code> statements. While you could code the lab in this way, it will probably be very long and confusing.</p>
+
+<p>Instead, we want to introduce the <strong>Finite State Machine</strong>, one of the most powerful ideas in computing. However, in order to code it in a way that’s not confusing, you’ll need to know a few concepts first. Namely, <code class="highlighter-rouge">switch</code>es and <code class="highlighter-rouge">enum</code>s.</p>
+
+<h2 id="switches">Switches</h2>
+
+<p>The first concept is called a <code class="highlighter-rouge">switch</code> statement. It’s  a more convenient way to write <code class="highlighter-rouge">if</code> statements that have a lot of cases. Instead of a series of comparisons to one variable, you check several different cases of a variable. For example, if you had the basic code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int friends = 0;
+if(friends == 0) {
+	System.out.println("You have no friends.");
+} else if(friends == 1) {
+	System.out.println("You have one friend.");
+} else {
+	System.out.println("You have many friends");
+	System.out.println("You are cool.");
+}
+
+// Prints "You have no friends."
+</code></pre>
+</div>
+
+<p>You could instead write a <code class="highlighter-rouge">switch</code> statement that checks the value of <code class="highlighter-rouge">friends</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int friends = 0;
+switch(friends) {
+	case 0:
+		System.out.println("You have no friends.");
+		break;
+	case 1:
+		System.out.println("You have one friend.");
+		break;
+	default:
+		System.out.println("You have many friends");
+		System.out.println("You are cool.");
+		break;
+}
+
+// Still prints "You have no friends."
+</code></pre>
+</div>
+
+<p>Now, this is not particularly useful because we have so few cases, but it’s useful to have a small example to explain the syntax:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>switch(variable) { // the variable to compare
+	case 0: // runs if variable == 0
+		// statements
+		break; // each case must end in a `break`
+	default: // runs if none of the cases match
+		break;
+}
+</code></pre>
+</div>
+
+<p>You should see the value of a switch statement in a larger example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int month = 8;
+String monthString;
+// We designate the switch to act according the value stored in month
+switch (month) {
+// The switch will check all of the cases you list
+// This is equivalent to if (month = = 1)...
+    case 1:  monthString = "January";
+             break;
+    case 2:  monthString = "February";
+             break;
+    case 3:  monthString = "March";
+             break;
+    case 4:  monthString = "April";
+             break;
+    case 5:  monthString = "May";
+             break;
+    case 6:  monthString = "June";
+             break;
+    case 7:  monthString = "July";
+             break;
+    case 8:  monthString = "August";
+             break;
+    case 9:  monthString = "September";
+             break;
+    case 10: monthString = "October";
+             break;
+    case 11: monthString = "November";
+             break;
+    case 12: monthString = "December";
+             break;
+    // Catches all of the times when an invalid input is given
+    default: monthString = "Invalid month";
+             break;
+}
+// In this case, August would be printed
+System.out.println(monthString);
+</code></pre>
+</div>
+
+<h2 id="enums">Enums</h2>
+
+<p>An <code class="highlighter-rouge">enum</code> is a built-in data type, just like an <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">float</code>, or <code class="highlighter-rouge">String</code>. It lets you assign variables to be one of a series of constants you create. For example, the cardinal directions:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public enum Direction { NORTH, SOUTH, EAST, WEST }
+Direction treasureDirection = Directions.NORTH;
+</code></pre>
+</div>
+
+<p>As you can see, defining an enum creates a new type with the name of your enum. From the example above, we create the <code class="highlighter-rouge">Direction</code> type:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public enum Direction { NORTH, SOUTH, EAST, WEST }
+</code></pre>
+</div>
+
+<p>You can now use the <code class="highlighter-rouge">Direction</code> type like any other variable – maybe in a switch statement:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>switch(treasureDirection) {
+	case NORTH:
+		// grab coats &amp; snowboots
+		break;
+	case EAST:
+		// pack swimsuit to cross Atlantic
+		break;
+	case WEST:
+		// roadtrip!
+		break;
+	case SOUTH:
+		// get some sunglasses
+		break;
+	default:
+		System.out.println("I don't think that's a direction.");
+		break;
+}
+</code></pre>
+</div>
+
+<p>There are a couple gotchas to both <code class="highlighter-rouge">enum</code>s and <code class="highlighter-rouge">switch</code> statements, but this is enough to learn about Finite State Machines.</p>
+
+<h2 id="finite-state-machines">Finite State Machines</h2>
+
+<p>A <strong>finite state machine</strong> is a model used in computer science to represent a stateful system and its behavior.</p>
+
+<p>We introduce the <strong>Moore machine</strong>, one type of FSM (you learn about other types in a computer architecture course like CSE260M). In a Moore machine, you make a list of possible states your system can be in, and for each state you decide how input to your system will modify the state.</p>
+
+<p>For example, imagine a computer for a traffic light. You might have three different states: red, yellow, or green. You could also have an “advance” input that progresses the traffic light. We can represent this stateful system in a FSM, and it turns out most of the time the standard is to just draw it:</p>
+
+<p><img src="http://i.imgur.com/UC113L8.jpg" alt="A very simple traffic light FSM, with three states G, Y, and R." /></p>
+
+<p>Where each circle is a state – green, yellow, or red – and the arrows indicate how the one input changes the systems state. The disconnected arrow indicates the initial state.</p>
+
+<p>FSMs can also take multiple inputs. You could represent a search for the letters “dog” in a string with a FSM like this, where you output some <code class="highlighter-rouge">success</code> variable when you’re in the green state:</p>
+
+<p><img src="http://i.imgur.com/M90rfHi.jpg" alt="A FSM that takes a string and returns true if the sequence &quot;DOG&quot; is present in it." /></p>
+
+<p>You can also have multiple outputs for each state. Consider the long-studied and intractible problem of getting a hot pocket fully cooked:</p>
+
+<p><img src="http://i.imgur.com/VN8cJZ0.jpg" alt="The quintessential problem illustrated." /></p>
+
+<p>Notice that every state must have defined transitions for every input, in this case <code class="highlighter-rouge">nuke</code> and <code class="highlighter-rouge">wait</code>.</p>
+
+<h2 id="your-lab">Your Lab</h2>
+
+<p>You can model your lab as a FSM, with the input coming from your <code class="highlighter-rouge">InputStream</code>. What states might you need? Here are a few to get you started: “waiting for magic number”, “waiting for input type”, “reading raw temperature”, etc. This is something that makes sense to list as an <code class="highlighter-rouge">enum</code>.</p>
+
+<p>Now your program will have several distinct parts. You’ll keep track of what your current state is, and, based on that current state, select the next state based on the input from your stream (maybe using a <code class="highlighter-rouge">switch</code> statement?). You’ll also look at the input and have your protocol act appropriately (saving data, printing debug info, etc). Then you’ll switch to the next state and run the loop again.</p>
+
+<p>This can look something like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>State state = State.waitingForMagicNumber;
+while(true) {
+	if(in.available() &gt; 0) {
+		State nextState;
+		switch(state) {
+			case State.waitingForMagicNumber:
+				// read a byte
+				if( /* byte is magic number */ ) {
+					nextState = State.waitingForInputType;
+				} else {
+					nextState = State.waitingForMagicNumber;
+				}
+				break;
+			// ... all your other states ...
+			case State.readingRawTemperature:
+				// read however many bytes are necessary
+				// parse them intelligently
+				// save them
+				nextState = State.waitingForMagicNumber;
+				break;
+			// ... all your other states ...
+			default:
+				State.waitingForMagicNumber;
+				break;
+		}
+        state = nextState;
+	}
+}
+</code></pre>
+</div>
+
+<p>Remember that every state needs a valid transition for every possible input, and think about what states you need to read the protocol properly.</p>
+
+<p>Good luck!</p>
+
+</section>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-06-06 17:37:44 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by Josh Gelbard and Ben Stolovitz.
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/~dshook/cse131/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

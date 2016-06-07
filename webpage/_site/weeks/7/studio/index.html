@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Object Design | LaunchCode's CSE131</title>
+  <meta name="description" content="Studio">
+
+  <link rel="stylesheet" href="/~dshook/cse131/css/main.css">
+  <link rel="canonical" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/weeks/7/studio/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 7 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Studio 7: Object Design</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Thu, Jul 28</p>
+						<p><strong>Due:</strong> Thu, Jul 28</p>
+					</aside>
+					
+
+					<h3 id="studio">Studio</h3>
+
+<p>======
+If necessary, review studio procedures before starting.</p>
+
+<h4 id="warmup">Warmup</h4>
+
+<ul>
+  <li>First, form a group:
+    <ul>
+      <li>If you are at a table with a large, wall-mounted screen, a group of 3-4 people is fine.</li>
+      <li>If you are seated at a table without a large screen, a group of 2 people is better.</li>
+    </ul>
+  </li>
+  <li>All but one member of your group should have this web page open so you can follow along and see the instructions as you work.</li>
+  <li>All members of the group should update their repositories:
+    <ul>
+      <li>Open your repository in eclipse</li>
+      <li>Right-click (control-click on a mac) on your repository name</li>
+      <li>Drag down to <code class="highlighter-rouge">Team...</code></li>
+      <li>Choose <code class="highlighter-rouge">Update</code></li>
+      <li>Supply your WUSTL key and password as necessary</li>
+    </ul>
+  </li>
+  <li>Plan to have one computer at which your team does its work. Initially, one of you will be in charge of typing at that computer.</li>
+  <li>Throughout the studio, you should trade who is in charge of the keyboard. Before doing so, <strong>commit your work</strong> to make sure your work is saved.</li>
+</ul>
+
+<p>======</p>
+
+<h4 id="guidelines">Guidelines</h4>
+
+<ul>
+  <li>This week’s studio is an exercise in <em>design</em>, so get your
+right brains limbered up for some creative thinking.</li>
+  <li>In design, there are no wrong or right answers.  However, some designs
+are better than others for certain purposes.<br />
+It will be important for each person in your
+group to be able to defend your team’s design.
+    <ul>
+      <li>If some member does not understand an aspect of your team’s design, the entire team may be docked studio credit.   It is not necessary that all decisions be made with unanimity, but the issues that influece the design one way or the other <em>must</em> be understood by all members of your team.</li>
+    </ul>
+  </li>
+  <li>A rush to implement something fully will be a Bad Idea. The group’s goal this week is to arrive at a design, not an implementation.</li>
+  <li>That said, we will be developing <em>stubs</em> in eclipse to
+represent the design, with a bit of <em>Javadoc</em> above each class
+and method to help generate documentation.
+    <li>
+      <p>As you design, thank about the <strong>has-a</strong> idea presented in class
+and articulate the <strong>behaviors</strong> you want your object to have.</p>
+
+    </li>
+  </li>
+</ul>
+<blockquote>
+  <p>The examples from lecture are included in your studio repository</p>
+</blockquote>
+
+<ul>
+  <li>The design problems are presented to you in the form of a <a href="http://www.extremeprogramming.org/rules/userstories.html">user story</a>.</li>
+  <li>Designs must evolve with changes in a system’s requirements.  The studio
+session will be divided into two segments:
+    <ol>
+      <li>(1 hour) You will design some classes whose descriptions are linked
+ at the bottom of this page.  The result of that work will be a set
+ of stubs with Javadoc to capture the design.</li>
+      <li>(30 minutes) (Cue the <a href="elaugh.wav">evil laughter</a>. You will respond to a last-minute change or update
+ to the system’s specification.
+ Your team must think about the easiest
+ way to accommodate the change and write up a description about how your
+ system is affected.</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="cautions">Cautions</h4>
+
+<ul>
+  <li>
+    <p>Use rich data types where possible, both to document your design and to leverage Java’s type system to avoid bugs in your program.</p>
+
+    <p>For example, instead of representing a given account using an integer,
+ an actual object <code class="highlighter-rouge">Account</code> was defined.  Similarly,
+ an integer suffices to hold color information for a pixel, but
+ a <code class="highlighter-rouge">Color</code> class (type) was defined to provide reliable
+ functionality and to hide details of the implementation
+ (encapsulation).</p>
+  </li>
+  <li>
+    <p>Avoid passing parameters of generic type that represent something
+     that could have been its own class.  For example, consider
+     using <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> coordinates to represent
+     a point, as shown below:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>    public void f(int x1, int y1, int x2, int y2) {...}
+</code></pre>
+    </div>
+
+    <p>It is easy to forget the order in which the integers must be passed
+ to <code class="highlighter-rouge">f</code>.  To avoid such chaos and to make the program more
+ readable, articulate a <code class="highlighter-rouge">Point</code> object that has an <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> coordinate.  The method then becomes</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>    public void f(Point p1, Point p2) {... }
+</code></pre>
+    </div>
+  </li>
+  <li>Every class should have its <code class="highlighter-rouge">toString()</code> method defined,
+     so that the class can return a <code class="highlighter-rouge">String</code> with some
+     meaningful information about the class.<br />
+     Generally, <code class="highlighter-rouge">toString()</code>
+     methods should avoid invoking the <code class="highlighter-rouge">toString()</code> methods of any
+     other class.</li>
+  <li>Instance variables should be defined where necessary, but declared
+     <code class="highlighter-rouge">private</code> to guard against accidental access or
+     modification outside of the class holding the instance variables.</li>
+  <li>Where necessary, each class should provide methods that get and set
+     its local instance variables.</li>
+</ul>
+
+<blockquote>
+  <p>Recall eclipse can generate those for you automatically.</p>
+</blockquote>
+
+<p>It is customary to base the name of such methods consistently on the name of the associated instance variable:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  public Person getPerson() {
+     return person;
+  }
+
+  public void setPerson(Person person) {
+     this.person = person;
+  }
+</code></pre>
+</div>
+
+<p>======
+<strong><a href="design.html">Design problems (click here, revealed when studio starts)</a></strong></p>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-06-06 17:37:44 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/~dshook/cse131/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

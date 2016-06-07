@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gambler's Ruin and Pi | LaunchCode's CSE131</title>
+  <meta name="description" content="Review [studio procedures] (http://www.cs.wustl.edu/~jp/cse131/StudioDocs/studioheader.html “Studio Procedures”)before starting.">
+
+  <link rel="stylesheet" href="/~dshook/cse131/css/main.css">
+  <link rel="canonical" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/weeks/2/studio/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 2 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Studio 2: Gambler's Ruin and Pi</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Thu, Jun 23</p>
+						<p><strong>Due:</strong> Thu, Jun 23</p>
+					</aside>
+					
+
+					<p>Review [studio procedures] (http://www.cs.wustl.edu/~jp/cse131/StudioDocs/studioheader.html “Studio Procedures”)
+before starting.</p>
+
+<hr />
+
+<p><strong>Feel free to participate in a different group than last time. This is totally
+up to you, but try to find a group that makes it easy for you to participate.</strong></p>
+
+<p><strong>Be careful how you use the web.  You are required to develop solutions
+as a group by thinking not by finding solutions that have been thought
+out by others.  You must be able to explain anything that you have done.</strong></p>
+
+<hr />
+
+<h3 id="warmups">Warmup(s)</h3>
+
+<ul>
+  <li>First, form a group:
+    <ul>
+      <li>If you are at a table with a large, wall-mounted screens, a group of 3-4 people is fine.</li>
+      <li>If you are seated at a table without a large screen, a group of 2 people is better.</li>
+    </ul>
+  </li>
+  <li>All but one member of your group should have this web page open so you can follow along
+and see the instructions as you work.</li>
+  <li>All members of the group should update their repositories:
+    <ul>
+      <li>Open your repository in eclipse</li>
+      <li>Right-click (control-click on a mac) on your repository name</li>
+      <li>Drag down to <code class="highlighter-rouge">Team...</code></li>
+      <li>Choose <code class="highlighter-rouge">Update</code></li>
+      <li>Supply your WUSTL key and password as necessary</li>
+    </ul>
+  </li>
+  <li>Plan to have one computer at which your team does its work.
+Initially, one of you will be in charge of typing at that computer.</li>
+  <li>Throughout the studio, you should trade who is in charge of the keyboard.  Before
+doing so, <strong>commit your work</strong> to make sure your work is saved.</li>
+</ul>
+
+<hr />
+
+<h3 id="two-problems-follow--first-pick-the-one-of-greatest-interest-to-your-group-and-try-to-finish-that-one-if-you-have-time-then-try-the-other-one">Two problems follow.  First pick the one of greatest interest to your group and try to finish that one. If you have time, then try the other one.</h3>
+
+<hr />
+
+<h3 id="problem-1-determining-the-gc-content-of-dna">Problem 1: Determining the GC content of DNA</h3>
+
+<p>[DNA] (https://en.wikipedia.org/wiki/DNA “DNA Wiki”) is comprised of two long polymers
+(often called strands) of <em>nucleotides</em>. Each nucleotide is commonly one of four
+possible <em>bases</em> denoted by a single character: A, T, C, or G.</p>
+
+<p>An organism’s DNA, once determined, is often represented as a string whose characters
+that represent a portion of one strand of the DNA.</p>
+
+<p>One property of interest to biologist is the GC content of DNA: what fraction of an organism’s DNA are the bases G or C?</p>
+
+<p>In this studio, your team should do the following:</p>
+
+<ol>
+  <li>With your repository open, create a <code class="highlighter-rouge">GC</code> class in the <code class="highlighter-rouge">studio2</code> package</li>
+</ol>
+
+<ul>
+  <li>Be sure to check the box that generates <code class="highlighter-rouge">public static void main</code>.  Otherwise you
+  will have to type that by hand.</li>
+</ul>
+
+<ol>
+  <li>
+    <p>Your first task is to generate a random string of DNA, as follows:</p>
+  </li>
+  <li>
+    <p>Prompt the user to supply an integer that will be the length of the string you will generate.</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; If you don't remember how to do this, look at code from a previous studio or lab.
+</code></pre>
+</div>
+
+<ol>
+  <li>
+    <p>Use iteration, conditionals, and the random-number generator to generate a random <code class="highlighter-rouge">String</code> of DNA.</p>
+  </li>
+  <li>
+    <p>Print that string so we can see it.</p>
+  </li>
+  <li>
+    <p>Run the <code class="highlighter-rouge">CG</code> program several times. Check the output to make sure it looks reasonable
+in terms of the length and contents.</p>
+  </li>
+</ol>
+
+<blockquote>
+  <p>You should ensure that your code works properly for <em>edge cases</em>.  For example,
+what happens if the user specifies <code class="highlighter-rouge">0</code> as the desired length?</p>
+
+  <p>Also, because you are using the random-number generator, your output
+should look different among different runs.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Now let’s compute the CG content of your generated DNA.</p>
+  </li>
+  <li>
+    <p>Just after you have printed the DNA, write a loop that computes how many Bases
+  in the DNA string are <code class="highlighter-rouge">C</code> or <code class="highlighter-rouge">G</code>.</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Case matters. A `G` and a `g` are two different characters.
+Be sure you are looking for the proper case.
+* If you have a `String` s, then the caracter at position i can be gotten by:
+
+  `char r = s.charAt(i);`
+
+* Note that the first chracter in `s` occurs at location `0`. If `s` has `n` characters,
+then its last character occurs at location `n-1`.
+* To compare r to a character constant, surround that character
+constant with single quotes, as in:
+
+        if (r == 'G') {
+
+            System.out.println("I saw a G.");
+
+        }
+</code></pre>
+</div>
+
+<ol>
+  <li>
+    <p>Print an informative message that shows the fraction or percent of the generated DNA that is <code class="highlighter-rouge">G</code> or <code class="highlighter-rouge">C</code>.</p>
+  </li>
+  <li>
+    <p>Go back and change the probabilities of generating the four specific bases,
+  so that you are more likely to generate <code class="highlighter-rouge">G</code> or <code class="highlighter-rouge">C</code> than <code class="highlighter-rouge">A</code> or <code class="highlighter-rouge">T</code>.</p>
+  </li>
+  <li>
+    <p>Rerun your program and see if your analysis confirms that the distribution was suitably affected.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h3 id="problem-2-computing-pi-httpsenwikipediaorgwikipi-pi-wiki-by-throwing-darts">Problem 2: Computing [Pi] (https://en.wikipedia.org/wiki/Pi “Pi Wiki”) by throwing darts</h3>
+
+<p>Computer scientists often use [simulation] (http://en.wikipedia.org/wiki/Simulation “simulation”) as a means of
+modeling, understanding, and predicting real-world phenomena.</p>
+
+<p>Your group is auditioning for [survivor] (http://en.wikipedia.org/wiki/Survivor_%28TV_series%29)
+by proving your group’s ability to compute [Pi] (http://en.wikipedia.org/wiki/Pi) using
+only the materials at hand, as follows:</p>
+
+<ul>
+  <li>A unit-square dart board (say, 1 meter by 1 meter).  Unit-square
+ dart boards are astoundingly resilient in plane crashes,
+ and yours is nicely intact.</li>
+  <li>Some darts, suitable for throwing at the dart board.</li>
+  <li>A string and a stylus, standard safety-kit issue, suitable for
+inscribing a unit circle in your unit-square dartboard.</li>
+  <li>
+    <p>A dart-throwing expert.  However, since the plane crash, the
+expert is left with the (uncanny) ability to throw darts that always land
+somewhere, uniformly and randomly, within the unit-square dart board.</p>
+
+    <blockquote>
+      <p>While the thrower never misses the unit square, the darts
+land sometimes within the inscribed circle, sometimes not.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>As a group, develop an approach for computing [Pi] (http://en.wikipedia.org/wiki/Pi) based on
+the above materials.</p>
+  </li>
+  <li>
+    <p>Implement your approach using iteration. You can start with the following
+<a href="Studio/Pi.java">Pi.java</a> file that you can paste into a new
+Java class in one of your lab projects.</p>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p>You will need to simulate a random dart thrower. The function <code class="highlighter-rouge">math.random()</code> will help, as it returns a nonnegative
+  double less than 1.0.  You may also find the <code class="highlighter-rouge">Math.sqrt()</code> function to be helpful.</p>
+
+    <blockquote>
+      <p>This may be the first new Class you have developed, but eclipse makes it easy:
+* Right-click on the package name in which you want to define the new class.  In this case, use <code class="highlighter-rouge">studio2</code>.
+* Click <code class="highlighter-rouge">New...</code>
+* Choose <code class="highlighter-rouge">Class</code>
+* Pick the name <code class="highlighter-rouge">Pi</code> for this class, since the code you will paste is for class <code class="highlighter-rouge">Pi</code>.
+<strong>Java style dictates that its classes should begin with a capital letter!</strong>
+* When the editor opens for your new class, copy and paste the code from
+<a href="Studio/Pi.java">Pi.java</a> into the class.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<ol>
+  <li>Investigate and discuss how well your
+technique computes [Pi] (https://en.wikipedia.org/wiki/Pi “Pi Wiki”).</li>
+</ol>
+
+<hr />
+
+<h3 id="further-investigations">Further investigations</h3>
+
+<p>If you have time, pick one or both of the following:</p>
+
+<ol>
+  <li>
+    <p>Investigate the fairness of the [<code class="highlighter-rouge">math.random()</code>]
+(http://docs.oracle.com/javase/6/docs/api/java/lang/Math.html#random() “Math.random() docs”) method.</p>
+  </li>
+  <li>What normative criteria should a random number possess?</li>
+  <li>How can you measure the fairness of a random number generator?</li>
+  <li>
+    <p>Implement some tests and discuss your results amongst yourselves and
+  other groups.</p>
+  </li>
+  <li>There are other ways of [computing Pi] (http://en.wikipedia.org/wiki/Pi “Pi Wiki”).
+Try some of these and study their effectiveness in terms of the number of iterations you use.</li>
+</ol>
+
+<hr />
+
+<h2 id="submitting-your-work-read-carefully">Submitting your work (read carefully):</h2>
+
+<ul>
+  <li>If your studio contains a <code class="highlighter-rouge">feedback.txt</code> file, respond to the questions and supply any requested information.</li>
+  <li>You must commit all of your work to your repository.
+It’s best to do this from the top-most level of your repository, which bears your name and student ID.</li>
+  <li>Follow the instructions in the green box below to receive credit for your work.</li>
+</ul>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-06-06 17:37:43 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/~dshook/cse131/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

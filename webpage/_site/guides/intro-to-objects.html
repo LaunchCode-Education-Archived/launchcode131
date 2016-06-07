@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>A Brief Introduction to Object-Oriented Programming | LaunchCode's CSE131</title>
+  <meta name="description" content="In CSE 131, you spent a lot of your time digging into code that was almost completely prepared for you. This meant that you didn’t have to worry about the bi...">
+
+  <link rel="stylesheet" href="/~dshook/cse131/css/main.css">
+  <link rel="canonical" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/guides/intro-to-objects.html">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper">
+			<header class="site-header ">
+	
+		<h1>A Brief Introduction to Object-Oriented Programming</h1>
+	
+</header>
+
+
+			<div class="container">
+				<nav class="site-nav">
+<ul class="nav-list">
+	
+	<li class="nav-list__item">
+	
+		<a href="/~dshook/cse131/">
+			Home
+		</a>
+	</li>
+
+	
+		
+			
+			
+				
+				<li class="nav-list__item">
+				
+					<a href="/~dshook/cse131/calendar/">
+						Calendar
+					</a>
+				</li>
+			
+		
+	
+		
+			
+			
+				
+				<li class="nav-list__item">
+				
+					<a href="/~dshook/cse131/instructors/">
+						Instructor & TAs
+					</a>
+				</li>
+			
+		
+	
+		
+			
+			
+				
+				<li class="nav-list__item">
+				
+					<a href="/~dshook/cse131/style-guide/">
+						Style Guide
+					</a>
+				</li>
+			
+		
+	
+		
+			
+			
+		
+	
+		
+	
+		
+			
+			
+		
+	
+	
+	<li class="nav-list__header">Weeks
+		<ol>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/0/">
+					0: Welcome
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/1/">
+					1: Intro and Types and Names
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/2/">
+					2: Choice and Iteration
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/3/">
+					3: Arrays
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/4/">
+					4: Input and Output
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/5/">
+					5: Methods
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/6/">
+					6: Recursion
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/weeks/7/">
+					7: Objects
+				</a>
+			</li>
+			
+		</ol>
+	</li>
+	<li class="nav-list__header">Guides
+		<ol>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/guides/intro-to-FSMs.html">
+					
+						FSMs
+					
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/guides/intro-to-circuits.html">
+					
+						Circuits
+					
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item">
+			
+				<a href="/~dshook/cse131/guides/intro-to-information.html">
+					
+						Information
+					
+				</a>
+			</li>
+			
+			
+			<li class="nav-list__item nav-list__item--current">
+			
+				<a href="/~dshook/cse131/guides/intro-to-objects.html">
+					
+						Objects
+					
+				</a>
+			</li>
+			
+		</ol>
+	</li>
+	<li class="nav-list__header">Reference
+		<ol>
+			
+			<li class="nav-list__item">
+				<a href="http://introcs.cs.princeton.edu/java/home/" target="blank">
+					Course Textbook
+				</a>
+			</li>
+			
+			<li class="nav-list__item">
+				<a href="https://docs.oracle.com/javase/8/docs/api/" target="blank">
+					Java API
+				</a>
+			</li>
+			
+		</ol>
+	</li>
+</ul>
+</nav>
+
+<section class="site-content">
+	<p>In CSE 131, you spent a lot of your time digging into code that was almost completely prepared for you. This meant that you didn’t have to worry about the big-picture stuff—you could focus on figuring out the details of the methods you were supposed to be working on.</p>
+
+<p>Unfortunately, the real programming world isn’t always like that. Starting with CSE 132, you will be asked to do a lot more overhead work (sometimes you’ll even be building entire, working projects from the ground up). To be able to do this, you need to have some familiarity with <strong>object-oriented programming</strong>, which is the way Java and C++ (and most programming languages) work. Thankfully, a lot of people have made online tutorials that will help you learn the basics. The goal of this document is to point you to these sources of information and help you wrap your head around the concept of object-oriented programming.</p>
+
+<p>By the end of this document you should:</p>
+
+<ul>
+  <li>know how classes and objects work and why they do what they do,</li>
+  <li>be able to make real-life analogies to object-oriented programming concepts so that you can actually use objects in code,</li>
+  <li>know the basic vocabulary of object-oriented programming, and</li>
+  <li>know where to look if you ever get confused or forget how the syntax works in Java.</li>
+</ul>
+
+<p>Let’s get started!</p>
+
+<h2 id="what-is-object-oriented-programming">What is object-oriented programming?</h2>
+
+<p>The first thing to understand is that <strong>object-oriented programming</strong> is a programming “paradigm” and it is a really, really good way to code things<sup id="fnref:sometimes"><a href="#fn:sometimes" class="footnote">1</a></sup>, which is why we do it.</p>
+
+<p>If you are wondering:</p>
+
+<ul>
+  <li>“What the heck is object-oriented programming?” or</li>
+  <li>“Why do we have to overcomplicate our code by making objects instead of just coding things outright?”</li>
+</ul>
+
+<p>Then watch the first 3 minutes or so of this <a href="http://study.com/academy/lesson/object-oriented-programming-vs-procedural-programming.html">Khan academy video</a>.</p>
+
+<p>Most of the remaining articles are from the official Java documentation.</p>
+
+<h1 id="what-are-objects">What are objects?</h1>
+
+<p>If you are wondering:</p>
+
+<ul>
+  <li>“I’m still not sure what an object is…” or</li>
+  <li>“Is there a real-life analogy to objects?”</li>
+</ul>
+
+<p>You might want to read <a href="https://docs.oracle.com/javase/tutorial/java/concepts/object.html">What Is an Object?</a>. It’s a little bit technical, but you should be able to see how real-life items can be modeled as objects.</p>
+
+<p><strong>Quick quiz</strong>: Pretend that you are modeled by an object in Java.</p>
+
+<ol>
+  <li>Is this a reasonable analogy? (hint: do you, like all Java objects, have “states” and “behaviors”?)</li>
+  <li>What are some states you might have? (hint: for me, some examples would be <code class="highlighter-rouge">Name: Rishil</code>, <code class="highlighter-rouge">hairColor: Black</code> etc.)</li>
+  <li>What are some behaviors that you might have? (hint: for me, some examples would be <code class="highlighter-rouge">walk</code> or <code class="highlighter-rouge">talk</code>)</li>
+  <li>What are some behaviors you have that can change your own state? (hint: for me, some examples would be <code class="highlighter-rouge">changeName</code> or <code class="highlighter-rouge">dyeHair</code>)</li>
+  <li>What are some behaviors you have that can change the state of other objects? (hint: for me, some examples would be <code class="highlighter-rouge">turnOffComputer</code> or <code class="highlighter-rouge">wakeUpRoommate</code>)</li>
+</ol>
+
+<p><strong>States</strong> and <strong>behaviors</strong> are loosely associated with instance/field variables and methods in Java, as we’ll see in a little bit.</p>
+
+<h2 id="what-are-classes">What are Classes?</h2>
+
+<p>If you are wondering:</p>
+
+<ul>
+  <li>“How do you construct an object?”</li>
+  <li>“How can I bring <a href="https://answers.yahoo.com/question/index?qid=20090820162913AAmid41">Platonic Ideals</a> into this?” or</li>
+  <li>“Objects like you and me all have something in common: we’re all people.”</li>
+</ul>
+
+<p>Then you might want to know <a href="https://docs.oracle.com/javase/tutorial/java/concepts/class.html">What Is a Class?</a>. What is an <strong>instance</strong> of a <strong>class</strong>? What is an <strong>object</strong>?</p>
+
+<p>Of course, you might also want to know <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/classdecl.html">how to build a class</a>.</p>
+
+<p><strong>Quick Quiz</strong>:</p>
+
+<ol>
+  <li>What’s the syntax you would use to create a new class <code class="highlighter-rouge">Person</code>?</li>
+  <li>How would you make an instance of that class?</li>
+  <li>What’s the difference between an <strong>instance</strong> and a <strong>class</strong>?</li>
+</ol>
+
+<p>There are some common things that go into classes:</p>
+
+<h3 id="member-variables">Member variables</h3>
+
+<p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html">What are member variables?</a></p>
+
+<p><strong>Quick Quiz</strong>: If we created a <code class="highlighter-rouge">Person</code> class, what are some field variables that we could have? Try and add these field variables:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">String hairColor</code></li>
+  <li><code class="highlighter-rouge">String eyeColor</code></li>
+  <li><code class="highlighter-rouge">String name</code></li>
+  <li><code class="highlighter-rouge">int age</code></li>
+  <li><code class="highlighter-rouge">String occupation</code></li>
+  <li><code class="highlighter-rouge">bool isCute</code></li>
+</ul>
+
+<ol>
+  <li>What should their <strong>access modifier</strong> be – should they be <code class="highlighter-rouge">public</code>, <code class="highlighter-rouge">protected</code>, or <code class="highlighter-rouge">private</code>?</li>
+  <li>Should these be <strong>instance variables</strong> or <strong>class variables</strong>? What’s the difference?</li>
+  <li>Try and think of a few other properties that would make sense for a person to have, and code those in as well.</li>
+</ol>
+
+<h3 id="methods">Methods</h3>
+
+<p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html">What’s a method?</a> Don’t worry about overloading methods if it seems confusing. In fact, the documentation even has a warning:</p>
+
+<blockquote>
+  <p>“<strong>Note</strong>: Overloaded methods should be used sparingly, as they can make code much less readable.”</p>
+</blockquote>
+
+<p>Let’s think of some methods a <code class="highlighter-rouge">Person</code> object might have (you don’t need to code these). Methods can change the state of that <code class="highlighter-rouge">Person</code>’s field variables (for example, a function called <code class="highlighter-rouge">puberty()</code> might change the <code class="highlighter-rouge">isCute</code> variable to <code class="highlighter-rouge">false</code>).</p>
+
+<p>Try and think of how you would code a <code class="highlighter-rouge">changeName()</code> method.  There’s a problem. How do we know what name you want to change your name to? With what we know right now, we would have to create a lot of methods to solve this problem. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public void changeNameToLinkai() {
+	this.name = "Linkai";
+}
+public void changeNameToEzekiel() {
+	this.name = "Ezekiel";
+}
+// TODO allow name change to "Amandabeth"
+// ...
+</code></pre>
+</div>
+
+<p>…and so on, for every name in the universe. Clearly this is not a good way to implement a <code class="highlighter-rouge">changeName()</code> method. If only there was a way for us to tell the function which name we wanted to change to when we called it. Oh wait, there is a way to do that, and it’s called using a <strong>parameter</strong>. Now, instead, our <code class="highlighter-rouge">changeName()</code> method looks something like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public void changeName(String newName) {
+	this.name = newName;
+}
+</code></pre>
+</div>
+
+<p>When we call the <code class="highlighter-rouge">changeName</code> method on a certain object, we can pass in a name to the variable <code class="highlighter-rouge">newName</code> as a parameter.</p>
+
+<h3 id="constructors">Constructors</h3>
+
+<p>Learn about <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html">constructors</a> now. One thing this tutorial mentions is that you can have more than one constructor in the same class. If that’s confusing, don’t worry about it too much.</p>
+
+<p>If we created a <code class="highlighter-rouge">Person</code> class, what might our constructor look like? Let’s pretend that the constructor creates a baby. So, when we instantiate a <code class="highlighter-rouge">Person</code> object, what are some things about its state that we can set right away? Well:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public Person(String itsHairColor, 
+	String itsEyeColor, 
+	String itsName) {
+	
+	this.hairColor = itsHairColor;
+	this.eyeColor = itsEyeColor;
+	this.name = itsName;
+	this.age = 0;
+	this.occupation = "unemployed";
+	this.isCute = true;
+}
+</code></pre>
+</div>
+
+<p>Some things, like hair color and eye color, were parameters that we decided to pass into the constructor. This is because they are different for every person so we need to specify what they are upon construction. Other things, like age, occupation or cuteness, are the same for every person at the time of construction, so we could just set them to <code class="highlighter-rouge">0</code> or <code class="highlighter-rouge">"unemployed"</code> or <code class="highlighter-rouge">true</code>. Try and think of some more attributes a person can have, and then add a constructor to your Person class using the right syntax.</p>
+
+<p>It’s also useful to read up about <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html">arguments</a>.</p>
+
+<h3 id="inheritance">Inheritance</h3>
+
+<p>So now we’ve gone over the basics. The last thing we need to cover is <strong>inheritance</strong>, which is what makes object-oriented programming so versatile.</p>
+
+<p>So learn about <a href="https://docs.oracle.com/javase/tutorial/java/concepts/inheritance.html">inheritance</a>.</p>
+
+<p>Evolution in Biology and inheritance in Java have a lot in common. Imagine, for a moment, that we have a class called <code class="highlighter-rouge">Mammal</code>. What might be some of its field variables? Is there anything we could cede from the <code class="highlighter-rouge">Person</code> class into the <code class="highlighter-rouge">Mammal</code> parent class (<strong>superclass</strong>)?</p>
+
+<p>The <code class="highlighter-rouge">Mammal</code> class is a superclass of lots of other classes, meaning that there are a lot of classes that inherit all the qualities and methods that all mammals have, but also have their own unique properties. These classes are called “subclasses” of the class <code class="highlighter-rouge">Mammal</code>. Some examples would be the <code class="highlighter-rouge">Dog</code> class, or the <code class="highlighter-rouge">Bear</code> class or even the <code class="highlighter-rouge">Person</code> class.</p>
+
+<p>If our <code class="highlighter-rouge">Mammal</code> class existed, it would be appropriate for our <code class="highlighter-rouge">Person</code> class syntax to be something like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public class Person extends Mammal { 
+	// notice "extends Mammal"
+	// ...
+}
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">Mammal</code> class could itself be a subclass of class <code class="highlighter-rouge">Animal</code>, which could itself be a subclass of class <code class="highlighter-rouge">Eukaryote</code> and so on and so forth.</p>
+
+<p>If we kept going up the chain like this, is there a class that has no superclass—a class which all other classes inherit from? In real life, this is a question for your religious leader. But, in Java, the answer is yes, and it is the <code class="highlighter-rouge">Object</code> class. The <code class="highlighter-rouge">Object</code> class is like a platypus— it doesn’t really do much<sup id="fnref:what"><a href="#fn:what" class="footnote">2</a></sup>. If you ever declare a class without using the <code class="highlighter-rouge">extends</code> keyword, Java will just automatically assume that you are extending <code class="highlighter-rouge">Object</code>.</p>
+
+<h2 id="summary">Summary</h2>
+<p>Congratulations, the conceptual section of the tutorial is over! Now that you’ve learned how to create classes, the next step is learning how to initialize and use objects in your functions. Java’s tutorials speak for themselves, so I will let them do the work.</p>
+
+<p>Start reading the <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/objects.html">tutorials</a> and read up until the <strong>Questions and Exercises</strong> section.</p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:sometimes">
+      <p>Well, it’s good for a lot of things. Other paradigms include <a href="http://www.smashingmagazine.com/2014/07/dont-be-scared-of-functional-programming/">functional programming</a>, <a href="https://en.wikibooks.org/wiki/A-level_Computing/AQA/Problem_Solving,_Programming,_Data_Representation_and_Practical_Exercise/Problem_Solving/Finite_state_machines">finite state machines</a>, and a <a href="https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms">whole mess of other things</a>. <a href="#fnref:sometimes" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:what">
+      <p>Editors note: I have no clue what Rishil meant by this simile. <a href="#fnref:what" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+</section>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-06-06 17:37:44 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by Rishil Mehta.
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/~dshook/cse131/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

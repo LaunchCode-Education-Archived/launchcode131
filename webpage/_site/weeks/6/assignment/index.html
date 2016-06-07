@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Recursion | LaunchCode's CSE131</title>
+  <meta name="description" content="Procedure">
+
+  <link rel="stylesheet" href="/~dshook/cse131/css/main.css">
+  <link rel="canonical" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/weeks/6/assignment/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="http://students.cec.wustl.edu/~dshook/cse131/~dshook/cse131/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 6 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Assignment 6: Recursion</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Mon, Jul 18</p>
+						<p><strong>Due:</strong> Mon, Jul 25</p>
+					</aside>
+					
+
+					<h3 id="procedure">Procedure</h3>
+
+<blockquote>
+  <p>Preparation:</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>It is suggested that you do this lab with somebody else, in pairs.</li>
+    <li>If you choose to work in pairs, both group members must understand all written an coded material.</li>
+    <li>Complete your work in either member’s repository.</li>
+    <li>When you demo, both group members must be present.</li>
+  </ul>
+</blockquote>
+
+<p>Update your repository so that you see a <code class="highlighter-rouge">lab6</code> package in the <code class="highlighter-rouge">labs</code> source folder.</p>
+
+<h4 id="consider-the-old-camp-song">1. Consider the old camp song:</h4>
+<blockquote>
+  <p><em>n</em> bottles of beer on the wall, <em>n</em> bottles of beer;
+you take one down, pass it around, <em>n-1</em> bottles of beer on the wall.</p>
+
+  <p><em>n-1</em> bottles of beer on the wall, <em>n-1</em> bottles of beer;
+you take one down, pass it around, <em>n-2</em> bottles of beer on the wall.</p>
+</blockquote>
+
+<p>and so on down to 0 bottles of beer on the wall.</p>
+
+<ul>
+  <li>Find the recursive substructure in the above song.</li>
+  <li>Create a new class <code class="highlighter-rouge">Beer</code> in your <code class="highlighter-rouge">lab6</code> package.</li>
+</ul>
+
+<blockquote>
+  <p>Be sure to check the box that asks for <code class="highlighter-rouge">public static void main</code> to be generated.</p>
+</blockquote>
+
+<ul>
+  <li>In your <code class="highlighter-rouge">Beer</code> class, develop a recursive algorithm <code class="highlighter-rouge">String bottlesOfBeer(int n)</code> that computes the song starting at <em>n</em> and ending at <em>0</em>. Your recursive method should not print anything, but when your algorithm is working, print the string finally returned by the recursive method.</li>
+  <li>Write code into the main method of <code class="highlighter-rouge">Beer</code> to call <code class="highlighter-rouge">bottlesOfBeer(5)</code> and print out the string returned by that method.</li>
+  <li>Test your program for other input parameters. Be prepared to demo this for a TA to receive credit for this lab.</li>
+</ul>
+
+<h4 id="here-is-a-simple-but-interesting-recursive-function">2. Here is a simple but interesting recursive function.</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    f(x) =    x-10     if x &gt; 100
+         = f(f(x+11))  if x &lt;= 100
+</code></pre>
+</div>
+
+<ul>
+  <li>Using the substitution model, sketch the computation of <code class="highlighter-rouge">f(99)</code>.</li>
+</ul>
+
+<blockquote>
+  <p>Be prepared to show your substitution model computation to a TA when you demo.</p>
+</blockquote>
+
+<ul>
+  <li>Sketch the computation of <code class="highlighter-rouge">f(87)</code>.</li>
+  <li>Be prepared to answer the following questions about the above code:
+    <ul>
+      <li>Will this function terminate for all positive integers supplied as arguments.</li>
+      <li>What do you expect this function to do for values of x &gt; 100?</li>
+      <li>How will it behave for values &lt;= 100?</li>
+    </ul>
+  </li>
+  <li>In the <code class="highlighter-rouge">Methods</code> class, implement the function, test it to develop or valdiate your hypotheses, and be prepared to demo your function to a TA.</li>
+</ul>
+
+<h4 id="here-is-another-interesting-recursive-function">3. Here is another interesting recursive function:</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    g(x,y)  = y+1               if x = 0
+            = g(x-1,1)          if x &gt; 0 and y = 0
+            = g(x-1, g(x, y-1)) if x &gt; 0 and y &gt; 0
+</code></pre>
+</div>
+
+<ul>
+  <li>Using the substitution model, sketch the computations  of
+    <ul>
+      <li>g(1,0)</li>
+      <li>g(1,2)</li>
+      <li>g(2,2)</li>
+    </ul>
+  </li>
+  <li>Will this function terminate for all positive integers supplied as arguments?</li>
+  <li>How do you expect this function behave with respect to <strong>x</strong> and <strong>y</strong>?</li>
+  <li>Implement it and try it out for values of x &lt; 4 and various values of y.</li>
+  <li>Now try it for x = 4 and various values of y.</li>
+  <li>What do you see?</li>
+</ul>
+
+<blockquote>
+  <p>You may be interested to know that the red square button will terminate your application.</p>
+</blockquote>
+
+<ul>
+  <li>Why does the function behave this way?</li>
+</ul>
+
+<h4 id="consider-the-picture-below">4. Consider the picture below.</h4>
+
+<ul>
+  <li>Think about what you see:  what is foreground and what is background?</li>
+  <li>Develop an approach for drawing the figure recursively.
+    <ul>
+      <li>What is the base case?</li>
+      <li>What are the recursive calls doing?</li>
+    </ul>
+  </li>
+  <li>Create a <code class="highlighter-rouge">Triangles</code> class in the <code class="highlighter-rouge">lab6</code> package.</li>
+  <li>Implement your ideas in the <code class="highlighter-rouge">Triangles</code> class, and be prepared to demo and discuss your code to a TA to receive credit for this lab.</li>
+</ul>
+
+<p><img src="triangle.png" alt="Sierpinski Triangle" /></p>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-06-06 17:37:43 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/~dshook/cse131/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>
