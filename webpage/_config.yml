@@ -26,7 +26,7 @@ collections:
     output: true
   studios:
     output: true
-  guides:
+  preps:
     output: true
 
 defaults:
@@ -72,6 +72,9 @@ defaults:
     due: TBD
 - scope:
     path: ""
-    type: guides
+    type: preps
   values:
-    layout: page
+    week: na
+    layout: writeup
+    type: prep
+    permalink: weeks/:week/prep/

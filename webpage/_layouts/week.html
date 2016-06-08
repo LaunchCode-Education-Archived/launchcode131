@@ -8,6 +8,20 @@ layout: default
 	<section>{{ content }}</section>
 
 	<ul class="block-list">
+	
+		{% for prep in site.preps limit:20 %}
+			{% assign sweek = prep.week | downcase %}
+			{% assign pweek = page.week | downcase %}
+			{% if sweek == pweek %}
+			<li class="block-list__item">
+			<a href="{{ site.baseurl }}{{ prep.url }}" class="button">
+			Prep
+			&raquo;
+			{{ prep.title }}</a>  
+				</li>
+			{% endif %}
+		{% endfor %}
+		
 		{% for studio in site.studios limit:20 %}
 			{% assign sweek = studio.week | downcase %}
 			{% assign pweek = page.week | downcase %}
@@ -34,16 +48,5 @@ layout: default
 			{% endif %}
 		{% endfor %}
 
-		{% for guide in site.guides limit:20 %}
-			{% assign pweek = page.week | downcase %}
-			{% if guide.week contains pweek %}
-			<li class="block-list__item">
-			<a href="{{ site.baseurl }}{{ guide.url }}" class="button">
-			Guide
-			&raquo;
-			{{ guide.title }}</a>  
-				</li>
-			{% endif %}
-		{% endfor %}
 	</ul>
 </section>
