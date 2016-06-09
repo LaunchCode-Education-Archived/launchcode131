@@ -8,7 +8,6 @@ author: Ben Stolovitz
 {% include nav.html %}
 
 <section class="site-content site-content--full">
-	<p>This is the course calendar. May change.</p>
 	
 	<table class="calendar">
 		<thead class="calendar__head">
@@ -34,7 +33,7 @@ author: Ben Stolovitz
 			</tr>
 		</tfoot>
 		<tbody>
-			{% for week in site.weeks %}
+			{% for week in site.weeks limit:5 %}
 				{% for day in week.days %}
 					<tr class="calendar__row">
 						{% if forloop.first %}

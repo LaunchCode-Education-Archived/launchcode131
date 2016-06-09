@@ -27,9 +27,30 @@
 		{% endif %}
 	{% endfor %}
 	
+	<li class="nav-list__item">
+		<a href="https://piazza.com/class/ip8kdkf77c3230">
+			Piazza
+		</a>
+	</li>
+	<li class="nav-list__item">
+		<a href="https://www.vocareum.com/">
+			Vocareum
+		</a>
+	</li>
+	<li class="nav-list__item">
+		<a href="https://slack.com/">
+			Slack
+		</a>
+	</li>
+	<li class="nav-list__item">
+		<a href="https://bitbucket.org/">
+			BitBucket
+		</a>
+	</li>
+	
 	<li class="nav-list__header">Weeks
 		<ol>
-			{% for week in site.weeks limit:20 %}
+			{% for week in site.weeks limit:5 %}
 			{% if page.url == week.url %}
 			<li class="nav-list__item nav-list__item--current">
 			{% else %}
@@ -43,23 +64,10 @@
 		</ol>
 	</li>
 	<li class="nav-list__header">Guides
-		<ol>
-			{% for guide in site.guides limit:20 %}
-			{% if page.url == guide.url %}
-			<li class="nav-list__item nav-list__item--current">
-			{% else %}
-			<li class="nav-list__item">
-			{% endif %}
-				<a href="{{ site.baseurl }}{{ guide.url }}">
-					{% if guide.short %}
-						{{ guide.short }}
-					{% else %}
-						{{ guide.title }}
-					{% endif %}
-				</a>
-			</li>
-			{% endfor %}
-		</ol>
+		<ul>
+			<li class="nav-list__item"><a href="{{ site.baseurl }}/preps/installeclipse.mp4">Installing Eclipse</a>
+			<li class="nav-list__item"><a href="{{ site.baseurl }}/weeks/0/prep/#access-your-repository">Accessing Your Repository</a>
+		</ul>
 	</li>
 	<li class="nav-list__header">Reference
 		<ol>

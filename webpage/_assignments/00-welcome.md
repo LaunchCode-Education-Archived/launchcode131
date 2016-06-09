@@ -73,80 +73,26 @@ If you have not yet installed eclipse, follow
 </aside>
 
 1. *Start eclipse:*
-	* If you are working on your own computer, launch eclipse.  You can use the default location for your workspace.
-
-	* On CEC computers, click on the Start button and look under "All Programs", "Programming"
-to start up **eclipse&nbsp;Luna**.  
+	* Launch eclipse.  You can use the default location for your workspace.
 
 	The first time eclipse starts, it may be slower than usual.
 	You will be asked where you want your workspace to be.
-
-	> We recommend using the **H** drive, and then creating a folder there called **workspace** in your **documents** folder.
 
 	After eclipse starts up, click the 'X' on the "Welcome" tab at the top to close the welcome screen.
 
 2. *Identifying your repository:*
 
 	Open the
-	<a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a>
+	[git tutorial](../prep/#access-your-repository)
 	in another window, and follow
-	the steps given there to specify a subversion repository.  
+	the steps given there to set up your git repository.  
 
-
-	> When you
-	get to the point of entering the full and complete location
-	of the repository, copy and paste the line below as the repository's URL:
-	>
-	> **<FONT SIZE="-1"><FONT COLOR="blue">YYYY</FONT></FONT>/cse131_fl15/java**
-	>
-	> After pasting:
-	>
-	> Change <FONT COLOR="blue">YYYY</FONT> to your WUSTL key,
-	*using lower case letters only*.  Include all punctuation that
-	is normally part of your WUSTL key.
-	>
-	> If you would normally type in the WUSTL key shown on the left, you need
-	to use the version shown in blue on the right to access your repository:
-	> Examples:
-	>
-	> * RonKCytron &rarr; <FONT COLOR="blue">ronkcytron</FONT>
-	> * ima.StudeNt &rarr; <FONT COLOR="blue">ima.student</FONT>
-	> * Queen.Mary.4 &rarr; <FONT COLOR="blue">queen.mary.4</FONT>
-
-	Although only you can access your repository, you should generally keep your
-	WUSTL key a secret.
-
-3. OK, click Finish to get the repository location validated.
-
-4. When you are prompted for a username and password, supply your
-
-	* WUSTL key username (again, all letters must be lower-case)
-	* WUSTL key password
-
-
-		> Your WUSTL key username and password are what you use to log
-		> into WebSTAC for registration.  These credentials may be different than those
-		> required to log into a lab computer.
-		>
-		> *Be careful!* If you provide a bad password repeatedly,
-		> your account will get locked out after a small number of such attempts.
-		> So be sure to follow
-		> these instructions carefully and ask if things are not working.
-
-
-5. Continue following the rest of the instructions in the <a href="../../Videos/Instructions/usingsubversive.mp4">subversive tutorial</a> so that you are back in the Java view and have the project available for your use.  
-
-	> Those instructions next ask you to Check Out a copy of the
-	> repository location so you can do the work for this lab.
-	> Be *sure* to right click on the whole project (your name and ID number)
-	> to do the checkout.  Do NOT click on things below that like **labs**.
-
-6. *Look at your project:*
+3. *Look at your project:*
 	If you are back in the Java view, then
 	you should see a project in the Package Explorer at the left side of the eclipse window. The name of the project is the hyphenation of your last name and
 	your student ID number.
 
-7. *Look at the source code:*
+4. *Look at the source code:*
 
 	<aside class="sidenote">
 	Throughout the semester,
@@ -173,18 +119,18 @@ to start up **eclipse&nbsp;Luna**.
 
 	For now, you don't need to understand what you see.  We just want the computer to run this program.
 
-8. *Run the program:* Right click on **RobotController.java** and select
+5. *Run the program:* Right click on **RobotController.java** and select
 	*Run as -> Java application*. In the bottom right corner, you will see a *GO* button.  
 	Click the *Go*.  The program should create a robot, and you should see the robot start to move.
 
-9. *Modifying programs:* In general, before you can execute a Java program, it must first be compiled (translated) into *byte code* that can be executed by the Java interpreter. A program that performs this translation is called a *compiler*.  Eclipse checks your files to see if they will compile, and it marks errors so you can correct them.  If you position the mouse cursor over an error icon or a red underline, a description of the error will be displayed.
+6. *Modifying programs:* In general, before you can execute a Java program, it must first be compiled (translated) into *byte code* that can be executed by the Java interpreter. A program that performs this translation is called a *compiler*.  Eclipse checks your files to see if they will compile, and it marks errors so you can correct them.  If you position the mouse cursor over an error icon or a red underline, a description of the error will be displayed.
 
 Try typing some random text into the **RobotController.java** file to introduce an error.  You
 should see an error icon appear at the left.  Note that sometimes the
 error message appears on the line *after* the error.  At the bottom of
 the window, you'll see **console** and **problems**.  The console window shows any printed output of the program.  If you click on **problems** you'll see a list of the errors, and clicking on an item in the list will take you to the location of that error in the Java file so you can correct it.	Undo your typing, or close (without saving) and re-open the file.
 
-10. *Make the robot do your bidding:* So your real assignment here is to provide some instructions so that the robot navigates from CEC to your instructor's office.  
+7. *Make the robot do your bidding:* So your real assignment here is to provide some instructions so that the robot navigates from CEC to your instructor's office.  
 
 	1. Open up the **RobotInstructions** file, which is also in your **lab0** package. This is where the commands to move the robot are written.
 
@@ -220,9 +166,9 @@ the window, you'll see **console** and **problems**.  The console window shows a
 
 	Also, feel free to walk the route yourself, and stop by the instructor's office to say hello sometime.  Visitors are usually treated to soda and candy.
 
-11. *Commit your work:* Now that you have modified a file, take a look at the Package Explorer window and you should see some **&gt;** signs next to the files that have been changed.  The **&gt;** sign warns you that you have modified files that have not been committed back to the repository. The files won't be visible by TAs or the instructor until you *commit* them.
+8. *Commit your work:* Now that you have modified a file, take a look at the Package Explorer window and you should see some **&gt;** signs next to the files that have been changed.  The **&gt;** sign warns you that you have modified files that have not been committed back to the repository. The files won't be visible by TAs or the instructor until you *commit* them.
 
-To commit them, locate the name of your project (your name and ID) in the package explorer window of eclipse.  Right (control) click on that, go down to *Team...* and select *Commit*.  You should see activity reflective of Elipse sending your modified code back to the repository.
+To commit them, locate the name of your project (your name and ID) in the package explorer window of eclipse.  Right (control) click on that, go down to *Team...* and select *Commit*.  Enter a commit message, then click the *Commit and Push* button.
 
 > *Tip:*  It is good practice to commit your code often.  You can always recover any previously committed version
 > of your software.  Committing your code allows you to work on the code from a different computer, and ensures that
@@ -231,44 +177,15 @@ To commit them, locate the name of your project (your name and ID) in the packag
 You now know the basic steps to create projects, as well as open, edit, compile, and run Java programs in eclipse.  You should also have a basic understanding of sequential execution and how to call methods on ojects.
 *Please ask if you have questions about any of this.*
 
-## Anatomy of a Java File, Overview of the Course
-
-OK so you can program a robot now to go where you want it to go.  How does this fit into the rest of the course?
-Based on the instructor's presentation, you will next complete a simple online activity (in pairs if you like), with the
-goal of understanding the anatomy of a Java file.
-
-The course will then proceed from the most simple aspects of programming in Java to the more complex parts.
-
-> * The online activity can be found <a href="Lab/Description/ClickQuiz.shtml">here</a>.
-> * Try it (in pairs if you like) until you get it completely right.  
-> * Be prepared to identify the anatomy of a Java file
-> when the TA checks you off.
-
 ##Course Information
 
 Take some time to peruse the web site. Are you clear about
 course policies concerning grading and attendance?
 
-* How do studios count toward your grade?
-* How do labs count toward your grade?
+* How do studios count toward completion?
+* How do labs count toward completion?
 * What happens if you cannot turn in a lab on time?
-* How many extension points do you need to earn an A?
-* What are the possible consequences of inappropriate collaboration?
 
 ##Submitting your work
 
-* Make sure your work is committed before asking a TA to sign you off
-* The green block you see below appears at the end of any studio or lab assignment for which you need a TA to
-clear you.  
-* Please type in the requested information before you flag down a TA.
-
-The information logged by this activity will result in a blackboard grade being posted for your assignment,
-but that grade may not show up for a week or so.
-
-You should have already done this, but just in case,
-be sure you have committed your work back to the repository as follows:
-
-> 1. Right click on the project (your name-ID) in the Package Explorer
-> 2. Drag down to *Team*....*Commit....*
-> 3. You can fill in some comment there &mdash;  be creative.
-> 4. Click OK to cause your changes to be saved in the repository.
+To submit your work, contact the instructor or a TA. They will walk you through the submission process. Be prepared to show them the work that you have done and answer their questions about it!
