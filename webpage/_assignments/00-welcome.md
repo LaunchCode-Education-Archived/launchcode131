@@ -29,18 +29,7 @@ These steps will have to be repeated and followed for every assignment you work 
 
 Whenever you sit down to work on an assignment, you **must always** pull from origin/master before working. If you don't, it is possible that you'll cause a conflict.
 
-###Which computer should you use for this lab session?
-
-* For most of this course's assignments, you will probably want to do the work on your
-own computer.  
-
-* There should be time at the end of this lab session for you to install the course software
-on your computer.
-
-* If you don't have your computer with you, or the software is not yet installed, then please use a
-lab computer in this room.
-
-##Getting Started with Java in eclipse with Subversion
+##Getting Started with Java in eclipse with Git
 
 Professional software developers use an <a href="http://en.wikipedia.org/wiki/Integrated_development_environment">Integrated Development Environment (IDE)</a> that includes a text editor (for
 creating source code), a <a href="http://en.wikipedia.org/wiki/Compiler">compiler</a> (for translating source code into
@@ -54,18 +43,12 @@ Professional software developers also use a
 <a href="http://en.wikipedia.org/wiki/Software_versioning">versioning repository</a> to
 store their code, so that they can share their code easily and keep track
 of the changes they make.  We will be using the
-<a href="http://subversion.apache.org/">subversion</a> revision control
+<a href="https://git-scm.com/">git</a> revision control
 system.  It will allow you to submit your code for grading and to
 share it with TAs who can help you with problems you might encounter.
 
-> **Attention wireless users in CEC labs!!**
->
-> You must be on a *non-guest* network to access your repository.
-> If your wireless network name has the word **guest** in it somewhere,
-> switch to one that does not.
-
 This part of the lab explains how to get started using eclipse with
-subversion.
+git.
 
 <aside class="sidenote">
 If you have not yet installed eclipse, follow
@@ -114,8 +97,6 @@ If you have not yet installed eclipse, follow
 	4. Double-click the file named **RobotController.java** to open it.
 	Look at the source code in the middle window.
 	You'll see instance variables, methods, and a main method.  
-
-	> If what you see makes sense to you already, you may not need to take this class.
 
 	For now, you don't need to understand what you see.  We just want the computer to run this program.
 
