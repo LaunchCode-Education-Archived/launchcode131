@@ -15,7 +15,7 @@ author: Ben Stolovitz
 				<th class="calendar__colhead calendar__item--right">#</th>
 				<th class="calendar__colhead calendar__item--left">Module</th>
 				<th class="calendar__colhead">Date</th>
-				<th class="calendar__colhead">Logistics</th>
+				<th class="calendar__colhead">Agenda</th>
 				<th class="calendar__colhead">Preparation</th>
 				<th class="calendar__colhead">Assigned</th>
 				<th class="calendar__colhead">Due</th>
@@ -26,14 +26,14 @@ author: Ben Stolovitz
 				<th class="calendar__colfoot calendar__item--right">#</th>
 				<th class="calendar__colfoot calendar__item--left">Module</th>
 				<th class="calendar__colfoot">Date</th>
-				<th class="calendar__colfoot">Logistics</th>
+				<th class="calendar__colfoot">Agenda</th>
 				<th class="calendar__colfoot">Preparation</th>
 				<th class="calendar__colfoot">Assigned</th>
 				<th class="calendar__colfoot">Due</th>
 			</tr>
 		</tfoot>
 		<tbody>
-			{% for week in site.weeks limit:5 %}
+			{% for week in site.weeks limit:4 %}
 				{% for day in week.days %}
 					<tr class="calendar__row">
 						{% if forloop.first %}

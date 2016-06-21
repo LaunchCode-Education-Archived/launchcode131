@@ -10,8 +10,8 @@ title: "LaunchCode's CSE131"
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   LaunchCode's CSE131 homepage for Summer 2016
-baseurl: "/~dshook/cse131" # the subpath of your site, e.g. /blog
-url: "http://students.cec.wustl.edu/~dshook/cse131" # the base hostname & protocol for your site
+baseurl: "/launchcode131-stlouis" # the subpath of your site, e.g. /blog
+url: "https://education.launchcode.org/launchcode131-stlouis" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
@@ -27,6 +27,8 @@ collections:
   studios:
     output: true
   preps:
+    output: true
+  extensions:
     output: true
 
 defaults:
@@ -78,3 +80,11 @@ defaults:
     layout: writeup
     type: prep
     permalink: weeks/:week/prep/
+- scope:
+    path: ""
+    type: extensions
+  values:
+    week: na
+    layout: writeup
+    type: extension
+    permalink: weeks/:week/ext/

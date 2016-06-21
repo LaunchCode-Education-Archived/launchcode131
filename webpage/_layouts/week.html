@@ -47,6 +47,19 @@ layout: default
 				</li>
 			{% endif %}
 		{% endfor %}
+		
+		{% for extension in site.extensions limit:20 %}
+			{% assign sweek = extension.week | downcase %}
+			{% assign pweek = page.week | downcase %}
+			{% if sweek == pweek %}
+			<li class="block-list__item">
+			<a href="{{ site.baseurl }}{{ extension.url }}" class="button">
+			Extensions
+			&raquo;
+			{{ extension.title }}</a>  
+				</li>
+			{% endif %}
+		{% endfor %}
 
 	</ul>
 </section>
