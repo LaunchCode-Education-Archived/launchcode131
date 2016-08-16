@@ -1,0 +1,35 @@
+<!--
+Author: Kyle Cooper @ Washington University in St. Louis
+-->
+
+<HTML XMLNS="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>CSE 131: Click Quiz</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../../../style.css" />
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1" />
+
+<SCRIPT LANGUAGE="JavaScript" SRC="clickquizfunctions.js"></SCRIPT>
+
+</HEAD>
+
+<BODY onload="load();">
+<H2><a href="http://www.cs.wustl.edu/~cytron/cse131/">CSE 131</a> Module 0: Click Quiz</H2>
+
+<div id="content" style="position:relative;font-size:16px"></div>
+
+<div id="main" style="position:relative">
+	<PRE>
+	<span id="package" onclick="processClick(this);" onmouseover="this.style.backgroundColor='#99FFFF'" onmouseout="this.style.backgroundColor='#FFFADD'">package lab0;</span>
+
+	<span id="class" onclick="processClick(this);" onmouseover="this.style.backgroundColor='#99FFFF'" onmouseout="this.style.backgroundColor='#FFFADD'">public class RobotInstructions</span>  {
+
+		<span id="method" onclick="processClick(this);" onmouseover="this.style.backgroundColor='#99FFFF'" onmouseout="this.style.backgroundColor='#FFFADD'">public void act</span>(<span id="incoming parameter" onclick="processClick(this);" onmouseover="this.style.backgroundColor='#99FFFF'" onmouseout="this.style.backgroundColor='#FFFADD'">RobotMotionAdapter robot</span>) {
+			<span id="object" onclick="processClick(this);" onmouseover="this.style.backgroundColor='#99FFFF'" onmouseout="this.style.backgroundColor='#FFFADD'">robot</span>.<span id="method call" onclick="processClick(this);" onmouseover="this.style.backgroundColor='#99FFFF'" onmouseout="this.style.backgroundColor='#FFFADD'">forward</span>(<span id="outgoing parameter" onclick="processClick(this);" onmouseover="this.style.backgroundColor='#99FFFF'" onmouseout="this.style.backgroundColor='#FFFADD'">100</span>);
+		}
+
+	}
+	</PRE>
+</div>
+
+</BODY>
+</HTML>

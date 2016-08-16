@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sieve of Eratosthenes | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/3/studio/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 3 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Studio 3: Sieve of Eratosthenes</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Thu, Jun 30</p>
+						<p><strong>Due:</strong> Thu, Jun 30</p>
+					</aside>
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#warmups" id="markdown-toc-warmups">Warmup(s)</a></li>
+  <li><a href="#sieve-of-eratosthenes" id="markdown-toc-sieve-of-eratosthenes">Sieve of Eratosthenes</a>    <ul>
+      <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#submitting-your-work" id="markdown-toc-submitting-your-work">Submitting your work:</a></li>
+</ul>
+
+<h1 id="warmups">Warmup(s)</h1>
+
+<ul>
+  <li>First, form a group:
+    <ul>
+      <li>If you are at a table with a large, wall-mounted screens, a group of 3-4 people is fine.</li>
+      <li>If you are seated at a table without a large screen, a group of 2 people is better.</li>
+    </ul>
+  </li>
+  <li>All but one member of your group should have this web page open so you can follow along and see the instructions as you work.</li>
+  <li>Plan to have one computer at which your team does its work. Initially, one of you will be in charge of typing at that computer.</li>
+  <li>Throughout the studio, you should trade who is in charge of the keyboard. Before doing so, <strong>commit your work</strong> to make sure your work is saved.</li>
+</ul>
+
+<h1 id="sieve-of-eratosthenes">Sieve of Eratosthenes</h1>
+
+<p>In this studio you will make a <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">sieve of Eratosthenes</a>
+on a one dimensional array. This simple, ancient algorithm finds all the prime numbers within a specified range by 
+eliminating all multiples in the array.</p>
+
+<h2 id="procedure">Procedure</h2>
+
+<ol>
+  <li>
+    <p>Prompt the user for the size, <code class="highlighter-rouge">n</code>, of the array. The sieve will determine all the primes below <code class="highlighter-rouge">n</code>. 
+For discussion purposes, let’s say we’re dealing with <code class="highlighter-rouge">n</code> = 50</p>
+  </li>
+  <li>
+    <p>Let’s consider the best type to make the array.</p>
+
+    <p>Based on the gif on the linked Wikipedia page, we might initially think to choose <code class="highlighter-rouge">int</code>. If we make an 
+ <code class="highlighter-rouge">int[]</code>, how should we fill it? Since 0 and 1 are not prime and don’t have normal multiples, the first
+ number we care about is 2. If we fill it with the range of values (2-50) we could start at the beginning, like this:</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>array index</td>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>…</td>
+          <td>49</td>
+        </tr>
+        <tr>
+          <td>array contents</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>…</td>
+          <td>51</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Write code that instantiates an <code class="highlighter-rouge">int[]</code> of size <code class="highlighter-rouge">n</code>and give it a name.</p>
+  </li>
+  <li>
+    <p>Use iteration to fill your array with integers so that it matches the one above.</p>
+  </li>
+  <li>
+    <p>If everything is initially assumed to be prime, we could mark numbers as not prime by setting them equal to zero.</p>
+  </li>
+  <li>
+    <p>Start at the first number in the array (2) and iteratively mark all of its multiples (4, 6, 8, etc.) as 
+not prime.</p>
+  </li>
+  <li>
+    <p>Iterate to the next prime (non zero) element in the array and repeat this process.</p>
+
+    <blockquote>
+      <p>Why should we not bother finding multiples of numbers that we previously marked as not prime?</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Once you have gone through the whole array, anything remaining is a prime number. Print out these numbers.</p>
+
+    <p>Ex: for n = 50 the expected output is</p>
+
+    <p><code class="highlighter-rouge">
+ Primes under 50 = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47
+</code></p>
+  </li>
+  <li>
+    <p>Try looking up a number to see if it’s prime and print out the result. Show what you have so far to a TA.</p>
+  </li>
+  <li>
+    <p>Another idea, for simplicity, is ignoring the first two indexes and start inserting the 2 at the 2 index so that 
+the values and indexes match. Having clear code is much more important than wasting two spaces of memory.</p>
+
+    <p>But then, filling the array with the values is redundant! The gif can be deceiving. All we really need 
+to fill the array with is whether each index number is prime or not. Now, what type should we use to easily mark this?</p>
+  </li>
+  <li>
+    <p>Create a new array (or modify your old one) with this new type choice.</p>
+  </li>
+  <li>
+    <p>Fill your new array so that 0 and 1 are not prime, but every other number is initially prime.</p>
+  </li>
+  <li>
+    <p>Repeat steps 6-8. This time, the last prime printed should be 47.</p>
+  </li>
+  <li>
+    <p>Further food for thought: to make our program more efficient, we can stop looking for multiples early. For example, 
+we know that 40 won’t have any multiples in the array. What is the earliest we can stop looking?</p>
+  </li>
+</ol>
+
+<h1 id="submitting-your-work">Submitting your work:</h1>
+
+<p>To submit your work, contact the instructor or a TA. They will walk you through the submission process. Be prepared to show them the work that you have done and answer their questions about it!</p>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:32 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

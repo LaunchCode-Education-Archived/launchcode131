@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Welcome to CSE131! | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/0/assignment/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 0 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Assignment 0: Welcome to CSE131!</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Mon, Jun 13</p>
+						<p><strong>Due:</strong> Mon, Jun 13</p>
+					</aside>
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#pre-lab-0---cse131-amp-version-control" id="markdown-toc-pre-lab-0---cse131-amp-version-control">Pre-Lab 0 - CSE131 &amp; Version Control</a>    <ul>
+      <li><a href="#getting-started-with-java-in-eclipse-with-git" id="markdown-toc-getting-started-with-java-in-eclipse-with-git">Getting Started with Java in eclipse with Git</a></li>
+      <li><a href="#course-information" id="markdown-toc-course-information">Course Information</a></li>
+      <li><a href="#submitting-your-work" id="markdown-toc-submitting-your-work">Submitting your work</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="pre-lab-0---cse131-amp-version-control">Pre-Lab 0 - CSE131 &amp; Version Control</h1>
+
+<p>In CSE131 this semester, we will be using <a href="https://git-scm.com/" target="new">Git</a> as our version control system.</p>
+
+<p>Version control systems (VCS) are great for when you want to record who did what for which file or set of files, and it is especially useful when multiple people collaborate on projects, as you will be in this course.</p>
+
+<iframe src="https://player.vimeo.com/video/41027679" width="480" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
+<p>Before working on any project, you must <em>check out your repository</em>. The instructions for this will be later on in this writeup.</p>
+
+<p>The general workflow of Git, following the repository being checked out, is as follows. Don’t worry if you don’t understand some of the terms yet, they’ll make sense as we go through this studio and the coming lab:</p>
+
+<blockquote>
+  <ol>
+    <li>Pull from the master/origin</li>
+    <li>Do work on one/some of your files</li>
+    <li>Commit and/or push your work back to the origin</li>
+    <li>Repeat steps 1 through 3</li>
+  </ol>
+</blockquote>
+
+<p>These steps will have to be repeated and followed for every assignment you work on throughout the duration of this course.</p>
+
+<p>Whenever you sit down to work on an assignment, you <strong>must always</strong> pull from origin/master before working. If you don’t, it is possible that you’ll cause a conflict.</p>
+
+<h2 id="getting-started-with-java-in-eclipse-with-git">Getting Started with Java in eclipse with Git</h2>
+
+<p>Professional software developers use an <a href="http://en.wikipedia.org/wiki/Integrated_development_environment">Integrated Development Environment (IDE)</a> that includes a text editor (for
+creating source code), a <a href="http://en.wikipedia.org/wiki/Compiler">compiler</a> (for translating source code into
+executable code), and a <a href="http://en.wikipedia.org/wiki/Debugger">debugger</a> (for finding errors).  In this
+course,
+we’ll be using <a href="http://www.eclipse.org/">eclipse</a>, a popular IDE that supports (among many other
+things) programming in
+Java.</p>
+
+<p>Professional software developers also use a
+<a href="http://en.wikipedia.org/wiki/Software_versioning">versioning repository</a> to
+store their code, so that they can share their code easily and keep track
+of the changes they make.  We will be using the
+<a href="https://git-scm.com/">git</a> revision control
+system.  It will allow you to submit your code for grading and to
+share it with TAs who can help you with problems you might encounter.</p>
+
+<p>This part of the lab explains how to get started using eclipse with
+git.</p>
+
+<aside class="sidenote">
+  <p>If you have not yet installed eclipse, follow
+<a href="../../Videos/Instructions/installeclipse.mp4">these instructions</a> to install it on your computer.</p>
+</aside>
+
+<ol>
+  <li><em>Start eclipse:</em>
+    <ul>
+      <li>Launch eclipse.  You can use the default location for your workspace.</li>
+    </ul>
+
+    <p>The first time eclipse starts, it may be slower than usual.
+ You will be asked where you want your workspace to be.</p>
+
+    <p>After eclipse starts up, click the ‘X’ on the “Welcome” tab at the top to close the welcome screen.</p>
+  </li>
+  <li>
+    <p><em>Identifying your repository:</em></p>
+
+    <p>Open the
+ <a href="../prep/#access-your-repository">git tutorial</a>
+ in another window, and follow
+ the steps given there to set up your git repository.</p>
+  </li>
+  <li>
+    <p><em>Look at your project:</em>
+ If you are back in the Java view, then
+ you should see a project in the Package Explorer at the left side of the eclipse window. The name of the project is the hyphenation of your last name and
+ your student ID number.</p>
+  </li>
+  <li>
+    <p><em>Look at the source code:</em></p>
+
+    <aside class="sidenote">
+      <p>Throughout the semester,
+ this is where you should look for the files you need to complete your assignments.</p>
+
+      <p>Supporting software is placed in other source folders, such as <strong>labsupport</strong>.
+ You are welcome to look at any code, but to keep the number of files managable, we’ll place lab code in your
+ <strong>labs</strong> source folder in your repository.</p>
+    </aside>
+
+    <ol>
+      <li>
+        <p>In the Package Explorer, expand the project by clicking on the ‘+’ sign
+ or little triangle to the left of the project name.
+ You will see that it contains an entry for <strong>labs</strong>, which is
+ a folder that contains packages of code.</p>
+      </li>
+      <li>Expand the <strong>labs</strong> folder (click on its ‘+’ sign or triangle).</li>
+      <li>Each lab you complete is given to you in a separate <i>package</i>.
+ For this lab, expand the <strong>lab0</strong> package.</li>
+      <li>Double-click the file named <strong>RobotController.java</strong> to open it.
+ Look at the source code in the middle window.
+ You’ll see instance variables, methods, and a main method.</li>
+    </ol>
+
+    <p>For now, you don’t need to understand what you see.  We just want the computer to run this program.</p>
+  </li>
+  <li>
+    <p><em>Run the program:</em> Right click on <strong>RobotController.java</strong> and select
+ <em>Run as -&gt; Java application</em>. In the bottom right corner, you will see a <em>GO</em> button.<br />
+ Click the <em>Go</em>.  The program should create a robot, and you should see the robot start to move.</p>
+  </li>
+  <li><em>Modifying programs:</em> In general, before you can execute a Java program, it must first be compiled (translated) into <em>byte code</em> that can be executed by the Java interpreter. A program that performs this translation is called a <em>compiler</em>.  Eclipse checks your files to see if they will compile, and it marks errors so you can correct them.  If you position the mouse cursor over an error icon or a red underline, a description of the error will be displayed.</li>
+</ol>
+
+<p>Try typing some random text into the <strong>RobotController.java</strong> file to introduce an error.  You
+should see an error icon appear at the left.  Note that sometimes the
+error message appears on the line <em>after</em> the error.  At the bottom of
+the window, you’ll see <strong>console</strong> and <strong>problems</strong>.  The console window shows any printed output of the program.  If you click on <strong>problems</strong> you’ll see a list of the errors, and clicking on an item in the list will take you to the location of that error in the Java file so you can correct it.	Undo your typing, or close (without saving) and re-open the file.</p>
+
+<ol>
+  <li>
+    <p><em>Make the robot do your bidding:</em> So your real assignment here is to provide some instructions so that the robot navigates from CEC to your instructor’s office.</p>
+
+    <ol>
+      <li>
+        <p>Open up the <strong>RobotInstructions</strong> file, which is also in your <strong>lab0</strong> package. This is where the commands to move the robot are written.</p>
+
+        <blockquote>
+          <p>You now have two files open in eclipse:</p>
+
+          <ul>
+            <li><strong>RobotController.java</strong> is the <i>main</i> file. You always run the application using the instructions given
+above for this file.</li>
+            <li><strong>RobotInstructions.java</strong> is the file that contains code directing the robot to move.   This is the file
+you will modify to change the robot’s behavior.</li>
+          </ul>
+        </blockquote>
+      </li>
+      <li>
+        <p>Modify some of the robot instructions, and re-run the program, to gain an understanding of how the instructions in this file affect the robot’s behavior.</p>
+
+        <blockquote>
+          <p>Really?  We’re asking you to program even though you probably don’t much about Java yet?</p>
+
+          <p>Well, yes.</p>
+
+          <p>Even after you have learned much about Java, programming, and computer science, you may come across some
+code that you want to modify to change its behavior.  This takes some courage, but see if you can figure out what
+the robot’s instructions do, based on observing the robot and reading the code.  Make some changes to the code to test
+your hypotheses.  Soon you will have the robot doing your bidding.</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>Once you have the hang of it, try to have the robot make its way from CEC to the instructor’s office.</p>
+
+        <blockquote>
+          <p><em>Tip:</em> Since RobotController.java was the program most recently run,
+you can run it again simply by clicking the green arrow on the toolbar at the top.</p>
+        </blockquote>
+
+        <p>Each time it runs, you should see the results of your most recent modifications.</p>
+
+        <blockquote>
+          <p>If you pause with the mouse over a location on the map, the x, y
+coordinate of your mouse location will be shown on the screen.</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>After 20 minutes of successful robot navigation, <em>don’t spend much more time</em> trying to get the robot to go exactly the right way.  Get comfortable with controlling it for a bit, and then you can have it plow through the walls, juggernaut style.   That’s a bit easier and a lot more fun.</p>
+      </li>
+    </ol>
+
+    <p>Also, feel free to walk the route yourself, and stop by the instructor’s office to say hello sometime.  Visitors are usually treated to soda and candy.</p>
+  </li>
+  <li>
+    <p><em>Commit your work:</em> Now that you have modified a file, take a look at the Package Explorer window and you should see some <strong>&gt;</strong> signs next to the files that have been changed.  The <strong>&gt;</strong> sign warns you that you have modified files that have not been committed back to the repository. The files won’t be visible by TAs or the instructor until you <em>commit</em> them.</p>
+  </li>
+</ol>
+
+<p>To commit them, locate the name of your project (your name and ID) in the package explorer window of eclipse.  Right (control) click on that, go down to <em>Team…</em> and select <em>Commit</em>.  Enter a commit message, then click the <em>Commit and Push</em> button.</p>
+
+<blockquote>
+  <p><em>Tip:</em>  It is good practice to commit your code often.  You can always recover any previously committed version
+of your software.  Committing your code allows you to work on the code from a different computer, and ensures that
+you do not lose your work should your computer fail.</p>
+</blockquote>
+
+<p>You now know the basic steps to create projects, as well as open, edit, compile, and run Java programs in eclipse.  You should also have a basic understanding of sequential execution and how to call methods on ojects.
+<em>Please ask if you have questions about any of this.</em></p>
+
+<h2 id="course-information">Course Information</h2>
+
+<p>Take some time to peruse the web site. Are you clear about
+course policies concerning grading and attendance?</p>
+
+<ul>
+  <li>How do studios count toward completion?</li>
+  <li>How do labs count toward completion?</li>
+  <li>What happens if you cannot turn in a lab on time?</li>
+</ul>
+
+<h2 id="submitting-your-work">Submitting your work</h2>
+
+<p>To submit your work, contact the instructor or a TA. They will walk you through the submission process. Be prepared to show them the work that you have done and answer their questions about it!</p>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:32 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

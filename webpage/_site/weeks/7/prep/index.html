@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 7 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/7/prep/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 7 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Prep 7: Module 7</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#before-you-begin" id="markdown-toc-before-you-begin">Before you begin</a></li>
+  <li><a href="#module-overview" id="markdown-toc-module-overview">Module Overview</a></li>
+  <li><a href="#module-introduction" id="markdown-toc-module-introduction">Module Introduction</a></li>
+  <li><a href="#overview-of-an-object" id="markdown-toc-overview-of-an-object">Overview of an Object</a></li>
+  <li><a href="#exercise-anatomy-of-an-object" id="markdown-toc-exercise-anatomy-of-an-object">Exercise: Anatomy of an Object</a>    <ul>
+      <li><a href="#part-1-introduction" id="markdown-toc-part-1-introduction">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise" id="markdown-toc-part-2-the-exercise">Part 2: The Exercise</a></li>
+      <li><a href="#part-3-solution" id="markdown-toc-part-3-solution">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#how-to-make-and-use-objects" id="markdown-toc-how-to-make-and-use-objects">How to make and use objects</a></li>
+  <li><a href="#roundtable-instantiating-objects" id="markdown-toc-roundtable-instantiating-objects">Roundtable: Instantiating objects</a>    <ul>
+      <li><a href="#part-1" id="markdown-toc-part-1">Part 1</a></li>
+      <li><a href="#part-2" id="markdown-toc-part-2">Part 2</a></li>
+      <li><a href="#part-3" id="markdown-toc-part-3">Part 3</a></li>
+      <li><a href="#part-4" id="markdown-toc-part-4">Part 4</a></li>
+    </ul>
+  </li>
+  <li><a href="#how-are-objects-stored" id="markdown-toc-how-are-objects-stored">How are objects stored?</a></li>
+  <li><a href="#roundtable-object-placement-in-memory" id="markdown-toc-roundtable-object-placement-in-memory">Roundtable: Object placement in memory</a>    <ul>
+      <li><a href="#part-1-1" id="markdown-toc-part-1-1">Part 1</a></li>
+      <li><a href="#part-2-1" id="markdown-toc-part-2-1">Part 2</a></li>
+      <li><a href="#part-3-1" id="markdown-toc-part-3-1">Part 3</a></li>
+      <li><a href="#part-4-1" id="markdown-toc-part-4-1">Part 4</a></li>
+      <li><a href="#part-5" id="markdown-toc-part-5">Part 5</a></li>
+    </ul>
+  </li>
+  <li><a href="#object-design" id="markdown-toc-object-design">Object design</a></li>
+  <li><a href="#roundtable-designing-a-hockey-stick" id="markdown-toc-roundtable-designing-a-hockey-stick">Roundtable: Designing a hockey stick</a>    <ul>
+      <li><a href="#part-1-2" id="markdown-toc-part-1-2">Part 1:</a></li>
+      <li><a href="#part-2-2" id="markdown-toc-part-2-2">Part 2:</a></li>
+      <li><a href="#part-3-2" id="markdown-toc-part-3-2">Part 3:</a></li>
+    </ul>
+  </li>
+  <li><a href="#roundtable-designing-a-weight-lifting-exercise" id="markdown-toc-roundtable-designing-a-weight-lifting-exercise">Roundtable: Designing a weight lifting exercise</a></li>
+  <li><a href="#exercise-try-designing-an-objects" id="markdown-toc-exercise-try-designing-an-objects">Exercise: Try designing an objects</a></li>
+  <li><a href="#roundtable-scope-and-instance-variables" id="markdown-toc-roundtable-scope-and-instance-variables">Roundtable: Scope and instance variables</a>    <ul>
+      <li><a href="#part-1-3" id="markdown-toc-part-1-3">Part 1</a></li>
+      <li><a href="#part-2-3" id="markdown-toc-part-2-3">Part 2</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<h1 id="before-you-begin">Before you begin</h1>
+
+<p>Before you can begin on the exercises, studio, and assignment for this module, you must update your project to recieve the code. To do this, do the following:</p>
+
+<ol>
+  <li>
+    <p>Go to the BitBucket website. Find the page for your repository. On the right side you should see a message indicating that your repository is behind. Click <em>sync now</em>.</p>
+
+    <p>If you do not see this message, <strong>then you did not fork your repository correctly</strong>. Go back to the prep work for module 0, and create a new fork for your repository.</p>
+
+    <p><img src="../../../preps/p1.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Open Eclipse, find your project. Right click the name of your project and go to <code class="highlighter-rouge">Team -&gt; Pull</code>.</p>
+
+    <p><img src="../../../preps/p2.png" alt="" /></p>
+  </li>
+  <li>
+    <p>On the window that pops up, enter your BitBucket password and click OK. You should now have the materials you need for module 4.</p>
+
+    <p><img src="../../../preps/p3.png" alt="" /></p>
+  </li>
+</ol>
+
+<p>You will need to do this <em>at the beginning of each module</em> as we add more materials to the course.</p>
+
+<h1 id="module-overview">Module Overview</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/r58tybiirnak92q4oa8epoeucqksqzwg" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="module-introduction">Module Introduction</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/trv43w5xubsw7pzhpnsx1a4dyldjehvy" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="overview-of-an-object">Overview of an Object</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/srgam1cp2ia24uepoufccnvrhgzoztsq" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-anatomy-of-an-object">Exercise: Anatomy of an Object</h1>
+
+<h2 id="part-1-introduction">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/bvnl6fim3rptd82ifpe42hzqa5jduahl" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise">Part 2: The Exercise</h2>
+
+<ul>
+  <li>
+    <p>In the <code class="highlighter-rouge">exercises7</code> package
+  of the <code class="highlighter-rouge">exercises</code> source folder, open
+  the <code class="highlighter-rouge">Person</code> class.</p>
+  </li>
+  <li>
+    <p>Follow the instructions, using Java comments to designate the
+  various parts of the object’s definition.</p>
+  </li>
+</ul>
+
+<h2 id="part-3-solution">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/lzmcvc8mbghhqxbmejkwqq6cr3khya50" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="how-to-make-and-use-objects">How to make and use objects</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/trb5g7jlrxgc5qkgqvh233oxw0q94j1w" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="roundtable-instantiating-objects">Roundtable: Instantiating objects</h1>
+
+<h2 id="part-1">Part 1</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/cvaqq70odlqrkdyxpbglen6c7m4evmo1" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2">Part 2</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/cinardjzxe5db9aptuy6tlqpnepr4jsv" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-3">Part 3</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/7k594ffkm7plkc34xe3ucrepyz4m0tu0" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-4">Part 4</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/hemlbqgcxhxfix7o7y6svls1pmr35a1t" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="how-are-objects-stored">How are objects stored?</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/rp3q3ezjzxo4vir7u2iodqwgtrnm5nps" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="roundtable-object-placement-in-memory">Roundtable: Object placement in memory</h1>
+
+<h2 id="part-1-1">Part 1</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/qtpwucwdtsh51bpz2fwov34h9pyrw0b9" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-1">Part 2</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/u3gxtkl8kezhe8nuk6gjrk000jw6brh0" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-3-1">Part 3</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/bwmbxfvit2zlfwecl22qwggo193yrydn" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-4-1">Part 4</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/5jby0000h01i0c2q51w5xsr23dmq5rhi" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-5">Part 5</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/kqgnhjsa7ky7iuw0kk6wjrej5581sbk1" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="object-design">Object design</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/ggxumo6aw5nf35rzilg1wfj6pqxpn62j" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="roundtable-designing-a-hockey-stick">Roundtable: Designing a hockey stick</h1>
+
+<h2 id="part-1-2">Part 1:</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/8g7tp38jm962hdnypw5jmz2khdcai4aw" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-2">Part 2:</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/dtdw00u0w4yhtg0eo1s461sztm2c64gy" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-3-2">Part 3:</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/11cx1jekt702ueav7dde39188f2p06cv" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="roundtable-designing-a-weight-lifting-exercise">Roundtable: Designing a weight lifting exercise</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/tve3s83epgi6hokpbd4xwu6t91b1o8n5" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-try-designing-an-objects">Exercise: Try designing an objects</h1>
+
+<p>You have seen examples of object design in the videos.  Now it’s your turn.</p>
+
+<ul>
+  <li>
+    <p>Think of an object you want to design:  perhaps something important
+  or relevant to your life.  It should be some kind of noun, related to your
+  studies, hobbies, or other interests.</p>
+  </li>
+  <li>
+    <p>In the <code class="highlighter-rouge">exercises7</code> package
+  of the <code class="highlighter-rouge">exercises</code> source folder, create a new class named
+  appropriately for the object you are designing.</p>
+  </li>
+  <li>
+    <p>In that file, define the object’s instance variables, constructor(s),
+  and methods.  Provide accessors and mutators where appropriate.</p>
+  </li>
+</ul>
+
+<h1 id="roundtable-scope-and-instance-variables">Roundtable: Scope and instance variables</h1>
+
+<h2 id="part-1-3">Part 1</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/n5d7yshiq3582akdo58p8vjxeu6ljtqz" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-3">Part 2</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/p5e43w3q6k4s0g1w0bl75f6poraivu99" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/pzzf3u7314xhsiieszmrqjfg09au8h14" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:33 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

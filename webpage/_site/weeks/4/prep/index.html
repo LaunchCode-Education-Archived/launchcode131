@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 4 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/4/prep/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 4 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Prep 4: Module 4</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#before-you-begin" id="markdown-toc-before-you-begin">Before you begin</a></li>
+  <li><a href="#module-overview" id="markdown-toc-module-overview">Module Overview</a></li>
+  <li><a href="#module-introduction" id="markdown-toc-module-introduction">Module Introduction</a></li>
+  <li><a href="#a-brief-history-of-io" id="markdown-toc-a-brief-history-of-io">A brief history of I/O</a></li>
+  <li><a href="#using-segdewicks-text-api" id="markdown-toc-using-segdewicks-text-api">Using Segdewick’s text API</a></li>
+  <li><a href="#exercise-statistics-for-a-list-of-numbers" id="markdown-toc-exercise-statistics-for-a-list-of-numbers">Exercise: Statistics for a list of numbers</a>    <ul>
+      <li><a href="#part-1-introduction" id="markdown-toc-part-1-introduction">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise" id="markdown-toc-part-2-the-exercise">Part 2: The exercise</a></li>
+      <li><a href="#part-3-the-solution" id="markdown-toc-part-3-the-solution">Part 3: The solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#using-segdewicks-graphics-api" id="markdown-toc-using-segdewicks-graphics-api">Using Segdewick’s graphics API</a></li>
+  <li><a href="#exercise-example-using-graphics" id="markdown-toc-exercise-example-using-graphics">Exercise: Example using graphics</a>    <ul>
+      <li><a href="#part-1-introduction-1" id="markdown-toc-part-1-introduction-1">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-1" id="markdown-toc-part-2-the-exercise-1">Part 2: The exercise</a></li>
+      <li><a href="#part-3-solution" id="markdown-toc-part-3-solution">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-mouse-and-keyboard" id="markdown-toc-exercise-mouse-and-keyboard">Exercise: Mouse and Keyboard</a>    <ul>
+      <li><a href="#part-1-introduction-2" id="markdown-toc-part-1-introduction-2">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-2" id="markdown-toc-part-2-the-exercise-2">Part 2: The exercise</a></li>
+      <li><a href="#part-3-solution-1" id="markdown-toc-part-3-solution-1">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#achieving-animation" id="markdown-toc-achieving-animation">Achieving animation</a></li>
+  <li><a href="#exercise-example-of-animation" id="markdown-toc-exercise-example-of-animation">Exercise: Example of animation</a>    <ul>
+      <li><a href="#part-1-introduction-3" id="markdown-toc-part-1-introduction-3">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-3" id="markdown-toc-part-2-the-exercise-3">Part 2: The Exercise</a></li>
+      <li><a href="#part-3-the-solution-1" id="markdown-toc-part-3-the-solution-1">Part 3: The Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#introduction-to-sound-and-music" id="markdown-toc-introduction-to-sound-and-music">Introduction to sound and music</a></li>
+  <li><a href="#exercise-frequency-of-a-pitch" id="markdown-toc-exercise-frequency-of-a-pitch">Exercise: Frequency of a pitch</a>    <ul>
+      <li><a href="#part-1-introduction-4" id="markdown-toc-part-1-introduction-4">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-4" id="markdown-toc-part-2-the-exercise-4">Part 2: The exercise</a></li>
+      <li><a href="#part-3-the-solution-2" id="markdown-toc-part-3-the-solution-2">Part 3: The Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-ratio-of-multiple-pitches" id="markdown-toc-exercise-ratio-of-multiple-pitches">Exercise: Ratio of multiple pitches</a>    <ul>
+      <li><a href="#part-1-introduction-5" id="markdown-toc-part-1-introduction-5">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-5" id="markdown-toc-part-2-the-exercise-5">Part 2: The exercise</a></li>
+      <li><a href="#part-3-the-solution-3" id="markdown-toc-part-3-the-solution-3">Part 3: The solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#more-about-sound" id="markdown-toc-more-about-sound">More about sound</a></li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<h1 id="before-you-begin">Before you begin</h1>
+
+<p>Before you can begin on the exercises, studio, and assignment for this module, you must update your project to recieve the code. To do this, do the following:</p>
+
+<ol>
+  <li>
+    <p>Go to the BitBucket website. Find the page for your repository. On the right side you should see a message indicating that your repository is behind. Click <em>sync now</em>.</p>
+
+    <p>If you do not see this message, <strong>then you did not fork your repository correctly</strong>. Go back to the prep work for module 0, and create a new fork for your repository.</p>
+
+    <p><img src="../../../preps/p1.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Open Eclipse, find your project. Right click the name of your project and go to <code class="highlighter-rouge">Team -&gt; Pull</code>.</p>
+
+    <p><img src="../../../preps/p2.png" alt="" /></p>
+  </li>
+  <li>
+    <p>On the window that pops up, enter your BitBucket password and click OK. You should now have the materials you need for module 4.</p>
+
+    <p><img src="../../../preps/p3.png" alt="" /></p>
+  </li>
+</ol>
+
+<p>You will need to do this <em>at the beginning of each module</em> as we add more materials to the course.</p>
+
+<h1 id="module-overview">Module Overview</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/jl8iyqy0gxmtuluq843bpujbzr99w2bm" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="module-introduction">Module Introduction</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/wcs6dhnnxd6yhy3nlf97r9j8qc0gfbsu" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="a-brief-history-of-io">A brief history of I/O</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/gyt2st4aonmnzzek2hv0ii645u9d5egv" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="using-segdewicks-text-api">Using Segdewick’s text API</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/dpap6zfgnfonvcyy4pe6nt4whhb84b3k" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-statistics-for-a-list-of-numbers">Exercise: Statistics for a list of numbers</h1>
+
+<h2 id="part-1-introduction">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/7srxyw1hb95mr15zmwkkgdn01dxw6clg" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise">Part 2: The exercise</h2>
+
+<ul>
+  <li>
+    <p>Find and open the <code class="highlighter-rouge">Stats</code> Java program in the <code class="highlighter-rouge">exercises4</code> package
+of the <code class="highlighter-rouge">exercises</code> source folder.</p>
+  </li>
+  <li>
+    <p>Write code as directed to compute the specified statistics for the numbers
+that you read in.</p>
+  </li>
+</ul>
+
+<h2 id="part-3-the-solution">Part 3: The solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/d2rp4at0gylaey9uyspapv8yzvtsc2yn" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="using-segdewicks-graphics-api">Using Segdewick’s graphics API</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/17s96l72w7fvihn1bz5s7sqiulguazag" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-example-using-graphics">Exercise: Example using graphics</h1>
+
+<h2 id="part-1-introduction-1">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/qpar2y6onsqknel1ywd1tbxre1a855os" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-1">Part 2: The exercise</h2>
+
+<ul>
+  <li>
+    <p>Find and open the <code class="highlighter-rouge">GraphicsDemo</code> Java program in the <code class="highlighter-rouge">exercises4</code> package
+of the <code class="highlighter-rouge">exercises</code> source folder.</p>
+  </li>
+  <li>
+    <p>For each of the following, write code to generate the graphics as
+specified, and run your program after each addition to see that you are
+creating the right kinds of shapes, colors, and sizes.</p>
+
+    <ul>
+      <li>Draw a blue point anywhere you like</li>
+      <li>Draw a larger green point someplace else</li>
+      <li>Draw an unfilled red triangle somewhere</li>
+      <li>Draw a filled yellow circle somewhere</li>
+      <li>Draw a filled blue rectangle somewhere</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>The book does not include mention of Sedgewick’s <code class="highlighter-rouge">filledRectangle</code> method.  But it is there, and you can find it by pausing after typing the <code class="highlighter-rouge">.</code>.  Eclipse will then show you possible completions, which will include
+<code class="highlighter-rouge">filledRectangle</code>.</p>
+</blockquote>
+
+<h2 id="part-3-solution">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/f90yf835twz82y0yo1cy8a8x32zxazrq" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-mouse-and-keyboard">Exercise: Mouse and Keyboard</h1>
+
+<h2 id="part-1-introduction-2">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/7hk1tyoj1z2gn70z3gpr8fvvgn9u63et" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-2">Part 2: The exercise</h2>
+
+<ul>
+  <li>
+    <p>Find and open the <code class="highlighter-rouge">WaitPoint</code> Java program in the <code class="highlighter-rouge">exercises4</code> package
+of the <code class="highlighter-rouge">exercises</code> source folder.</p>
+  </li>
+  <li>
+    <p>Write code that does the following:</p>
+
+    <ul>
+      <li>Waits until the mouse has been pressed</li>
+      <li>Waits until the mouse has been released</li>
+      <li>Draws a visible point at the spot where the mouse was released</li>
+      <li>Waits until the user has typed a <code class="highlighter-rouge">q</code> (all other keys are ignored)</li>
+      <li>Writes text on the graphic screen that says goodbye</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Do this a step at a time, testing your code.  Look at the solution video 
+intermittently, as necessary.</p>
+</blockquote>
+
+<h2 id="part-3-solution-1">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/75dxzww1h05w2kgl7n3dazis5y2wxvri" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="achieving-animation">Achieving animation</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/2elm3p7r26jzo2z3cii99df2fu4odxhr" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-example-of-animation">Exercise: Example of animation</h1>
+
+<h2 id="part-1-introduction-3">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/4tkwpg7njcatdo6yw2by47z944aeabq4" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-3">Part 2: The Exercise</h2>
+
+<ul>
+  <li>
+    <p>Find and open the <code class="highlighter-rouge">MouseFollower</code> Java program in the <code class="highlighter-rouge">exercises4</code> package
+of the <code class="highlighter-rouge">exercises</code> source folder.</p>
+  </li>
+  <li>
+    <p>That code already contains the standard animation loop:</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">StdDraw.clear()</code> at the beginning, to wipe the graphics
+  display clean</li>
+      <li>Your code will then paint one frame of the animation</li>
+      <li><code class="highlighter-rouge">StdDraw.show(10)</code> produces what you have drawn on the screen
+  and waits 10 milliseconds before continuing.</li>
+    </ul>
+
+    <p>By using <code class="highlighter-rouge">show(..)</code>,
+  the drawing you do is not actually shown between calls to <code class="highlighter-rouge">show</code>. Instead, the drawing is done in memory, off the screen, which is much faster.</p>
+
+    <p>When you call <code class="highlighter-rouge">show()</code>, the work you have done off screen is put
+  on screen all at once.</p>
+
+    <p>The program also pauses for the specified time, usually
+  10 to 50 milliseconds.  Pausing allows your computer to do something else
+  for a while, which will make your computer feel more responsive in the
+  other applications that are running.</p>
+  </li>
+  <li>
+    <p>First try to get a ball on the screen to follow your mouse.  This
+consists of reading the mouse’s coordinates, and painting a ball at that
+spot.</p>
+  </li>
+  <li>
+    <p>When you have that working, try to think of how you could make the ball
+appear to lag in its mouse-following activities.</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>As a hint, think about
+keeping some history of where the mouse has been. You can then have the
+ball go to locations in the mouse’s past.</p>
+</blockquote>
+
+<h2 id="part-3-the-solution-1">Part 3: The Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/lgn9ytpu9eo6ot1fj65lbzebyfk9fju9" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="introduction-to-sound-and-music">Introduction to sound and music</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/zcwp0hl5as22nc4u6z7muq1w71vi5ohn" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-frequency-of-a-pitch">Exercise: Frequency of a pitch</h1>
+
+<h2 id="part-1-introduction-4">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/x4fbx4088426m8h8pzi7d9imy1ifv9d9" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-4">Part 2: The exercise</h2>
+
+<ul>
+  <li>
+    <p>Find and open the <code class="highlighter-rouge">Pitches</code> Java program in the <code class="highlighter-rouge">exercises4</code> package
+of the <code class="highlighter-rouge">exercises</code> source folder.</p>
+  </li>
+  <li>
+    <p>Insert code to prompt the user to enter an integer representing a pitch.</p>
+  </li>
+  <li>
+    <p>Compute the frequency that corresponds to that pitch.</p>
+  </li>
+  <li>
+    <p>Print the frequency of that pitch, the frequency of a pitch 7 chromatic
+steps higher, and the ratio of the two frequencies.</p>
+  </li>
+</ul>
+
+<h2 id="part-3-the-solution-2">Part 3: The Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/97sgaa4tda5zjhnnkzph9qsf38sj3lug" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-ratio-of-multiple-pitches">Exercise: Ratio of multiple pitches</h1>
+
+<h2 id="part-1-introduction-5">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/su3gywwn5c07da333kpc3juc4ctu6v4y" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-5">Part 2: The exercise</h2>
+
+<ul>
+  <li>
+    <p>Continue modifying the <code class="highlighter-rouge">Pitches</code> Java program in the <code class="highlighter-rouge">exercises4</code> package
+of the <code class="highlighter-rouge">exercises</code> source folder.</p>
+  </li>
+  <li>
+    <p>Prompt the user to enter an integer for pitch 1.</p>
+  </li>
+  <li>
+    <p>Prompt the user to enter an integer for pitch 2.</p>
+  </li>
+  <li>
+    <p>Compute the frequency that corresponds to those pitches</p>
+  </li>
+  <li>
+    <p>Print the frequency of both pitches and the ratio of the two frequencies.</p>
+  </li>
+</ul>
+
+<h2 id="part-3-the-solution-3">Part 3: The solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/tm11403j1yh854sxh860jh2bmfydr2sa" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="more-about-sound">More about sound</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/k6cfxuf2lji3uixsdq55iteucy0kbcmm" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/y7qnpbhzivoyzj74ktql8r2sqs2ctciu" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:33 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

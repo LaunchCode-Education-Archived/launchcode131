@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gambler's Ruin and Pi | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/2/studio/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 2 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Studio 2: Gambler's Ruin and Pi</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Thu, Jun 23</p>
+						<p><strong>Due:</strong> Thu, Jun 23</p>
+					</aside>
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#warmups" id="markdown-toc-warmups">Warmup(s)</a></li>
+  <li><a href="#problem-1-gamblers-ruin" id="markdown-toc-problem-1-gamblers-ruin">Problem 1: Gambler’s Ruin</a>    <ul>
+      <li><a href="#background" id="markdown-toc-background">Background</a></li>
+      <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#problem-2-computing-pi-by-throwing-darts" id="markdown-toc-problem-2-computing-pi-by-throwing-darts">Problem 2: Computing Pi by throwing darts</a></li>
+  <li><a href="#further-investigations" id="markdown-toc-further-investigations">Further investigations</a></li>
+  <li><a href="#submitting-your-work" id="markdown-toc-submitting-your-work">Submitting your work:</a></li>
+</ul>
+
+<p>Feel free to participate in a different group than last time. This is totally
+up to you, but try to find a group that makes it easy for you to participate.</p>
+
+<p>Be careful how you use the web.  You are required to develop solutions
+as a group by thinking not by finding solutions that have been thought
+out by others.  You must be able to explain anything that you have done.</p>
+
+<h1 id="warmups">Warmup(s)</h1>
+
+<ul>
+  <li>First, form a group:
+    <ul>
+      <li>If you are at a table with a large, wall-mounted screens, a group of 3-4 people is fine.</li>
+      <li>If you are seated at a table without a large screen, a group of 2 people is better.</li>
+    </ul>
+  </li>
+  <li>All but one member of your group should have this web page open so you can follow along
+and see the instructions as you work.</li>
+  <li>Plan to have one computer at which your team does its work.
+Initially, one of you will be in charge of typing at that computer.</li>
+  <li>Throughout the studio, you should trade who is in charge of the keyboard.  Before
+doing so, <strong>commit your work</strong> to make sure your work is saved.</li>
+</ul>
+
+<h1 id="problem-1-gamblers-ruin">Problem 1: Gambler’s Ruin</h1>
+
+<h2 id="background">Background</h2>
+<p>In this assignment, you will simulate the Gambler’s Ruin problem. The problem is as follows: you are a gambler 
+given some initial amount of money, and each time you gamble, you either win or lose $1 based on your win probability. 
+You have some goal in mind, that once reached, you stop gambling, or if you lose all of your money, you also 
+stop gambling. What is the probability that you lose all of your money?</p>
+
+<h2 id="procedure">Procedure</h2>
+
+<ol>
+  <li>
+    <p>With your repository open, create a new class in the <kbd>studio2</kbd> package.</p>
+
+    <blockquote>
+      <p>Be sure to check the box that generates <kbd>public static void main</kbd>. Otherwise you will have to type that by hand.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Have your program accept the following inputs:</p>
+
+    <blockquote>
+      <p>If you don’t remember how to do this, look at code from a previous studio or lab.</p>
+    </blockquote>
+
+    <dl>
+      <dt><code class="highlighter-rouge">startAmount</code></dt>
+      <dd>The amount of money that you start with</dd>
+      <dt><code class="highlighter-rouge">winChance</code></dt>
+      <dd>The probability that you win a gamble</dd>
+      <dt><code class="highlighter-rouge">winAmount</code></dt>
+      <dd>If you reach this amount of money, then you won</dd>
+      <dt><code class="highlighter-rouge">totalPlays</code></dt>
+      <dd>The number of times you simulate the problem</dd>
+    </dl>
+  </li>
+  <li>
+    <p>Next, calculate the chance that you ruin.</p>
+
+    <blockquote>
+      <p>if (lossChance != winChance)<br />
+Ruin = ((lossChance/winChance)<sup>startAmount</sup> - (lossChance/winChance)<sup>winAmount</sup>) / (1 - (lossChance/winChance)<sup>winAmount</sup>)
+<br /><br />
+if (lossChance == winChance)<br />
+Ruin = 1 - startAmount / winAmount</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Simulate the Gambler’s Ruin <strong>totalPlays</strong> times. For each simulation, continue gambling until you 
+either reach your goal or you ruin. For each simulation, print the simulation number, the number of rounds that 
+simulation played for, and whether you won or lost.</p>
+  </li>
+  <li>
+    <p>Finally, print the total number of losses, simulations, your actual ruin rate, and your 
+expected ruin rate.</p>
+  </li>
+</ol>
+
+<p>Given this input:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">startAmount</code></td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">winChance</code></td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">winAmount</code></td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">totalPlays</code></td>
+      <td>31</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Your final output should look similar to this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	Simulation 1: 22 rounds  	LOSE
+	Simulation 2: 18 rounds  	LOSE
+	Simulation 3: 20 rounds  	LOSE
+	Simulation 4: 42 rounds  	LOSE
+	Simulation 5: 24 rounds  	LOSE
+	Simulation 6: 22 rounds  	LOSE
+	Simulation 7: 24 rounds  	LOSE
+	Simulation 8: 48 rounds  	LOSE
+	Simulation 9: 16 rounds  	LOSE
+	Simulation 10: 26 rounds  	LOSE
+	Simulation 11: 32 rounds  	LOSE
+	Simulation 12: 18 rounds  	LOSE
+	Simulation 13: 22 rounds  	LOSE
+	Simulation 14: 24 rounds  	LOSE
+	Simulation 15: 18 rounds  	LOSE
+	Simulation 16: 18 rounds  	LOSE
+	Simulation 17: 26 rounds  	LOSE
+	Simulation 18: 18 rounds  	LOSE
+	Simulation 19: 34 rounds  	LOSE
+	Simulation 20: 22 rounds  	LOSE
+	Simulation 21: 48 rounds  	LOSE
+	Simulation 22: 26 rounds  	LOSE
+	Simulation 23: 40 rounds  	LOSE
+	Simulation 24: 18 rounds  	LOSE
+	Simulation 25: 20 rounds  	LOSE
+	Simulation 26: 20 rounds  	LOSE
+	Simulation 27: 34 rounds  	LOSE
+	Simulation 28: 22 rounds  	LOSE
+	Simulation 29: 22 rounds  	LOSE
+	Simulation 30: 3 rounds  	WIN
+	Simulation 31: 24 rounds  	LOSE
+
+	Losses: 30  Simulations: 31
+	Actual Ruin Rate: 0.967741935483871  Expected Ruin Rate: 0.9629630300735122
+</code></pre>
+</div>
+
+<h1 id="problem-2-computing-pi-by-throwing-darts">Problem 2: Computing Pi by throwing darts</h1>
+
+<p>Computer scientists often use <a href="http://en.wikipedia.org/wiki/Simulation" title="simulation">simulation</a> as a means of
+modeling, understanding, and predicting real-world phenomena.</p>
+
+<p>Your group is auditioning for <a href="http://en.wikipedia.org/wiki/Survivor_%28TV_series%29">survivor</a>
+by proving your group’s ability to compute <a href="http://en.wikipedia.org/wiki/Pi">Pi</a> using
+only the materials at hand, as follows:</p>
+
+<ul>
+  <li>
+    <p>A unit-square dart board (say, 1 meter by 1 meter).  Unit-square
+ dart boards are astoundingly resilient in plane crashes,
+ and yours is nicely intact.</p>
+  </li>
+  <li>
+    <p>Some darts, suitable for throwing at the dart board.</p>
+  </li>
+  <li>
+    <p>A string and a stylus, standard safety-kit issue, suitable for
+inscribing a unit circle in your unit-square dartboard.</p>
+  </li>
+  <li>
+    <p>A dart-throwing expert.  However, since the plane crash, the
+expert is left with the (uncanny) ability to throw darts that always land
+somewhere, uniformly and randomly, within the unit-square dart board.</p>
+
+    <blockquote>
+      <p>While the thrower never misses the unit square, the darts
+land sometimes within the inscribed circle, sometimes not.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>As a group, develop an approach for computing <a href="http://en.wikipedia.org/wiki/Pi">Pi</a> based on
+the above materials.</p>
+  </li>
+  <li>
+    <p>Implement your approach using iteration. You can start with the following
+<a href="../../../studios/Pi.java">Pi.java</a> file that you can paste into a new
+Java class in one of your lab projects.</p>
+
+    <p>You will need to simulate a random dart thrower. The function <code class="highlighter-rouge">math.random()</code> will help, as it returns a nonnegative
+ double less than 1.0.  You may also find the <code class="highlighter-rouge">Math.sqrt()</code> function to be helpful.</p>
+
+    <p>This may be the first new Class you have developed, but eclipse makes it easy:</p>
+
+    <ul>
+      <li>
+        <p>Right-click on the package name in which you want to define the new class.  In this case, use <code class="highlighter-rouge">studio2</code>.</p>
+      </li>
+      <li>
+        <p>Click <code class="highlighter-rouge">New...</code></p>
+      </li>
+      <li>
+        <p>Choose <code class="highlighter-rouge">Class</code></p>
+      </li>
+      <li>
+        <p>Pick the name <code class="highlighter-rouge">Pi</code> for this class, since the code you will paste is for class <code class="highlighter-rouge">Pi</code>. <strong>Java style dictates that its classes should begin with a capital letter!</strong></p>
+      </li>
+      <li>
+        <p>When the editor opens for your new class, copy and paste the code from
+ <a href="../../../studios/Pi.java">Pi.java</a> into the class.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Investigate and discuss how well your
+technique computes <a href="https://en.wikipedia.org/wiki/Pi" title="Pi Wiki">Pi</a>.</p>
+  </li>
+</ol>
+
+<h1 id="further-investigations">Further investigations</h1>
+
+<p>If you have time, pick one or both of the following:</p>
+
+<ol>
+  <li>
+    <p>Investigate the fairness of the <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Math.html#random()" title="Math.random() docs"><code class="highlighter-rouge">math.random()</code></a> method.</p>
+
+    <ol>
+      <li>What normative criteria should a random number possess?</li>
+      <li>How can you measure the fairness of a random number generator?</li>
+      <li>Implement some tests and discuss your results amongst yourselves and
+ other groups.</li>
+    </ol>
+  </li>
+  <li>
+    <p>There are other ways of <a href="http://en.wikipedia.org/wiki/Pi" title="Pi Wiki">computing Pi</a>.
+Try some of these and study their effectiveness in terms of the number of iterations you use.</p>
+  </li>
+</ol>
+
+<h1 id="submitting-your-work">Submitting your work:</h1>
+
+<p>To submit your work, contact the instructor or a TA. They will walk you through the submission process. Be prepared to show them the work that you have done and answer their questions about it!</p>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:32 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

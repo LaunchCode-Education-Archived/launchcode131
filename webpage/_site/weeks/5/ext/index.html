@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 5 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/5/ext/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 5 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Extension 5: Module 5</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#extension-1-methodize-it" id="markdown-toc-extension-1-methodize-it">Extension 1: Methodize It</a>    <ul>
+      <li><a href="#refactoring" id="markdown-toc-refactoring">Refactoring</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-2-chase-the-mouse" id="markdown-toc-extension-2-chase-the-mouse">Extension 2: Chase, The Mouse:</a>    <ul>
+      <li><a href="#a-story" id="markdown-toc-a-story">A Story</a></li>
+      <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-3-build-your-own-calculator" id="markdown-toc-extension-3-build-your-own-calculator">Extension 3: Build Your Own Calculator!:</a>    <ul>
+      <li><a href="#a-how-to-guide" id="markdown-toc-a-how-to-guide">A How-To Guide</a></li>
+      <li><a href="#procedure-1" id="markdown-toc-procedure-1">Procedure</a></li>
+      <li><a href="#methods" id="markdown-toc-methods">Methods</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-4-watermelon-puzzle" id="markdown-toc-extension-4-watermelon-puzzle">Extension 4: Watermelon Puzzle:</a>    <ul>
+      <li><a href="#warm-up" id="markdown-toc-warm-up">Warm Up</a></li>
+      <li><a href="#procedure-2" id="markdown-toc-procedure-2">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-5-tic-tac-toe" id="markdown-toc-extension-5-tic-tac-toe">Extension 5: Tic-Tac-Toe:</a>    <ul>
+      <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+      <li><a href="#procedure-3" id="markdown-toc-procedure-3">Procedure</a></li>
+      <li><a href="#play-the-game" id="markdown-toc-play-the-game">Play the game</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-6-jackpot" id="markdown-toc-extension-6-jackpot">Extension 6: Jackpot</a></li>
+  <li><a href="#description" id="markdown-toc-description">Description</a>    <ul>
+      <li><a href="#procedure-4" id="markdown-toc-procedure-4">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-9-net-present-value" id="markdown-toc-extension-9-net-present-value">Extension 9: Net Present Value</a>    <ul>
+      <li><a href="#present-value" id="markdown-toc-present-value">Present Value</a></li>
+      <li><a href="#two-friends-and-your-1" id="markdown-toc-two-friends-and-your-1">Two Friends and your \$1</a></li>
+      <li><a href="#net-present-value" id="markdown-toc-net-present-value">Net Present Value</a></li>
+      <li><a href="#product-development-story" id="markdown-toc-product-development-story">Product Development Story</a></li>
+      <li><a href="#procedure-5" id="markdown-toc-procedure-5">Procedure</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="extension-1-methodize-it">Extension 1: Methodize It</h1>
+
+<h2 id="refactoring">Refactoring</h2>
+
+<p>To complete this extension, go back to a lab or extension
+you have previously completed, and refactor it using methods to eliminate
+code duplication.</p>
+
+<h1 id="extension-2-chase-the-mouse">Extension 2: Chase, The Mouse:</h1>
+
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p>Arman Guerra</p>
+  </dd>
+</dl>
+
+<h2 id="a-story">A Story</h2>
+
+<p>Chase, the Mouse, was standing still on the Standard Draw template one day, thinking about the meaning of 
+life. All of a sudden, out of nowhere, a ball began to follow Chase. No matter where Chase went the ball would follow and pester Chase until he moved again. 
+You will be writing the code for the ball.</p>
+
+<h2 id="procedure">Procedure</h2>
+
+<p>Create a <code class="highlighter-rouge">FollowTheMouse</code> class in the <code class="highlighter-rouge">mousefollower</code> package. You will have to write a few specific methods for this extension. 
+You can test those with the JUnit test provided in the package.
+Once all of these methods are written, you will put them to use in 
+the main method to create a Standard Draw template in which a ball follows your mouse. The methods that you must write are:</p>
+
+<dl>
+  <dt><code class="highlighter-rouge">double[] getMousePosition()</code></dt>
+  <dd>
+    <p>This method returns an array of two <code class="highlighter-rouge">doubles</code>, the x and y coordinates of the mouse. You can find the coordinates 
+  of the mouse on the standard canvas using <code class="highlighter-rouge">StdDraw.mouseX()</code> and <code class="highlighter-rouge">StdDraw.mouseY()</code></p>
+
+    <ol>
+      <li>
+        <p>Write that method so that the first <code class="highlighter-rouge">double</code> in the array that you return is the x coordinate of the mouse, and the second <code class="highlighter-rouge">double</code> is the y coordinate of the mouse.</p>
+      </li>
+      <li>
+        <p>Test this method using the JUnit test <code class="highlighter-rouge">GetMousePositionTest</code> in the <code class="highlighter-rouge">mousefollower</code> class. When you run this test, a ball will appear on a Standard Draw template. Try to follow the ball with your mouse while the test runs.</p>
+      </li>
+    </ol>
+  </dd>
+  <dt><code class="highlighter-rouge">drawBall(double[] position, double radius)</code></dt>
+  <dd>
+    <p>This Method draws the ball wherever it should be in a specific frame.</p>
+
+    <ol>
+      <li>
+        <p>This should take in an array of 2 <code class="highlighter-rouge">doubles</code> that specifies the x and y coordinates of the ball and a <code class="highlighter-rouge">double</code> for the radius.</p>
+      </li>
+      <li>
+        <p>Test this by manually drawing a ball in your main method at a specific x and y coordinate. You can use the following code:</p>
+
+        <div class="highlighter-rouge"><pre class="highlight"><code> ```
+ double[] tester = new double[]{.5, .5};    drawBall(tester, .2);
+   	  StdDraw.show(2000);
+   	  ```
+</code></pre>
+        </div>
+
+        <p>If this draws a large ball in the middle of your template, then your <code class="highlighter-rouge">drawBall()</code> method works!</p>
+      </li>
+    </ol>
+  </dd>
+  <dt><code class="highlighter-rouge">double[] changePosition(double[] position, double[] mousePosition, double speed)</code></dt>
+  <dd>
+    <p>This should return an array of 2 <code class="highlighter-rouge">doubles</code> that represents the new position of the ball</p>
+
+    <ol>
+      <li>
+        <p>This method takes in an array of 2 <code class="highlighter-rouge">doubles</code> that specifies the original position of the ball, an array of 2 <code class="highlighter-rouge">doubles</code> that 
+ specifies the mouse position, and a <code class="highlighter-rouge">double</code> for the speed.</p>
+
+        <p>You are not simply drawing a ball at the position of the mouse. The ball should move at a constant speed towards the mouse at all times.
+ This will require some basic geometry. However, you will not need to use any trigonometric functions.</p>
+
+        <p><img src="../../../extensions/SimilairTriangles.png" alt="" /></p>
+
+        <p>dx and dy are the distances from the ball to the mouse. The legs of the green triangle represent the x and y components of the distance the ball moves
+ in each frame. The hypotenuse of the green triangle represents the total distance the ball moves in each frame. This is, effectively, the “speed” of the ball,
+ distance per frame.</p>
+      </li>
+    </ol>
+  </dd>
+</dl>
+
+<p>Finally, make sure to implement all of these methods in the <code class="highlighter-rouge">main</code> method inside of a <code class="highlighter-rouge">while</code> loop, along with the other 
+necessary <code class="highlighter-rouge">StdDraw</code> code. It would be helpful to set the initial position of the ball outside of the <code class="highlighter-rouge">while</code> loop, and then alter it inside.</p>
+
+<h1 id="extension-3-build-your-own-calculator">Extension 3: Build Your Own Calculator!:</h1>
+
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p>Arman Guerra</p>
+  </dd>
+</dl>
+
+<h2 id="a-how-to-guide">A How-To Guide</h2>
+
+<p>In this extension you shall complete the functionality of a calculator. You accomplish this by creating a series of methods that 
+use the arithmetic, <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">boolean</code>, and casting operations.</p>
+
+<ul>
+  <li>
+    <p>In eclipse, open the <code class="highlighter-rouge">calculator</code> package found in
+  the <code class="highlighter-rouge">extensions</code> source folder.</p>
+  </li>
+  <li>
+    <p>You will find the following Java files:</p>
+  </li>
+</ul>
+
+<dl>
+  <dt><code class="highlighter-rouge">Computations</code></dt>
+  <dd>
+    <p>This is where you will be writing your code.</p>
+  </dd>
+  <dt><code class="highlighter-rouge">Calculator</code></dt>
+  <dd>
+    <p>This is what you will run when you are finished writing all of your methods. This class creates a GUI, 
+  <a href="http://en.wikipedia.org/wiki/Graphical_user_interface">Graphic User Interface</a>. This is what you see when you run <code class="highlighter-rouge">Calculator</code>, an 
+  interface that allows the user to interact with the code. <code class="highlighter-rouge">Calculator</code> will not run until you are finished writing all of your methods, so 
+  if you want to check your code, use the unit test provided.</p>
+  </dd>
+  <dt><code class="highlighter-rouge">ComputationsTest</code></dt>
+  <dd>
+    <p>This is the unit test for this extension. Your code must pass this test for you to earn credit. You can check your methods with 
+  test as you go. We recommend that you check intermittently to see if you are writing your code correctly, so that if you’re making a mistake, you 
+  can catch yourself early.</p>
+  </dd>
+</dl>
+
+<h2 id="procedure-1">Procedure</h2>
+
+<p>You will be writing two kinds of methods. The first kind will be the operational methods, which take in two parameters, and return the result of 
+some operation. For example:</p>
+
+<p><code class="highlighter-rouge">
+// Returns the result of adding d1 and d2.
+public static double addDoubles(double d1, double d2) {
+	return d1 + d2;
+}
+</code></p>
+
+<p>The second kind of method will be <em>to</em> methods, which take in some value, and cast it to the necessary type. For example:</p>
+
+<p><code class="highlighter-rouge">
+// takes in an int and returns a double
+public static double intToDouble(int in) {
+	return (double)in;
+}
+</code></p>
+
+<p>If the input makes no sense, <em>throw</em> an exception. For example, if someone inputs a <code class="highlighter-rouge">String</code>, converting it to an <code class="highlighter-rouge">int</code> would make no sense.</p>
+
+<p>So for the method</p>
+
+<p><code class="highlighter-rouge">
+ public static int stringToInt(String in) {
+	throw new UnsupportedOperationException();
+}  
+</code></p>
+
+<p>you would <em>throw</em> an exception that indicates that this operation is unsupported.</p>
+
+<p>When you <em>throw</em> this exception, our code <em>catches</em> the exception, and sends out an error message through the GUI.
+You will learn more about this in future classes.</p>
+
+<h2 id="methods">Methods</h2>
+<p>First you will write:</p>
+
+<ul>
+  <li>
+    <p>Double operations, which take in two doubles and output one double:</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">double addDoubles(double d1, double d2)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">double subtractDoubles(double d1, double d2)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">double divideDoubles(double d1, double d2)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">double multiplyDoubles(double d1, double d2)</code></p>
+      </li>
+    </ul>
+
+    <p>Make sure that the calculator will not crash if a user tells it to divide by zero. If a user tries to divide by zero, return zero.</p>
+
+    <p>At ths point, and at each subsequent point of arrival, run the unit
+  test to see if the changes you have made so far pass the test.  At this
+  point, the <code class="highlighter-rouge">double</code> tests should pass.</p>
+  </li>
+  <li>
+    <p>Integer operations, which take in two integers, and output one</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">int addInts(int i1, int i2)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">int subtractInts(int i1, int i2)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">int divideInts(int i1, int i2)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">int multiplyInts(int i1, int i2)</code></p>
+      </li>
+    </ul>
+
+    <p>Again, there is a possibility that a user will divide by zero here. <a href="http://www.youtube.com/watch?v=YneYiO1r0Ow"> Do the thing</a> detailed above.</p>
+  </li>
+  <li>
+    <p>A String Operation, which takes in two Strings and concatenates them</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">String concatenate(String s1, String s2)</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Boolean operations, which take in two booleans and outputs one</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">boolean andBoolean(boolean b1, boolean b2)</code> which returns the value of the expression <code class="highlighter-rouge">b1 &amp;amp;&amp;amp; b2</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">boolean orBoolean(boolean b1, boolean b2)</code> which returns the value of the expression <code class="highlighter-rouge">b1 || b2</code></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Then you will write:</p>
+
+<ul>
+  <li>
+    <p>Double <em>to</em> methods, which take in a value and convert it to a double when it makes sense, and throw an error if it doesn’t make sense.</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">double intToDouble(int in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">double doubleToDouble(double in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">double stringToDouble(String in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">double booleanToDouble(boolean in)</code></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Integer <em>to</em> methods, which take in a value and convert it to an integer when it makes sense, and throw an error if it doesn’t make sense.</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">int intToInt(int in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">int doubleToInt(double in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">int stringToInt(String in))</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">int booleanToInt(boolean in)</code></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>String <em>to</em> methods, which take in a value and convert it to a String when it makes sense, and throw an error if it doesn’t make sense.</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">String intToString(int in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">String doubleToString(double in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">String stringToString(String in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">String booleanToString(boolean in)</code></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Boolean <em>to</em> methods, which take in a value and convert it to a boolean when it makes sense, and throw and error if it doesn’t make sense.</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">boolean intToBoolean(int in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">boolean doubleToBoolean(double in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">boolean stringToBoolean(String in)</code></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">boolean booleanToBoolean(boolean in)</code></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Each of these methods should be quite short.</p>
+
+<h1 id="extension-4-watermelon-puzzle">Extension 4: Watermelon Puzzle:</h1>
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p>Arman Guerra</p>
+  </dd>
+</dl>
+
+<p>Adapted from <em>Sit and Solve Brainteasers</em> by Derick Niederman</p>
+
+<h2 id="warm-up">Warm Up</h2>
+
+<p>Five watermelons, each of different weight, have been weighed in <em>pairs</em>
+to obtain the following weights:</p>
+
+<p>20, 22, 23, 24, 25, 26, 27, 28, 30, 31</p>
+
+<p>One way to solve this would be to figure out a mathematical algorithm for this number of watermelons and work out the weight of each watermelon. 
+Another would be to try all of the possible combinations of weights five watermelons until you found one that has this same set of combinations of weights.
+Either way you did it, the specific set of watermelons that produces these weights is</p>
+
+<p>[ 9, 11, 13, 14, 17 ]</p>
+
+<h2 id="procedure-2">Procedure</h2>
+<p>Since we have computers, and know how to write code, trying all of the possible weights of the five watermelons is now much easier. In this extension, 
+you will take in an array of 10 weights, and you will try, iteratively, to come up with the individual weights of the five watermelons.</p>
+
+<ol>
+  <li>
+    <p>Find the code for this extension in the <code class="highlighter-rouge">watermelons</code> package.</p>
+  </li>
+  <li>
+    <p>Create two methods in the <code class="highlighter-rouge">Watermelons</code> class. There is one finished method that will help you write the other two 
+ methods. The two methods you must create are:</p>
+
+    <dl>
+      <dt><code class="highlighter-rouge">int[] allPairSums(int[] nums)</code></dt>
+      <dd>
+        <p>This method must be completed first.  Given the input array
+  <code class="highlighter-rouge">nums</code>, this method computes the pairwise-sum of each distinct
+  pair of index values for that array.  For example, given the
+  input <code class="highlighter-rouge"><span class="p">{</span><span class="err">40,</span><span class="w"> </span><span class="err">20,</span><span class="w"> </span><span class="err">10,</span><span class="w"> </span><span class="err">30</span><span class="p">}</span></code>, the method must compute the sums of
+  indices 
+  <code class="highlighter-rouge">(0,1)</code>,
+  <code class="highlighter-rouge">(0,2)</code>,
+  <code class="highlighter-rouge">(0,3)</code>,
+  <code class="highlighter-rouge">(1,2)</code>,
+  <code class="highlighter-rouge">(1,3)</code>,
+  <code class="highlighter-rouge">(2,3)</code>, returning the array</p>
+
+        <p><code class="highlighter-rouge"><span class="p">{</span><span class="err">60,</span><span class="w"> </span><span class="err">50,</span><span class="w"> </span><span class="err">70,</span><span class="w"> </span><span class="err">30,</span><span class="w"> </span><span class="err">50,</span><span class="w"> </span><span class="err">40</span><span class="p">}</span></code></p>
+
+        <p>The ordering of the elements in the returned array does not matter.</p>
+      </dd>
+      <dt><code class="highlighter-rouge">int[] getSolution(int[] originalSums)</code></dt>
+      <dd>
+        <p>This method returns a solution to the puzzle for the array of 10 integers that are passed into it. The ordering of elements
+  in the array you produce does not matter, as far as the provided unit test is concerned.</p>
+
+        <p>The included method, <code class="highlighter-rouge">boolean sameIntArrays(int[] one, int[] two)</code> 
+  will help you with this method. When you pass two integer arrays into <code class="highlighter-rouge">sameIntArrays</code>, it checks whether the two integer arrays contain the same elements.
+  The order of the elements in the arrays does not matter.</p>
+      </dd>
+    </dl>
+  </li>
+  <li>
+    <p>Make sure you pass the provided unit tests.  Once it does, you will
+ have a solution to the puzzle.</p>
+
+    <p>For extra fun, go into the code for the Unit test, and inside the <code class="highlighter-rouge">int[] genSolution()</code> method, uncomment <code class="highlighter-rouge">List&lt;Integer&gt; ans = genIntsSlow();</code>
+ and comment out <code class="highlighter-rouge">List&lt;Integer&gt; ans = genIntsFast();</code>. This will pass larger weights into your <code class="highlighter-rouge">int[] getSolution(int[] originalSums)</code> method, 
+ and so the computation will take longer. It could take up to a minute. This is not required, but it is a neat example of a very large computation.</p>
+  </li>
+</ol>
+
+<h1 id="extension-5-tic-tac-toe">Extension 5: Tic-Tac-Toe:</h1>
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p>Tim Huber</p>
+  </dd>
+  <dd><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></dd>
+</dl>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The design of software can often be specified using its
+<a href="https://en.wikipedia.org/wiki/Application_programming_interface">API</a>, or Application Programming Interface.  The API specifies the
+<em>methods</em> that are offered by the software.  Documentation for those
+methods typically includes:</p>
+
+<ul>
+  <li>
+    <p>the <em>signature</em> of each method:</p>
+
+    <ul>
+      <li>
+        <p>the method’s name</p>
+      </li>
+      <li>
+        <p>the types of the method’s parameters</p>
+      </li>
+      <li>
+        <p>the return type (or <code class="highlighter-rouge">void</code>) for the method</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>the documentation for the method</p>
+  </li>
+</ul>
+
+<p>The above should be sufficient to use the software, but it can also form
+the <em>design</em> document for implementing the software.</p>
+
+<ul>
+  <li>
+    <p>For this Tic-Tac-Toe assignment, the API can be found 
+  <a href="../../../extensions/TTTDoc/">here</a>.</p>
+  </li>
+  <li>
+    <p>A video showing how to navigate the documentation can be found
+  <a href="../../../extensions/tictactoe.mp4">here</a>.</p>
+  </li>
+  <li>
+    <p>This form of documentation is known as
+  <a href="https://en.wikipedia.org/wiki/Javadoc">Javadoc</a>.  It can be
+  generated automatically from the <code class="highlighter-rouge">/**&amp;hellip;*/</code> comments that 
+  you entered into your work for this module’s lab.</p>
+  </li>
+</ul>
+
+<h2 id="procedure-3">Procedure</h2>
+
+<ul>
+  <li>
+    <p>Find the assignment’s code in the <code class="highlighter-rouge">tictactoe</code> package of
+the <code class="highlighter-rouge">extensions</code> folder.</p>
+  </li>
+  <li>
+    <p>Watch <a href="../../../extensions/tictactoe.mp4">the documentation video</a>.</p>
+  </li>
+  <li>
+    <p>Implement the methods according to the <a href="../../../extensions/TTTDoc/">documentation</a>.</p>
+  </li>
+  <li>
+    <p>Test as you go by running the unit test <code class="highlighter-rouge">TTTTest</code>.</p>
+  </li>
+</ul>
+
+<p>It is suggested that you implement the methods in the following order:</p>
+
+<ol>
+  <li>
+    <p><a href="../../../extensions/TTTDoc/tictactoe/TicTacToe.html#genBoard--">String[][] genBoard()</a> (actually shown in the video)</p>
+  </li>
+  <li>
+    <p><a href="../../../extensions/TTTDoc/tictactoe/TicTacToe.html#verifyValidRow-int-">void verifyValidRow(int))</a></p>
+
+    <p>For this assignment,
+ when an improper input is found by methods like this,
+ you are required
+ to <code class="highlighter-rouge">throw</code> an <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></p>
+
+    <p>An example of that is done for you in <code class="highlighter-rouge">verifyValidPlayer</code>, so take
+ a look at that for guidance.</p>
+  </li>
+  <li>
+    <p><a href="http://www.cs.wustl.edu/~cytron//cse131/Modules/5/Extensions/TTTDoc/tictactoe/TicTacToe.html#verifyValidCol-int-" target="doc">void verifyValidCol(int)</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.cs.wustl.edu/~cytron//cse131/Modules/5/Extensions/TTTDoc/tictactoe/TicTacToe.html#makeMove-java.lang.String-java.lang.String:A:A-int-int-" target="doc">boolean makeMove(String, String[][], int, int)</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.cs.wustl.edu/~cytron//cse131/Modules/5/Extensions/TTTDoc/tictactoe/TicTacToe.html#boardFull-java.lang.String:A:A-" target="doc">boolean boardFull(String[][])</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.cs.wustl.edu/~cytron//cse131/Modules/5/Extensions/TTTDoc/tictactoe/TicTacToe.html#winFor-java.lang.String-java.lang.String:A:A-" target="doc">boolean winFor(String, String[][])</a></p>
+  </li>
+</ol>
+
+<p>Other methods are in the class and documentation, but they are already
+implemented for you:</p>
+
+<ul>
+  <li>
+    <p><a href="http://www.cs.wustl.edu/~cytron//cse131/Modules/5/Extensions/TTTDoc/tictactoe/TicTacToe.html#prettyString-java.lang.String:A:A-" target="doc">String prettyString(String[][])</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.cs.wustl.edu/~cytron//cse131/Modules/5/Extensions/TTTDoc/tictactoe/TicTacToe.html#verifyValidPlayer-java.lang.String-" target="doc">void verifyValidPlayer(String)</a></p>
+  </li>
+</ul>
+
+<h2 id="play-the-game">Play the game</h2>
+
+<ul>
+  <li>
+    <p>Watch <a href="../../../extensions/tictactoeplay.mp4">this video</a> showing
+  the play of the game.</p>
+  </li>
+  <li>
+    <p>Run the <code class="highlighter-rouge">Game</code> class in the <code class="highlighter-rouge">tictactoe</code> package of
+  your <code class="highlighter-rouge">extensions</code> folder to play against the computer.</p>
+  </li>
+</ul>
+
+<h1 id="extension-6-jackpot">Extension 6: Jackpot</h1>
+
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p>Arman Guerra</p>
+  </dd>
+  <dd>Nathan Vogt</dd>
+</dl>
+
+<h1 id="description">Description</h1>
+
+<p>In this assignment you create a <a href="https://en.wikipedia.org/wiki/Slot_machine" target="new">slot machine</a>. 
+In this game, you pull a lever which causes three or more shapes to appear randomly. Based on the combination of the 
+shapes and their colors, the player wins a certain amount of money. You will create this machine using Sedgewick’s 
+<code class="highlighter-rouge">StdDraw</code>.</p>
+
+<h2 id="procedure-4">Procedure</h2>
+
+<p>Be creative! Many implementations will satisfy the requirements.</p>
+
+<p>Your slot machine must include:</p>
+
+<ul>
+  <li>
+    <p>A method for drawing the slot machine. Most slot machines have between 3 and 7 <a href="https://en.wikipedia.org/wiki/Slot_machine#Reels" target="new">reels</a>.</p>
+  </li>
+  <li>
+    <p>A method for randomly picking shapes and their colors and displaying them. It is up to you to decide how many different shapes 
+  and colors and which ones to use.</p>
+  </li>
+  <li>
+    <p>A way to reward multiple win conditions for when all the colors are the same, all the 
+  shapes are the same, and both the colors and shapes are the same.</p>
+  </li>
+  <li>
+    <p>A way to show the balance that the player has in the machine. Each pull of the lever should cost a certain amount of money (that is 
+less than the win amounts).</p>
+  </li>
+</ul>
+
+<h1 id="extension-9-net-present-value">Extension 9: Net Present Value</h1>
+
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p>Arman Guerra</p>
+  </dd>
+  <dd>Alan Waldman</dd>
+  <dd><a href="https://en.wikipedia.org/wiki/Net_present_value">Wikipedia</a></dd>
+  <dd><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></dd>
+</dl>
+
+<h2 id="present-value">Present Value</h2>
+
+<p>In this assignment, we consider and reason about the
+<a href="https://en.wikipedia.org/wiki/Time_value_of_money">time value of money</a>.<br />
+This is based on the observations:</p>
+
+<ul>
+  <li>
+    <p>While we live in the present, we understand the value of
+  \$1 in terms of what it can buy today.</p>
+  </li>
+  <li>
+    <p>It’s difficult for us to think of what a dollar
+  could buy 100 years ago, or 100 years from now.</p>
+  </li>
+  <li>
+    <p>If we want to compare monetary values from several time periods,
+  it is helpful to view them in the same time period.</p>
+  </li>
+</ul>
+
+<p>The suggestion is therefore to reason about all currency in <em>today’s dollars</em>.  This is called <em>present value</em>.</p>
+
+<p>The ideas discussed here are widely used in economics, finanace, and
+accounting.</p>
+
+<h2 id="two-friends-and-your-1">Two Friends and your \$1</h2>
+<p>Suppose you have \$1 and two friends who offer to take your dollar under the
+following circumstances:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Friend One</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This friend takes your \$1 
+and gives you back \$5 tomorrow.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Friend Two</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This friend takes your \$1 and gives you 
+back \$10 in fifty years.</p>
+
+<p>Which friend is offering you the better deal?</p>
+
+<ul>
+  <li>
+    <p>If we consider only the number of dollars you receive from these
+  two friends, then in 50 years you end up with either \$5, 
+  or \$10.</p>
+  </li>
+  <li>
+    <p>It may therefore seem that Friend Two is offering you the better deal.</p>
+  </li>
+  <li>
+    <p>However, we know that \$10 fifty years from now is 
+  not worth \$10 today.</p>
+  </li>
+</ul>
+
+<p>How do we reason about the value of \$10 in fifty years?  We must first model
+how the value of money changes over time.  We do this by choosing:</p>
+
+<ul>
+  <li>
+    <p>a time period during which the money’s value stays the same, and at the
+end of which money grows instantaneously by some factor <em>r</em></p>
+
+    <p>For this exercise, we choose a year’s time, so that money changes
+  value annually.</p>
+  </li>
+  <li>
+    <p>the factor <em>r</em>, which is interchangeably called
+  the <em>discount rate</em>, <em>opportunity cost of capital</em>, and
+  <em>rate of return</em>.</p>
+
+    <p>For this exercise, we choose 10% growth so that 
+  <em>r = 0.1</em>.</p>
+  </li>
+</ul>
+
+<p>We then use the 
+<a href="https://en.wikipedia.org/wiki/Time_value_of_money">time value of money</a> 
+to compute the following:</p>
+
+<ul>
+  <li>
+    <p>What would \$1 be worth in fifty years if invested with some
+  rate of return <em>r</em>?</p>
+
+    <p>We model this computation by the function</p>
+
+    <p><code class="highlighter-rouge">
+  futureValue(dollars, years, r) = dollars &amp;times; (1.0 + r) ^ years
+ </code></p>
+
+    <p>Thus, \$1 is the same now 
+  as \$117 dollars fifty years from now.</p>
+  </li>
+  <li>
+    <p>How much would I have to set aside today so that it would be worth
+  \$1 in fifty years using the discount
+  rate <em>r</em>?</p>
+
+    <p>We model this computation by computing the reverse (running time backwards)
+  of what we computed for the future:</p>
+
+    <p><code class="highlighter-rouge">
+  presentValue(dollars, years, r) = dollars / (1.0 + r) ^ years
+ </code></p>
+
+    <p>Thus, to have \$1 fifty years from now, we would have to set aside
+  0.854 cents (less than one cent) now.</p>
+  </li>
+</ul>
+
+<p>Returning to your two friends, let’s relate both friends’ offers in terms
+of present value, and compute your profit or loss (your <em>net</em> result).</p>
+
+<h2 id="net-present-value">Net Present Value</h2>
+
+<p>Recall we assume a discount rate of 10% (<code class="highlighter-rouge">r=0.10</code>) and we regard
+time annually.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Friend One</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>This friend takes your \$1 and gives 
+  you back \$5 tomorrow.</p>
+  </li>
+  <li>
+    <p>With money changing
+  value annually, \$5 tomorrow 
+  is the same as \$5 today.</p>
+  </li>
+  <li>
+    <p>Computing</p>
+
+    <p><code class="highlighter-rouge">
+  presentValue(\\$5, 0, 0.10) = \\$5 / (1.0 + 0.10) ^ 0
+ </code></p>
+
+    <p>yields \$5.</p>
+  </li>
+  <li>
+    <p>This friend’s offer is therefore worth \$5 today.</p>
+  </li>
+  <li>
+    <p>Your <em>net</em> gain is the \$5 you receive <em>minus</em> the \$1 you gave 
+  away, so you net \$4.</p>
+  </li>
+</ul>
+
+<p>Because your <em>net present value</em> from this deal is positive (\$5), you would choose
+to take advantage of this friend’s offer.</p>
+
+<p><strong>Friend Two</strong></p>
+
+<ul>
+  <li>
+    <p>This friend takes your \$1 and gives 
+  you back \$10 in a fifty years.</p>
+  </li>
+  <li>
+    <p>\$10 in fifty years sounds 
+  better than \$5 tomorrow, but …</p>
+  </li>
+  <li>
+    <p>Computing</p>
+
+    <p><code class="highlighter-rouge">
+  presentValue(\\$10, 50, 0.10) = \\$10 / (1.0 + 0.10) ^ 50
+ </code></p>
+
+    <p>offer is worth about 8 cents today.</p>
+  </li>
+  <li>
+    <p>Your <em>net</em> gain is the 0.08 dollars
+  you receive minus the \$1 you gave away, so you net −0.92 dollars.</p>
+
+    <p>Because your <em>net present value</em> is negative (−0.92), you would decline
+  this friend’s offer.</p>
+  </li>
+</ul>
+
+<h2 id="product-development-story">Product Development Story</h2>
+
+<p>Consider the following <a href="https://en.wikipedia.org/wiki/Net_present_value#Example">example from Wikipedia</a>,
+based on investing \$100,000 to create a new product:</p>
+
+<ul>
+  <li>
+    <p>The product would cost you \$100,000 to develop.  That money would be gone forever.</p>
+  </li>
+  <li>
+    <p>Every year for the next 12 years, you would receive \$10,000 from sales
+  of the product.</p>
+  </li>
+</ul>
+
+<p>In summary, you give away \$100,000 and 
+	you get \$120,000 back.  Is this 
+	a good deal?  Let’s look at the returns in terms of Net Present Value (NPV):</p>
+
+<table>
+<tr>
+<th>Year</th> <th>Present Value<br />Computation<br />(for year 0)</th> <th>Computation<br />Result</th> <th>Net Present Value</th> <th> Comments</th> </tr>
+<tr>
+<td><b>0</b></td> 
+<td>
+<table>
+<tr> <td> &minus;\\$100,000</td></tr>
+<tr> <td><hr /></td></tr>
+<tr>  <td>(1+0.10)<sup><b>0</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;&minus;\\$100,000.00</td>
+<td>&minus;\\$100,000.00</td>
+<td> Initial investment, no return until year 1</td>
+</tr>
+<tr>
+<td><b>1</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>1</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$9,090.91</td>
+<td>&minus;90,909.09</td>
+<td> The <b>Computation Result</b> column shows the yearly return of \\$10,000,
+discounted by the rate (0.10) so it can be
+expressed in present (year-0) dollars</td>
+</tr>
+<tr>
+<td><b>2</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>2</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$8,264.46</td>
+<td>&minus;82,644.63</td>
+<td>The <b>Net Present Value</b> column shows the cumulative gain or loss </td>
+</tr>
+<tr>
+<td><b>3</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>3</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$7,513.15</td>
+<td>&minus;75,131.48</td>
+<td> </td>
+</tr>
+<tr>
+<td><b>4</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>4</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$6,830.13</td>
+<td>&minus;68,301.35</td>
+<td> </td>
+</tr>
+<tr>
+<td><b>5</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>5</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$6,209.21</td>
+<td>&minus;62,092.14</td>
+<td> </td>
+</tr>
+<tr>
+<td><b>6</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>6</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$5,644.74</td>
+<td>&minus;56,447.40</td>
+<td> </td>
+</tr>
+<tr>
+<td><b>7</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>7</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$5,131.58</td>
+<td>&minus;51,315.82</td>
+<td> </td>
+</tr>
+<tr>
+<td><b>8</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>8</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$4,665.07</td>
+<td>&minus;46,650.75</td>
+<td>In present value, the \\$10,000 received in this year is
+worth less than half! </td>
+</tr>
+<tr>
+<td><b>9</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>9</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$4,240.98</td>
+<td>&minus;42,409.77</td>
+<td> </td>
+</tr>
+<tr>
+<td><b>10</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>10</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$3,855.43</td>
+<td>&minus;38,554.34</td>
+<td> </td>
+</tr>
+<tr>
+<td><b>11</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>11</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$3.504.94</td>
+<td>&minus;35,049.40</td>
+<td> </td>
+</tr>
+<tr>
+<td><b>12</b></td> 
+<td>
+<table>
+<tr> <td> \\$10,000</td></tr>
+<tr> <td> <hr /> </td></tr>
+<tr>  <td>(1+0.10)<sup><b>12</b></sup></td> </tr>
+</table>
+</td>
+<td>&nbsp;=&nbsp;\\$3,186.31</td>
+<td>&minus;31,863.09</td>
+<td>At the end of 12 years, we have \\$120,000 but that is worth only
+\\$68,136.91 in present (year-0) dollars, with each year's \\$10,000 discounted
+to show present value.</td>
+</tr>
+</table>
+
+<p>The NPV of the \$100,000 investment is −31,863.09, which is a substantial loss.
+Because the NPV is negative, this is not an investment you should make.</p>
+
+<h2 id="procedure-5">Procedure</h2>
+
+<ul>
+  <li>
+    <p>Find and open
+  the <code class="highlighter-rouge">NPV</code> class found in the
+  <code class="highlighter-rouge">netpresentvalue</code> package of the <code class="highlighter-rouge">extensions</code> source
+  folder in your repository.</p>
+  </li>
+  <li>
+    <p>Using the information provided above, your task is to complete the methods within that class</p>
+  </li>
+  <li>
+    <p>Test your work by running the provided unit test.  It should show green
+  and produce a table similar to the one provided above.</p>
+  </li>
+</ul>
+
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:34 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

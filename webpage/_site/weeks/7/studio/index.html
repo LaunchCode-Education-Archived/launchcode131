@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Object Design | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/7/studio/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 7 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Studio 7: Object Design</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Thu, Jul 28</p>
+						<p><strong>Due:</strong> Thu, Jul 28</p>
+					</aside>
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#warmup" id="markdown-toc-warmup">Warmup</a></li>
+  <li><a href="#guidelines" id="markdown-toc-guidelines">Guidelines</a>    <ul>
+      <li><a href="#cautions" id="markdown-toc-cautions">Cautions</a></li>
+      <li><a href="#design-problems" id="markdown-toc-design-problems">Design Problems</a>        <ul>
+          <li><a href="#object-types" id="markdown-toc-object-types">Object Types</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="warmup">Warmup</h1>
+<ul>
+  <li>First, form a group:
+    <ul>
+      <li>If you are at a table with a large, wall-mounted screen, a group of 3-4 people is fine.</li>
+      <li>If you are seated at a table without a large screen, a group of 2 people is better</li>
+    </ul>
+  </li>
+  <li>All but one member of your group should have this web page open so you can follow along and see the instructions as you work</li>
+  <li>Plan to have one computer at which your team does its work. Initially, one of you will be in charge of typing at that computer.</li>
+  <li>Throughout the studio, you should trade who is in charge of the keyboard. Before doing so, <strong>commit your work</strong> to make sure your work is saved</li>
+</ul>
+
+<h1 id="guidelines">Guidelines</h1>
+
+<ul>
+  <li>
+    <p>This week’s studio is an exercise in <em>design</em>, so get your
+  right brains limbered up for some creative thinking.</p>
+  </li>
+  <li>
+    <p>In design, there are no wrong or right answers.  However, some designs
+  are better than others for certain purposes.<br />
+  It will be important for each person in your
+  group to be able to defend your team’s design.</p>
+
+    <ul>
+      <li>If some member does not understand an aspect of your team’s design, the entire team may be docked studio credit.   It is not necessary that all decisions be made with unanimity, but the issues that influece the design one way or the other <em>must</em> be understood by all members of your team.</li>
+    </ul>
+  </li>
+  <li>
+    <p>A rush to implement something fully will be a Bad Idea. The group’s goal this week is to arrive at a design, not an implementation.</p>
+  </li>
+  <li>
+    <p>That said, we will be developing <em>stubs</em> in eclipse to
+  represent the design, with a bit of <em>Javadoc</em> above each class
+  and method to help generate documentation.</p>
+  </li>
+  <li>
+    <p>As you design, thank about the <strong>has-a</strong> idea presented in class
+  and articulate the <strong>behaviors</strong> you want your object to have.</p>
+  </li>
+  <li>
+    <p>The design problems are presented to you in the form of a <a href="http://www.extremeprogramming.org/rules/userstories.html">user story</a>.</p>
+  </li>
+</ul>
+
+<h2 id="cautions">Cautions</h2>
+
+<ul>
+  <li>Use rich data types where possible, both to document your design and to leverage Java’s type system to avoid bugs in your program.
+  For example, instead of representing a given account using an integer,
+  an actual object <code class="highlighter-rouge">Account</code> was defined.  Similarly,
+  an integer suffices to hold color information for a pixel, but
+  a <code class="highlighter-rouge">Color</code> class (type) was defined to provide reliable
+  functionality and to hide details of the implementation
+  (encapsulation).</li>
+  <li>
+    <p>Avoid passing parameters of generic type that represent something
+  that could have been its own class.  For example, consider
+  using <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> coordinates to represent
+  a point, as shown below:</p>
+
+    <p><code class="highlighter-rouge">public void f(int x1, int y1, int x2, int y2) {...}</code></p>
+
+    <p>It is easy to forget the order in which the integers must be passed
+  to <code class="highlighter-rouge">f</code>.  To avoid such chaos and to make the program more
+  readable, articulate a <code class="highlighter-rouge">Point</code> object that has an x and y coordinate.  The method then becomes</p>
+
+    <p><code class="highlighter-rouge">public void f(Point p1, Point p2) {... }</code></p>
+  </li>
+  <li>
+    <p>Every class should have its <code class="highlighter-rouge">toString()</code> method defined,
+  so that the class can return a <code class="highlighter-rouge">String</code> with some
+  meaningful information about the class.<br />
+  Generally, <code class="highlighter-rouge">toString()</code>
+  methods should avoid invoking the <code class="highlighter-rouge">toString()</code> methods of any
+  other class.</p>
+  </li>
+  <li>
+    <p>Instance variables should be defined where necessary, but declared
+  <code class="highlighter-rouge">private</code> to guard against accidental access or
+  modification outside of the class holding the instance variables.</p>
+  </li>
+  <li>
+    <p>Where necessary, each class should provide methods that get and set
+  its local instance variables.</p>
+
+    <blockquote>
+      <p>Recall eclipse can generate those for you automatically.</p>
+    </blockquote>
+
+    <p>It is customary to base the name of such methods consistently on the name of the associated instance variable:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>      public Person getPerson() {
+       return person;
+      }
+
+      public void setPerson(Person person) {
+       this.person = person;
+      }
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h2 id="design-problems">Design Problems</h2>
+
+<ul>
+  <li>
+    <p>A number of stories appear below about various object types.</p>
+  </li>
+  <li>
+    <p>Pick an object type, read the story, and design and implement
+  a class in your <code class="highlighter-rouge">studio7</code> workspace for the object type.</p>
+  </li>
+  <li>
+    <p>Include Javadoc comments in your code, and if possible, generate
+   the Javadoc using eclipse.</p>
+
+    <blockquote>
+      <p>From the <code class="highlighter-rouge">Project</code> menu choose <code class="highlighter-rouge">Generate Javadoc</code>.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Write a simple test or two to test your implementation.</p>
+  </li>
+  <li>
+    <p>Repeat this process with another object type until the TA comes to you 
+  with a modification
+  for one of the classes you have implemented.</p>
+  </li>
+</ul>
+
+<h3 id="object-types">Object Types</h3>
+
+<dl>
+  <dt><code class="highlighter-rouge">Rectangle</code></dt>
+  <dd>
+    <p>A rectangle has a length and a width.   A rectangle should be able
+  to provide its area and perimeter.  A rectangle can indicate whether it
+  is smaller than another rectangle in terms of area.  A rectnagle can
+  indicate whether it is in fact a square.</p>
+  </dd>
+  <dt><code class="highlighter-rouge">Die</code></dt>
+  <dd>
+    <p>When a <code class="highlighter-rouge">Die</code> is constructed, it is specified to have
+  <strong>n</strong> number of sides. Each time the die is thrown,
+  a random integer is returned in the range 1..<strong>n</strong>, inclusively.</p>
+  </dd>
+  <dt><code class="highlighter-rouge">Fraction</code></dt>
+  <dd>
+    <p>A fraction has a numerator and denominator.  A faction should be
+  able to add itself to another fraction, returning a new fraction that
+  represents the sum.  A fraction should be able to multiply itself
+  by another fraction, returning a new fraction as the product.
+  A fraction should be able to take the reciprocal of itself, returning
+  that value as a new fraction.
+  A fraction should be able to simplify itself, returning a new fraction
+  as that simplification.</p>
+  </dd>
+  <dt><code class="highlighter-rouge">Complex</code></dt>
+  <dd>
+    <p>A <a href="http://en.wikipedia.org/wiki/Complex_number">complex number</a> has a real and imaginary part, each represented as a <code class="highlighter-rouge">double</code>.
+  A complex should be able to add itself to another complex number, returning
+  a new compmlex number as the sum (see below).  Similarly, a complex
+  number should be able to  multiply
+  itself by another complex number, returning a new complex number as
+  the product.</p>
+  </dd>
+</dl>
+
+<ul>
+  <li>
+    <p>A complex number with real part a and imaginary part b is usually
+  shown as <code class="highlighter-rouge">a + bi</code>.</p>
+  </li>
+  <li>
+    <p>The result of adding two complex numbers <i>a</i> and <i>b</i> is another complex number whose
+  real part is the sum of 
+  the real parts of <strong>a</strong> and <strong>b</strong></p>
+
+    <p>and whose imaginary part is
+  the sum of
+  the imaginary parts of <strong>a</strong> and <strong>b</strong>.</p>
+  </li>
+  <li>
+    <p>The product of (a+bi) and (c+di) is (ac-bd) + (ad+bc)i</p>
+  </li>
+</ul>
+
+<dl>
+  <dt><code class="highlighter-rouge">HockeyPlayer</code></dt>
+  <dd>
+    <p>A hockey player has a name and a jersey number.  Most players shoot either
+  right or left, but some can shoot either way.  A player can be right- or
+  left-handed, but shoot either right or left.   This object should be
+  able to react when a player completes a game, recording how many goals
+  and assists the player earned in that game.  A player has a certain
+  number of goals and assists he or she has recorded over all games
+  played.  Also, a player
+  has a certain number of <strong>points</strong>, which is the sum of the goals
+  and assists a player has earned.  A player has a certain number of games
+  he or she has played.</p>
+  </dd>
+  <dt><code class="highlighter-rouge">UnivCourse</code></dt>
+  <dd>
+    <p>A university course has a number, like 131, and a department, like CSE.
+  Each course has a certain number of students currently enrolled.  It is
+  possible for students to add or drop the course after the course has
+  been constructed.  It should be possible to determine the number of
+  students who are currently enrolled in a course.</p>
+  </dd>
+</dl>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:33 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

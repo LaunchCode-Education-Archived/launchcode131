@@ -33,7 +33,7 @@ author: Ben Stolovitz
 			</tr>
 		</tfoot>
 		<tbody>
-			{% for week in site.weeks limit:5 %}
+			{% for week in site.weeks limit:8 %}
 				{% for day in week.days %}
 					<tr class="calendar__row">
 						{% if forloop.first %}

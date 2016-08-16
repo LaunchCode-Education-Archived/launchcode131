@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 3 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/3/ext/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 3 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Extension 3: Module 3</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#pascals-triangle" id="markdown-toc-pascals-triangle">Pascal’s Triangle:</a>    <ul>
+      <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#gc-content" id="markdown-toc-gc-content">GC Content:</a>    <ul>
+      <li><a href="#notes" id="markdown-toc-notes">Notes</a></li>
+      <li><a href="#procedure-1" id="markdown-toc-procedure-1">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#data-sorting-and-analysis" id="markdown-toc-data-sorting-and-analysis">Data Sorting and Analysis:</a>    <ul>
+      <li><a href="#procedure-2" id="markdown-toc-procedure-2">Procedure</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="pascals-triangle">Pascal’s Triangle:</h1>
+
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p>Robert Sedgewick (book)</p>
+  </dd>
+</dl>
+
+<p>Take a look at the Wikipedia page on <a href="http://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal’s Triangle</a>.  We will implement this using
+a two-dimensional array, so it may be easier to imagine the entries left-justified rather than
+in triangular form:</p>
+
+<pre>
+        column
+        0  1  2  3  4
+row
+0       1
+1       1  1
+2       1  2  1
+3       1  3  3  1
+4       1  4  6  4  1
+        .
+        .
+        .
+</pre>
+
+<p>Viewed as a two-dimensional array, the computation is specified
+as follows, for each entry at row <em>r</em> and column <em>c</em>:</p>
+
+<ul>
+  <li>If <em>c</em> is 0, then the entry is <code class="highlighter-rouge">1</code>.</li>
+  <li>If <em>c</em><code class="highlighter-rouge">==</code><em>r</em>, then the entry is <code class="highlighter-rouge">1</code>.</li>
+  <li>If <em>r</em><code class="highlighter-rouge">&lt;0</code> or <em>c</em><code class="highlighter-rouge">&lt;0</code> or <em>c</em><code class="highlighter-rouge">&gt;</code><em>r</em>, then the entry is <code class="highlighter-rouge">0</code> and is not shown.</li>
+  <li>Everywhere else, the entry is computed as the sum of the entries at:
+    <ul>
+      <li><em>r</em><code class="highlighter-rouge">-1</code>,<em>c</em></li>
+      <li><em>r</em><code class="highlighter-rouge">-1</code>,<em>c</em><code class="highlighter-rouge">-1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="procedure">Procedure</h2>
+
+<ol>
+  <li>
+    <p>Open the <code class="highlighter-rouge">PascalsTriangle</code> class, found in the
+<code class="highlighter-rouge">arrays</code> package of the <code class="highlighter-rouge">extensions</code> folder.</p>
+  </li>
+  <li>
+    <p>Insert code to obtain from the user the value <em>N</em> which is the number of
+rows you should compute of the triangle.</p>
+  </li>
+  <li>
+    <p>Instantiate the two-dimensional array needed to hold the results.</p>
+
+    <blockquote>
+      <p>Java lets you do this as a <em>ragged</em> array, where each row can be of
+a different length.</p>
+
+      <p>You are welcome to instantiate the array that way, but
+it is simpler and equally acceptable to instantiate the array with the same 
+number of columns in each row.  Java syntax for that is <em>much</em> simpler.
+An example of this appears in <code class="highlighter-rouge">SelfAvoidingWalk</code>,
+found in the
+<code class="highlighter-rouge">book.ch1</code> package of the <code class="highlighter-rouge">book</code> source folder
+in your repositories.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Compute the triangle as a two-dimensional array and print the results 
+left-justified as shown above.</p>
+  </li>
+  <li>
+    <p>For extra fun, try to print the triangle centered as shown on
+the <a href="http://en.wikipedia.org/wiki/Pascal%27s_triangle">Wikipedia page</a>.</p>
+  </li>
+</ol>
+
+<h1 id="gc-content">GC Content:</h1>
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></p>
+  </dd>
+</dl>
+
+<p>Computer science plays a large role in modern biology.  BioJava is a framework for working with biological data.  It provides a framework for using sequences and performing common biology functions.  In this extension you will be reading in a DNA sequence and computing its 
+GC-Content(http://en.wikipedia.org/wiki/GC-content).</p>
+
+<h3 id="notes">Notes</h3>
+<ul>
+  <li>
+    <p>You can find the Java files for this extension in the <code class="highlighter-rouge">extensions</code> source folder.</p>
+
+    <blockquote>
+      <p>Locate the following files in the <code class="highlighter-rouge">biojavagc</code> package:
+* <code class="highlighter-rouge">GCContent.java</code> is the file you complete.  When you run it,
+analysis is performed on four genomes and the results are printed as output.</p>
+
+      <ul>
+        <li><code class="highlighter-rouge">GCContentTest.java</code> is a unit test for your work.  You will
+receive credit for this extension only if this test passes.</li>
+      </ul>
+    </blockquote>
+  </li>
+  <li>
+    <p>You can do this extension by following the instructions below.
+However, you might want to take some time to familiarize yourself with the  <a href="http://biojava.org/wiki/Main_Page">BioJava website</a>.<br />
+Of special importance is the <a href="http://biojava.org/wiki/BioJava:CookBook">BioJava Cookbook</a>.  The cookbook 
+has information and examples for performing common tasks.  You may also find the <a href="http://www.biojava.org/docs/api/index.html">BioJava API</a> helpful.</p>
+  </li>
+  <li>
+    <p>You will be working with some DNA sequences,
+represented in the <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA format</a>,
+which you can find in the <code class="highlighter-rouge">genomes</code> folder of your workspace:</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">NC_002677.fasta</code></li>
+      <li><code class="highlighter-rouge">mysterya.fasta</code></li>
+      <li><code class="highlighter-rouge">mysteryb.fasta</code></li>
+      <li><code class="highlighter-rouge">mysteryc.fasta</code></li>
+    </ul>
+
+    <blockquote>
+      <p>As you might guess from their names, there is an air of mystery surrounding
+some of these genomes.</p>
+
+      <p>Consider a bacterium and a phage that might be hosted by that
+bacterium.  It turns out that the DNA of the host and of the phage often need
+to be similar in terms of their GC content for the bacterium to play host
+to the phage:</p>
+
+      <p>Most bacteriophage and other bacteria are lower in GC content than Salmonella and its relatives, so invading DNA is an obvious target for H-NS. "It’s like a primitive immune system," says Fang. "Reduce their expression, and the foreign genes can be tolerated."</p>
+
+      <p>From <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2064161/">http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2064161/</a></p>
+    </blockquote>
+
+    <p>In other words, if the GC content in the bacterium and phage is dissimilar, the bacterium may be
+  immune to infection by the phage.</p>
+  </li>
+</ul>
+
+<h2 id="procedure-1">Procedure</h2>
+<ol>
+  <li>
+    <p>Complete the method <code class="highlighter-rouge">percentGC</code>  in <code class="highlighter-rouge">GCContent</code>.</p>
+
+    <blockquote>
+      <p>Note: BioJava already has a function to get the GC-count (number of G and C nucleotides) of a sequence.</p>
+
+      <p><strong>Do not use this function.</strong></p>
+
+      <p>Instead, devise a way to
+iterate through the array of characters (representing nucleotides) yourself.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Run the unit test <code class="highlighter-rouge">GCContentTest</code>  and make sure it passes.</p>
+
+    <blockquote>
+      <p>Most students’ code fails when given a string with no DNA in it whatsover
+(an empty string or <code class="highlighter-rouge">""</code>.  Its GC content is 0%.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h1 id="data-sorting-and-analysis">Data Sorting and Analysis:</h1>
+<dl>
+  <dt>Authors</dt>
+  <dd>Brennan Morell</dd>
+  <dd>Jarett Gross</dd>
+</dl>
+
+<p>A big part of Computer Science revolves around finding ways
+to sort data to be organized in a useful manner. There are many different algorithms
+that computer scientists use to sort information. You can learn about a few popular ones below:</p>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Selection_sort">Insertion Sort</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a></li>
+</ul>
+
+<blockquote>
+  <p>For the purposes of this assignment,
+we will implement our sorting using a naive process of repeatedly selecting the smallest value
+from a data set of type <code class="highlighter-rouge">int[]</code>, and swapping it to the front of the collection. In computer science,
+this is called a <a href="https://en.wikipedia.org/wiki/Insertion_sort">Selection Sort</a>.</p>
+</blockquote>
+
+<h2 id="procedure-2">Procedure</h2>
+<ol>
+  <li>
+    <p>Open the <code class="highlighter-rouge">Sorting</code> class, found in the <code class="highlighter-rouge">arrays</code> package
+of the <code class="highlighter-rouge">extensions</code> folder.</p>
+  </li>
+  <li>
+    <p>Prompt the user for the <code class="highlighter-rouge">size</code> of the collection</p>
+
+    <blockquote>
+      <p>If the user enters a negative number, continue to prompt them with a useful message until they enter a positive number.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Continue to prompt the user to input numbers one at a time, using an array to store the input data.</p>
+  </li>
+  <li>
+    <p>After processing all of the numbers entered, the data will be sorted using the following naive algorithm:</p>
+
+    <blockquote>
+      <ul>
+        <li>Create an <code class="highlighter-rouge">int sortCount</code> to keep track of the number of times you’ve scanned the data
+	&gt;</li>
+        <li>
+          <p>Create an outer loop to limit the number of scans to be equal to the size of the collection (<code class="highlighter-rouge">while(sortCount &lt; size)</code>)</p>
+        </li>
+        <li>
+          <p>Create an inner loop to iterate over the unsorted portion of the array, each time selecting the minimum value (keep track of this value and its index in the array)</p>
+
+          <p>The unsorted portion will always be the sub-array with indexes <code class="highlighter-rouge">sortCount</code> to <code class="highlighter-rouge">size</code> inclusive.</p>
+        </li>
+        <li>
+          <p>Swap this minimum value with the value currently at the head of the unsorted portion of the array</p>
+        </li>
+        <li>At this point, <code class="highlighter-rouge">sortCount</code> should be incremented to reflect the new unsorted portion of the array.</li>
+      </ul>
+
+      <p><img src="http://www.piratelearner.com/static/media/images/admin/2015/10/13/selection.gif" alt="" /></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>After the sorting the data, we will take advantage of its useful organization to compute the following statistics:</p>
+
+    <p>Mean: The simple average of the data.</p>
+
+    <p>Median: The middle value in the ordered dataset (Note: How does this computation vary for even and odd sized datasets?)</p>
+
+    <p>Min: The smallest value in the ordered dataset.</p>
+
+    <p>Max: The largest value in the ordered dataset.</p>
+
+    <p>Range: The difference between the maximum and minimum values of the data set.</p>
+  </li>
+  <li>
+    <p>Finally, arrange for your output to display the sorted dataset and accompanying statistics in the following manner:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> 1 2 3 4 5 
+	
+ Mean: 3.0
+	
+ Median: 3.0
+	
+ Min: 1
+	
+ Max: 5
+	
+ Range: 4
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:33 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

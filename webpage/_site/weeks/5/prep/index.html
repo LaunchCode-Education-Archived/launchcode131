@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 5 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/5/prep/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 5 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Prep 5: Module 5</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#before-you-begin" id="markdown-toc-before-you-begin">Before you begin</a></li>
+  <li><a href="#module-overview" id="markdown-toc-module-overview">Module Overview</a></li>
+  <li><a href="#module-introduction" id="markdown-toc-module-introduction">Module Introduction</a></li>
+  <li><a href="#exercise-cooking-abstractions" id="markdown-toc-exercise-cooking-abstractions">Exercise: Cooking Abstractions</a>    <ul>
+      <li><a href="#part-1-introduction" id="markdown-toc-part-1-introduction">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise" id="markdown-toc-part-2-the-exercise">Part 2: The Exercise</a></li>
+      <li><a href="#part-3-solution" id="markdown-toc-part-3-solution">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#method-syntax" id="markdown-toc-method-syntax">Method Syntax</a></li>
+  <li><a href="#encapsulation-via-scopes" id="markdown-toc-encapsulation-via-scopes">Encapsulation via Scopes</a></li>
+  <li><a href="#exercise-method-exercises" id="markdown-toc-exercise-method-exercises">Exercise: Method Exercises</a>    <ul>
+      <li><a href="#part-1-introduction-1" id="markdown-toc-part-1-introduction-1">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-1" id="markdown-toc-part-2-the-exercise-1">Part 2: The exercise</a></li>
+      <li><a href="#part-3-solution-1" id="markdown-toc-part-3-solution-1">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#execution-of-methods" id="markdown-toc-execution-of-methods">Execution of Methods</a></li>
+  <li><a href="#roundtable-method-execution-using-the-debugger" id="markdown-toc-roundtable-method-execution-using-the-debugger">Roundtable: Method Execution using the Debugger</a>    <ul>
+      <li><a href="#part-1" id="markdown-toc-part-1">Part 1</a></li>
+      <li><a href="#part-2" id="markdown-toc-part-2">Part 2</a></li>
+      <li><a href="#part-3" id="markdown-toc-part-3">Part 3</a></li>
+      <li><a href="#part-4" id="markdown-toc-part-4">Part 4</a></li>
+    </ul>
+  </li>
+  <li><a href="#roundtable-more-tracing-using-the-debugger" id="markdown-toc-roundtable-more-tracing-using-the-debugger">Roundtable: More Tracing using the Debugger</a>    <ul>
+      <li><a href="#part-1-1" id="markdown-toc-part-1-1">Part 1</a></li>
+      <li><a href="#part-2-1" id="markdown-toc-part-2-1">Part 2</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<h1 id="before-you-begin">Before you begin</h1>
+
+<p>Before you can begin on the exercises, studio, and assignment for this module, you must update your project to recieve the code. To do this, do the following:</p>
+
+<ol>
+  <li>
+    <p>Go to the BitBucket website. Find the page for your repository. On the right side you should see a message indicating that your repository is behind. Click <em>sync now</em>.</p>
+
+    <p>If you do not see this message, <strong>then you did not fork your repository correctly</strong>. Go back to the prep work for module 0, and create a new fork for your repository.</p>
+
+    <p><img src="../../../preps/p1.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Open Eclipse, find your project. Right click the name of your project and go to <code class="highlighter-rouge">Team -&gt; Pull</code>.</p>
+
+    <p><img src="../../../preps/p2.png" alt="" /></p>
+  </li>
+  <li>
+    <p>On the window that pops up, enter your BitBucket password and click OK. You should now have the materials you need for module 4.</p>
+
+    <p><img src="../../../preps/p3.png" alt="" /></p>
+  </li>
+</ol>
+
+<p>You will need to do this <em>at the beginning of each module</em> as we add more materials to the course.</p>
+
+<h1 id="module-overview">Module Overview</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/h8w8bqske1uuu7uf4gux0zbldkr8m7y9" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="module-introduction">Module Introduction</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/hgmq45pdsfx52o8qkg9unof3gasf3uv6" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-cooking-abstractions">Exercise: Cooking Abstractions</h1>
+
+<h2 id="part-1-introduction">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/o7vam297x37o0yezy514jvo5ygarwldq" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise">Part 2: The Exercise</h2>
+
+<ul>
+  <li>
+    <p>Find and open the <code class="highlighter-rouge">Recipe</code> Java program in the <code class="highlighter-rouge">exercises5</code> package of the <code class="highlighter-rouge">exercises</code> source folder.</p>
+  </li>
+  <li>
+    <p>For the work below, enter your work into that file.</p>
+  </li>
+</ul>
+
+<p>In the introductory video for this exercise, you heard the
+following recipe excerpt:</p>
+
+<ul>
+  <li>
+    <p>Heat 200 cc water to 100 degrees</p>
+  </li>
+  <li>
+    <p>Stir in 5 grams of yeast</p>
+  </li>
+  <li>
+    <p>Melt butter and stur in the vanilla with the butter</p>
+  </li>
+  <li>
+    <p>After 5 minutes, combine yeast with butter, sugar, and flour</p>
+  </li>
+  <li>
+    <p>Place the mixture in a 110 degree oven to rise for 45 minutes</p>
+  </li>
+  <li>
+    <p>Divide the mixture into 10 equally sized portions and cook for 45 minutes at 350 degrees</p>
+  </li>
+</ul>
+
+<p>Define abstractions present in the above recipe.  Rephrase the recipe in terms of your abstractions.</p>
+
+<h2 id="part-3-solution">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/64yhjw6g1dluwduimr3bzf0exg4kssp2" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="method-syntax">Method Syntax</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/y5t7pt1d9yoevq6avpyrp02qgz2hucsj" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="encapsulation-via-scopes">Encapsulation via Scopes</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/q7qzxpwml8q61wf3est0c619uyoe6tyc" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-method-exercises">Exercise: Method Exercises</h1>
+
+<h2 id="part-1-introduction-1">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/ec93d4zwdllbva9t7tomfwrawmdzl2g0" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-1">Part 2: The exercise</h2>
+
+<ul>
+  <li>Find and open the <code class="highlighter-rouge">StringMethods</code> Java program in the <code class="highlighter-rouge">exercises5</code> package of the <code class="highlighter-rouge">exercises</code> source folder.</li>
+  <li>Write the methods described below into the program.</li>
+  <li>Call those methods from the <code class="highlighter-rouge">main</code> method and print out the results to check that your work is correct.</li>
+  <li>The first method is completed for you already.</li>
+</ul>
+
+<p>The methods you should write:</p>
+
+<ul>
+  <li>
+    <p>A method that takes in a <code class="highlighter-rouge">String</code> and returns that string concatenated with itself. This one is completed for you.</p>
+  </li>
+  <li>
+    <p>A method that takes in a <code class="highlighter-rouge">String</code> and an <code class="highlighter-rouge">int</code> <em>n</em>, and returns <em>n</em> copies of the string concatenated together</p>
+  </li>
+  <li>
+    <p>Now go back and rewrite your first method by having it call the second
+one.</p>
+  </li>
+  <li>
+    <p>Take a look at Java’s <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#split(java.lang.String)">split</a> method, that splits a <code class="highlighter-rouge">String</code> into an array containing the parts split by the specified regular expression.</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Here, assume the regular expression is simply <kbd>" "</kbd>, so that the input <code class="highlighter-rouge">String</code> is split into words.</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>Write a method <code class="highlighter-rouge">join(String[] array, String joiner)</code> that is the inverse of split: it returns a single <code class="highlighter-rouge">String</code> with a copy of the <code class="highlighter-rouge">joiner</code> string between each part.</p>
+  </li>
+  <li>
+    <p>Rewrite your second method in terms of this last one.  To do this, create an array that has <em>n</em> copies of a given <code class="highlighter-rouge">String</code>, and then use your <code class="highlighter-rouge">join</code> method to concatenate them.</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Think about the string you want to appear between the copies, so that it appears the strings were concontenated together as before.</p>
+</blockquote>
+
+<h2 id="part-3-solution-1">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/9wjchi6jnpwa399rczn7mf4dvd4auct3" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="execution-of-methods">Execution of Methods</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/1mtf2r7ps8a4xvg6t7iys79axi6amtbz" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="roundtable-method-execution-using-the-debugger">Roundtable: Method Execution using the Debugger</h1>
+
+<h2 id="part-1">Part 1</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/6lxqvmcrfzwb32186r962gfgb83jrtzd" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2">Part 2</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/hldb79l7dhmciosre5965beo5hf28sji" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-3">Part 3</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/q4m0s6arquminmz1a03zl1u9vhy1a4k8" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-4">Part 4</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/vlxekl38pjat0wjf21zsouv6n0plmqo8" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="roundtable-more-tracing-using-the-debugger">Roundtable: More Tracing using the Debugger</h1>
+
+<h2 id="part-1-1">Part 1</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/jhjmp3nnu30po04thjcotgowrywmr02x" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-1">Part 2</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/fckl5facym7ep9sm5kgm008zruwv82iv" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/fdfpzpls365q71ra4p2pj3gjytllf00w" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:33 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

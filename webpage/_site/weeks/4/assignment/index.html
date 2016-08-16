@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Bumping Balls | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/4/assignment/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 4 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Assignment 4: Bumping Balls</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Mon, Jul 4</p>
+						<p><strong>Due:</strong> Mon, Jul 11</p>
+					</aside>
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#bumping-balls" id="markdown-toc-bumping-balls">Bumping Balls</a>    <ul>
+      <li><a href="#resources" id="markdown-toc-resources">Resources</a></li>
+    </ul>
+  </li>
+  <li><a href="#description" id="markdown-toc-description">Description</a></li>
+  <li><a href="#submitting-your-work" id="markdown-toc-submitting-your-work">Submitting your work:</a></li>
+</ul>
+
+<h1 id="bumping-balls">Bumping Balls</h1>
+
+<p>In this lab you will simulate multiple bouncing balls, that may bump
+into each other or into the wall.  The steps articulated below for completing
+this lab recommend that you develop the code in stages, so that you can test
+as you go and make sure you are on the right track.</p>
+
+<p>You have the knowledge you need to do this assignment, but the assignment
+is written-up in a style usually seen for software specification:  you are
+told what should happen, but it’s up to you to make it happen.</p>
+
+<p>As always, consult with TAs when you are stuck.</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li>
+    <p>Do your work in the <code class="highlighter-rouge">lab4</code> package of the <code class="highlighter-rouge">labs</code> source folder, in the <code class="highlighter-rouge">BumpingBalls</code> class.</p>
+  </li>
+  <li>
+    <p>Review the implementation of <code class="highlighter-rouge">BouncingBall</code> found in the <code class="highlighter-rouge">book</code> source folder, package <strong>book.ch1</strong>.</p>
+  </li>
+  <li>
+    <p>Review the additions we made to <code class="highlighter-rouge">BouncingBall</code> to obtain</p>
+  </li>
+  <li>
+    <p>While there is some physics required for this lab, the information you need to know is simply the following:</p>
+
+    <ul>
+      <li>Two balls are colliding if the distance between the two balls’ centers is less than the sum of the two balls’ radii:</li>
+    </ul>
+
+    <blockquote>
+      <p><img src="../../../assignments/collision23.png" alt="Image distance" /></p>
+
+      <ul>
+        <li>Image from <strong>http://kahshiu.wordpress.com/page/2/</strong></li>
+        <li><strong>Ar</strong> and <strong>Br</strong> are the radii of the two balls.</li>
+        <li><strong>dist</strong> is the distance between the two balls’ centers.</li>
+      </ul>
+    </blockquote>
+  </li>
+  <li>
+    <p>The distance between two points can be computed using the <a href="http://www.purplemath.com/modules/distform.htm">distance formula</a></p>
+  </li>
+</ul>
+
+<h1 id="description">Description</h1>
+
+<ol>
+  <li>
+    <p>Prompt the user for the number of balls that will be simulated in your program and the number of iterations for the simulation.</p>
+  </li>
+  <li>
+    <p>For each ball, find a random place on the screen to place that ball.</p>
+  </li>
+  <li>
+    <p>For each ball, compute a random velocity for that ball.</p>
+
+    <blockquote>
+      <p>Based on what you have learned so far in this course, how will you keep
+track of the balls’ positions and velocities?</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Finding a reasonable range of velocities may require some trial-and-error, or
+some thinking and experimentation using pencil and paper:</p>
+
+    <ul>
+      <li>If the balls move too fast, they might fly off the screen.</li>
+      <li>If they move too slowly, the simulation will take forever for you to see something.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Iterate the specified number of times, each time recomputing
+each ball’s location</p>
+  </li>
+  <li>
+    <p>When a ball collides with a wall, change its velocity as shown
+in the <code class="highlighter-rouge">BouncingBall</code> program.</p>
+  </li>
+  <li>
+    <p>When a ball collides with another ball, change both its horizontal and
+vertical velocity component, as if the ball hit a corner of the screen.</p>
+  </li>
+  <li>
+    <p>For extra fun, have the balls replaced by images you like.  There
+are some in the <code class="highlighter-rouge">images</code> folder in your repo, but you are free
+to find others.  Be sure to commit those to your repository.</p>
+  </li>
+  <li>
+    <p>For extra extra fun, play sounds when balls collide.  Some of those can be found
+in the <code class="highlighter-rouge">sound</code> folder.</p>
+  </li>
+</ol>
+
+<h1 id="submitting-your-work">Submitting your work:</h1>
+
+<p>To submit your work, contact the instructor or a TA. They will walk you through the submission process. Be prepared to show them the work that you have done and answer their questions about it!</p>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:32 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

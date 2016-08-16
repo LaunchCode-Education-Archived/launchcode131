@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Flag Day | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/4/studio/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 4 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Studio 4: Flag Day</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Thu, Jul 7</p>
+						<p><strong>Due:</strong> Thu, Jul 7</p>
+					</aside>
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#warmup" id="markdown-toc-warmup">Warmup</a></li>
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a>    <ul>
+      <li><a href="#design-your-country" id="markdown-toc-design-your-country">Design your country</a></li>
+      <li><a href="#design-your-flag" id="markdown-toc-design-your-flag">Design your flag</a></li>
+      <li><a href="#display-the-name-of-your-country" id="markdown-toc-display-the-name-of-your-country">Display the name of your country</a></li>
+      <li><a href="#compose-an-anthem-for-your-flag" id="markdown-toc-compose-an-anthem-for-your-flag">Compose an anthem for your flag</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="warmup">Warmup</h1>
+<ul>
+  <li>First, form a group:
+    <ul>
+      <li>If you are at a table with a large, wall-mounted screen, a group of 3-4 people is fine.</li>
+      <li>If you are seated at a table without a large screen, a group of 2 people is better</li>
+    </ul>
+  </li>
+  <li>All but one member of your group should have this web page open so you can follow along and see the instructions as you work</li>
+  <li>Plan to have one computer at which your team does its work. Initially, one of you will be in charge of typing at that computer.</li>
+  <li>Throughout the studio, you should trade who is in charge of the keyboard. Before doing so, <strong>commit your work</strong> to make sure your work is saved</li>
+</ul>
+
+<h1 id="overview">Overview</h1>
+
+<p>In honor of the upcoming <a href="http://www.un.org/en/events/unday/">UN Day</a>, you will select (or design) a flag of your choice and create that flag using the drawing methods available in Sedgewick’s library.</p>
+
+<blockquote>
+  <p>Here is the one I created:</p>
+
+  <p><img src="../../../studios/franceflag.png" alt="flag" /></p>
+
+  <p>But I am certain you will be much more creative!</p>
+</blockquote>
+
+<p>The <a href="http://en.wikipedia.org/wiki/Application_programming_interface">API</a> for <a href="http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html">StdDraw</a> will be very useful as you work on your flag.</p>
+
+<blockquote>
+  <p><strong>Warning</strong> The book is missing some of the functionality that is in
+the Sedgewick library.  For example, the book is missing the method that
+draws a filled rectangle, and that can be useful for drawing a flag.</p>
+
+  <p>See the link above for the full range of possibilities.</p>
+</blockquote>
+
+<h1 id="procedure">Procedure</h1>
+
+<h2 id="design-your-country">Design your country</h2>
+
+<ul>
+  <li>
+    <p>What are the founding principles of your country?</p>
+  </li>
+  <li>
+    <p>What is your country’s motto?</p>
+  </li>
+  <li>
+    <p>What major exports do you envision for your country?</p>
+  </li>
+  <li>
+    <p>Who might be valuable allies for your country?</p>
+  </li>
+  <li>
+    <p>Does your country have its own</p>
+
+    <ul>
+      <li><a href="http://en.wikipedia.org/wiki/List_of_national_birds">national bird</a></li>
+      <li><a href="http://en.wikipedia.org/wiki/Floral_emblem">floral emblem</a>, or</li>
+      <li><a href="http://en.wikipedia.org/wiki/National_emblem">national emblem</a>?</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Thinking through these questions may help guide the design of your country’s flag and anthem.</p>
+
+<h2 id="design-your-flag">Design your flag</h2>
+
+<ol>
+  <li>
+    <p>Visit the <a href="http://flagpedia.net/">Flags of all Countries</a> web site, and decide on a flag that your studio group would like to create for this studio.</p>
+
+    <blockquote>
+      <p>Design (or pick) a flag that has at least 3 shapes on it.  If you need to approximate something by a standard shape, such as a maple leaf by a circle, that’s fine:  just claim that your flag is somewhat <em>abstract</em>.</p>
+
+      <p>If you want to <strong>design your own flag</strong>, that’s fine.  Make sure it has at least 3 shapes in it.  Try to come up with a cool name for your flag’s country.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Open the <strong>studio4</strong> package int he <strong>studios</strong> source folder, and open the <code class="highlighter-rouge">Flag</code> class.</p>
+
+    <ul>
+      <li>
+        <p>That class is currently empty except for the <code class="highlighter-rouge">main</code>.</p>
+      </li>
+      <li>
+        <p>Insert code that creates the flag of your choice.</p>
+      </li>
+    </ul>
+
+    <blockquote>
+      <p>Most of the drawing methods want the <em>center</em> of the object to be drawn, along with a radius, or a half-width, or a half-height.   Be aware of this!</p>
+
+      <p>If you want colors, they are already in the Sedgewick libraries.  If you start to type something like <code class="highlighter-rouge">sedgewick.</code> then eclipse will fill in possibilities after the <code class="highlighter-rouge">.</code> which will include the colors at the top of that list.</p>
+    </blockquote>
+
+    <ul>
+      <li>
+        <p>Frame your flag by surrounding it by a black rectangle of substantial thickness, (unfilled).</p>
+      </li>
+      <li>
+        <p>When done, allow your studio neighbors and TAs to admire its beauty.</p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="display-the-name-of-your-country">Display the name of your country</h2>
+
+<ol>
+  <li>
+    <p>In the center of your flag, using a color that allows the text to stand out, write the name of your country on top of your flag.</p>
+  </li>
+  <li>
+    <p>In a (literally) moving display of patriotism, arrange for your program to print the name of your country repeatedly, from the upper-left-hand corner to the lower-right-hand corner.</p>
+
+    <blockquote>
+      <p>For more drama, pause for a bit between each printing of the country’s name, to allow for cheering from the crowd. Take a look at the <code class="highlighter-rouge">[show(int t)](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html#show(int))</code> method to achieve the pause.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h2 id="compose-an-anthem-for-your-flag">Compose an anthem for your flag</h2>
+
+<ol>
+  <li>
+    <p>Find the <code class="highlighter-rouge">PlayThatTune</code> program in the <code class="highlighter-rouge">book</code> source folder, in the <code class="highlighter-rouge">book.ch1</code> package.</p>
+  </li>
+  <li>
+    <p>Run the program and make sure you can hear some sound when you play a given piece.</p>
+
+    <blockquote>
+      <p>The music inputs come from the <code class="highlighter-rouge">music</code> folder in your workspace.  The program lets you choose any of the files in that directory, or you can navigate elsewhere if you wish.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Based on what you see in the <code class="highlighter-rouge">Ascale.txt</code> file, design a piece that is your own anthem by specifying the pitches and durations.</p>
+
+    <blockquote>
+      <p>You can do this by modifying an existing file in the <code class="highlighter-rouge">music</code> folder (for example, there is already a <code class="highlighter-rouge">National_Anthem.txt</code> file, so you can just modify that), or you can create a new text file in that same folder and place your composition there.</p>
+
+      <p>If you are really unclear how to do this, no problem, you can just use one of the existing compositions.</p>
+
+      <p>Or, you could generate tones and durations randomly.  Pick values that seem similar to what you see in the music files.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Try <code class="highlighter-rouge">PlayThatTune</code> and select your composition for playing.</p>
+  </li>
+  <li>
+    <p>Once you like it, copy and paste the appropriate code from <code class="highlighter-rouge">PlayThatTune</code> into your <code class="highlighter-rouge">Flag</code> program so the anthem plays after your flag and text are drawn.</p>
+
+    <blockquote>
+      <p>The code you want is everything inside the <strong>main</strong> method;  get help if necessary.
+When you run your code, you will have to select the anthem by hand.
+If you want the file to open without the user having to choose it, then replace the line</p>
+
+      <p><code class="highlighter-rouge">ArgsProcessor.useStdInput("music");</code></p>
+
+      <p>with</p>
+
+      <p><code class="highlighter-rouge">System.setIn(new FileInputStream("music/National_Anthem.txt"));</code></p>
+    </blockquote>
+
+    <blockquote>
+      <p>Eclipse will provide guidance about importing the right classes so this will work.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>See if you can figure out how to get your anthem to play repeatedly.</p>
+
+    <blockquote>
+      <p>This may not seem easy, but it builds on what you know about arrays and iteration.</p>
+    </blockquote>
+  </li>
+</ol>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:32 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

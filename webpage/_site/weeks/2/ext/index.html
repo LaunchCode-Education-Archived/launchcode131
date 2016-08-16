@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 2 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/2/ext/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 2 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Extension 2: Module 2</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#image-processor-with-iteration" id="markdown-toc-image-processor-with-iteration">Image Processor With Iteration:</a>    <ul>
+      <li><a href="#manipulating-an-image-raster" id="markdown-toc-manipulating-an-image-raster">Manipulating an Image Raster</a>        <ul>
+          <li><a href="#notes" id="markdown-toc-notes">Notes</a></li>
+        </ul>
+      </li>
+      <li><a href="#instructions" id="markdown-toc-instructions">Instructions</a></li>
+    </ul>
+  </li>
+  <li><a href="#one-rep-max-weight-calculator" id="markdown-toc-one-rep-max-weight-calculator">One-Rep Max Weight Calculator:</a>    <ul>
+      <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#bank-interest-calculator" id="markdown-toc-bank-interest-calculator">Bank Interest Calculator:</a>    <ul>
+      <li><a href="#background" id="markdown-toc-background">Background</a></li>
+      <li><a href="#procedure-1" id="markdown-toc-procedure-1">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#mario" id="markdown-toc-mario">Mario:</a></li>
+</ul>
+
+<h1 id="image-processor-with-iteration">Image Processor With Iteration:</h1>
+
+<p><strong>Authors</strong></p>
+
+<ul>
+  <li><a href="http://www.cs.wustl.edu/~cytron/">Ron Cytron</a></li>
+  <li><a href="http://www.cs.wustl.edu/~kjg/">Ken Goldman</a></li>
+  <li>Logan Sorentino</li>
+</ul>
+
+<h2 id="manipulating-an-image-raster">Manipulating an Image Raster</h2>
+
+<p>In the <strong>imagetransforms</strong> package, modify the provided <strong>Transforms</strong> Java program
+to implement the methods as described below.
+Your methods will use iteration (either <strong>while</strong> loops or <strong>for</strong> loops) to operate on the pixels of a picture.</p>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+  <li>
+    <p>To run this extension, right (control) click on <strong>Main</strong> and choose <strong>Run as…</strong> then <strong>Java Application</strong>.</p>
+
+    <p>This extension uses
+  the same base code as the filter extension.</p>
+  </li>
+  <li>
+    <p>The <strong>Picture</strong> class is a Sedgewick class whose API is documented on page 720 of our text.
+The coordinates are expressed using the standard in computer science graphics: 
+the coordinate <em>(x,y)</em> denotes
+the pixel that is</p>
+
+    <ul>
+      <li><em>x</em> pixels to the right of the leftmost edge of the picture</li>
+      <li><em>y</em> pixels down from the top edge of the picture</li>
+    </ul>
+
+    <p>Thus, <em>(0,0)</em> is the top left corner of the picture.</p>
+  </li>
+  <li>
+    <p>Pixel addressing follows the common Java convention:  if there are <em>w</em> horizontal pixels, then 0 is
+the first (leftmost) and <em>w-1</em> is the last (rightmost).</p>
+  </li>
+  <li>
+    <p>Almost all of the methods are written in terms of two <strong>Picture</strong> parameters:</p>
+
+    <ul>
+      <li><strong>source</strong>:  the picture to be used as input to your transformation</li>
+      <li><strong>target</strong>:  the picture area to be used as output from your transformation</li>
+    </ul>
+
+    <blockquote>
+      <p>There is just one exception:  the <strong>gradient</strong> method produces its output
+without needing a source.  Its only parameter is
+<strong>target</strong>.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Each <strong>Picture</strong> has a width and a height, and these can be obtained
+for a <strong>Picture p</strong> as follows:</p>
+
+    <p><code class="highlighter-rouge">
+  int width  = p.width();
+  int height = p.height();
+ </code></p>
+  </li>
+  <li>
+    <p>To find the <strong>Color</strong> of a pixel at location <strong>x,y</strong>, you use</p>
+
+    <p><code class="highlighter-rouge">Color c = source.get(x,y);</code></p>
+  </li>
+  <li>
+    <p>To set the <strong>Color</strong> of a pixel at location <strong>x,y</strong> to the color <strong>c</strong>, you use</p>
+
+    <p><code class="highlighter-rouge">target.set(x,y,c);</code></p>
+  </li>
+</ul>
+
+<h2 id="instructions">Instructions</h2>
+
+<p>Each of the methods described below is found in the <strong>Transforms</strong> class.</p>
+
+<ol>
+  <li>
+    <p>The provided method <strong>flipHoriz(Picture source, Picture target)</strong> flips the image horizontally.</p>
+
+    <p style="text-align: center"><img src="../../../extensions/fliphoriz.png" alt="" /></p>
+
+    <blockquote>
+      <p>Look at the code given to you for this example
+carefully.   It is broken into simple steps and the comments help explain why the pixel indexing works.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Complete the method <strong>flipVert(Picture source, Picture target)</strong> that flips the image vertically.</p>
+
+    <p style="text-align: center"><img src="../../../extensions/flipvert.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Complete the method <strong>flipHorizLeftHalf(Picture source, Picture target)</strong> that flips the left half of the image horizontally.</p>
+
+    <blockquote>
+      <p>The left half of the target image should be same as the source, but the right half of the target image should 
+be the mirror of the left half of the source.</p>
+    </blockquote>
+
+    <p style="text-align: center"><img src="../../../extensions/fliplefthalf.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Complete the method <strong>flipVertBotHalf(Picture source, Picture target)</strong> that flips the bottom half of the image vertically.</p>
+
+    <p style="text-align: center"><img src="../../../extensions/flipbottomhalf.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Complete the method <strong>gradient(Picture target)</strong> that takes a single <strong>Picture</strong>
+as a parameter.</p>
+
+    <p>Your code
+ should create a <strong>color gradient</strong> by computing the following for each pixel:</p>
+
+    <ul>
+      <li>The amount of red in each pixel increases gradually from 0 at the left edge of the image, to 255 at the right edge of the image.</li>
+      <li>The amount of green in each pixel increases gradually from 0 at the top edge of the image, to 255 at the bottom edge of the image.</li>
+      <li>The amount of blue in every pixel should be 128.</li>
+    </ul>
+
+    <p>Thus, each pixel will have a different color depending on its position.  For example, the pixel at the top left will have red=0, green=0, and blue=128.  The pixel about 1/4 of the way down on the right edge will have red=255, green=64, and blue=128.</p>
+
+    <blockquote>
+      <p>Develop an expression
+for the amount of red and green in each pixel, given the x and y position of that pixel and the width and height of the image:</p>
+
+      <p><code class="highlighter-rouge">int amountRed   = .....</code>
+<code class="highlighter-rouge">int amountGreen = ....</code></p>
+
+      <p>Then set the pixel at <em>(x,y)</em> to a color based on those computations:</p>
+
+      <p><code class="highlighter-rouge">target.set(x, y, new Color(amountRed, amountGreen, 128));</code></p>
+    </blockquote>
+
+    <p style="text-align: center"><img src="../../../extensions/gradient.png" alt="" /></p>
+  </li>
+</ol>
+
+<h1 id="one-rep-max-weight-calculator">One-Rep Max Weight Calculator:</h1>
+<p>Authors:</p>
+
+<ul>
+  <li>Devin Goodkin</li>
+  <li><a href="http://www.cs.wustl.edu/~cytron/">Ron Cytron</a></li>
+</ul>
+
+<p><em>Disclaimer</em>:</p>
+
+<blockquote>
+  <ul>
+    <li>
+      <p>The values computed in this assignment are based on
+published formulas, but you are advised to undertake this and all forms of
+exercise with the advice and consent of a physician.</p>
+    </li>
+    <li>
+      <p>In particular, performing
+a one-rep max movement unprepared or unsupervised can result in injury.</p>
+    </li>
+    <li>
+      <p>You are therefore especially cautioned against that form of training without 
+adequate supervision and coaching.</p>
+    </li>
+  </ul>
+
+  <p><strong>The authors of this extension and all personnel involved
+with this course are not licensed medical
+care providers; they represent that they have no exepertise in
+diagnosing, examining, or treating medical conditions of any kind,
+nor in determining the effects of any specific exercise.</strong></p>
+
+  <p>The data computed by this exercise are for informational and instructional
+purposes only.</p>
+</blockquote>
+
+<h2 id="overview">Overview</h2>
+
+<p>In weight training, the volume of work completed in
+one exercise (often called a <em>set</em>) is typically specified as a given weight that
+is moved a specified number of times.  These are respectively
+called the <em>weight</em> and <em>reps</em> (abbreviates repetitions)
+of that set.</p>
+
+<p>In this extension, you will create a one-rep max calculator. 
+This calculator hypothetically calculates a weight that a subject
+could move for one repetition, given that the same subject can successfully
+complete <em>r</em> reps (in the range of
+2…12) at a lighter weight.</p>
+
+<blockquote>
+  <ul>
+    <li>
+      <p>Beyond 12 reps,
+the formula we use is not considered  accurate.</p>
+    </li>
+    <li>
+      <p>The stated value for <em>r</em> is generally considered to be 
+the number of times the weight
+can be moved before <em>failure</em>:  the subject can complete <em>r</em> reps
+at the stated weight, but no more.</p>
+    </li>
+  </ul>
+</blockquote>
+
+<p>While a person may never attempt that one-rep max movement, the one-rep 
+max weight is canonical, in that it can then be used to compute
+lighter weights that should be feasible for the subject at a desired number
+of reps.</p>
+
+<p>Your solution will compute and print:</p>
+
+<ul>
+  <li>The one-rep max weight based on a formula described below.</li>
+  <li>The weight that should be feasible for a stated number of reps.</li>
+  <li>Percentages of the one-rep max weight from 95% to 50% in decrements of 5%.</li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>Consider a subject who can successfully
+<a href="https://en.wikipedia.org/wiki/Bench_press">bench</a>
+225 pounds 10 times before failure.</p>
+
+<ul>
+  <li>What is this subjects current one-rep max bench weight?</li>
+  <li>How much weight should that subject be able to bench to get 5 reps before failure?</li>
+  <li>What percentage of this subject’s max bench is the weight that can
+be benched 5 times?</li>
+</ul>
+
+<p><strong>Input</strong></p>
+
+<ul>
+  <li>Successful weight:  225 pounds</li>
+  <li>Successful reps: 10</li>
+  <li>Desired reps:  5</li>
+</ul>
+
+<p><strong>Output</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>One-rep max: 300
+Weight for 5 reps: 255
+95% 1 RM: 285
+90% 1 RM: 270
+85% 1 RM: 255
+80% 1 RM: 240
+75% 1 RM: 225
+70% 1 RM: 210
+65% 1 RM: 195
+60% 1 RM: 180
+55% 1 RM: 165
+50% 1 RM: 150
+</code></pre>
+</div>
+
+<h2 id="procedure">Procedure</h2>
+
+<ul>
+  <li>
+    <p>First take a look at 
+<a href="http://www.exrx.net/Calculators/OneRepMax.html">this one-rep max</a>
+caculator.</p>
+  </li>
+  <li>
+    <p>If you try it for some sample values, you will see that it
+produces results that may not work in an actual gym, because the smallest plate
+one can find in most gyms is 2.5 pounds.</p>
+  </li>
+  <li>
+    <p>Our calculator takes in a third input, which is how many reps the person 
+wants to perform, 
+and calculates a weight to be performed at that number of reps.</p>
+  </li>
+  <li>
+    <p>Our 
+<a href="https://en.wikipedia.org/wiki/One-repetition_maximum">one-rep max</a>
+calculations will be based on the 
+<a href="https://en.wikipedia.org/wiki/One-repetition_maximum#Epley_Formula">Epley Formula</a>,
+so study that material sufficiently well to complete this extension.</p>
+  </li>
+  <li>
+    <p>Create a <strong>OneRepMax</strong> class in the <strong>onerepmax</strong> package
+of the <strong>extensions</strong> folder.</p>
+  </li>
+  <li>
+    <p>Arrange for that program to prompt the user for the inputs needed for
+this computation.</p>
+  </li>
+  <li>
+    <p>Compute and print the results as shown in the sample ouptut above for
+the inputs provided in the run of your code.</p>
+  </li>
+  <li>
+    <p>You must:</p>
+
+    <ul>
+      <li>Check that the inputs provided are reasonable. Print a suitable message and
+  exit if any inputs are unreasonable.</li>
+      <li>Use iteration to produce the table of percentages of the one-rep max
+  weight.</li>
+      <li>Produce weight values that are rounded to the nearest <strong>5 pounds</strong>,
+  so that the least weight needed on a bar is 2.5 pounds on each side.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="bank-interest-calculator">Bank Interest Calculator:</h1>
+<p>Authors</p>
+
+<ul>
+  <li>Brennan Morell</li>
+  <li>Jarett Gross</li>
+</ul>
+
+<h2 id="background">Background</h2>
+
+<p>In this assignment, you have a balance in your bank account and you randomly either deposit or withdraw money from 
+your account every day for one month (30 days). At the end of the month, you receive interest on your balance.</p>
+
+<h2 id="procedure-1">Procedure</h2>
+
+<ol>
+  <li>
+    <p>You start with $4000 in your bank account and earn 2% interest at the end of the month.</p>
+  </li>
+  <li>
+    <p>Each day, you always withdraw or deposit money. Half of the time you <strong>withdraw $100.00</strong> and the other 
+half of the time you <strong>deposit $200.50</strong>.</p>
+
+    <blockquote>
+      <p>How would you use random numbers to determine whether you withdraw or deposit money?</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>After withdrawing or depositing money, calculate your new balance. Then print the following: 
+<strong>Day</strong>, <strong>Type</strong>, <strong>Amount</strong>, <strong>Balance</strong> in a cleanly formatted table.</p>
+
+    <blockquote>
+      <p>Since the cent is the lowest denomination in U.S. currency, round your withdrawals, deposits, and balance 
+to the nearest cent.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Finally, after the 30th day, calculate and print the amount of interest you earned and your final balance.</p>
+  </li>
+</ol>
+
+<p>Your final output should look similar to this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Day	Type		Amount		Balance
+1	Deposit 	$200.50		$4200.50
+2	Withdraw	$100.00		$4100.50
+3	Deposit 	$200.50		$4301.00
+4	Deposit 	$200.50		$4501.50
+5	Withdraw	$100.00		$4401.50
+6	Deposit 	$200.50		$4602.00
+7	Withdraw	$100.00		$4502.00
+8	Deposit 	$200.50		$4702.50
+9	Withdraw	$100.00		$4602.50
+10	Withdraw	$100.00		$4502.50
+11	Deposit 	$200.50		$4703.00
+12	Deposit 	$200.50		$4903.50
+13	Deposit 	$200.50		$5104.00
+14	Withdraw	$100.00		$5004.00
+15	Withdraw	$100.00		$4904.00
+16	Withdraw	$100.00		$4804.00
+17	Deposit 	$200.50		$5004.50
+18	Deposit 	$200.50		$5205.00
+19	Deposit 	$200.50		$5405.50
+20	Deposit 	$200.50		$5606.00
+21	Withdraw	$100.00		$5506.00
+22	Deposit 	$200.50		$5706.50
+23	Deposit 	$200.50		$5907.00
+24	Withdraw	$100.00		$5807.00
+25	Deposit 	$200.50		$6007.50
+26	Deposit 	$200.50		$6208.00
+27	Deposit 	$200.50		$6408.50
+28	Withdraw	$100.00		$6308.50
+29	Withdraw	$100.00		$6208.50
+30	Withdraw	$100.00		$6108.50
+
+Interest earned: 122.17
+Money after one month's interest: 6230.67
+</code></pre>
+</div>
+
+<h1 id="mario">Mario:</h1>
+
+<p>Authors:</p>
+
+<ul>
+  <li>Nathan Vogt</li>
+  <li>Elie Schramm</li>
+</ul>
+
+<p><a href="https://en.wikipedia.org/wiki/Mario_(franchise)">Mario</a>, created in 1981 by Nintendo, is a classic video game 
+starring the fictional Italian character Mario. In the assignment, 
+loops printing hashtags will be used to build the block mountains as seen in the picture.</p>
+
+<p style="text-align: center"><img src="../../../extensions/Super-Mario-Bros.-3.jpg" alt="" /></p>
+
+<p>Create Mountain Blocks in Mario using loops. Test all your loops on mountains of various sizes.</p>
+
+<p>Hint: You many want to use underscores for spacing the blocks correctly before substituting spaces.</p>
+
+<p>This can be accomplished by printing each line or character separately, or by 
+adding all the spaces and hashtages to one large String. Using <strong>“\n”</strong> in a String causes a line break.
+So, for example:</p>
+
+<p><code class="highlighter-rouge">String s = "one" + "\n" + "two";</code></p>
+
+<p>prints out to:</p>
+
+<p><code class="highlighter-rouge">one</code></p>
+
+<p><code class="highlighter-rouge">two</code></p>
+
+<ol>
+  <li>Create a mountain that ascends to the right, as shown in the example for a size 5 mountain.</li>
+</ol>
+
+<pre>
+	    #
+	   ##
+	  ###
+	 ####
+	#####
+</pre>
+
+<ol>
+  <li>Create a mountain that descends to the right, as shown.</li>
+</ol>
+
+<pre>
+	#    
+	##   
+	###  
+	#### 
+	#####
+</pre>
+
+<ol>
+  <li>Make a mountain that resembles the original mountain flipped upside down. Ex:</li>
+</ol>
+
+<pre>
+    #####
+     ####
+      ###
+       ##
+    	#
+</pre>
+
+<ol>
+  <li>Make a mountain that resembles the second one upside down. Ex:</li>
+</ol>
+
+<pre>
+    #####
+    #### 
+    ###  
+    ##   
+    #  
+</pre>
+
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:33 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

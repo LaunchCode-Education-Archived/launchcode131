@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 4 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/4/ext/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 4 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Extension 4: Module 4</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#extension-1-create-an-instrument" id="markdown-toc-extension-1-create-an-instrument">Extension 1: Create an Instrument:</a>    <ul>
+      <li><a href="#warm-up" id="markdown-toc-warm-up">Warm Up</a></li>
+      <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+      <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-2-draw-a-sound-wave" id="markdown-toc-extension-2-draw-a-sound-wave">Extension 2: Draw a Sound Wave:</a>    <ul>
+      <li><a href="#warm-up-1" id="markdown-toc-warm-up-1">Warm Up</a></li>
+      <li><a href="#procedure-1" id="markdown-toc-procedure-1">Procedure</a></li>
+      <li><a href="#extension-3-magic-8-ball" id="markdown-toc-extension-3-magic-8-ball">Extension 3: Magic 8 Ball:</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-4-roving-eyes" id="markdown-toc-extension-4-roving-eyes">Extension 4: Roving Eyes:</a>    <ul>
+      <li><a href="#the-idea" id="markdown-toc-the-idea">The idea</a></li>
+      <li><a href="#part-0-initialize-your-application" id="markdown-toc-part-0-initialize-your-application">Part 0: Initialize your application</a></li>
+      <li><a href="#part-1--detecting-mouse-clicks" id="markdown-toc-part-1--detecting-mouse-clicks">Part 1:  Detecting mouse clicks</a></li>
+      <li><a href="#part-2-following-the-mouse-movement" id="markdown-toc-part-2-following-the-mouse-movement">Part 2: Following the mouse movement</a></li>
+      <li><a href="#putting-it-all-together" id="markdown-toc-putting-it-all-together">Putting it all together</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-6-roving-eyes-slow-motion-edition" id="markdown-toc-extension-6-roving-eyes-slow-motion-edition">Extension 6: Roving Eyes; Slow Motion Edition:</a></li>
+  <li><a href="#extension-7-string-theory" id="markdown-toc-extension-7-string-theory">Extension 7: String theory:</a>    <ul>
+      <li><a href="#overview-1" id="markdown-toc-overview-1">Overview</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#procedure-2" id="markdown-toc-procedure-2">Procedure</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="extension-1-create-an-instrument">Extension 1: Create an Instrument:</h1>
+
+<p>We have seen how <a href="http://www.jimloy.com/physics/harmony.htm">sound can be represented as a summation of sine waves</a>. In this extension, you will process a description of an instrument, which specifies the relative intensities of that instruments <a href="">overtones</a>.  You will modify a copy of <code class="highlighter-rouge">PlayThatTune</code> so that the sound emitted for each note has the profile of the specified instrument.</p>
+
+<h2 id="warm-up">Warm Up</h2>
+
+<ul>
+  <li>
+    <p>Locate the <code class="highlighter-rouge">instrument</code> package in the <code class="highlighter-rouge">extensions</code> folder.</p>
+  </li>
+  <li>
+    <p>You will find a copy of <code class="highlighter-rouge">PlayThatTune</code> in the <code class="highlighter-rouge">instrument</code> package, credited to Sedgewick’s book, as this code is adpated from Sedgewick’s <code class="highlighter-rouge">PlayThatTune</code>.</p>
+  </li>
+  <li>
+    <p>Run <code class="highlighter-rouge">PlayThatTune</code> and verify that it plays the music files correctly.</p>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<ul>
+  <li>For the purposes of this work, let’s define a <i>frequency factor</i> as a multiplicative factor to be applied to a frequency <code class="highlighter-rouge">f</code>:</li>
+</ul>
+
+<p>In the example below, let’s assume that <code class="highlighter-rouge">f</code> is 440 Hz (cycles per second), which is concert A. On a piano, this is the A above middle C:</p>
+
+<p><img src="../../../extensions/a440.gif" alt="" /></p>
+
+<ul>
+  <li>
+    <p>a factor of <code class="highlighter-rouge">1</code> results in the same frequency as <code class="highlighter-rouge">f</code>, because <code class="highlighter-rouge">1*f==f</code>.</p>
+  </li>
+  <li>
+    <p>a factor of <code class="highlighter-rouge">2</code> yields a frequency <strong>an octave higher</strong> than <code class="highlighter-rouge">f</code>.</p>
+  </li>
+</ul>
+
+<p>For this example, we obtain 880 Hz, which is the A above high C on a piano:</p>
+
+<p><img src="../../../extensions/a880.gif" alt="" /></p>
+
+<ul>
+  <li>a factor of <code class="highlighter-rouge">4</code> yields a frequency <strong>two octaves higher</strong> than <code class="highlighter-rouge">f</code>.</li>
+</ul>
+
+<p>Here we obtain 1760 Hz, an octave above the A above high C:</p>
+
+<p><img src="../../../extensions/a1760.gif" alt="" /></p>
+
+<ul>
+  <li>a factor of <code class="highlighter-rouge">3</code> is between one and two octaves higher, and it turns out to be one octave plus  a <a href="http://en.wikipedia.org/wiki/Perfect_fifth">just (or, pure) fifth</a> above the pitch corresponding to <code class="highlighter-rouge">f</code>.</li>
+</ul>
+
+<p>Here we obtain the frequency 1320 Hz, which sounds like the E above high C.</p>
+
+<p><img src="../../../extensions/e3x.gif" alt="" /></p>
+
+<p>The sound is slightly different than on a piano, where the pitches are not perfect but are instead evenly spaced apart from each other.  The corresponding note on the piano has a frequency of 1318.51 Hz, slightly flatter than
+what we get by our frequency factor.</p>
+
+<ul>
+  <li>a factor of <code class="highlighter-rouge">0.75</code> (ratio of 3:4) yields a note that sounds like an E, but dividing by 4 lowers its
+pitch by two octaves.   With <code class="highlighter-rouge">f</code> at concert A, a frequency factor of 3:4 yields a frequency of 330, whichsounds like the E above middle C:</li>
+</ul>
+
+<p><img src="../../../extensions/e34.gif" alt="" /></p>
+
+<p>Again, the pitch on a piano is slightly different;  in this case it
+is slightly flatter at  329.63.</p>
+
+<ul>
+  <li>
+    <p>It is thus convenient to specify a frequency factor as the ratio of
+two integers.  In the above examples we see 1:1, 2:1, 4:1, 3:1, and 3:4.</p>
+  </li>
+  <li>
+    <p>To build an actual instrument, we must pick the frequency factors we
+wish to hear, and specify how strong each should be.  The table below
+specifies such an instrument:</p>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Frequency Factor</th>
+      <th style="text-align: center"> </th>
+      <th>Relative Strength</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Numerator</td>
+      <td style="text-align: center">Denominator</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">1</td>
+      <td>0.75</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">2</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The first row is the fundamental frequency.  The second is an octave higher, and is 3/4 as strong as the fundamental frequency.  The third row specifies a
+pitch that is a fifth above the fundamental freqnecy, and quieter still at
+half the strength of the fundamental frequency.</p>
+
+<p>The waveform that results from such an instrument specification is shown
+below in red, with the three frequency factors shown in black:</p>
+
+<p><img src="../../../extensions/instr.jpg" alt="" /></p>
+
+<ul>
+  <li>The <FONT COLOR="red">red solid waveform</FONT> is literally the sum of the</li>
+</ul>
+<FONT COLOR="black">black dotted waveforms</FONT>
+<p>. The 
+sound you produce is sampled from the red waveform, and that <strong>is</strong> the
+subject of this extension.</p>
+
+<ul>
+  <li>
+    <p>The plot shown above is not the subject of this extension, but is shown
+to help explain how complex sounds are built from simple ones,
+as follows:</p>
+
+    <ul>
+      <li>
+        <p>The black waveform with the largest <a href="http://en.wikipedia.org/wiki/Amplitude">amplitude</a> (the tallest
+  black waveform) is the fundamental frequency
+  at relative strength 1.  The sample shown is for 1/440 of a second of a
+  440 Hz concert-A.  This is sufficient ot show one full cycle of the
+  fundamental frequency.</p>
+      </li>
+      <li>
+        <p>The black waveform with the next largest amplitude has relative strength 0.75.  It is
+  an octave higher, so it oscillates twice in the timespan of the
+  fundamental pitch’s waveform.</p>
+      </li>
+      <li>
+        <p>The black waveform of smallest amplitude (at half the strength of
+  the fundamental frequency) is the 3:2 frequency factor, which sounds
+  like a fifth above the fundamental frequency.  As expected, it exhibits 
+  1.5 cycles in the timespan of the fundamental pitch’s waveform.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>The sound of the red waveform, which is what you will produce below, is
+similar to an oboe or a clarinet.</p>
+  </li>
+</ul>
+
+<h2 id="procedure">Procedure</h2>
+
+<ol>
+  <li>
+    <p>First prompt the user for how many frequency factors the user wishes
+to specify.  In the above example, 3 such frequencies were used.</p>
+  </li>
+  <li>
+    <p>For each frequency factor, prompt the user for its</p>
+
+    <ol>
+      <li>
+        <p>Numerator (an <code class="highlighter-rouge">int</code>)</p>
+      </li>
+      <li>
+        <p>Denominator (an <code class="highlighter-rouge">int</code>)</p>
+      </li>
+      <li>
+        <p>Relative strength (a <code class="highlighter-rouge">double</code>)</p>
+      </li>
+    </ol>
+
+    <blockquote>
+      <p>The information about the frequency factors must be saved (in arrays)
+for future use.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>The code in <code class="highlighter-rouge">PlayThatTune</code>, copied with attribution
+ from <code class="highlighter-rouge">PlayThatTune</code>, reads in a file and computes a value
+ in a variable called <code class="highlighter-rouge">hz</code> that is the fundamental frequency
+ of the tune being played.</p>
+
+    <p>The <code class="highlighter-rouge">hz</code> value is computed from concert A (440 Hz), taking the specified
+ number of equally spaced chromatic steps above (or below) concert A.</p>
+
+    <p>The relevant details, explained in the lecture slides for this module,
+ are not necessary to complete this extension, but please ask if you would
+ like clarification.</p>
+  </li>
+  <li>
+    <p>Your task is to modify the assignment to the sample <code class="highlighter-rouge">a[i]</code> in
+ the provided code:</p>
+
+    <p><img src="../../../extensions/origformula.png" alt="" /></p>
+
+    <p>The sine wave sampled and assigned there is for:</p>
+
+    <ol>
+      <li>
+        <p>the fundamental frequency (<code class="highlighter-rouge">hz</code>, shown in the red box) of the desired pitch</p>
+      </li>
+      <li>
+        <p>relative strength <code class="highlighter-rouge">1.0</code> (the result of the sine function call
+ is implicitly multiplied by 1, shown at the red dot).</p>
+      </li>
+    </ol>
+
+    <p>In place of that value, you must compute the sum of sine wave samples, one
+ for each frequency factor, as follows:</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">a[i]</code> is initially zero.</p>
+      </li>
+      <li>
+        <p>For each frequency factor
+ <code class="highlighter-rouge">f&lt;sub&gt;k&lt;/sub&gt;</code>, add to <code class="highlighter-rouge">a[i]</code> a sample obtained
+ as follows:</p>
+
+        <ul>
+          <li>
+            <p>The value passed to the sine function must be multiplied by the 
+  frequency factor.  This means multiplying the red-boxed <code class="highlighter-rouge">hz</code> by the ratio of the
+  numerator and denominator of the frequency factor.</p>
+          </li>
+          <li>
+            <p>The value returned from the sine function must be multiplied by the
+  relative strength of the frequency factor.  This happens at the red dot.</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Test your program on the <code class="highlighter-rouge">A.txt</code> file first, which is a
+single note.  Then try <code class="highlighter-rouge">Ascale.txt</code> and some other songs.</p>
+  </li>
+</ol>
+
+<h1 id="extension-2-draw-a-sound-wave">Extension 2: Draw a Sound Wave:</h1>
+
+<h2 id="warm-up-1">Warm Up</h2>
+<p>To understand this extension, you should first be familiar with the 
+extension in which an instrument’s sound is produced as the sum of
+sine waves.</p>
+
+<p>You will modify your program further in this extension to produce the sine-wave
+plots that depict how sine-wave addition occurs.</p>
+
+<p>The details of this assignment are not completely specified so that
+you must think through what is needed to produce meaningful plots.
+Ask for help as needed!</p>
+
+<h2 id="procedure-1">Procedure</h2>
+
+<ul>
+  <li>An example of a plot is shown below:</li>
+</ul>
+
+<p><img src="../../../extensions/instr.jpg" alt="" /></p>
+
+<ul>
+  <li>
+    <p>The black waveform with the largest <a href="http://en.wikipedia.org/wiki/Amplitude">amplitude</a> (the tallest
+black waveform) is the fundamental frequency
+at relative strength 1.  The waves shown are for 1/440 of a second of a
+440 Hz concert-A.  This is sufficient ot show one full cycle of that
+fundamental frequency.</p>
+  </li>
+  <li>
+    <p>The black waveform with the next largest amplitude has relative strength 0.75.  It is
+an octave higher, so it oscillates twice in the timespan of the
+fundamental pitch’s waveform, at 880 Hz.</p>
+  </li>
+  <li>
+    <p>The black waveform of smallest amplitude (at half the strength of
+the fundamental frequency) is 660 Hz: the 3:2 frequency factor, which sounds
+like a fifth above the fundamental frequency.  As expected, it exhibits 
+1.5 cycles in the timespan of the fundamental pitch’s waveform.</p>
+  </li>
+  <li>
+    <p>The red waveform is the sum of the black ones.</p>
+  </li>
+  <li>
+    <p>Each of the frequency factors incorporated into an instrument
+is shown separately by plotting dots of the curve as the values
+are computed.</p>
+  </li>
+  <li>
+    <p>With frequencies on the order of hundereds or thousands of
+cycles per second, we must limit the time of the plot so that we
+can see one or two cycles clearly.</p>
+  </li>
+</ul>
+
+<p>Think about how many <strong>samples</strong> you need to capture to show
+one complete cycle at 440 Hz.</p>
+
+<p>One way to reason about this is to use
+the units of the various computations and multiply or divide them to obtain
+the property you seek.</p>
+
+<ul>
+  <li>
+    <p>Plot the individual waveforms using black dots, as shown above.</p>
+  </li>
+  <li>
+    <p>Plot the summation waveform using red connected line segments, as shown
+above.</p>
+  </li>
+</ul>
+
+<h2 id="extension-3-magic-8-ball">Extension 3: Magic 8 Ball:</h2>
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></p>
+  </dd>
+</dl>
+
+<blockquote>
+  <p>A video demonstrating my solution can be found <a href="../../../extensions/magic8ball.mp4">here</a></p>
+</blockquote>
+
+<p>The <a href="http://en.wikipedia.org/wiki/Magic_8-Ball">Magic Eight Ball</a>
+is an autoresolution device. A question of <code class="highlighter-rouge">boolean</code> type is
+posed, the Magic Eight Ball is turned over, and it then displays its advice
+in a murky window.  It has resurfaced in other guises over the ages, most
+recently perhaps as <a href="http://spongebob.wikia.com/wiki/Magic_Conch_Shell"> The Magic Conch Shell</a> in the
+<a href="http://spongebob.wikia.com/wiki/Club_SpongeBob">Club SpongeBob</a>
+episode of 
+<a href="http://spongebob.wikia.com"> SpongeBob SquarePants</a>.</p>
+
+<p>To receive credit for this extension, your implementation of the
+Magic 8 Ball must:</p>
+
+<ul>
+  <li>
+    <p>Repeatedly prompt the user for his or her question using <code class="highlighter-rouge">ArgsProcessor</code>.</p>
+  </li>
+  <li>
+    <p>Dramatically cause the answer to emerge in a (<code class="highlighter-rouge">StdDraw</code>)
+display, over a 2-5 second period, as follows:</p>
+
+    <ul>
+      <li>
+        <p>Display the result in a triangular shape, such as shown
+  <a href="http://www.indra.com/cgi-bin/spikes-8-ball"> here</a>. (Your solution
+  will be much more dramatic as you include the following.)  Your triangle
+  need not rotate.</p>
+      </li>
+      <li>
+        <p>Your rendering must fade the image from black to showing the
+  triangle with text in a continuous manner, as the answer emerges.</p>
+      </li>
+      <li>
+        <p>Your rendering of the answer must cause the text go from blurry to
+  sharp as the answer emerges.</p>
+      </li>
+      <li>
+        <p>Try to have a suitably eerie sound accompany your display. (not necessary
+  for credit, but nice)</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="extension-4-roving-eyes">Extension 4: Roving Eyes:</h1>
+<dl>
+  <dt>Authors</dt>
+  <dd><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></dd>
+  <dd>Ken Goldman</dd>
+</dl>
+
+<blockquote>
+  <p>A video demonstrating my solution can be found <a href="Extensions/rovingeyes.mp4">here</a>.</p>
+</blockquote>
+
+<p>Although the solution can be quite short (mine weighed in at approximately
+50 lines), there are some tricky aspects to this work, and it may be an
+extension that you work on over several weeks.</p>
+
+<p>You will have to interact with the mouse, perhaps for the first time, both
+in terms of its location and determining whether the mouse has been pressed and
+released.  It will take patience to get this to work, but most students like
+the end result.</p>
+
+<h2 id="the-idea">The idea</h2>
+
+<ul>
+  <li>
+    <p>Each time the mouse is clicked, an eyeball is deposited on the image.</p>
+  </li>
+  <li>
+    <p>Each eyeball consists of two parts:</p>
+
+    <ul>
+      <li>
+        <p>An outer filled circle that is white with a thin black border.  This part
+      of the eyeball does not move as the mouse moves around the screen.</p>
+      </li>
+      <li>
+        <p>An inner filled circle with of some color (mine are red, below). This part of the eyeball does move, so that the eyeball can appear to be looking at something.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>All eyeballs seem to look at the mouse, wherever the mouse moves within the <code class="highlighter-rouge">StdDraw</code> window.</p>
+  </li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="../../../extensions/ken1.png" alt="" /></td>
+      <td><img src="../../../extensions/ken2.png" alt="" /></td>
+      <td><img src="../../../extensions/ken3.png" alt="" /></td>
+      <td><img src="../../../extensions/ken4.png" alt="" /></td>
+    </tr>
+    <tr>
+      <td>This is the initial image you should draw. The picture can be found as <code class="highlighter-rouge">images/ken.jpg</code> in your workspace.</td>
+      <td>Here, I have clicked over the image to deposit my first eyeball. The mouse (not shown) is to the right, so the eyeball is looking that way.</td>
+      <td>Then I clicked a second time to deposit another eyeball, this time over the right eye shown in the image. Both eyeballs are looking at my mouse, which is at the lower right (not shown).</td>
+      <td>Each time I click the mouse, another eyeball is deposited, and all eyeballs continue looking at my mouse, wherever it happens to be.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="part-0-initialize-your-application">Part 0: Initialize your application</h2>
+
+<ul>
+  <li>
+    <p>Begin by drawing the picture in the image.</p>
+  </li>
+  <li>
+    <p>Prompt the user to specify the maximum number of eyeballs that will be drawn.  This information is necessary so that you can appropriately provision arrays needed to implement this extension.</p>
+
+    <p>This code is included in your repository.  Open the
+  <code class="highlighter-rouge">extensions</code> folder in which you will find the <code class="highlighter-rouge">eyeballs</code>
+  package. Open and run the <code class="highlighter-rouge">Eyeballs</code> class.</p>
+  </li>
+</ul>
+
+<h2 id="part-1--detecting-mouse-clicks">Part 1:  Detecting mouse clicks</h2>
+<p>Most programs that interact with the mouse use a <em>listener</em> model that
+takes action when the mouse is moved, pressed, released, or clicked (a press
+and release action).</p>
+
+<p>Unfortunately, in Sedgewick’s API, we can only determine the current
+status of a mouse button as up or down.  We must then use logic and
+iteration to discover whether a mouse has been pressed, released, or 
+clicked.</p>
+
+<p>This low-level API for the mouse leads to
+some mixed feelings about how you are learning to interact with the mouse:</p>
+
+<ul>
+  <li>
+    <p>The code you write will not be typical of how most Java programs
+  interact with the mouse.  The reason for this is that your work takes
+  place in an infinite loop, slowed only by the use of <code class="highlighter-rouge">StdDraw.pause(n)</code>,
+  which consumes resources on your computer even when you are not moving
+  the mouse.</p>
+  </li>
+  <li>
+    <p>You are essentially <em>polling</em> the mouse as to whether it
+  is up or down, and then using your own logic to determine whether
+  it has been pressed, released, clicked, or dragged.<br />
+  From a pedagogical perspective, you
+  will learn how this kind of processing takes place at a low level on some
+  computers.  You also learn how to track the <em>state</em> of an input device
+  over time, and many applications require this kind of logic.</p>
+  </li>
+</ul>
+
+<p>Following is a description of mouse actions as they are typically 
+used in most applications:</p>
+
+<dl>
+  <dt>Mouse press</dt>
+  <dd>
+    <p>We think of this as a single push-down action on a mouse or trackpad. This action usually initiates some activity in applications.</p>
+  </dd>
+</dl>
+
+<p>From an application’s point of view,
+this event
+happens just once when the mouse is pushed down.  Generation of another mouse
+press action would require the mouse to be released, and then pressed again.</p>
+
+<dl>
+  <dt>Mouse release</dt>
+  <dd>
+    <p>If a mouse has been pressed, then it can be released.  Some applications distinguish between the press and release, so that the mouse can move between those actions.  This is sometimes called <i>dragging</i> the mouse.</p>
+  </dd>
+  <dt>Mouse click</dt>
+  <dd>
+    <p>While this is a compound action, consisting of a mouse press followed by a mouse release, it is usually treated as an atomic action that takes place at exactly one coordinate.  The release also happens within some reasonable timeframe of the press, if the press and release are to be construed as a click.</p>
+  </dd>
+</dl>
+
+<p>The above mouse actions are the logical ones that we wish
+to implement.  Actually, it suffices for this extension to
+determine only a mouse release, but you are welcome to think about how to
+discover the other actions.</p>
+
+<p>The Sedgwick API offers only the following interface, which
+we must use in our application to simulate the above mouse actions.</p>
+
+<dl>
+  <dt><code class="highlighter-rouge">double mouseX()</code></dt>
+  <dd>
+    <p>returns the x-coordinate of the mouse, expressed in terms of the coordinates of the <code class="highlighter-rouge">StdDraw</code> canvas.</p>
+  </dd>
+  <dt><code class="highlighter-rouge">double mouseY()</code></dt>
+  <dd>
+    <p>returns the y-coordinate of the mouse, expressed in terms of the coordinates of the <code class="highlighter-rouge">StdDraw</code> canvas.</p>
+  </dd>
+  <dt><code class="highlighter-rouge">boolean mousePressed()</code></dt>
+  <dd>
+    <p>A better name for this would be <code class="highlighter-rouge">boolean isMouseDown()</code>, because
+this method does not detect a mouse press in the standard view of mouse
+actions.  Instead it simply reports whether the mouse button is currently 
+pressed or not.</p>
+  </dd>
+</dl>
+
+<p>Your task is to simulate a mouse-click action using the above API.<br />
+This will inevitably involve <em>polling</em> the mouse as to whether the
+button is down or up.  Consider the following code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>while (!StdDraw.mousePressed()) {
+	// do nothing, 
+	// we are waiting for the mouse button to go down  
+	//
+	// The line below is important, as described below
+	//
+	StdDraw.show(50);
+}
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>Without the pause using <code class="highlighter-rouge">StdDraw.show(50)</code>, this application 
+  would run in a <em>tight</em> loop
+  that would always keep your computer busy, even if you are not interacting
+  with the application.   As a result, all of the other applications open on your
+  computer would suffer from not getting sufficient CPU resources to be
+  reponsive.  These applications would appear to behave sluggishly.</p>
+  </li>
+  <li>
+    <p>Sedgewick uses the pause intervals to hide updates that you make to
+  the drawing canvas.   Between calls to show, no updates are shown.
+  At the call to show, the screen is redrawn, and the CPU is released
+  for the specified period of time (50 milliseconds in the above code).</p>
+  </li>
+</ul>
+
+<p>Make sure your eyeballs are depositing properly as you mouse-click before
+you move on to implement more features.</p>
+
+<h2 id="part-2-following-the-mouse-movement">Part 2: Following the mouse movement</h2>
+
+<p>A pupil within an eyeball tracks objects using the geometry of similar
+triangles.  The following diagram and discussion may be useful.</p>
+
+<p><img src="../../../extensions/eyeball.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>The eyeball is centered at <code class="highlighter-rouge">(ex,ey)</code> and is looking at the
+  object (the mouse) at <code class="highlighter-rouge">(mx,my)</code>.<br />
+  This leads to the following equations:</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">mx = ex + dx</code></li>
+      <li><code class="highlighter-rouge">my = ey + dy</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Knowing <code class="highlighter-rouge">(ex,ey)</code> and <code class="highlighter-rouge">(mx,my)</code>, we can solve
+  for ` dx<code class="highlighter-rouge"> and </code>dy`.</p>
+  </li>
+  <li>
+    <p>Knowing <code class="highlighter-rouge">dx</code> and ` dy<code class="highlighter-rouge">, we can 
+  compute </code>d` using the distance formula.</p>
+  </li>
+  <li>
+    <p>We know <code class="highlighter-rouge">p</code>, because it is the radius of the eyeball minus
+  the radius of the pupil.  This may be hard to see, but convince yourself
+  of this by looking carefully at the figure.</p>
+  </li>
+  <li>
+    <p>The green triangle is similar to the large triangle.</p>
+  </li>
+  <li>
+    <p>Knowing ` p `  and <code class="highlighter-rouge">d</code>, we can compute their ratio.</p>
+  </li>
+  <li>
+    <p>That same ratio describes</p>
+
+    <p><code class="highlighter-rouge">px</code>:<code class="highlighter-rouge">dx</code>
+  <code class="highlighter-rouge">py</code>:<code class="highlighter-rouge">dy</code>.</p>
+  </li>
+  <li>
+    <p>From those ratios we can compute ` px<code class="highlighter-rouge"> and </code> py`.</p>
+  </li>
+  <li>
+    <p>Knowing <code class="highlighter-rouge">(ex,ey)</code>, <code class="highlighter-rouge">px</code>, and <code class="highlighter-rouge">py</code>, we can
+  compute the center of the red pupil as <code class="highlighter-rouge">(ex+px,ey+py)</code>.</p>
+  </li>
+</ul>
+
+<h2 id="putting-it-all-together">Putting it all together</h2>
+
+<p>Your code is like the bouncing ball code, in that it enacts a sequence
+of frames.  Each frame consists of checking whether and where a new eyeball
+should be deposited.  Moreover, all existing eyeballs must be updated so
+that they appear to be tracking the mouse as it moves through the window.</p>
+
+<p>Give yourself time for this extension, and develop and test the aspects
+in the order described above.</p>
+
+<h1 id="extension-6-roving-eyes-slow-motion-edition">Extension 6: Roving Eyes; Slow Motion Edition:</h1>
+
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p><a href="http://www.cs.wustl.edu/~cytron/">Ron Cytron</a></p>
+  </dd>
+  <dd>Ken Goldman</dd>
+</dl>
+
+<p>We suggest that you wait until you have completed module 5 to do this extension, as the information in module 5 will help.</p>
+
+<p>Your task is simple: slow down the way that the eyes move from the previous extension. They should still follow the mouse, but it should take some time for the eyes to arrive at their final position.</p>
+
+<p>You are not allowed to do this by slowing the simulation down. Instead, you
+must smoothly vary where the eyes should look in the normal speed of the
+simulation.</p>
+
+<h1 id="extension-7-string-theory">Extension 7: String theory:</h1>
+
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p><a href="https://www.linkedin.com/in/timothyheyer">Tim Heyer</a></p>
+  </dd>
+</dl>
+
+<h2 id="overview-1">Overview</h2>
+<p>The purpose of this assignment is to give you the skills to index and analyze <code class="highlighter-rouge">String</code>s in order to prepare for 
+different web scraping tasks. Once you are able to extract information of interest from a target <code class="highlighter-rouge">String</code>, you 
+will be ready to query a webpage, save the raw HTML code, and extract relevant information.</p>
+
+<p>For this assignment, you are working on simple arithmetic expressions as <code class="highlighter-rouge">String</code>s. Your task is to extract the 
+two integer values and the arithmetic operator from the <code class="highlighter-rouge">String</code> and save them as variables of their respective 
+type. You will then compute and print the value of the expression.</p>
+
+<h2 id="example">Example</h2>
+
+<p>Given: <code class="highlighter-rouge">String s = "21 + 33";</code></p>
+
+<p>You must extract <code class="highlighter-rouge">21</code> and <code class="highlighter-rouge">33</code> to <code class="highlighter-rouge">int</code> variables and <code class="highlighter-rouge">+</code> to a <code class="highlighter-rouge">char</code> or 
+<code class="highlighter-rouge">String</code> variable. Then you will compute and print the expression <code class="highlighter-rouge">21 + 33 = 54</code></p>
+
+<h2 id="procedure-2">Procedure</h2>
+
+<p>As previously mentioned, the purpose of this assignment is to prepare you for dynamic web scraping tasks. As 
+such, it is expected that you implement this assignment dynamically. In other words, the only assumption you should have 
+about the <code class="highlighter-rouge">String</code> you are analyzing is that it will be in the format <code class="highlighter-rouge">(Positive Integer)(Arithmetic Operator)
+(Positive Integer)</code>. This implies your implementation should be able to run effectively on an expression containing 
+positive integers of any length. It should also be able to effectively extract any arithmetic operator (+, -, *, /) and 
+print the proper answer. Lastly, your code should be able to deal with possible spaces in the <code class="highlighter-rouge">String</code>.</p>
+
+<p>It is important to note that there are many acceptable ways to implement this assignment. It is up to your discretion which 
+way you choose to implement the procedure as long as it abides by the requirements described above.</p>
+
+<ul>
+  <li>Listed below are several helpful methods for this assignment. The first is from the <code class="highlighter-rouge">String</code> class and is called 
+on the target <code class="highlighter-rouge">String t</code>. The other four are static methods. Recall that static methods are not called on a target 
+variable as in the previous method, but rather are called on a generic object of that type.</li>
+</ul>
+
+<dl>
+  <dt><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#charAt(int)">char charAt(int i)</a></dt>
+  <dd>
+    <p>Returns the character at index <code class="highlighter-rouge">i</code> in <code class="highlighter-rouge">t</code>.</p>
+  </dd>
+  <dt><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Character.html#isDigit(char)">boolean Character.isDigit(char c)</a></dt>
+  <dd>
+    <p>Returns true if <code class="highlighter-rouge">c</code> is a digit and false otherwise.</p>
+  </dd>
+  <dt><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Character.html#isWhitespace(char)">boolean Character.isWhitespace(char c)</a></dt>
+  <dd>
+    <p>Returns true if <code class="highlighter-rouge">c</code> is white space.</p>
+  </dd>
+  <dt><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Character.html#toString(char)">String Character.toString(char c)</a></dt>
+  <dd>
+    <p>Returns the <code class="highlighter-rouge">String</code> representation of a character.</p>
+  </dd>
+  <dt><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String)">int Integer.parseInt(String s)</a></dt>
+  <dd>
+    <p>Returns the <code class="highlighter-rouge">int</code> representation of a String.</p>
+  </dd>
+</dl>
+
+<ol>
+  <li>
+    <p>Begin by extracting the first integer value from the <code class="highlighter-rouge">String</code> using the methods described above. Keep in mind 
+ that the integer can be multiple digits. You might be extracting 2 or 274539.</p>
+  </li>
+  <li>
+    <p>Implement a similar approach for the operator and second integer.</p>
+  </li>
+  <li>
+    <p>Now that you have the two integers in <code class="highlighter-rouge">int</code> variables and the operator in a <code class="highlighter-rouge">char</code> or <code class="highlighter-rouge">String</code> 
+ variable, perform and print the simple arithmetic operation.</p>
+  </li>
+</ol>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:34 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Nutrition Analyzer | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/1/assignment/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 1 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Assignment 1: Nutrition Analyzer</h1>
+
+					 
+					<aside class="sidenote">
+						<h2 class="nocount">Logistics</h2>
+						<p><strong>Assigned:</strong> Mon, Jun 13</p>
+						<p><strong>Due:</strong> Mon, Jun 20</p>
+					</aside>
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#nutrition-analyzer" id="markdown-toc-nutrition-analyzer">Nutrition Analyzer</a>    <ul>
+      <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a></li>
+      <li><a href="#notes" id="markdown-toc-notes">Notes</a></li>
+    </ul>
+  </li>
+  <li><a href="#submitting-your-work" id="markdown-toc-submitting-your-work">Submitting your work</a></li>
+</ul>
+
+<ul>
+  <li>In this lab you must create and code a simple program that prints
+nutritional information about food.  You have done similar activities
+in studio.
+    <ul>
+      <li>Review or reference the <a href="../studio">studio</a> exercises
+as necessary.</li>
+    </ul>
+  </li>
+  <li>Find and open the <strong>lab1</strong> package in the <strong>labs</strong> source folder.</li>
+</ul>
+
+<h1 id="nutrition-analyzer">Nutrition Analyzer</h1>
+<p>In this lab you develop a simple tool that prints nutrition information about food. This lab is based on what you learned in studio. By completing this lab you demonstrate that you can:</p>
+
+<ul>
+  <li>Create a Java class on your own</li>
+  <li>Arrange for the class to take inputs of interest</li>
+  <li>Compute output values of interest</li>
+  <li>Produce meaningful output based on your computations</li>
+</ul>
+
+<h2 id="procedure">Procedure</h2>
+<ol>
+  <li>Create a <strong>Nutrition</strong> Java class in the <strong>lab1</strong> package of the <strong>labs</strong> source folder.
+    <ul>
+      <li>The <strong>lab1</strong> package is currently empty, but don’t let that bother you.  Right (control) click on <strong>lab1</strong> and create a new class called <strong>Nutrition</strong>.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Arrange for your program to accept the following inputs:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>The name of this food, provided as a <code class="highlighter-rouge">String</code></td>
+        </tr>
+        <tr>
+          <td>carbs</td>
+          <td>The number of grams of carbohydrates in this food</td>
+        </tr>
+        <tr>
+          <td>fat</td>
+          <td>The number of grams of fat in this food</td>
+        </tr>
+        <tr>
+          <td>protein</td>
+          <td>The number of grams of protein in this food</td>
+        </tr>
+        <tr>
+          <td>statedCals</td>
+          <td>The number of calories stated on this food’s label</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>For example, the values for a Snicker bar are:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: left">Variable</th>
+          <th style="text-align: left">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left">name</td>
+          <td style="text-align: left">Snickers</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">carbs</td>
+          <td style="text-align: left">34.5</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">fat</td>
+          <td style="text-align: left">13.6</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">protein</td>
+          <td style="text-align: left">4.3</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">statedCals</td>
+          <td style="text-align: left">271</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>At this point, you should be thinking about the data types you would use to represent each of the above
+ items.  We tell you that the <strong>name</strong> is a <code class="highlighter-rouge">String</code>, but what about the other inputs?
+ The above example is provided to inspire your thinking.
+ To accept the inputs, use the same code we used in studio.<br />
+ Just after the <code class="highlighter-rouge">main</code> method declaration, you should have the line:</p>
+
+    <p><code class="highlighter-rouge">ArgsProcessor ap = new ArgsProcessor(args);</code></p>
+
+    <p>This will likely show an error because eclipse doesn’t know about <code class="highlighter-rouge">ArgsProcessor</code>.  Do you remember how to fix this?  Ask if you need help.</p>
+
+    <p>After that, you should initialize your inputs using code modeled after the code you read and wrote in [studio] (studio.html “studio 01”).</p>
+
+    <p>Eclipse will help you out here:  If you have typed <code class="highlighter-rouge">ap.</code> and pause, eclipse will show you the possible
+ ways of continuing.  For example, <code class="highlighter-rouge">nextInt(String)</code> is one way to keep going.  That call will prompt the user for an <code class="highlighter-rouge">int</code> displaying the provided <code class="highlighter-rouge">String</code> as the prompting message.</p>
+  </li>
+  <li>
+    <p>Arrange for your program to produce output such as the following:</p>
+
+    <p>Snickers has
+     34.5 grams of carbohydrates = 138.0 Calories
+     13.6 grams of fat = 122.4 Calories
+     4.3 grams of protein = 17.2 Calories</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> This food is said to have 271 (available) Calories.
+ With 6.6 unavailable Calories, this food has 1.65 grams of fiber
+
+ Approximately
+   50.9% of your food is carbohydrates
+   45.2% of your food is fat
+   6.3% of your food is protein
+
+ This food is acceptable for a low-carb diet?  false
+ This food is acceptable for a low-fat diet?  false
+ By coin flip, you should eat this food?   true
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h2 id="notes">Notes</h2>
+
+<ul>
+  <li>
+    <p>There are 4 Calories in a gram of carbohydrates or protein.</p>
+  </li>
+  <li>
+    <p>There are 9 Calories in a gram of fat.</p>
+  </li>
+  <li>
+    <p>The stated caloric content of some foods may be less than the value you obtain by adding the calories due to carbohydrates, fat, and protein. This is because some of the carbohydrates may be dietary fiber, and as such they are unavailable for your body to use as energy.</p>
+
+    <blockquote>
+      <p>In the above example, based on carbohydrates, fat, and protein, the food contains 277.6 Calories.
+However, the label claims a modest 271 Calories. Thus, 6.6 Calories are unavailable and are attributed to dietary fiber.</p>
+
+      <p>From this we can compute <em>6.6 / 4 = 1.65 grams</em> of the stated carbohydrates are fiber.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>The percentages shown in the output above feature at most a single digit of precision after the decimal point.</p>
+
+    <blockquote>
+      <p>You must arrange for your percentages to exactly this precise.
+This will take some thought, but it can be done using what is taught in the book: <code class="highlighter-rouge">int</code> operations, <code class="highlighter-rouge">double</code> operations, casting, and <code class="highlighter-rouge">Math.round(…)</code>.</p>
+
+      <p>You are <strong>not</strong> allowed to use <code class="highlighter-rouge">printf</code> or other functions you may find that would accomplish this task. You have to figure out how to do it using what you have learned in this module.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>The following are taken from this <a href="http://www.freedieting.com/tools/nutrient_calculator.htm">online resource</a>:</p>
+
+    <ul>
+      <li>
+        <p>A food is a <em>low-carb</em> food if no more than 25% of its calories come from carbohydrates.</p>
+      </li>
+      <li>
+        <p>A food is a <em>low-fat</em> food if no more than 15% of its calories come from fat.</p>
+
+        <blockquote>
+          <p>For the output lines whose conclusions are <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>, define an appropriately named <code class="highlighter-rouge">boolean</code> variable in your program and set it equal to the expression that determines its value.
+When you print the value it will print as <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>To accomplish the coin flip, recall the random-number generator as described in the text. Define a <code class="highlighter-rouge">boolean heads</code> and assign its value by comparing a random number with <code class="highlighter-rouge">0.5</code>.</p>
+  </li>
+  <li>
+    <p>Your strings can include the character sequences <code class="highlighter-rouge">\t</code> and <code class="highlighter-rouge">\n</code>, which have the effect of inserting a tab and a newline, respectively. A <em>tab</em> will cause the output to shift right to a predetermined position. A <em>newline</em> will end the current line of output and begin a new line.</p>
+  </li>
+</ul>
+
+<p>To demo your lab, find some food labels (for real or on the web) and run your program with the appropriate values for those foods.</p>
+
+<h1 id="submitting-your-work">Submitting your work</h1>
+
+<p>To submit your work, contact the instructor or a TA. They will walk you through the submission process. Be prepared to show them the work that you have done and answer their questions about it!</p>
+
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:32 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

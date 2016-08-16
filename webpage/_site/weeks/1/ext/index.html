@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 1 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/1/ext/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 1 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Extension 1: Module 1</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#speed-limit-fine-calculator" id="markdown-toc-speed-limit-fine-calculator">Speed Limit Fine Calculator:</a>    <ul>
+      <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a></li>
+    </ul>
+  </li>
+  <li><a href="#image-processor" id="markdown-toc-image-processor">Image Processor:</a>    <ul>
+      <li><a href="#background" id="markdown-toc-background">Background</a>        <ul>
+          <li><a href="#pixels" id="markdown-toc-pixels">Pixels</a></li>
+          <li><a href="#representing-color-in-java" id="markdown-toc-representing-color-in-java">Representing color in Java</a></li>
+          <li><a href="#filters" id="markdown-toc-filters">Filters</a></li>
+        </ul>
+      </li>
+      <li><a href="#project-image-processing-methods" id="markdown-toc-project-image-processing-methods">Project: Image Processing Methods</a></li>
+      <li><a href="#directions" id="markdown-toc-directions">Directions:</a>        <ul>
+          <li><a href="#intensity-filters" id="markdown-toc-intensity-filters">Intensity filters</a></li>
+          <li><a href="#color-filters" id="markdown-toc-color-filters"><strong>Color</strong> filters</a></li>
+          <li><a href="#more-color-filters" id="markdown-toc-more-color-filters">More <strong>Color</strong> filters</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#image-processor-continued" id="markdown-toc-image-processor-continued">Image Processor Continued</a>    <ul>
+      <li><a href="#directions-1" id="markdown-toc-directions-1">Directions:</a>        <ul>
+          <li><a href="#two-more-color-filters" id="markdown-toc-two-more-color-filters">Two more <strong>Color</strong> filters</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="speed-limit-fine-calculator">Speed Limit Fine Calculator:</h1>
+
+<p>Authors:</p>
+
+<ul>
+  <li><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></li>
+  <li>Michael Waldman</li>
+  <li>Alan Waldman</li>
+  <li>Cameron Wong</li>
+</ul>
+
+<p>You will calculate the fine one would have to pay for going over the speed limit in the state of Massachusetts
+according to the <a href="http://www.dmv.org/ma-massachusetts/traffic-tickets.php">Massachusetts DMV</a>.</p>
+
+<blockquote>
+  <p>By completing this work, you  demonstrate that you can:</p>
+
+  <ul>
+    <li>
+      <p>Create a Java class on your own</p>
+    </li>
+    <li>
+      <p>Arrange for the class to take inputs of interest</p>
+    </li>
+    <li>
+      <p>Compute output values of interest</p>
+    </li>
+    <li>
+      <p>Produce meaningful output based on your computations</p>
+    </li>
+  </ul>
+</blockquote>
+
+<p>Have you ever received a ticket for speeding? 
+If so, how do you feel about it? Were you going more or less than 10 miles over the speed limit? 
+The objective of this extension is not only to allow you to practice <strong>assignment statements</strong> and <strong>data types</strong> but also for you to create a
+practical tool, though of course we hope you never need to compute a speeding
+fine for yourself.</p>
+
+<p>Consider the following story:</p>
+
+<ul>
+  <li>Pat is driving a Mini Cooper at 85 MPH on a 
+road that has the speed limit of 60 MPH.</li>
+  <li>Pat is therefore going 25 MPH over the speed limit.</li>
+  <li>
+    <p>If Pat is caught speeding, what would be Pat’s fine?</p>
+
+    <p>For this assignment, we model the fine after Massachusetts law:</p>
+
+    <ul>
+      <li>
+        <p>A fine is assessed only if the driver’s speed is at least 10 MPH over
+  the speed limit.</p>
+      </li>
+      <li>
+        <p>For the first 10 MPH over the speed limit, the fine is $50 no matter what</p>
+      </li>
+      <li>
+        <p>For any additional MPH past the first ten, $10 are added to the fine</p>
+      </li>
+      <li>
+        <p>Thus, Pat owes $50 for going at least 10 MPH over the speed limit
+  (60+10=70 MPH).  To this, we add
+  $10 * 15 = $150 for the additional 15 MPH.  Thus, Pat owes $200.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="procedure">Procedure</h2>
+<ol>
+  <li>
+    <p>First, create a <strong>SpeedLimit</strong> Java class in the
+<strong>speeding</strong> package of the <strong>extensions</strong> source folder.</p>
+
+    <blockquote>
+      <p>Do this by 
+* right (control) clicking on the <strong>speeding</strong> package,
+ and then</p>
+
+      <ul>
+        <li>
+          <p>chooose <strong>New</strong>…<strong>Class</strong></p>
+        </li>
+        <li>
+          <p>Type in the name of the class (<strong>SpeedLimit</strong>)</p>
+        </li>
+        <li>
+          <p><strong>Be sure</strong> to check the box so that <strong>public static void main</strong> is included</p>
+        </li>
+        <li>
+          <p>Click OK</p>
+        </li>
+      </ul>
+    </blockquote>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p>Write code to prompt the user for the information you need to
+compute the fine, assuming the fine is computed as described above.</p>
+
+    <blockquote>
+      <ul>
+        <li>
+          <p>Consider and decide upon the <strong>data type</strong> to represent information
+of interest to this problem.</p>
+        </li>
+        <li>
+          <p>You must ask the user for some input values. If you do not
+recall how to use <strong>ArgsProcessor</strong>, review the video entitled <em>Prompting the user for input values</em>.</p>
+        </li>
+      </ul>
+    </blockquote>
+  </li>
+  <li>
+    <p>Arrange for your program to produce output such that:</p>
+
+    <ul>
+      <li>
+        <p>For the first 10 miles over the speed limit, the fine is 50 no matter what</p>
+      </li>
+      <li>
+        <p>For any additional mile past the first ten, 10 dollars are added to the fine</p>
+      </li>
+    </ul>
+
+    <blockquote>
+      <p>Beware: Make sure your program works for 0 MPH and all possible
+positive velocities.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Finally, your program should print how many miles you were going over the speed limit and how much money the fine will be.</p>
+  </li>
+</ul>
+
+<p>Sample output based on the example story above:</p>
+
+<p><code class="highlighter-rouge">
+You reported a speed of 85 MPH for a speed limit of 60 MPH.
+You went 25 MPH over the speed limit.
+Your fine is $200.
+</code></p>
+
+<blockquote>
+  <p>You must compute the required information <strong>without</strong> using <strong>if</strong> statements.  To evaluate an expression conditionaly, use the
+<a href="http://alvinalexander.com/java/edu/pj/pj010018">ternary</a> operator,
+an example of which follows:</p>
+
+  <p><code class="highlighter-rouge">int x = (y &gt; 7) ? 12 : 5;</code></p>
+
+  <p>The variable <strong>x</strong> is set to <strong>12</strong> if <strong>y</strong>’s value
+is greater than <strong>7</strong>;  otherwise <strong>x</strong> is set to <strong>5</strong>.</p>
+</blockquote>
+
+<h1 id="image-processor">Image Processor:</h1>
+<p>Authors:</p>
+
+<ul>
+  <li>Anne Bracy</li>
+  <li><a href="http://www.cs.wustl.edu/~cytron/">Ron Cytron</a></li>
+  <li><a href="http://www.cs.wustl.edu/~kjg/">Ken Goldman</a></li>
+  <li>Logan Sorentino</li>
+</ul>
+
+<h2 id="background">Background</h2>
+
+<h3 id="pixels">Pixels</h3>
+
+<p>The word <em>pixel</em> stands for Picture Element. A pixel is a small part
+of a picture. Pixels are the little dots that make up LCD
+screens. When you see a low-resolution picture that is grainy, the
+grain you’re seeing are the pixels.</p>
+
+<h3 id="representing-color-in-java">Representing color in Java</h3>
+
+<p>Pixels are made up of 3 colors: red, green, and blue (hence the
+term <em>RGB</em>). The color of a pixel is made up of a combination of the
+<em>intensities</em> of each of red, green, and blue components. Intensities range from 0 (meaning none of that color is present) to 255
+(meaning as much as possible of that color is present). You
+declare a new pixel by coding</p>
+
+<p><code class="highlighter-rouge">
+new Color(redValue, greenValue,blueValue)
+</code></p>
+
+<p>where <strong>redValue</strong> is the intensity (an integer between 0 and 255) of 
+red, <strong>greenValue</strong> is the intensity of green, and <strong>blueValue</strong> is the intensity of blue.<br /></p>
+
+<p>For example, you get the color black with <strong>new Color (0,0,0)</strong> (0
+intensity for all colors). You get red with <strong>new Color (255,0,0)</strong>
+(highest intesity for red, 0 intensity for green and blue).</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>This work involves writing a number of filters that are applied to
+images to achieve a given result.  There are two kinds of methods that
+you complete, and each is described below:</p>
+
+<p><code class="highlighter-rouge">**int foo(int pixelComponent)**</code></p>
+
+<p>Methods with the above signature take in a single pixel component
+intensity value:  an integer between 0 and 255 inclusively.
+They are obligated to return an intensity value as their result.</p>
+
+<p>These methods are used by the course software as shown below:</p>
+
+<p style="text-align: center"><img src="../../../extensions/colorintensity.jpg" alt="Color Intensity" /></p>
+
+<ol>
+  <li>
+    <p>A <strong>Color</strong> object is broken into its red, green, and blue
+components.</p>
+  </li>
+  <li>
+    <p>Each component is passed to your <strong>foo</strong> method, and the
+result of that function is retained.</p>
+  </li>
+  <li>
+    <p>The three results are combined into a new <strong>Color</strong> object.</p>
+  </li>
+</ol>
+
+<p>In other words, the <strong>foo</strong> function is used as a filter on each
+of a <strong>Color</strong>’s components.  The <strong>foo</strong> function is unaware
+of which component it is processing:  it treats each equally.</p>
+
+<p><code class="highlighter-rouge">**Color bar(Color c)**</code></p>
+
+<p>Methods with the above signature accept and produce a standard Java
+<strong><a href="https://docs.oracle.com/javase/7/docs/api/java/awt/Color.html">Color</a></strong> object.  These methods can themselves decompose a <strong>Color</strong>
+object into its components and create a resulting <strong>Color</strong> object
+to achieve whatever effect is desired.</p>
+
+<h2 id="project-image-processing-methods">Project: Image Processing Methods</h2>
+
+<ol>
+  <li>
+    <p>In Eclipse, open the <strong>extensions</strong> source folder and
+then open the <strong>imageprocessor</strong> package. Find and open the
+<strong>ImageProcessor</strong> class.</p>
+
+    <blockquote>
+      <p>This is the <em>main</em> program you run to see the results of your work.</p>
+
+      <p>Go ahead and run it as a Java application.
+You should see a window pop up with
+some images preloaded.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Try the <em>darker</em> filter.  It has been implemented for you, and
+it should produce an image in the <em>Target</em> window that resembles
+the image in the <em>source1</em> window, but is a bit darker.</p>
+  </li>
+  <li>
+    <p>Try the <em>combine</em> filter.  It has also been implemented but
+its effects may seem a bit strange.  You will soon implement a smarter version
+of this kind of a filter.</p>
+  </li>
+  <li>
+    <p>The other methods are not yet implemented, but you are free to try
+them.</p>
+
+    <blockquote>
+      <p>By the way, you can drag images between the icon panel at the top and the working
+panels in the middle, or <em>vice versa</em>, so that you can manipulate
+other images than the ones that are preloaded.&lt;p&gt;
+You can also load your own images by clicking on the icon that resembles
+a <em>plus</em> sign.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h2 id="directions">Directions:</h2>
+<p>First, right click on the <strong>ImageProcessorTest</strong> class, and <strong>Run As</strong> a <strong>JUnit Test</strong>.</p>
+
+<blockquote>
+  <ul>
+    <li>
+      <p>On the left you should see a whole bunch of 
+test names with red or blue x’s by them, indicating that they are not being passed. * Every time you complete a piece of code correctly, one of the tests will pass, 
+and a small green x will appear beside it.</p>
+    </li>
+    <li>
+      <p>Once all of the tests pass, a satisfying green bar will appear in place of the red one that you see now. You will 
+not get this green bar in this extension, though, because you will not be doing any work on the <strong>bgSubtract</strong> or <strong>bdReplace</strong> methods. 
+To get the green bar you must go on to the next extension.</p>
+    </li>
+  </ul>
+</blockquote>
+
+<p>Now open the <strong>Filters</strong> class and begin your work as described
+below.</p>
+
+<blockquote>
+  <p>It is strongly suggested that you re-run the unit test, and run <strong>ImageProcessor</strong> to test each filter after its
+completion before you move on to the next filter.  This will ensure that you are making progress and not going down a wrong path.</p>
+</blockquote>
+
+<p>Complete the provided stub
+methods as described below.
+In the method bodies, <strong>use mathematical expressions</strong>. Do <em>not</em> use
+a conditional (if) statement.</p>
+
+<h3 id="intensity-filters">Intensity filters</h3>
+
+<blockquote>
+  <p>Use <strong>no conditional execution</strong> for this part:  only arithmetic expressions
+as you have learned them in Module 1.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Complete the method called <em>copy</em>, so that each
+provided intensity value is copied exactly
+from the source to the target panel.</p>
+
+    <blockquote>
+      <p>Hint: This is a <em>very</em> simple method.</p>
+    </blockquote>
+
+    <p style="text-align: center"><img src="../../../extensions/copy.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Complete the method that will <em>composite</em> the images
+in the
+two source panels by averaging their components. This method accepts two
+parameters, which are color components from the two source panels.</p>
+
+    <p style="text-align: center"><img src="../../../extensions/composite.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Complete the method called <em>negative</em> that will
+produce the
+negative image by inverting the intensity of each component.</p>
+
+    <blockquote>
+      <p>For
+example, if the parameter value is 0, you should return 255. If the
+parameter value is 1, you should return 254, and so on.</p>
+    </blockquote>
+
+    <p style="text-align: center"><img src="../../../extensions/negative.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Complete the method <em>posterize</em> that will reduce the
+number of possible colors in an image. For a given color component, your
+method will choose between
+two intensities, 0 or 255, which correspond to that color component
+being turned off or on completely. 
+So, since each color has three
+components (red, green, and blue), you will end up with an image that
+has only 8 different colors.</p>
+
+    <blockquote>
+      <p>Remember that you are <em>not</em>
+allowed to use conditionals (if) statements for this part of the lab.</p>
+
+      <p><em>Hint:</em> : Recall that color components
+are in the range 0-255. Also, recall that if you divide an int by
+another int, the result number will be truncated. For example, 
+<strong>130 / 128 =&amp; 1</strong>, but 
+<strong>125 / 128 =&amp; 0</strong>.</p>
+    </blockquote>
+
+    <p style="text-align: center"><img src="../../../extensions/posterize.png" alt="" /></p>
+  </li>
+</ol>
+
+<h3 id="color-filters"><strong>Color</strong> filters</h3>
+
+<p>Note that each pixel
+of an image is represented as a <a href="http://java.sun.com/javase/6/docs/api/java/awt/Color.html">Color</a>
+object.</p>
+
+<blockquote>
+  <ul>
+    <li>Continue to
+use <strong>no conditional execution</strong> for this part:  only arithmetic expressions
+as you have learned them in Module 1.</li>
+    <li>To create a new <strong>Color</strong>, you must specify its red, green, and blue components in that order.  For example</li>
+  </ul>
+
+  <p><code class="highlighter-rouge">Color c = new Color(25,128,0);</code></p>
+
+  <p>declares <strong>c</strong> to be a color with some red (25 out of 255), half of the possible green, and no blue.
+* If you have a <strong>Color c</strong>, then you can get its red, green, and blue components as follows:</p>
+
+  <p><code class="highlighter-rouge">int red   = c.getRed();</code>
+<code class="highlighter-rouge">int green = c.getGreen();</code>
+<code class="highlighter-rouge">int blue  = c.getBlue();</code></p>
+</blockquote>
+
+<p>Create and test methods (whose parameters and return values are <code>Color</code>s)
+with the following specifications.</p>
+
+<ol>
+  <li>
+    <p>Complete the method <em>brighter</em> that will return, for
+each pixel, a Color that is brighter than
+the original.</p>
+
+    <blockquote>
+      <p>The 
+<strong><a href="https://docs.oracle.com/javase/7/docs/api/java/awt/Color.html">Color</a></strong>
+class makes this easy because it already
+provides a 
+**<a href=""><a href="https://docs.oracle.com/javase/7/docs/api/java/awt/Color.html#brighter%28%29">brighter()</a>**
+method that returns a brighter color.</a></p>
+
+      <p>If <strong>c</strong> is a color, then <strong>c.brighter()</strong> is a brighter version of <strong>c</strong>’s color.</p>
+    </blockquote>
+
+    <p style="text-align: center"><img src="../../../extensions/brighter.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Complete the method <em>grayscale</em> that will make a
+grayscale image from a color image.
+To do this, you will take in one Color parameter (the Color object for
+a pixel from the original image) and
+will produce a new Color in which all the components (red, green, and
+blue) have the same value.</p>
+
+    <blockquote>
+      <p>Hint: To choose which value, average the three components of the
+original color.</p>
+    </blockquote>
+
+    <p style="text-align: center"><img src="../../../extensions/grayscale.png" alt="" /></p>
+  </li>
+</ol>
+
+<h3 id="more-color-filters">More <strong>Color</strong> filters</h3>
+
+<p>OK, now you can use <strong>if</strong> statements!</p>
+
+<ol>
+  <li>
+    <p>Complete the method <em>blackAndWhite</em> that produces a
+black and white image by returning, for each pixel, a <strong>Color</strong> that is
+either black or white, depending upon the overall intensity of the
+original color.</p>
+
+    <p>For your return value, use the constant <strong>Color.BLACK</strong>
+ or <strong>Color.WHITE</strong>. It’s up to you how to decide when a
+ color’s components, taken as a whole, should be considered black or
+ white.</p>
+
+    <p style="text-align: center"><img src="../../../extensions/blackandwhite.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Complete the method <em>combineBrighter</em> that combines
+two images by choosing for each pixel the color from the image that has
+the brighter pixel in that location. To determine which pixel is
+brighter, compare the sums of the red, green, and blue components of
+the two pixels. Since the ProcessorTool will run your method for every
+pair of pixels, the resulting image will have some pixels from the
+first image and some from the second image.</p>
+  </li>
+</ol>
+
+<p style="text-align: center"><img src="../../../extensions/combinebrighter.png" alt="" /></p>
+
+<h1 id="image-processor-continued">Image Processor Continued</h1>
+<p>Authors:</p>
+
+<ul>
+  <li><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></li>
+  <li>Arman Guerra</li>
+  <li><a href="http://www.cs.wustl.edu/~kjg/">Ken Goldman</a></li>
+</ul>
+
+<p>This is a continuation of the previous extension.  It is therefore
+suggested that you
+do the previous extension first.</p>
+
+<h2 id="directions-1">Directions:</h2>
+
+<p>The main program you should run for this extension is <strong>Background</strong>, which
+conveniently
+sets up the images in the bar and panels for you to do this work.</p>
+
+<p>So run <strong>Background</strong> as a Java application.  You will see two
+similar images in the source panels, and some other images in the image
+bar.</p>
+
+<p>Open the <strong>Filters</strong> class and begin your work as described
+below.</p>
+
+<h3 id="two-more-color-filters">Two more <strong>Color</strong> filters</h3>
+
+<blockquote>
+  <p>You can use <strong>if</strong> statements for this work.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Complete the method <em>bgSubtract</em> so that it returns a <strong>Color</strong> as follows:</p>
+
+    <ul>
+      <li>
+        <p>If the <strong>source1Color</strong> and <strong>source2Color</strong> colors are
+ <em>sufficiently similar</em>, return <strong>Color.BLUE</strong>. The idea is to subtract
+ the background so that what is common between the two source images is shown
+ in blue.</p>
+
+        <p>We will define a new term for this lab, the <em>Saturation Tolerance</em>. What this tells us is how different two colors can be, and still be considered 
+  <em>sufficiently similar</em>. For instance; if the <em>Saturation Tolerance</em> is 10, one color has a red value of 130, and another color has a 
+  red value of 138, these would be considered <em>sufficiently similar</em>. But if one color had a red value of 35 and another had a red value of 50, they would not 
+  be considered <em>sufficiently similar</em></p>
+      </li>
+      <li>
+        <p>Otherwise, return <strong>source1Color</strong>.</p>
+      </li>
+    </ul>
+
+    <p>An example is shown below:</p>
+
+    <p style="text-align: center"><img src="../../../extensions/bg1.png" alt="" /></p>
+
+    <p>Where the two images are similar, the corresponding pixel in the
+ target image is blue, because your method returned <strong>Color.BLUE</strong>.
+ Where the images differ, the first image is shown in the target,
+ because your method returned the pixel color from the first image.</p>
+  </li>
+  <li>
+    <p>Complete the method <em>bgReplace</em> that functions as
+follows:</p>
+
+    <ul>
+      <li>If the <strong>source1Color</strong> is <strong>Color.BLUE</strong>, then return
+ the <strong>source2Color</strong>.</li>
+      <li>Otherwise, return <strong>source1Color</strong>.</li>
+    </ul>
+
+    <p>The effect of this filter is to replace the blue color from the first image
+ with the corresponding pixels from the second image.</p>
+
+    <p>To see this work, perform the following steps:</p>
+
+    <ol>
+      <li>
+        <p>Drag the blue-screen image from the target panel and drop it into the leftmost source panel.  The GUI should replace what was there with the blue-screen
+ image.</p>
+      </li>
+      <li>
+        <p>Drag the other two-bear picture (the reverse of the one shown in the
+ source panel) from the top icon bar into the middle source panel.</p>
+
+        <p>After dragging these images around the GUI, the results should resemble the
+ following:</p>
+
+        <blockquote>
+          <p><strong>Note:</strong>  No transformation is applied yet.  The <em>copy</em> operation appears
+as the menu choice but the <em>Go</em> button was not pressed.</p>
+        </blockquote>
+
+        <p style="text-align: center"><img src="../../../extensions/bg2.png" alt="" /></p>
+      </li>
+      <li>
+        <p>Now apply the <em>bgReplace</em> filter, and the results resemble the
+ following:</p>
+
+        <p style="text-align: center"><img src="../../../extensions/bg3.png" alt="" /></p>
+      </li>
+      <li>
+        <p>For fun, drag the chicken image from the top icon bar into the middle source panel, and reapply the * bgReplace* filter.  The results should
+ resemble the following:</p>
+
+        <p style="text-align: center"><img src="../../../extensions/bg4.png" alt="" /></p>
+
+        <p>The chicken is a smaller image, so it did not take up the entire size of
+ the bear image.</p>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:33 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

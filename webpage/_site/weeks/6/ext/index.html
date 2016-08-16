@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 6 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/6/ext/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 6 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Extension 6: Module 6</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#extension-1-divine-lines" id="markdown-toc-extension-1-divine-lines">Extension 1: Divine Lines:</a></li>
+  <li><a href="#extension-2-persian-recursian" id="markdown-toc-extension-2-persian-recursian">Extension 2: Persian Recursian:</a></li>
+  <li><a href="#extension-3-flower-power" id="markdown-toc-extension-3-flower-power">Extension 3: Flower Power:</a>    <ul>
+      <li><a href="#details" id="markdown-toc-details">Details</a></li>
+    </ul>
+  </li>
+  <li><a href="#extension-4-fibonacci-recursively-and-iteratively" id="markdown-toc-extension-4-fibonacci-recursively-and-iteratively">Extension 4: Fibonacci Recursively and Iteratively:</a>    <ul>
+      <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+      <li><a href="#procedure" id="markdown-toc-procedure">Procedure</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="extension-1-divine-lines">Extension 1: Divine Lines:</h1>
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></p>
+  </dd>
+  <dd>Ken Goldman</dd>
+</dl>
+
+<p>A video demonstrating a solution can be found <a href="../../../extensions/lines.mp4">here</a></p>
+
+<p>In the <code class="highlighter-rouge">extensions</code> source folder, find and open the <code class="highlighter-rouge">lines</code> package and the
+<code class="highlighter-rouge">Lines</code> class contained therein.    The <code class="highlighter-rouge">main</code> method is provided, and it calls
+the method <code class="highlighter-rouge">drawLine</code>,which you must complete.</p>
+
+<p>Do not change the parameters or return type of the <code class="highlighter-rouge">drawLine</code> method!  You are welcome to define
+<em>other</em> methods in the <code class="highlighter-rouge">Lines</code> class if you wish, but the <code class="highlighter-rouge">drawLine</code> method’s signature (the number and types of its parameters and its return type) must
+be preserved as you do your work.</p>
+
+<p>Your task is to devise an algorithm for drawing a line from (x1,y1) to (x2,y2) using <em>recursion</em>.
+It may take you some time to think about how to do that, but once you see the recursive nature of drawing a line,
+you will probably need only a few lines of code to accomplish this task.</p>
+
+<p>Please take note of the following guidelines, as you will not receive credit unless your solution follows
+the rules of this assignment:</p>
+
+<ul>
+  <li>
+    <p>The code given to you will perform a test of your <code class="highlighter-rouge">drawLine</code> when you run it as a Java Application.</p>
+  </li>
+  <li>
+    <p>If you want to draw lines interactively using your solution, then run the <code class="highlighter-rouge">InteractiveLines</code> class
+  as a Java Application.</p>
+  </li>
+  <li>
+    <p>Do not use <code class="highlighter-rouge">StdDraw.line</code> to do any of your work!</p>
+  </li>
+  <li>
+    <p>The only methods you are allowed to use from <code class="highlighter-rouge">StdDraw</code> are <code class="highlighter-rouge">point</code>,
+  <code class="highlighter-rouge">setPenRadius</code>, and <code class="highlighter-rouge">setPenColor</code>.</p>
+
+    <blockquote>
+      <p>This means you must draw your line one point at a time.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Some students approach this problem by computing the slope of the line and
+  then incrementally trying to draw pieces of it using recursion. That approach
+  comes to grief for vertical lines, which have infinite slope.  There
+  is a much easier and satisfying way to solve this problem, but you have
+  to think about it.</p>
+
+    <p>Do <strong>not</strong> compute or use the slope of the line in your approach.  We will
+  not count the extension if you do that.  Instead, think recursively about
+  how a line is constructed.</p>
+  </li>
+</ul>
+
+<p>When you are done it should look like this:</p>
+
+<p><img src="../../../extensions/crayRays.jpg" alt="" /></p>
+
+<h1 id="extension-2-persian-recursian">Extension 2: Persian Recursian:</h1>
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></p>
+  </dd>
+  <dd>The idea for this assignment comes from the article "Persian Recursion" by Anne M. Burns that appeared on pages 196-199 of <em>Mathematics Magazine</em>, volume 7, in 1997</dd>
+</dl>
+
+<ul>
+  <li>
+    <p>A video demonstrating my solution can be found <a href="../../../extensions/persian.mp4">here</a>.</p>
+  </li>
+  <li>
+    <p>That video instructs you how to speed up the drawing substantially.</p>
+  </li>
+  <li>
+    <p>Don’t speed things up until you see the rug is drawing properly.</p>
+  </li>
+</ul>
+
+<p>In the <code class="highlighter-rouge">extensions</code> folder open the <code class="highlighter-rouge">recursivepatterns</code> package and
+the <code class="highlighter-rouge">PersianRug</code> class.
+Your task is to complete the method <code class="highlighter-rouge">persianRug</code> so that it draws a rug similar to the
+one shown below:</p>
+
+<p><img src="../../../extensions/rug.png" alt="" /></p>
+
+<p>Each call to <code class="highlighter-rouge">persianRug</code> works on a given square of the rug.   Consider the picture shown below:</p>
+
+<p><img src="../../../extensions/orig.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>The square is described by its lower-left corner (in this case, (0,0)), and its size (in this case, 1).</p>
+  </li>
+  <li>
+    <p>Each step of the recursion considers the colors of the provided square’s sides (in this case, blue), and computes
+  a color for the two lines to be drawn inside the square (in this case, red).</p>
+
+    <p>Computing the color of these two lines is what makes the rug look as it does.  More detail is given below
+  concerning how to pick a color.</p>
+  </li>
+  <li>
+    <p>Further recursion would act on the sub-squares you see in the above picture.  For example, the upper-left
+  subsquare has its lower-left corner at (0, 0.5), has size 0.5, and has colors blue, red, red, blue, starting from
+  north and proceeding clockwise.</p>
+  </li>
+</ul>
+
+<p>The parameters for <code class="highlighter-rouge">persianRug</code> are documented in the source code provided to you for this extension.</p>
+
+<p>Notes:</p>
+
+<ul>
+  <li>
+    <p>Colors in this lab are represented as an index into a <code class="highlighter-rouge">Color</code> array called <code class="highlighter-rouge">palette</code>.  This
+  array is provided for you in the source code and it is passed into your
+  <code class="highlighter-rouge">persianRug</code> method.</p>
+  </li>
+  <li>
+    <p>Indexes into <code class="highlighter-rouge">palette</code> are passed into <code class="highlighter-rouge">persianRug</code> to describe the colors of the
+square’s bordering edges.  For example, blue is represented by index 0 into the <code class="highlighter-rouge">palette</code> array,
+and cyan appears at index 1.</p>
+  </li>
+  <li>
+    <p>Picking a color for the two lines drawn inside a given square is the <em>creative</em> aspect of this
+assignment.  The following should be read carefully and understood before you jump into coding.</p>
+
+    <ul>
+      <li>
+        <p>Although you will eventually pick more diverse colors, we recommend that unti your lab is working,
+  you should always use color index 0 for the color of the two drawn lines.</p>
+      </li>
+      <li>
+        <p>Once that is working, you must pick a color that is a function of the square’s bordering colors (which
+  are conveniently represented as indexes into <code class="highlighter-rouge">palette</code>.   That function must have the following
+  properties to perform correctly:</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>The function must return a value that is an appropriate index into the <code class="highlighter-rouge">palette</code> array.</p>
+
+    <p>As you know, 0 is the smallest index, and the largest index is <code class="highlighter-rouge">palette.length-1</code>.</p>
+  </li>
+  <li>
+    <p>The function must return the same value for any permutation of a given square’s bordering colors.
+  For example, if the colors are specified in order red, blue, blue, red, then any square with two blue and two 
+  red sides must compute the same color for the two drawn lines.</p>
+
+    <p>Recall that these colors are represented as integers, each being an index into the <code class="highlighter-rouge">palette</code> array.
+  What kinds of functions on integers return the same result no matter the order of those integers?</p>
+  </li>
+  <li>
+    <p>Different functions will produce different rugs.  The rug below is computed using the same code as the rug shown at the top of this assignment, but the function was tweaked slightly:</p>
+
+    <p><img src="../../../extensions/otherrug.png" alt="" />
+  Perhaps you can see that in the above rug, once a square has red on each of its borders, the two drawn lines inside that square are also red.
+  That effect just happens to be a property of the function I used to produce
+  the above image.</p>
+  </li>
+  <li>
+    <p>Rugs contributed Fall 2013:</p>
+  </li>
+</ul>
+<table> 
+<tr> 
+ <td> <img src="../../../extensions/bengreene.png" /></td>
+ <td> <img src="../../../extensions/djas.png" /></td>
+ <td> <img src="../../../extensions/alan.png" /></td>
+</tr>
+<tr>
+  <td> Ben Greene</td>
+  <td> Dylan Jew and Ari Spilo</td>
+  <td> Alan Waldman</td>
+</tr>
+<tr>
+ <td> <img src="../../../extensions/samchase.png" /></td>
+ <td> <img src="../../../extensions/mp.png" /></td>
+ <td> <img src="../../../extensions/bz.png" /></td>
+</tr>
+<tr>
+  <td> Sam Chase</td>
+  <td> Meagan Provencher</td>
+  <td> Ben Zod</td>
+</tr>
+<tr>
+ <td> <img src="../../../extensions/dianafasanello.png" /></td>
+ <td> <img src="../../../extensions/AnnaKunyao.jpg" /></td>
+ <td> <img src="../../../extensions/JeremyScharfRug.png" /></td>
+</tr>
+<tr>
+  <td> Diana Fasanello</td>
+  <td> Anna Kolasa and Kunyao Liu</td>
+  <td> Jeremy Scharf</td>
+</tr>
+</table>
+
+<h1 id="extension-3-flower-power">Extension 3: Flower Power:</h1>
+
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></p>
+  </dd>
+  <dd>Ken Goldman</dd>
+</dl>
+
+<blockquote>
+  <p>A video demonstrating my solution can be found <a href="../../../extensions/flower.mp4">here</a>.</p>
+</blockquote>
+
+<p>In the <code class="highlighter-rouge">extensions</code> folder open the <code class="highlighter-rouge">recursivepatterns</code> package.<br />
+The following classes found there, and described in greater detail below, must
+be completed for this extension:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">TransparentColor</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Flower</code></p>
+  </li>
+</ul>
+
+<p>The ultimate goal is to complete the <code class="highlighter-rouge">flower</code> method of the
+<code class="highlighter-rouge">Flower</code> class so that it draws an image similar to the one
+shown below:</p>
+
+<p><img src="../../../extensions/flower.png" alt="" /></p>
+
+<p>The colors shown in the above image are somewhat <em>transparent</em>, so that
+the color of an ellipse is allowed to bleed through the ellipse above it.</p>
+
+<p>You can proceed by working on either class first.  However, if you postpone
+<code class="highlighter-rouge">TransparentColor</code>, you will see solid colors in your flower until
+you have completed that class.</p>
+
+<h2 id="details">Details</h2>
+
+<dl>
+  <dt><code class="highlighter-rouge">TransparentColor</code></dt>
+  <dd>
+    <p>As is the case with most color models, Java’s 
+  <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/awt/Color.html">Color</a> 
+  objects
+  are allowed to have a degree of transparency.</p>
+
+    <p>The <code class="highlighter-rouge">transparentColor</code> method, as provided to you, ignores the
+  <code class="highlighter-rouge">alpha</code> parameter and returns the color provided as input.</p>
+
+    <p>You must change this behavior so that the color returned as the same
+  red, green, and blue components as the provided color, but with the
+  specified transparency.</p>
+
+    <p>Java makes this easy, because there is a constructor for
+  <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/awt/Color.html">Color</a> 
+  that does the job.
+  This task is given to you primarily to acquaint you with the process of looking
+  through JavaDoc documentation to find a class or method you need.</p>
+
+    <p>Follow the instructions provided in the <code class="highlighter-rouge">TransparentColor</code> source code.</p>
+
+    <p>Before moving on, test your code by running <code class="highlighter-rouge">TransparentColor</code> as
+  a Java Application.  You should see the colors solid at the upper right of
+  the drawing window, and blended (more transparent) at the lower left.</p>
+  </dd>
+  <dt><code class="highlighter-rouge">Flower</code></dt>
+  <dd>
+    <p>Your task here is to complete the <code class="highlighter-rouge">flower</code> method, whose parameters
+  are described in the JavaDoc for the method.  Some useful guildines follow:</p>
+
+    <ul>
+      <li>The <code class="highlighter-rouge">StdDraw</code> class offers a <code class="highlighter-rouge">filledEllipse</code> method,
+  but you must set the color before calling it.</li>
+      <li>
+        <p>You should choose a random color for each ellipse you draw, and you are
+  provided a <code class="highlighter-rouge">palette</code> of <code class="highlighter-rouge">Color</code> objects as input to
+  your <code class="highlighter-rouge">flower</code> method.</p>
+
+        <p>If necessary, review the material in the text and slides that discusses how
+  to pick a random integer.  You would use that integer to index the
+  <code class="highlighter-rouge">palette</code> array.</p>
+      </li>
+      <li>You must find the substructure in the flower pattern.  To help
+  with this, the following
+  diagram shows the locations of each ellipse within a given level of recursion:</li>
+    </ul>
+
+    <p><img src="../../../extensions/five-recursive-calls.jpg" alt="" /></p>
+
+    <ul>
+      <li>
+        <p>Analyze the above diagrams to infer the area taken up by each sub-ellipse
+  that you must draw.</p>
+      </li>
+      <li>
+        <p>Remember that the <code class="highlighter-rouge">StdDraw</code> coordinate system has (0,0) at the 
+  lower-left, and (1,1) at the upper right.</p>
+      </li>
+      <li>
+        <p>Remember that <code class="highlighter-rouge">StdDraw</code> shapes take a center as their primary
+  coordinate, and use half-widths and half-lengths for dimensions.</p>
+      </li>
+    </ul>
+  </dd>
+</dl>
+
+<p>As usual, ask for help as needed.</p>
+
+<h1 id="extension-4-fibonacci-recursively-and-iteratively">Extension 4: Fibonacci Recursively and Iteratively:</h1>
+
+<dl>
+  <dt>Authors</dt>
+  <dd>
+    <p><a href="http://www.cs.wustl.edu/~cytron/">Ron K. Cytron</a></p>
+  </dd>
+</dl>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>You have written the recursive function for the
+<a href="http://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci Sequence</a> in studio.  In this extension, you will
+compare the running time of that recursive formulation with an
+iterative formulation of the same function.</p>
+
+<h2 id="procedure">Procedure</h2>
+
+<ul>
+  <li>
+    <p>Find the <code class="highlighter-rouge">fibonacci</code> package in the <code class="highlighter-rouge">extensions</code>
+ source folder.</p>
+  </li>
+  <li>
+    <p>Complete the <code class="highlighter-rouge">recursive</code> method so that it returns the
+  <em>n</em><sup>th</sup> fibonacci number using the recursive proram
+  from <a href="studio.html">studio</a>.</p>
+  </li>
+  <li>
+    <p>Complete the <code class="highlighter-rouge">iterative</code> method so that it computes the
+  same function, but iteratively.</p>
+
+    <p>As a hint, you will need two variables that represent the 
+  <em>(n-1)</em><sup>th</sup> and
+  <em>(n-2)</em><sup>th</sup> values of the sequence.  Adding those together
+  produces the
+  <em>n</em><sup>th</sup> term.  The variables’ values are then shifted prior
+  to the next iteration.</p>
+  </li>
+  <li>
+    <p>Run the <code class="highlighter-rouge">CorrectnessTest</code> to make sure your functions are
+  computing the correct values.</p>
+  </li>
+  <li>
+    <p>We will now compare the timing of the two methods.
+  First run <code class="highlighter-rouge">TimedTest</code>, and give it a little time to finish. Right click the <code class="highlighter-rouge">outputs</code> folder and click refresh. You should now see two excel file outputs in the folder. Open them up and plot the points, observing the difference in time between the iterative and recursive methods.</p>
+  </li>
+</ul>
+
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:34 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>

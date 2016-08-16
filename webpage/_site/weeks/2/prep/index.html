@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Module 2 | LaunchCode's CSE131</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/launchcode131-stlouis/css/main.css">
+  <link rel="canonical" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/weeks/2/prep/">
+  <link rel="alternate" type="application/rss+xml" title="LaunchCode's CSE131" href="https://education.launchcode.org/launchcode131-stlouis/launchcode131-stlouis/feed.xml">
+</head>
+
+
+<body>
+	<div class="wrapper writeup">
+			<div class="container">
+				<nav class="site-nav">
+					<a href="../">&larr; Week 2 Overview</a>
+				</nav>
+
+				<article class="site-content">
+					<h1>Prep 2: Module 2</h1>
+
+					
+
+					<ul id="markdown-toc">
+  <li><a href="#module-overview" id="markdown-toc-module-overview">Module Overview</a></li>
+  <li><a href="#module-introduction" id="markdown-toc-module-introduction">Module Introduction</a></li>
+  <li><a href="#roundtable-translating-flow-diagrams-into-code" id="markdown-toc-roundtable-translating-flow-diagrams-into-code">Roundtable: Translating Flow Diagrams into Code</a>    <ul>
+      <li><a href="#part-1" id="markdown-toc-part-1">Part 1</a></li>
+      <li><a href="#part-2" id="markdown-toc-part-2">Part 2</a></li>
+      <li><a href="#part-3" id="markdown-toc-part-3">Part 3</a></li>
+      <li><a href="#part-4" id="markdown-toc-part-4">Part 4</a></li>
+      <li><a href="#part-5" id="markdown-toc-part-5">Part 5</a></li>
+      <li><a href="#part-6" id="markdown-toc-part-6">Part 6</a></li>
+      <li><a href="#part-7" id="markdown-toc-part-7">Part 7</a></li>
+      <li><a href="#part-8" id="markdown-toc-part-8">Part 8</a></li>
+      <li><a href="#part-9" id="markdown-toc-part-9">Part 9</a></li>
+      <li><a href="#part-10" id="markdown-toc-part-10">Part 10</a></li>
+      <li><a href="#part-11" id="markdown-toc-part-11">Part 11</a></li>
+      <li><a href="#part-12" id="markdown-toc-part-12">Part 12</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-computing-the-max-of-two-inputs" id="markdown-toc-exercise-computing-the-max-of-two-inputs">Exercise: Computing the max of two inputs</a>    <ul>
+      <li><a href="#part-1-introduction" id="markdown-toc-part-1-introduction">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise" id="markdown-toc-part-2-the-exercise">Part 2: The Exercise</a></li>
+      <li><a href="#part-3-solution" id="markdown-toc-part-3-solution">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#composition-and-nesting" id="markdown-toc-composition-and-nesting">Composition and Nesting</a></li>
+  <li><a href="#more-examples" id="markdown-toc-more-examples">More Examples</a></li>
+  <li><a href="#exercise-a-bad-swap" id="markdown-toc-exercise-a-bad-swap">Exercise: A bad swap</a>    <ul>
+      <li><a href="#part-1-introduction-1" id="markdown-toc-part-1-introduction-1">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-1" id="markdown-toc-part-2-the-exercise-1">Part 2: The exercise</a></li>
+      <li><a href="#part-3-solution-1" id="markdown-toc-part-3-solution-1">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-heads-or-tails" id="markdown-toc-exercise-heads-or-tails">Exercise: Heads or Tails?</a>    <ul>
+      <li><a href="#part-1-introduction-2" id="markdown-toc-part-1-introduction-2">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-2" id="markdown-toc-part-2-the-exercise-2">Part 2: The Exercise</a></li>
+      <li><a href="#part-3-solution-2" id="markdown-toc-part-3-solution-2">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-inches-to-feet" id="markdown-toc-exercise-inches-to-feet">Exercise: Inches to feet</a>    <ul>
+      <li><a href="#part-1-introduction-3" id="markdown-toc-part-1-introduction-3">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-3" id="markdown-toc-part-2-the-exercise-3">Part 2: The exercise</a></li>
+      <li><a href="#part-3-the-solution" id="markdown-toc-part-3-the-solution">Part 3: The solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-divide-two-numbers-carefully" id="markdown-toc-exercise-divide-two-numbers-carefully">Exercise: Divide two numbers carefully</a>    <ul>
+      <li><a href="#part-1-introduction-4" id="markdown-toc-part-1-introduction-4">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-4" id="markdown-toc-part-2-the-exercise-4">Part 2: The exercise</a></li>
+      <li><a href="#part-3-solution-3" id="markdown-toc-part-3-solution-3">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-a-random-die" id="markdown-toc-exercise-a-random-die">Exercise: A random die</a>    <ul>
+      <li><a href="#part-1-introduction-5" id="markdown-toc-part-1-introduction-5">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-5" id="markdown-toc-part-2-the-exercise-5">Part 2: The exercise</a></li>
+      <li><a href="#part-3-solution-4" id="markdown-toc-part-3-solution-4">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#iteration" id="markdown-toc-iteration">Iteration</a></li>
+  <li><a href="#exercise-average-of-random-values" id="markdown-toc-exercise-average-of-random-values">Exercise: Average of random values</a>    <ul>
+      <li><a href="#part-1-introduction-6" id="markdown-toc-part-1-introduction-6">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-6" id="markdown-toc-part-2-the-exercise-6">Part 2: The exercise</a></li>
+      <li><a href="#part-3-the-solution-1" id="markdown-toc-part-3-the-solution-1">Part 3: The solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-write-some-loops" id="markdown-toc-exercise-write-some-loops">Exercise: Write some loops</a>    <ul>
+      <li><a href="#part-1-introduction-7" id="markdown-toc-part-1-introduction-7">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-7" id="markdown-toc-part-2-the-exercise-7">Part 2: The exercise</a></li>
+      <li><a href="#part-3-the-solution-2" id="markdown-toc-part-3-the-solution-2">Part 3: The solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#roundtable-how-many-flips-to-get-to-10-heads" id="markdown-toc-roundtable-how-many-flips-to-get-to-10-heads">Roundtable: How many flips to get to 10 heads?</a>    <ul>
+      <li><a href="#part-1-1" id="markdown-toc-part-1-1">Part 1</a></li>
+      <li><a href="#part-2-1" id="markdown-toc-part-2-1">Part 2</a></li>
+      <li><a href="#part-3-1" id="markdown-toc-part-3-1">Part 3</a></li>
+    </ul>
+  </li>
+  <li><a href="#the-for-loop" id="markdown-toc-the-for-loop">The <code class="highlighter-rouge">for</code> loop</a></li>
+  <li><a href="#exercise-100-runs-of-the-10-heads-problem" id="markdown-toc-exercise-100-runs-of-the-10-heads-problem">Exercise: 100 runs of the 10 heads problem</a>    <ul>
+      <li><a href="#part-1-introduction-8" id="markdown-toc-part-1-introduction-8">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-8" id="markdown-toc-part-2-the-exercise-8">Part 2: The exercise</a></li>
+      <li><a href="#part-3-the-solution-3" id="markdown-toc-part-3-the-solution-3">Part 3: The Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-n-runs-of-the-10-heads-problem" id="markdown-toc-exercise-n-runs-of-the-10-heads-problem">Exercise: N runs of the 10 heads problem</a>    <ul>
+      <li><a href="#part-1-introduction-9" id="markdown-toc-part-1-introduction-9">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-9" id="markdown-toc-part-2-the-exercise-9">Part 2: The exercise</a></li>
+      <li><a href="#part-3-the-solution-4" id="markdown-toc-part-3-the-solution-4">Part 3: The solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercise-average-flips-to-get-to-10-heads" id="markdown-toc-exercise-average-flips-to-get-to-10-heads">Exercise: Average flips to get to 10 heads</a>    <ul>
+      <li><a href="#part-1-introduction-10" id="markdown-toc-part-1-introduction-10">Part 1: Introduction</a></li>
+      <li><a href="#part-2-the-exercise-10" id="markdown-toc-part-2-the-exercise-10">Part 2: The exercise</a></li>
+      <li><a href="#part-3-solution-5" id="markdown-toc-part-3-solution-5">Part 3: Solution</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<h1 id="module-overview">Module Overview</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/4wb4apimvz3vrc5f1o2algjchhp5cvf4" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="module-introduction">Module Introduction</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/pyme810gd9tiq69p6mh15x7sgocxm956" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="roundtable-translating-flow-diagrams-into-code">Roundtable: Translating Flow Diagrams into Code</h1>
+
+<h2 id="part-1">Part 1</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/dncpuoull4e2zg0ns9y2tpakhyjnr1tg" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2">Part 2</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/gbs9qu1992qx0ix828gtziqml7s14zdf" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-3">Part 3</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/q6uvi5mlzdlxa6mvtzex28btczt1kk24" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-4">Part 4</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/i92kxv9lhug1ewz16gmgbd53hztbdndj" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-5">Part 5</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/6fh4ib5tijobtxchmcvai2kipkrue57p" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-6">Part 6</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/hxhnnfu12iok8upzbd6ua9gnqvcyjrgb" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-7">Part 7</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/yq6s5zz0s0mheyr7co11vvex2k9tjloz" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-8">Part 8</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/1vt9uor16zjm1c5ppdm61cvwweazd8g1" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-9">Part 9</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/tsz8yva68w3ybu37ytbwo0n2sqtikx9b" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-10">Part 10</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/7ap7hlx5wqt6yyxkj0yk1c726hv2po5l" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-11">Part 11</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/ootnkq1zaxejg4xcp35mdg7lz2o2cuik" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-12">Part 12</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/6gwj1773b1ioq7ux5vjqy9nm44rb97m4" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-computing-the-max-of-two-inputs">Exercise: Computing the max of two inputs</h1>
+
+<h2 id="part-1-introduction">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/elwmr84hoqmdodtw8mwo79u6535znrbb" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise">Part 2: The Exercise</h2>
+
+<ul>
+  <li>Find and open the <strong>Max</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>Add code as directed there to prompt the user for integer values for
+<strong>x</strong> and <strong>y</strong>.</li>
+  <li>Use conditional execution to print the larger of the two values.</li>
+</ul>
+
+<h2 id="part-3-solution">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/jdig1vfdzzzv24whq8l40hok87w8a6j0" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="composition-and-nesting">Composition and Nesting</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/ltvx307hdp4z2x9w9pca0zoseghnnxbi" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="more-examples">More Examples</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/2ahingqjxhvmex9yau4xktsvlz70iwny" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-a-bad-swap">Exercise: A bad swap</h1>
+
+<h2 id="part-1-introduction-1">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/21pu0ycdfq0nurag1vo6g5fds4006vvu" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-1">Part 2: The exercise</h2>
+
+<ul>
+  <li>Find and open the <strong>BadSwap</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>Run the code if you like, providing various values for the inputs.</li>
+  <li>Fill in the comments to explain why the provided code does <em>not</em>
+swap the values of <strong>x</strong> and <strong>y</strong>.</li>
+</ul>
+
+<h2 id="part-3-solution-1">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/nl2z3bzokac94nw198vu0aka30khh6x1" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-heads-or-tails">Exercise: Heads or Tails?</h1>
+
+<h2 id="part-1-introduction-2">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/5cn1bjcmknbhj2ltg63pp1kk39an65tp" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-2">Part 2: The Exercise</h2>
+
+<ul>
+  <li>Find and open the <strong>CoinFlip</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>Complete the code so that it prints <strong>heads</strong> or <strong>tails</strong>
+on each run of the program, with equal probability.</li>
+</ul>
+
+<h2 id="part-3-solution-2">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/rfe6rvzpb1seytngf45iyda442mvtatc" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-inches-to-feet">Exercise: Inches to feet</h1>
+
+<h2 id="part-1-introduction-3">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/3llgohg9bw8pdjq1muq03ngj2ujgn8j7" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-3">Part 2: The exercise</h2>
+
+<ul>
+  <li>Find and open the <strong>FeetInches</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>Prompt the user for some number of inches.</li>
+  <li>Produce output that corresponds the number of feet and any leftover
+   inches when converted from the specified input.</li>
+  <li>
+    <p>Be sure your output:</p>
+  </li>
+  <li>Uses the word <strong>feet</strong> for plural and <strong>foot</strong> for 
+singular number of feet.</li>
+  <li>Uses the word <strong>inches</strong> for plural and <strong>inch</strong> for 
+singular number of feet.</li>
+</ul>
+
+<p>For example:</p>
+
+<ul>
+  <li>13 inches will produce:  1 foot and 1 inch</li>
+  <li>17 inches will produce:  1 foot and 5 inches</li>
+  <li>28 inches will produce:  2 feet and 4 inches</li>
+</ul>
+
+<h2 id="part-3-the-solution">Part 3: The solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/g9nzwh03or5bpb2g5uz1xlk5pjrej6de" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-divide-two-numbers-carefully">Exercise: Divide two numbers carefully</h1>
+
+<h2 id="part-1-introduction-4">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/8dzbpq3hw4wibwbf6iyhh4721aginlcn" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-4">Part 2: The exercise</h2>
+
+<ul>
+  <li>Find and open the <strong>CarefulDivide</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>Prompt the user for an integer numerator and denomiantor</li>
+  <li>Compute the integer quoient of the inputs.</li>
+  <li>However, if the denominator is 0, do not print the quotient.  Instead,
+produce a suitable message about
+the result being undefined.</li>
+</ul>
+
+<h2 id="part-3-solution-3">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/c78rq6r7mv6haukt2e1y6xc32a53b3ra" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-a-random-die">Exercise: A random die</h1>
+
+<h2 id="part-1-introduction-5">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/o2hnyms6s7nzbzxwj7mprd7fxfrmccll" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-5">Part 2: The exercise</h2>
+
+<ul>
+  <li>Find and open the <strong>Die</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>As directed in the comments, write code so that your program
+prints an integer between 1 and 6, inclusively, with equal likelihood
+of each possible result.</li>
+</ul>
+
+<h2 id="part-3-solution-4">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/iouhqmmssj8qohbgoprg2jje2z3ahknv" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="iteration">Iteration</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/3tt3hqy0smgz07h97iyjo043654qv2sr" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-average-of-random-values">Exercise: Average of random values</h1>
+
+<h2 id="part-1-introduction-6">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/z6fe2q9jc65gas3aujzre92cqv57bq11" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-6">Part 2: The exercise</h2>
+
+<ul>
+  <li>Find and open the <strong>RandomAverages</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>As directed in the comments, write code so that your program
+computes the average of 1, 2, 3, …, 1000 values.</li>
+  <li>Some questions are posed in comments.  Write your answers in comments
+below those questions.</li>
+</ul>
+
+<h2 id="part-3-the-solution-1">Part 3: The solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/r5xa2lfika9txqn5kbc740dis880lh50" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-write-some-loops">Exercise: Write some loops</h1>
+
+<h2 id="part-1-introduction-7">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/y6rp4ajijjjxyvwfxbz3yy6yhmwjnw9y" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-7">Part 2: The exercise</h2>
+
+<ul>
+  <li>Find and open the <strong>Loops</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>Follow the comments to write loops that produce the specified outputs.</li>
+  <li>If you get stuck, watch enough of the solution video to see how to accomplish
+one task, and then try the next task on your own.</li>
+</ul>
+
+<h2 id="part-3-the-solution-2">Part 3: The solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/xkthbw4laa3ctnnbmbr3i19d6qshz1gn" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="roundtable-how-many-flips-to-get-to-10-heads">Roundtable: How many flips to get to 10 heads?</h1>
+
+<h2 id="part-1-1">Part 1</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/8acz59pd3wb0iarw9ey0qunb7u52s5j0" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-1">Part 2</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/2i3bhzgqjp60yw8wlyjl7cqv6pepxf1y" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-3-1">Part 3</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/2kjmx7sx36yipw906o7fmjs1tri5uayc" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="the-for-loop">The <code class="highlighter-rouge">for</code> loop</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/5908rzd8albchwdhp4kkl787tc1xdkrb" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-100-runs-of-the-10-heads-problem">Exercise: 100 runs of the 10 heads problem</h1>
+
+<h2 id="part-1-introduction-8">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/7z2pdyknxnwy4bnas41xyq5tkznzmy6y" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-8">Part 2: The exercise</h2>
+
+<ul>
+  <li>Find and open the <strong>Heads</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>Using a <strong>for</strong> loop, run the experiment already in the
+<strong>Heads</strong> program 100 times.</li>
+</ul>
+
+<h2 id="part-3-the-solution-3">Part 3: The Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/jkiso5xfhnyekabgjj0k84m4s7aqup6i" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-n-runs-of-the-10-heads-problem">Exercise: N runs of the 10 heads problem</h1>
+
+<h2 id="part-1-introduction-9">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/9y5n4clrn81srva2pmtwjp5gbqovl9wt" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-9">Part 2: The exercise</h2>
+
+<ul>
+  <li>Continue modifying the <strong>Heads</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>Instead of running the experiment 100 times, prompt the user for
+a value <strong>N</strong> and run the experiment <strong>N</strong> times.</li>
+</ul>
+
+<h2 id="part-3-the-solution-4">Part 3: The solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/lb2g02r3he8y1shfyqiht5tqag1s91d6" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="exercise-average-flips-to-get-to-10-heads">Exercise: Average flips to get to 10 heads</h1>
+
+<h2 id="part-1-introduction-10">Part 1: Introduction</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/xd2zmbwwjq0fm0o61k58fs0zy17oxyan" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h2 id="part-2-the-exercise-10">Part 2: The exercise</h2>
+
+<ul>
+  <li>Continue modifying the <strong>Heads</strong> Java program in the <strong>exercises2</strong> package
+  of the <strong>exercises</strong> source folder.</li>
+  <li>With the experiment running <strong>N</strong> times, modify your program
+so that, at the end, it prints the average number of coin flips required to
+achieve 10 heads.</li>
+</ul>
+
+<h2 id="part-3-solution-5">Part 3: Solution</h2>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/5n6jokfn6j1xp4tl2cl259bd1h8gc3he" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<iframe width="640" height="360" src="https://wustl.box.com/s/u0fxmqdya22chp9hqz62s8mpgbdgojlh" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+
+
+				</article>
+			</div>
+
+			<footer class="site-footer">
+	<p>
+		<small>Generated at  2016-07-26 14:59:33 -0500</small>.
+	</p>
+	<p>
+		<small>
+			Page written by (unknown).
+			Site design by <a href="http://ben.stolovitz.com">Ben Stolovitz</a>.
+		</small>
+	</p>
+</footer>
+
+	</div>
+	<script type="text/javascript" src="/launchcode131-stlouis/js/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		hljs.initHighlightingOnLoad();
+		MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+			processEscapes: true
+		}
+		});
+	</script>
+	<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</body>
+</html>
